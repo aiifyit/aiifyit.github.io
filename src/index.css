@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+/* ── Fonts ── */
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/fonts/CabinetGrotesk-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/fonts/GeneralSans-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+/* ── Design System Tokens ── */
+:root {
+  --color-bg: #09090B;
+  --color-surface: #18181B;
+  --color-surface-2: #27272A;
+  --color-text: #FAFAFA;
+  --color-text-muted: #A1A1AA;
+  --color-accent: #A3D7E2;
+  --color-accent-hover: #7DC1D0;
+  --color-accent-glow: rgba(163, 215, 226, 0.18);
+  --color-border: #3F3F46;
+  --color-border-subtle: rgba(63, 63, 70, 0.5);
+}
+
+/* ── Base ── */
+html {
+  scroll-behavior: smooth;
+  background: var(--color-bg);
+}
+
+body {
+  margin: 0;
+  color: var(--color-text);
+  font-family: "General Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Cabinet Grotesk", sans-serif;
+}
+
+/* ── Social Proof Marquee ── */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* ── Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .animate-marquee {
+    animation: none;
+  }
+}
