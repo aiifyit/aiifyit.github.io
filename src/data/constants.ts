@@ -32,13 +32,18 @@ export const HERO_STATS: HeroStat[] = [
 ];
 
 export const SOCIAL_PROOF_LOGOS = [
+  "Equity Prime Mortgage",
+  "Inanna Manufacturing",
   "Powerlink",
-  "Brookfield",
-  "Holganix",
-  "Inanna",
-  "EPM",
   "Battalion",
-  "Falcon Wealth",
+  "Sonoma Wealth",
+  "SLG Mortgage",
+  "Trimerit",
+  "Servebank",
+  "Pro Legal Serve",
+  "Genway Mortgage",
+  "Burkland & Associates",
+  "Sonoma Wealth Advisors",
 ];
 
 export const ABOUT_SUBHEADING = "Built by Operators, for Operators";
@@ -46,9 +51,11 @@ export const ABOUT_BODY =
   "We're operators who got tired of tools that don't work. We've spent years inside real businesses — building, breaking, and rebuilding systems until they actually run day-in, day-out. AIify doesn't hand you a deck and walk away. We get inside your operations, build the AI agents ourselves, and stay to make sure they keep working.";
 
 export const TEAM_MEMBERS: TeamMember[] = [
-  { name: "Joshua Pellicer", title: "Founder & CEO", image: "/images/team/joshua.png" },
-  { name: "Darius Mirshahzadeh", title: "Chairman of the Board", image: "/images/team/darius.png" },
-  { name: "Sami Begg", title: "Head of AI Agent Development", image: "/images/team/sami.png" },
+  { name: "Joshua Pellicer", title: "Founder & CEO", image: "/images/team/joshua.jpg" },
+  { name: "Darius Mirshahzadeh", title: "Chairman of the Board", image: "/images/team/darius.jpg" },
+  { name: "Sami Begg", title: "Head of AI Agent Development", image: "/images/team/sami.jpg" },
+  { name: "Duncan Shea", title: "Director of Client Success", image: "/images/team/duncan-opt.jpg" },
+  { name: "Jon Luisi", title: "Director of Business Development", image: "/images/team/john.jpeg" },
 ];
 
 export const PROCESS_HEADING = "Three Steps to a Fully";

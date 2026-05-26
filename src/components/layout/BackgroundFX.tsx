@@ -18,18 +18,20 @@ export default function BackgroundFX() {
         }}
       />
 
-      {/* Soft accent glow drifting down the page */}
+      {/* Two soft accent glows — kept small blur for GPU perf */}
       <div
-        className="absolute left-[-10%] top-[60vh] w-[640px] h-[640px] rounded-full blur-[160px] opacity-60"
-        style={{ background: 'var(--color-accent-glow)' }}
+        className="absolute left-[-10%] top-[60vh] w-[480px] h-[480px] rounded-full opacity-50"
+        style={{
+          background: 'var(--color-accent-glow)',
+          filter: 'blur(100px)',
+        }}
       />
       <div
-        className="absolute right-[-10%] top-[140vh] w-[560px] h-[560px] rounded-full blur-[160px] opacity-50"
-        style={{ background: 'var(--color-accent-glow)' }}
-      />
-      <div
-        className="absolute left-[20%] top-[220vh] w-[600px] h-[600px] rounded-full blur-[180px] opacity-40"
-        style={{ background: 'var(--color-accent-glow)' }}
+        className="absolute right-[-10%] top-[160vh] w-[480px] h-[480px] rounded-full opacity-40"
+        style={{
+          background: 'var(--color-accent-glow)',
+          filter: 'blur(100px)',
+        }}
       />
     </div>
   );

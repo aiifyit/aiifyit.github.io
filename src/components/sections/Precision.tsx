@@ -49,7 +49,7 @@ export default function Precision() {
 
           <ScrollReveal delay={0.2}>
             <img
-              src="/images/team/AdobeStock_1786373213.jpeg"
+              src="/images/team/precision-workspace.jpg"
               alt="Office workspace"
               loading="lazy"
               className="aspect-[4/3] w-full object-cover rounded-2xl border border-[var(--color-border-subtle)]"

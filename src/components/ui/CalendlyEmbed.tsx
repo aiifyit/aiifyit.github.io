@@ -18,6 +18,24 @@ export default function CalendlyEmbed({ url, className = '' }: CalendlyEmbedProp
   useEffect(() => {
     if (initializedRef.current) return;
 
+    // Inject Calendly stylesheet (once)
+    if (!document.querySelector('link[data-calendly]')) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://assets.calendly.com/assets/external/widget.css';
+      link.setAttribute('data-calendly', '');
+      document.head.appendChild(link);
+    }
+
+    // Inject Calendly script (once)
+    if (!document.querySelector('script[data-calendly]')) {
+      const script = document.createElement('script');
+      script.src = 'https://assets.calendly.com/assets/external/widget.js';
+      script.async = true;
+      script.setAttribute('data-calendly', '');
+      document.head.appendChild(script);
+    }
+
     const tryInit = () => {
       if (window.Calendly && containerRef.current) {
         window.Calendly.initInlineWidget({
@@ -43,7 +61,7 @@ export default function CalendlyEmbed({ url, className = '' }: CalendlyEmbedProp
         setFailed(true);
         setLoading(false);
       }
-    }, 4000);
+    }, 6000);
 
     return () => {
       clearInterval(interval);
