@@ -5,13 +5,23 @@
   font-family: "Cabinet Grotesk";
   src: url("/fonts/CabinetGrotesk-Variable.woff2") format("woff2");
   font-weight: 100 900;
+  font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: "General Sans";
   src: url("/fonts/GeneralSans-Variable.woff2") format("woff2");
-  font-weight: 100 900;
+  font-weight: 200 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/fonts/GeneralSans-Italic-Variable.woff2") format("woff2");
+  font-weight: 200 700;
+  font-style: italic;
   font-display: swap;
 }
 
@@ -38,13 +48,16 @@ html {
 body {
   margin: 0;
   color: var(--color-text);
-  font-family: "General Sans", sans-serif;
+  font-family: "General Sans", ui-sans-serif, system-ui, sans-serif;
+  font-kerning: normal;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Cabinet Grotesk", sans-serif;
+  font-family: "Cabinet Grotesk", "General Sans", ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "kern" 1, "liga" 1;
 }
 
 /* ── Social Proof Marquee ── */
