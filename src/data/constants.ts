@@ -54,8 +54,9 @@ export const TEAM_MEMBERS: TeamMember[] = [
   { name: "Joshua Pellicer", title: "Founder & CEO", image: "/images/team/joshua.jpg" },
   { name: "Darius Mirshahzadeh", title: "Chairman of the Board", image: "/images/team/darius.jpg" },
   { name: "Sami Begg", title: "Head of AI Agent Development", image: "/images/team/sami.jpg" },
-  { name: "Duncan Shea", title: "Director of Client Success", image: "/images/team/duncan-opt.jpg" },
   { name: "Jon Luisi", title: "Director of Business Development", image: "/images/team/john.jpeg" },
+  { name: "Sara Flowers", title: "Chief of Staff", image: "/images/team/sara.jpg" },
+  { name: "Isabel Garcia", title: "Client Project Manager", image: "/images/team/isabel.jpg" },
 ];
 
 export const PROCESS_HEADING = "Three Steps to a Fully";
