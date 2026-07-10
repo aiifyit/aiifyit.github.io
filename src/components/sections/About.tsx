@@ -2,7 +2,7 @@ import Container from '../ui/Container';
 import SectionHeading from '../ui/SectionHeading';
 import GradientText from '../ui/GradientText';
 import ScrollReveal from '../ui/ScrollReveal';
-import { ABOUT_SUBHEADING, ABOUT_BODY, TEAM_MEMBERS } from '../../data/constants';
+import { ABOUT_SUBHEADING, ABOUT_BODY, TEAM_SUBHEADING, TEAM_MEMBERS } from '../../data/constants';
 
 export default function About() {
   return (
@@ -24,9 +24,9 @@ export default function About() {
               alt="The AIify team"
               loading="lazy"
               decoding="async"
-              width={1600}
-              height={1200}
-              className="aspect-[4/3] w-full object-cover rounded-2xl border border-[var(--color-border-subtle)]"
+              width={1672}
+              height={941}
+              className="aspect-video w-full object-cover rounded-2xl border border-[var(--color-border-subtle)]"
             />
 
             {/* Copy */}
@@ -43,10 +43,18 @@ export default function About() {
 
         {/* Team Grid */}
         <ScrollReveal delay={0.2}>
-          <div className="flex flex-wrap justify-center gap-10 max-w-5xl mx-auto">
+          <div className="text-center mb-10 md:mb-14">
+            <h3 className="text-3xl md:text-4xl font-bold tracking-tight">
+              Meet the <GradientText>Team</GradientText>
+            </h3>
+            <p className="mt-4 text-lg md:text-xl text-[var(--color-text-muted)] max-w-2xl mx-auto">
+              {TEAM_SUBHEADING}
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10 md:gap-x-10 md:gap-y-14 max-w-4xl mx-auto">
             {TEAM_MEMBERS.map((member) => (
-              <div key={member.name} className="flex flex-col items-center text-center w-40">
-                <div className="w-28 h-28 rounded-full overflow-hidden border border-[var(--color-border-subtle)] mb-4">
+              <div key={member.name} className="flex flex-col items-center text-center">
+                <div className="w-36 h-36 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full overflow-hidden border border-[var(--color-border-subtle)] mb-5">
                   <img
                     src={member.image}
                     alt={member.name}
@@ -61,8 +69,8 @@ export default function About() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <p className="font-bold text-[var(--color-text)]">{member.name}</p>
-                <p className="text-sm text-[var(--color-text-muted)]">{member.title}</p>
+                <p className="text-lg md:text-xl font-bold text-[var(--color-text)]">{member.name}</p>
+                <p className="mt-1 text-sm md:text-base text-[var(--color-text-muted)]">{member.title}</p>
               </div>
             ))}
           </div>
