@@ -10,8 +10,7 @@ const SowIntakePage = lazy(() => import('./pages/SowIntakePage'));
 
 function App() {
   const location = useLocation();
-  const isSowHost = window.location.hostname === 'sow.aiifyit.com';
-  const isSowWorkspace = isSowHost || location.pathname.startsWith('/sow');
+  const isSowWorkspace = location.pathname.startsWith('/sow');
 
   return (
     <>
@@ -19,7 +18,7 @@ function App() {
       {!isSowWorkspace && <Header />}
       <Suspense fallback={null}>
         <Routes>
-          <Route path="/" element={isSowHost ? <SowIntakePage /> : <MarketingPage />} />
+          <Route path="/" element={<MarketingPage />} />
           <Route path="/book" element={<BookPage />} />
           <Route path="/sow/*" element={<SowIntakePage />} />
           <Route path="*" element={<MarketingPage />} />

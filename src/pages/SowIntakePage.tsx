@@ -1,5 +1,6 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { LucideIcon } from 'lucide-react';
+import { createRemoteJWKSet, jwtVerify } from 'jose';
 import {
   ArrowLeft,
   ArrowRight,
@@ -60,12 +61,18 @@ type AuthUser = {
   name: string;
   domain: string;
 };
+type AuthSession = {
+  user: AuthUser;
+  credential: string;
+};
 type AuthState =
   | { status: 'loading' }
   | { status: 'anonymous' }
-  | { status: 'authenticated'; user: AuthUser };
+  | { status: 'authenticated'; session: AuthSession };
 
 const STORAGE_KEY_PREFIX = 'aiify-sow-discovery-draft-v1';
+const AUTH_TOKEN_KEY = 'aiify-sow-google-credential';
+const GOOGLE_JWKS = createRemoteJWKSet(new URL('https://www.googleapis.com/oauth2/v3/certs'));
 
 const sections: SectionDefinition[] = [
   {
@@ -318,9 +325,109 @@ function AuthLoadingScreen() {
   );
 }
 
-function GoogleLoginScreen() {
-  const authError = new URLSearchParams(window.location.search).get('auth_error');
-  const domainRejected = authError === 'domain';
+function loadGoogleIdentity(): Promise<void> {
+  if (window.google?.accounts.id) return Promise.resolve();
+
+  return new Promise((resolve, reject) => {
+    const existing = document.querySelector<HTMLScriptElement>('script[data-google-identity]');
+    const script = existing ?? document.createElement('script');
+    const onLoad = () => resolve();
+    const onError = () => reject(new Error('Google Identity Services could not be loaded'));
+    script.addEventListener('load', onLoad, { once: true });
+    script.addEventListener('error', onError, { once: true });
+
+    if (!existing) {
+      script.src = 'https://accounts.google.com/gsi/client';
+      script.async = true;
+      script.defer = true;
+      script.dataset.googleIdentity = 'true';
+      document.head.appendChild(script);
+    }
+  });
+}
+
+async function verifyGoogleCredential(credential: string): Promise<AuthSession> {
+  const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID as string | undefined;
+  const domain = ((import.meta.env.VITE_GOOGLE_WORKSPACE_DOMAIN as string | undefined) || 'aiifyit.com').toLowerCase();
+  if (!clientId) throw new Error('Google sign-in is not configured');
+
+  const { payload } = await jwtVerify(credential, GOOGLE_JWKS, {
+    audience: clientId,
+    issuer: ['https://accounts.google.com', 'accounts.google.com'],
+  });
+
+  if (payload.email_verified !== true) throw new Error('The Google email is not verified');
+  if (typeof payload.hd !== 'string' || payload.hd.toLowerCase() !== domain) {
+    throw new Error(`Use an @${domain} Google Workspace account`);
+  }
+  if (typeof payload.email !== 'string' || !payload.email.toLowerCase().endsWith(`@${domain}`)) {
+    throw new Error(`Use an @${domain} Google Workspace account`);
+  }
+  if (typeof payload.sub !== 'string') throw new Error('Google account identifier is missing');
+
+  return {
+    credential,
+    user: {
+      sub: payload.sub,
+      email: payload.email.toLowerCase(),
+      name: typeof payload.name === 'string' ? payload.name : payload.email,
+      domain,
+    },
+  };
+}
+
+function GoogleLoginScreen({
+  authError,
+  onAuthenticated,
+  onFailure,
+}: {
+  authError: string;
+  onAuthenticated: (session: AuthSession) => void;
+  onFailure: (message: string) => void;
+}) {
+  const buttonRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let active = true;
+    const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID as string | undefined;
+    const domain = (import.meta.env.VITE_GOOGLE_WORKSPACE_DOMAIN as string | undefined) || 'aiifyit.com';
+
+    if (!clientId) {
+      onFailure('Google sign-in is awaiting its site configuration.');
+      return;
+    }
+
+    loadGoogleIdentity()
+      .then(() => {
+        if (!active || !window.google?.accounts.id || !buttonRef.current) return;
+        window.google.accounts.id.initialize({
+          client_id: clientId,
+          hd: domain,
+          auto_select: false,
+          cancel_on_tap_outside: true,
+          callback: (response) => {
+            verifyGoogleCredential(response.credential)
+              .then(onAuthenticated)
+              .catch((error: unknown) => onFailure(error instanceof Error ? error.message : 'Google sign-in could not be verified.'));
+          },
+        });
+        buttonRef.current.replaceChildren();
+        window.google.accounts.id.renderButton(buttonRef.current, {
+          type: 'standard',
+          theme: 'outline',
+          size: 'large',
+          text: 'continue_with',
+          shape: 'rectangular',
+          logo_alignment: 'left',
+          width: 330,
+        });
+      })
+      .catch(() => onFailure('Google sign-in could not be loaded. Please refresh and try again.'));
+
+    return () => {
+      active = false;
+    };
+  }, [onAuthenticated, onFailure]);
 
   return (
     <div className="relative grid min-h-screen place-items-center overflow-hidden bg-[var(--color-bg)] px-5 py-12">
@@ -337,17 +444,11 @@ function GoogleLoginScreen() {
         {authError && (
           <div className="mt-6 flex gap-3 rounded-xl border border-amber-400/30 bg-amber-400/[0.07] p-4 text-sm leading-relaxed text-amber-100" role="alert">
             <TriangleAlert size={18} className="mt-0.5 shrink-0 text-amber-300" />
-            <span>{domainRejected ? 'That Google account is not authorized. Select an @aiifyit.com account.' : 'Google sign-in could not be completed. Please try again.'}</span>
+            <span>{authError}</span>
           </div>
         )}
 
-        <a
-          href="/api/auth/start"
-          className="mt-7 flex w-full items-center justify-center gap-3 rounded-xl bg-white px-5 py-3.5 text-sm font-semibold text-zinc-900 transition hover:bg-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[#111113]"
-        >
-          <span aria-hidden="true" className="grid h-6 w-6 place-items-center rounded-full border border-zinc-200 font-bold text-[#4285f4]">G</span>
-          Continue with Google
-        </a>
+        <div ref={buttonRef} className="mt-7 flex min-h-11 w-full justify-center" aria-label="Continue with Google" />
         <div className="mt-6 flex items-center justify-center gap-2 text-xs text-zinc-600">
           <ShieldCheck size={14} />
           <span>Restricted to verified @aiifyit.com accounts</span>
@@ -358,41 +459,59 @@ function GoogleLoginScreen() {
 }
 
 export default function SowIntakePage() {
-  const shouldUseSecureSubdomain = import.meta.env.PROD && ['aiifyit.com', 'www.aiifyit.com'].includes(window.location.hostname);
   const developmentBypass = import.meta.env.DEV && import.meta.env.VITE_SOW_DEV_AUTH === 'true';
-  const [auth, setAuth] = useState<AuthState>(() => developmentBypass
-    ? { status: 'authenticated', user: { sub: 'local-development', email: 'developer@aiifyit.com', name: 'Local Developer', domain: 'aiifyit.com' } }
-    : { status: 'loading' });
+  const [authError, setAuthError] = useState('');
+  const [auth, setAuth] = useState<AuthState>(() => {
+    if (developmentBypass) {
+      return { status: 'authenticated', session: { credential: '', user: { sub: 'local-development', email: 'developer@aiifyit.com', name: 'Local Developer', domain: 'aiifyit.com' } } };
+    }
+    return window.sessionStorage.getItem(AUTH_TOKEN_KEY) ? { status: 'loading' } : { status: 'anonymous' };
+  });
 
   useEffect(() => {
-    if (shouldUseSecureSubdomain) {
-      window.location.replace('https://sow.aiifyit.com/');
-      return;
-    }
     if (developmentBypass) return;
 
-    const controller = new AbortController();
-    fetch('/api/auth/session', { credentials: 'same-origin', signal: controller.signal })
-      .then(async (response) => {
-        if (!response.ok) {
-          setAuth({ status: 'anonymous' });
-          return;
-        }
-        const body = await response.json() as { user?: AuthUser };
-        setAuth(body.user ? { status: 'authenticated', user: body.user } : { status: 'anonymous' });
+    let active = true;
+    const credential = window.sessionStorage.getItem(AUTH_TOKEN_KEY);
+    if (!credential) return;
+
+    verifyGoogleCredential(credential)
+      .then((session) => {
+        if (active) setAuth({ status: 'authenticated', session });
       })
-      .catch((error: unknown) => {
-        if (error instanceof DOMException && error.name === 'AbortError') return;
-        setAuth({ status: 'anonymous' });
+      .catch(() => {
+        window.sessionStorage.removeItem(AUTH_TOKEN_KEY);
+        if (active) setAuth({ status: 'anonymous' });
       });
 
-    return () => controller.abort();
-  }, [developmentBypass, shouldUseSecureSubdomain]);
+    return () => {
+      active = false;
+    };
+  }, [developmentBypass]);
 
-  if (shouldUseSecureSubdomain) return <AuthLoadingScreen />;
+  const handleAuthenticated = useCallback((session: AuthSession) => {
+    window.sessionStorage.setItem(AUTH_TOKEN_KEY, session.credential);
+    setAuthError('');
+    setAuth({ status: 'authenticated', session });
+  }, []);
+
+  const handleFailure = useCallback((message: string) => {
+    setAuthError(message);
+    setAuth({ status: 'anonymous' });
+  }, []);
+
+  const handleSignOut = useCallback(() => {
+    window.sessionStorage.removeItem(AUTH_TOKEN_KEY);
+    window.google?.accounts.id.disableAutoSelect();
+    setAuthError('');
+    setAuth({ status: 'anonymous' });
+  }, []);
+
   if (auth.status === 'loading') return <AuthLoadingScreen />;
-  if (auth.status === 'anonymous') return <GoogleLoginScreen />;
-  return <SowWorkspace user={auth.user} />;
+  if (auth.status === 'anonymous') {
+    return <GoogleLoginScreen authError={authError} onAuthenticated={handleAuthenticated} onFailure={handleFailure} />;
+  }
+  return <SowWorkspace session={auth.session} onSignOut={handleSignOut} />;
 }
 
 function FieldControl({
@@ -497,7 +616,8 @@ function ProgressRing({ percent }: { percent: number }) {
   );
 }
 
-function SowWorkspace({ user }: { user: AuthUser }) {
+function SowWorkspace({ session, onSignOut }: { session: AuthSession; onSignOut: () => void }) {
+  const { user } = session;
   const storageKey = `${STORAGE_KEY_PREFIX}:${user.sub}`;
   const [answers, setAnswers] = useState<Answers>(() => getInitialAnswers(storageKey));
   const [currentStep, setCurrentStep] = useState(0);
@@ -594,14 +714,23 @@ function SowWorkspace({ user }: { user: AuthUser }) {
       return;
     }
 
+    const endpoint = import.meta.env.VITE_SOW_SUBMIT_URL as string | undefined;
+    if (!endpoint) {
+      setSubmitState('error');
+      setSubmitMessage('The SOW generation automation has not been connected yet. Your completed draft is safely saved on this device.');
+      return;
+    }
+
     setSubmitState('submitting');
     setSubmitMessage('');
 
     try {
-      const response = await fetch('/api/sow/submit', {
+      const response = await fetch(endpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        credentials: 'same-origin',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(session.credential ? { Authorization: `Bearer ${session.credential}` } : {}),
+        },
         body: JSON.stringify({
           schemaVersion: 1,
           submittedAt: new Date().toISOString(),
@@ -615,14 +744,6 @@ function SowWorkspace({ user }: { user: AuthUser }) {
     } catch {
       setSubmitState('error');
       setSubmitMessage('The brief could not be submitted. Your draft remains saved; the SOW automation may still need to be connected.');
-    }
-  };
-
-  const signOut = async () => {
-    try {
-      await fetch('/api/auth/logout', { method: 'POST', credentials: 'same-origin' });
-    } finally {
-      window.location.assign('/sow');
     }
   };
 
@@ -647,7 +768,7 @@ function SowWorkspace({ user }: { user: AuthUser }) {
               <p className="max-w-48 truncate text-xs font-medium text-zinc-300">{user.name}</p>
               <p className="max-w-48 truncate text-[11px] text-zinc-600">{user.email}</p>
             </div>
-            <button type="button" onClick={signOut} className="grid h-9 w-9 place-items-center rounded-lg border border-zinc-800 text-zinc-500 transition hover:border-zinc-600 hover:text-zinc-100" aria-label="Sign out">
+            <button type="button" onClick={onSignOut} className="grid h-9 w-9 place-items-center rounded-lg border border-zinc-800 text-zinc-500 transition hover:border-zinc-600 hover:text-zinc-100" aria-label="Sign out">
               <LogOut size={15} />
             </button>
           </div>
