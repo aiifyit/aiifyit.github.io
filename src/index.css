@@ -83,3 +83,44 @@ h1, h2, h3, h4, h5, h6 {
     animation: none;
   }
 }
+
+/* ── SOW discovery workspace ── */
+.sow-app input[type="date"] {
+  color-scheme: dark;
+}
+
+.sow-app textarea,
+.sow-app input,
+.sow-app button {
+  font: inherit;
+}
+
+@media print {
+  @page {
+    margin: 0.6in;
+  }
+
+  html,
+  body,
+  .sow-app {
+    background: #fff !important;
+    color: #18181b !important;
+  }
+
+  .sow-app main {
+    padding: 0 !important;
+  }
+
+  .sow-app article {
+    border-color: #d4d4d8 !important;
+    background: #fff !important;
+  }
+
+  .sow-app h1,
+  .sow-app h2,
+  .sow-app dt,
+  .sow-app dd,
+  .sow-app p {
+    color: #18181b !important;
+  }
+}
