@@ -51,9 +51,12 @@ export default function About() {
               {TEAM_SUBHEADING}
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10 md:gap-x-10 md:gap-y-14 max-w-4xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-10 md:gap-x-10 md:gap-y-14 max-w-4xl mx-auto">
             {TEAM_MEMBERS.map((member) => (
-              <div key={member.name} className="flex flex-col items-center text-center">
+              <div
+                key={member.name}
+                className="flex basis-[calc((100%_-_1.5rem)/2)] flex-col items-center text-center md:basis-[calc((100%_-_5rem)/3)]"
+              >
                 <div className="w-36 h-36 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full overflow-hidden border border-[var(--color-border-subtle)] mb-5">
                   <img
                     src={member.image}

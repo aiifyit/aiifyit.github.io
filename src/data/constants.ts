@@ -59,7 +59,6 @@ export const TEAM_MEMBERS: TeamMember[] = [
   { name: "Sami Begg", title: "Head of AI Agent Development", image: "/images/team/sami.jpg" },
   { name: "Jon Luisi", title: "Director of Business Development", image: "/images/team/john.jpeg" },
   { name: "Sara Flowers", title: "Chief of Staff", image: "/images/team/sara.jpg" },
-  { name: "Isabel Garcia", title: "Client Project Manager", image: "/images/team/isabel.jpg" },
 ];
 
 export const PROCESS_HEADING = "Three Steps to a Fully";
