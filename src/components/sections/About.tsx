@@ -20,7 +20,7 @@ export default function About() {
           <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
             {/* Team group photo */}
             <img
-              src="/images/team/team-group.jpg"
+              src="/images/team/team-group.png"
               alt="The AIify team"
               loading="lazy"
               decoding="async"
@@ -51,11 +51,11 @@ export default function About() {
               {TEAM_SUBHEADING}
             </p>
           </div>
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-10 md:gap-x-10 md:gap-y-14 max-w-4xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-10 md:gap-x-10 md:gap-y-14 max-w-2xl mx-auto">
             {TEAM_MEMBERS.map((member) => (
               <div
                 key={member.name}
-                className="flex basis-[calc((100%_-_1.5rem)/2)] flex-col items-center text-center md:basis-[calc((100%_-_5rem)/3)]"
+                className="flex basis-[calc((100%_-_1.5rem)/2)] flex-col items-center text-center md:basis-[calc((100%_-_2.5rem)/2)]"
               >
                 <div className="w-36 h-36 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full overflow-hidden border border-[var(--color-border-subtle)] mb-5">
                   <img
