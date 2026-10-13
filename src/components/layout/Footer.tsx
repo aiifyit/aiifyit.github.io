@@ -30,6 +30,7 @@ export default function Footer() {
               {item.label}
             </a>
           ))}
+          <a href="/articles/" className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)]">Articles</a>
         </nav>
       </Container>
     </footer>

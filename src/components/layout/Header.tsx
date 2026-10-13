@@ -49,7 +49,7 @@ export default function Header() {
         </div>
 
         {/* Center: Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
+        <nav className="hidden lg:flex items-center gap-8" aria-label="Main navigation">
           {NAV_ITEMS.map((item) => {
             const sectionId = item.href.replace('#', '');
             const isActive = onMarketing && activeSection === sectionId;
@@ -71,11 +71,12 @@ export default function Header() {
               </a>
             );
           })}
+          <a href="/articles/" className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)]">Articles</a>
         </nav>
 
         {/* Right: Desktop CTA / Mobile Hamburger */}
         <div className="flex-1 flex justify-end">
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <Link
               to="/book"
               className="inline-flex items-center justify-center transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-[var(--color-bg)] font-semibold px-5 py-2.5 text-sm rounded-lg"
@@ -84,7 +85,7 @@ export default function Header() {
             </Link>
           </div>
           <button
-            className="md:hidden p-2 text-[var(--color-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] rounded-lg"
+            className="lg:hidden p-2 text-[var(--color-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] rounded-lg"
             onClick={() => setMobileOpen(true)}
             aria-label="Open menu"
           >
@@ -134,6 +135,7 @@ export default function Header() {
                   {item.label}
                 </motion.a>
               ))}
+              <a href="/articles/" onClick={() => setMobileOpen(false)} className="text-2xl font-semibold">Articles</a>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

@@ -6,9 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "postbuild": "node -e \"import('node:fs').then(fs => { fs.copyFileSync('dist/index.html', 'dist/404.html'); for (const route of ['book', 'sow']) { fs.mkdirSync('dist/' + route, { recursive: true }); fs.copyFileSync('dist/index.html', 'dist/' + route + '/index.html'); } })\"",
+    "postbuild": "node scripts/build-pages.mjs",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "content:audit": "node scripts/content-audit.mjs",
+    "content:dry-run": "npm run content:audit && npm run build && npm run test:pages",
+    "test": "node --test scripts/*.test.mjs",
+    "test:pages": "node scripts/check-built-pages.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.38.0",
