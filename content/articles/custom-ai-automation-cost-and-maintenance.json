@@ -1,0 +1,74 @@
+{
+  "slug": "custom-ai-automation-cost-and-maintenance",
+  "title": "What Does Custom AI Automation Really Cost After the Build?",
+  "description": "Understand custom AI automation costs: implementation, software, usage, maintenance and staff time. Compare proposals on the full cost of operating the workflow.",
+  "category": "Buying AI automation",
+  "takeaway": "The build quote is clear. The monthly cost is a guess. Before you approve a custom AI automation project, find out which parts of the bill grow with usage and who handles the work after launch.",
+  "sections": [
+    {
+      "id": "ask-for-an-operating-cost",
+      "title": "Ask for the cost of running the finished process",
+      "paragraphs": [
+        "Custom AI automation has no useful universal price without a defined scope. A workflow that moves approved information between two systems needs a different budget from an agent that interprets documents, handles exceptions and takes actions across several tools. Compare quotes only after the job, operating volume and support responsibilities are clear.",
+        "Ask for three views of the cost: implementation, a typical operating month and a higher-volume month. Include your own team’s time in each relevant stage. This gives you a basis for a decision even when some usage assumptions still need a pilot.",
+        "For first-year planning, combine the implementation estimate with twelve months of expected operating costs, the transition effort and a clearly labeled contingency. Avoid presenting that total as a fixed commitment until the supplier has explained what is included, what varies and what triggers additional work."
+      ]
+    },
+    {
+      "id": "separate-the-five-costs",
+      "title": "Separate the five costs that get bundled together",
+      "paragraphs": [
+        "A single monthly figure can hide several different obligations. Ask the provider to separate them so you can see which charges are fixed, which are usage-based and which depend on a service agreement.",
+        "The point is not to demand an exact prediction for every future event. It is to identify the assumptions that could change your budget and who controls them."
+      ],
+      "bullets": [
+        "Discovery and implementation: process mapping, integrations, configuration, custom code, representative testing, deployment and training. Confirm which of these the quote actually includes.",
+        "Software and hosting: workflow platforms, application subscriptions, servers, storage and any paid features required for the design. Identify the account holder and billing owner.",
+        "Usage: model calls, document processing, transcription or other metered services. Ask which unit each provider charges for and how the proposed workflow consumes it.",
+        "Maintenance and support: monitoring, investigation, recovery, updates and retesting. Separate keeping the agreed workflow working from adding new capabilities.",
+        "Internal operating effort: reviewing uncertain cases, resolving exceptions, managing access and maintaining the business rules. Automation can change this work without eliminating it."
+      ]
+    },
+    {
+      "id": "follow-the-volume",
+      "title": "Follow the volume through the whole workflow",
+      "paragraphs": [
+        "A cost estimate should start with business activity: requests received, documents processed or records updated. Then trace what the automation does for each unit. One incoming request may trigger several model calls and application actions. Long inputs, repeated attempts and large attachments can change the consumption pattern.",
+        "Ask the builder to measure a representative sample and show the distribution, including difficult cases. A short, clean document is a weak basis for pricing a process that also receives scanned files, long conversations or missing information. Keep testing costs and one-time historical processing separate from the steady-state estimate.",
+        "In an email-workflow review, the team considered redistributing responsibilities between processing steps to reduce reliance on a more expensive model. The proposed change involved restructuring the workflow, and the discussion explicitly raised the need to test quality. It was a cost-reduction proposal, not a demonstrated saving.",
+        "That example exposes an important trade-off. A cheaper model can require development work, extra steps or more human correction. Ask for the cost per acceptable completed case, including review and retries, rather than comparing model prices in isolation."
+      ]
+    },
+    {
+      "id": "price-the-responsibility",
+      "title": "Find out who is being paid to notice and fix problems",
+      "paragraphs": [
+        "A maintenance fee needs an operational definition. Ask who receives alerts, who investigates, who can change the system and who contacts your team when work is stuck. Establish coverage hours and response expectations in the agreement rather than assuming that monitoring means round-the-clock intervention.",
+        "In a discovery conversation, AIify It described error notifications reaching a customer-side technical owner and discussed the provider’s involvement while a support contract remained active. The same discussion covered health checks for more complex agents. These were descriptions of the proposed operating approach, not a universal support guarantee.",
+        "For your own project, request a responsibility list for a disconnected account, an exhausted usage allowance, a third-party outage and a changed business rule. Those situations may call for different people and different work. A supplier cannot fully resolve every issue inside a system it does not control.",
+        "Also distinguish corrective maintenance from an expansion. Repairing an agreed integration after an error is different from adding a department, a new document type or another approval path. Ask how each is quoted before those changes become urgent."
+      ]
+    },
+    {
+      "id": "compare-like-for-like",
+      "title": "Compare proposals on the same operating assumptions",
+      "paragraphs": [
+        "Give competing providers the same process description, sample inputs, expected volume and success criteria. Ask both to state exclusions and dependencies. A lower build quote may cover a smaller scope, leave monitoring to your team or rely on subscriptions that are missing from the headline.",
+        "Account ownership deserves its own question. In the discovery discussion, the parties distinguished owning accounts in third-party services from owning the underlying software. Confirm who controls your accounts, who pays the recurring bills and what access remains if the engagement ends. Put the agreed arrangement in writing.",
+        "Finish by asking each provider to explain what would make the estimate change. Useful answers identify concrete drivers: higher throughput, additional systems, a different response requirement or more varied inputs. A budget tied to visible drivers is easier to manage than a reassuring number with unclear boundaries.",
+        "Your goal is a proposal you can operate: a defined build, an understandable monthly cost, named responsibilities and a process for changes. Once those are clear, you can judge whether the expected business benefit justifies the investment."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Scope the job before comparing the price",
+    "description": "Explore AIify It’s custom AI agent service, then prepare an email describing the workflow, systems and expected volume you need to support.",
+    "label": "Explore custom AI agents",
+    "href": "/services/custom-ai-agents/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}
