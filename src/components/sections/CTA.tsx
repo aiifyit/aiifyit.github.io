@@ -8,6 +8,7 @@ import LeadForm, { type LeadFormData } from '../ui/LeadForm';
 import Modal from '../ui/Modal';
 import ScrollReveal from '../ui/ScrollReveal';
 import Button from '../ui/Button';
+import { submitLeadRequest } from '../../data/leadSubmission';
 import { CTA_HEADING, CTA_SUBHEADING, LEAD_WEBHOOK_URL } from '../../data/constants';
 
 export default function CTA() {
@@ -18,20 +19,11 @@ export default function CTA() {
   const handleSubmit = async (data: LeadFormData) => {
     setSubmitting(true);
     try {
-      if (LEAD_WEBHOOK_URL) {
-        await fetch(LEAD_WEBHOOK_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            ...data,
-            submittedAt: new Date().toISOString(),
-            source: 'aiifyit.com CTA',
-          }),
-        });
-      } else {
-        // Webhook not configured yet — surface in console for local dev
-        console.info('[LeadForm] LEAD_WEBHOOK_URL is empty. Captured data:', data);
-      }
+      await submitLeadRequest(LEAD_WEBHOOK_URL, {
+        ...data,
+        submittedAt: new Date().toISOString(),
+        source: 'aiifyit.com CTA',
+      });
       setConfirmOpen(true);
     } catch (err) {
       console.error('[LeadForm] submission failed', err);
@@ -78,7 +70,7 @@ export default function CTA() {
             <CheckCircle2 size={32} className="text-[var(--color-accent)]" />
           </div>
           <h3 className="text-2xl font-bold text-[var(--color-text)]">
-            Your information has been saved
+            Your request was submitted
           </h3>
           <p className="text-[var(--color-text-muted)] max-w-md">
             We will contact you shortly.
