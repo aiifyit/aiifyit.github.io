@@ -1,0 +1,79 @@
+{
+  "slug": "business-automation-monitoring-alerts",
+  "title": "Who Notices When an Automation Stops Running?",
+  "description": "Monitor business automations for failed runs, missing activity, and stale results. Give each alert an owner and a recovery plan that avoids duplicate actions.",
+  "category": "Automation reliability",
+  "takeaway": "A lack of error messages does not establish that work is getting done. Business automation needs a clear expectation of what should happen, a way to detect when it does not, and someone responsible for restoring the process.",
+  "sections": [
+    {
+      "id": "define-normal-operation",
+      "title": "Write down what should happen when the system is healthy",
+      "paragraphs": [
+        "For each important automation, describe the business result, expected schedule or incoming event, and acceptable completion window. A daily report and an event-driven intake process need different checks. A quiet intake period can be normal; a missing scheduled report requires an explanation.",
+        "In a discovery discussion, the provider described error notifications, scheduled checks of system connections, and the need for a person on the client's team to receive alerts. These were descriptions of an operating approach, not independently verified uptime results.",
+        "Use that conversation as a procurement question: who will notice if this particular workflow stops producing useful work? Ask for an answer that names the signal and the responder. A general promise to monitor the system leaves too much undefined."
+      ]
+    },
+    {
+      "id": "watch-distinct-failure-signals",
+      "title": "Watch for failures that look different",
+      "paragraphs": [
+        "An error alert covers only the conditions that your platform and workflow classify as errors. A schedule that never fires, an empty result that looks valid, or stale input may need a separate check. Define those checks around the business process rather than assuming one error notification covers everything."
+      ],
+      "bullets": [
+        "Failed execution: the workflow attempted to run but encountered a reported error. Identify the failed stage and affected work.",
+        "Missing activity: an expected run or event did not arrive within its agreed window. Check the schedule, source, and connection.",
+        "Late or missing output: the workflow started, but the expected result is absent or overdue. Check what actually reached the destination.",
+        "Questionable business result: the process completed, but the output violates a defined validation rule or requires review. Preserve the underlying evidence."
+      ]
+    },
+    {
+      "id": "check-the-business-result",
+      "title": "Check the result where people depend on it",
+      "paragraphs": [
+        "A connection responding successfully does not prove that today's records reached the right destination. Track the latest completed business item, output timestamp, or other evidence that your process genuinely advanced. Where possible, compare accepted inputs with completed outputs and explicitly account for exclusions.",
+        "In another workflow review, participants reported receiving alert emails and discussed a surprising result whose arithmetic was still correct. Their concern was the underlying data. That discussion supports a useful distinction between a calculation working and its input making business sense; it supplied no measured reliability or savings figure.",
+        "Ask the process owner to define actionable validation rules. An unexpected value may need investigation, while an expected empty period may need none. Record planned shutdowns and schedule changes so that monitoring can distinguish them from missed work."
+      ]
+    },
+    {
+      "id": "make-alerts-actionable",
+      "title": "Give the alert enough context to start a response",
+      "paragraphs": [
+        "An alert should explain which process is affected, what was expected, what was observed, and where the responsible person can investigate. Include the last known successful result and the relevant run or business-record reference when those are available.",
+        "Do not assume every failure has a saved run identifier. Some failures happen before a normal execution record exists. The responder should still be able to identify the workflow, time window, and symptom.",
+        "Keep sensitive payloads out of broad notification channels. Provide an access-controlled link to the detail instead. Group repeated alerts about one incident, while preserving the underlying events for investigation. A stream of identical notifications gives the team more interruption without necessarily giving it more useful information."
+      ]
+    },
+    {
+      "id": "assign-a-response-owner",
+      "title": "Name the person who can get the work moving again",
+      "paragraphs": [
+        "Specify a primary owner, a backup, and a route to technical support. Agree which issues require immediate attention and which can wait for normal working hours. Match the response window to the consequences of delay.",
+        "Clarify the division between the business and technical owners. A builder may fix a broken integration, but someone inside the business may need to renew access, correct source data, or decide how to handle overdue work. Sending an alert to a shared channel does not establish who has accepted it.",
+        "Include monitoring responsibilities in ongoing support arrangements. If the implementation provider's involvement ends, the business should still have a working alert destination and someone with the access and instructions to respond."
+      ]
+    },
+    {
+      "id": "recover-without-repeating-actions",
+      "title": "Check what happened before you rerun anything",
+      "paragraphs": [
+        "A workflow can change a destination record and then fail before recording success. Replaying the whole workflow may repeat an action that already happened. Before recovery, inspect the affected records and identify the last confirmed step.",
+        "Ask the implementation team which actions are safe to retry, how duplicate requests are recognized, and when a person must choose the recovery path. Where a connection supports a request identifier designed to prevent duplicate processing, verify that the workflow uses it correctly. Otherwise, define an appropriate state check or manual recovery procedure.",
+        "After the repair, confirm that the business output is correct and account for the backlog. Keep a short incident record showing the cause, affected work, recovery, and any monitoring change needed.",
+        "The practical standard is straightforward: your team can tell whether important work is current, recognize when it is not, and restore it without guessing. Review that standard whenever schedules, software, or ownership change."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Plan for the work after launch",
+    "description": "Explore workflow automation with AIify It and discuss monitoring, operational ownership, and recovery for the processes your team relies on.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}

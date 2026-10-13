@@ -1,0 +1,80 @@
+{
+  "slug": "off-the-shelf-or-custom-ai-automation",
+  "title": "Before You Build Custom AI, Check What Your Software Already Does",
+  "description": "Choose between existing features, packaged AI, integrations, and a custom build by checking the real workflow gap, software roadmap, and ongoing ownership.",
+  "category": "Automation strategy",
+  "takeaway": "The right starting point is a requirement your business cannot currently meet. Check whether your existing software can satisfy it, whether an integration closes the gap, and whether the remaining custom work will still matter after planned system changes.",
+  "sections": [
+    {
+      "id": "name-the-gap",
+      "title": "Describe the missing capability in business terms",
+      "paragraphs": [
+        "A request for an AI agent can hide several different needs: less copying, better document search, faster approvals, or help interpreting variable requests. Write down the outcome first, including where the input comes from and where the finished result must appear.",
+        "Make the requirement specific enough to demonstrate. For example, a team might need incoming requests to become complete records with supporting documents and a visible exception status. That description lets you compare approaches against the same job.",
+        "Separate essential requirements from preferences. Which actions must happen automatically? Which decisions need approval? Which systems must remain in use? Where is a manual step acceptable? Without those boundaries, a feature-rich product and an open-ended custom proposal are difficult to compare."
+      ]
+    },
+    {
+      "id": "check-the-software-roadmap",
+      "title": "Check the roadmap before improving a system you may retire",
+      "paragraphs": [
+        "In a discovery conversation, a prospective buyer described a planned software migration that was expected to replace some existing automations. The team agreed that rebuilding work likely to disappear would make little sense and explored a separate business need instead.",
+        "The migration and the alternative project were plans at that point. The discussion did not establish completed savings, measured ROI, or proof that the replacement software would meet every requirement. Its useful lesson is to include upcoming changes in the buying decision.",
+        "Ask the person responsible for your systems what is changing, which capabilities are confirmed, and which remain assumptions. If a new platform is expected to close the gap, request a demonstration of that particular process. A roadmap promise should carry an uncertainty label until it is available and verified."
+      ]
+    },
+    {
+      "id": "inspect-what-is-already-available",
+      "title": "Inspect the features and permissions you already have",
+      "paragraphs": [
+        "Check the actual edition, enabled features, and account permissions for your current tools. Ask your administrator or provider to show the workflow you need. A feature appearing in marketing material does not establish that it is available in your account or suitable for your operating rules.",
+        "Include configuration work in the comparison. A usable result may require fields, approval settings, templates, or a supported automation feature to be configured. That is real implementation work even when no new custom application is needed.",
+        "For integrations, inspect the specific trigger and action. Can the connection retrieve the necessary information, update the required fields, and return an identifiable result? Check relevant plan requirements and limits. An integration logo alone cannot answer those questions."
+      ]
+    },
+    {
+      "id": "compare-realistic-options",
+      "title": "Compare the smallest approaches that could meet the requirement",
+      "paragraphs": [
+        "Keep several options open until you understand the gap. Each option should be evaluated against the same representative inputs and definition of a finished result."
+      ],
+      "bullets": [
+        "Configure existing software when its supported features meet the requirement and the business can adopt the resulting process.",
+        "Add a packaged product when a repeatable, well-defined need is covered and the product fits your data, permissions, and surrounding systems.",
+        "Connect existing tools when the main gap is moving validated information between capabilities those tools already provide.",
+        "Build a bounded custom component when an important requirement remains unmet and the expected benefit justifies ongoing ownership.",
+        "Combine approaches when packaged capabilities handle most of the process and a small custom element closes a specific, durable gap."
+      ]
+    },
+    {
+      "id": "compare-ongoing-responsibility",
+      "title": "Include the responsibility that comes with each option",
+      "paragraphs": [
+        "Packaged software still requires someone to manage configuration, access, updates, and support conversations. Custom work requires someone to maintain the implementation and respond when connected systems or business requirements change. Establish who will do that work in either case.",
+        "Compare setup effort, recurring charges, staff review, training, support, and likely change work over the same useful life. Include the effort of moving data or replacing the solution later. Avoid comparing only a subscription price with an initial development quote.",
+        "Also check what your business will control: accounts, configuration, records, exports, and implementation materials. Identify any dependency that would make a provider change difficult. A custom build can still depend on third-party platforms, and a packaged product may provide enough flexibility for your needs."
+      ]
+    },
+    {
+      "id": "test-the-durable-gap",
+      "title": "Use a small comparison to test the durable gap",
+      "paragraphs": [
+        "Give each viable approach the same set of representative cases, including the awkward ones. Record what works as supplied, what requires configuration, what needs a workaround, and what remains unsupported. Measure the human effort needed to produce an acceptable result.",
+        "Keep the comparison close to the user's everyday workflow. If a tool produces a good answer but staff must re-enter it elsewhere, include that handoff in the evaluation. If a custom prototype relies on a person silently repairing each result, count that work too.",
+        "Then ask whether the remaining gap will survive the next planned software change. A short-lived workaround can still be justified when waiting has a clear cost, but it should have a deliberately limited scope and a retirement plan.",
+        "Choose the approach that meets the requirement with responsibilities your business can sustain. Build custom where the evidence supports it, and let existing capabilities do the work they already perform adequately."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Clarify where custom AI would help",
+    "description": "Learn about AIify It's custom AI agent work and discuss the unmet requirement, existing software, and operating responsibilities behind your decision.",
+    "label": "Explore custom AI agents",
+    "href": "/services/custom-ai-agents/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}

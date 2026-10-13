@@ -1,0 +1,80 @@
+{
+  "slug": "email-to-task-automation-ownership",
+  "title": "From Email to Owned Work: What an AI Task Workflow Must Capture",
+  "description": "Turn incoming email into useful assigned work with clear task ownership, evidence, updates, and completion rules that prevent a growing pile of duplicate tasks.",
+  "category": "Email automation",
+  "takeaway": "Useful email-to-task automation captures the work, who must act next, and who is waiting. It also remembers what happened afterward. Without that lifecycle, an inbox integration can create another list that someone has to clean up.",
+  "sections": [
+    {
+      "id": "decide-what-deserves-a-task",
+      "title": "Decide which messages deserve a task",
+      "paragraphs": [
+        "An incoming message is an event. It may contain a new request, an update, a completed commitment, or information that requires no action. Before choosing an AI tool, define which of those events should create work in your team's task system.",
+        "In an email-automation review, a user reported that the system created unnecessary tasks and repeatedly assigned work to the inbox owner. The user wanted a different structure that separated the person doing the work from the person waiting for it. The discussion described reported problems and a proposed redesign; it did not establish a measured improvement in accuracy or time saved.",
+        "Start your own requirements with examples: a direct request, a commitment someone has made, a routine notification, and a conversation you are copied on. Agree which examples create a task, update one, or leave the task list unchanged."
+      ]
+    },
+    {
+      "id": "separate-the-work-from-the-observer",
+      "title": "Separate the work from the person watching it",
+      "paragraphs": [
+        "Suppose a colleague promises to prepare a revised delivery plan. The task is to prepare that plan, and the colleague is the next-action owner. You may be waiting for the result. Turning the exchange into a task telling you to follow up changes the responsibility and obscures the original commitment.",
+        "Use an action-based title that describes the deliverable. Keep ownership, waiting relationships, and oversight in separate fields. A manager can need visibility without personally owning every task in the conversation.",
+        "If the message does not establish an owner, leave ownership unresolved for triage or apply a documented assignment rule. Being in the To or CC field is not sufficient evidence that someone accepted the work. Similarly, a suggested deadline should not silently become a promised deadline."
+      ]
+    },
+    {
+      "id": "make-each-task-reviewable",
+      "title": "Make the task understandable without rereading the inbox",
+      "paragraphs": [
+        "Ask the implementation team to show a complete task record using representative messages. A title alone is not enough for someone who was absent from the exchange. The record should preserve the information needed to act and a controlled route back to the source."
+      ],
+      "bullets": [
+        "Work: the requested action and what a finished result would look like.",
+        "Responsibility: the next-action owner, the person waiting, and any separate reviewer or observer.",
+        "Timing: the stated due date, its source, and whether it is confirmed or inferred.",
+        "Evidence: the source message and relevant attachment references, available only to people authorized to open them.",
+        "Lifecycle: current status, latest relevant update, and any uncertainty that needs a person to resolve."
+      ]
+    },
+    {
+      "id": "update-existing-work",
+      "title": "Let replies update work that already exists",
+      "paragraphs": [
+        "A conversation can generate several messages about one deliverable. If each message becomes a fresh task, automation multiplies the tracking burden. The workflow should check for related open work before creating another record.",
+        "Preserve the source message identifier and, where available, its conversation identifier. Those references help recognize a repeated event or locate related messages. They do not establish that every request in a conversation is the same task: a single thread may contain several independent commitments.",
+        "Define the matching behavior with concrete examples. A revised due date should update the relevant task. A second deliverable may need its own task. A repeated processing attempt should not create another copy. When matching is uncertain, show the candidate relationship for review rather than silently merging unrelated work.",
+        "The earlier review also included reports of duplicate creation and unreliable updates. Treat those as explicit acceptance cases for an email-to-task purchase, rather than assuming that extracting a well-written task title solves them."
+      ]
+    },
+    {
+      "id": "remember-deliberate-dismissal",
+      "title": "Remember when someone deliberately dismisses a task",
+      "paragraphs": [
+        "People will sometimes decide that a conversation does not belong on their list. Deleting the visible task without retaining that decision can cause the next email to recreate it. The user in the reviewed discussion specifically raised this problem and proposed remembering dismissed conversations.",
+        "Agree what dismissal means in your workflow. It might hide an item from one person's view, stop tracking a particular deliverable, or suppress routine updates from a conversation. These are different decisions and should not share an ambiguous delete action.",
+        "Define when fresh evidence can reopen work. A new direct request or a materially different commitment may deserve attention even if an earlier task was dismissed. Preserve enough history to explain why the system created, updated, suppressed, or reopened a record."
+      ]
+    },
+    {
+      "id": "require-evidence-of-completion",
+      "title": "Make completion depend on what was actually delivered",
+      "paragraphs": [
+        "A polite reply can acknowledge a request without finishing it. Define the evidence that closes each type of task: delivery of an agreed artifact, a confirmed system update, or acceptance by the responsible person. If the email only suggests progress, update the status without declaring the work complete.",
+        "Evaluate a prospective solution across a conversation's full lifecycle. Can it preserve the owner after a reply, distinguish a new request from an update, respect dismissal, and explain why it closed something? Include ambiguous and non-actionable messages in the evaluation.",
+        "Measure unnecessary tasks, missed commitments, ownership corrections, duplicates, and staff cleanup time. The buying decision should turn on whether the team gets a dependable view of its obligations, with less copying and less repair work."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Connect your inbox to accountable work",
+    "description": "Explore workflow automation with AIify It and discuss how incoming requests should become owned tasks in the systems your team already uses.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}

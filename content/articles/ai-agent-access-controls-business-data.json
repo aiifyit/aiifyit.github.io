@@ -1,0 +1,87 @@
+{
+  "slug": "ai-agent-access-controls-business-data",
+  "title": "What Can an AI Agent Access After an Employee Leaves?",
+  "description": "Plan AI agent access controls around permitted data and actions. Check authorization, role changes, stored copies, and offboarding before wider deployment.",
+  "category": "Agent access and security",
+  "takeaway": "Protect client data by giving an agent a bounded job, limiting the records and actions it can use, and enforcing those limits outside the model. Then test what happens when a person changes roles or leaves. A successful sign-in does not answer those questions.",
+  "sections": [
+    {
+      "id": "make-access-specific-enough-to-check",
+      "title": "Make access specific enough to check",
+      "paragraphs": [
+        "“The agent needs access to our systems” is too broad to approve. Ask which records it needs, whose behalf it acts on, what it may do, and how long that permission should last. Reading a project record, changing its status, and sending its contents elsewhere are separate decisions.",
+        "Consider an illustrative support assistant. It might read the current customer’s service history and prepare a response. That job does not automatically require access to every customer’s documents, permission to change commercial terms, or the ability to send messages without an agreed approval step.",
+        "Describe the boundaries in terms the business owner can review:"
+      ],
+      "bullets": [
+        "Data: the specific clients, projects, folders, or record types included.",
+        "Actions: what the agent may read, draft, update, approve, or send.",
+        "Identity: whose permission is being used for each operation.",
+        "Duration: what keeps the permission valid and what should end it.",
+        "Ownership: who approves changes and who can disable the connection."
+      ]
+    },
+    {
+      "id": "two-different-lessons-from-implementation",
+      "title": "Two different lessons from implementation work",
+      "paragraphs": [
+        "In an AIify It technical discussion, a participant described the need to tie agent access to a person’s current permissions and remove it when that person leaves. The participant also reported gaps where downstream data requests were not consistently checking authorization. This was a reported concern, not evidence of a fully secured architecture.",
+        "In a separate demonstration, a connection was revoked and the next attempt required reconnection. That showed the behavior of that connection in that test. It did not establish that all employee offboarding, background jobs, and stored data were covered.",
+        "Those are different levels of evidence. When reviewing your own implementation, ask the supplier to show exactly which access boundary a test proves and which boundaries remain unchecked."
+      ]
+    },
+    {
+      "id": "enforce-permission-where-data-is-returned",
+      "title": "Enforce permission where data is returned",
+      "paragraphs": [
+        "Use the principle of least privilege: permit only the access needed for the job. Check authorization for each request at the service or data boundary. The interface can hide unavailable options, but it should not be the only place enforcing the rule.",
+        "An instruction telling the model to avoid restricted records is not a substitute for that control. The system should refuse an unauthorized request even if the model asks for it. If permission cannot be established, stop the operation and provide a safe explanation rather than allowing broader access."
+      ]
+    },
+    {
+      "id": "connect-offboarding-to-the-real-connections",
+      "title": "Connect offboarding to the real connections",
+      "paragraphs": [
+        "List the active connections an employee or agent can use. Include background tasks, delegated access, and separately managed service identities. Decide which should stop when a person leaves and which business-owned tasks require a new accountable owner. Do not assume they all follow the same lifecycle.",
+        "Ask the implementer to explain revocation behavior for each connection. OAuth token revocation can involve related tokens and propagation delays, and its effect depends on the provider’s implementation. A button labeled “disconnect” is not enough evidence that every access path has ended.",
+        "Define the expected outcome for work already queued when access changes. A task approved yesterday may attempt an operation after the employee’s role changes today. Have the team verify current authorization at execution and record how a denied task is handled."
+      ]
+    },
+    {
+      "id": "check-the-copies-as-well-as-the-source",
+      "title": "Check the copies as well as the source",
+      "paragraphs": [
+        "If the agent searches an indexed copy of company documents, require permission checks when information is retrieved. Permissions copied at initial import can become stale. Cached answers also need controls so information available to one person is not reused for someone who lacks access.",
+        "Ask how source permission changes affect those copies and cached responses. Revoking a live connection should not be treated as proof that previously stored material has been deleted. Access, retention, and deletion need explicit behavior and verification.",
+        "For any outside provider involved, ask what data is received, where it is retained, and which controls apply to its use. Confirm the answers for the product and configuration you are buying instead of relying on a broad assurance that the system is private."
+      ]
+    },
+    {
+      "id": "ask-for-evidence-of-denied-access",
+      "title": "Ask for evidence of denied access",
+      "paragraphs": [
+        "Use controlled test records to demonstrate an allowed request and a refused request. Include a person with a different role, an unrelated client record, a removed permission, and an attempted write by a read-only agent. Repeat relevant checks after changing access rules.",
+        "Keep enough evidence to see which identity requested which operation and whether it was allowed. Avoid filling logs with secrets or unnecessary client content. Restrict access to the logs themselves."
+      ]
+    },
+    {
+      "id": "make-security-a-buyer-decision",
+      "title": "Make security a buyer decision",
+      "paragraphs": [
+        "Before expanding the agent’s job, ask who owns the permission map, how changes are approved, and what happens when someone reports unexpected access. You should be able to pause the affected operation and reach a responsible person.",
+        "The goal of this review is a concrete, testable access agreement. Your team should be able to explain what the agent can see today, what it can change, and how those capabilities end. That is a firmer basis for deployment than confidence based only on a helpful demonstration."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Define the boundaries of your AI agent",
+    "description": "Explore custom AI agents with AIify It, then prepare an email about the job, systems, and access boundaries your team needs to review.",
+    "label": "Explore custom AI agents",
+    "href": "/services/custom-ai-agents/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}

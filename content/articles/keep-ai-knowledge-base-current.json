@@ -1,0 +1,83 @@
+{
+  "slug": "keep-ai-knowledge-base-current",
+  "title": "Who Updates Your AI When the Process Changes?",
+  "description": "Keep an AI knowledge base current with source ownership, version tracking, failed-update handling and checks that revised answers are actually available.",
+  "category": "Knowledge assistants",
+  "takeaway": "The procedure changed. The source document is correct. Yet the assistant still gives the old answer. Somewhere between editing the file and answering the question, an update was missed. Who notices, and who fixes it?",
+  "sections": [
+    {
+      "id": "own-the-update-process",
+      "title": "Make freshness someone’s responsibility",
+      "paragraphs": [
+        "Keeping an AI knowledge assistant current requires an update process that follows source changes through to usable answers. Assign an owner, define when updates should arrive, track processing failures and verify the changed information with a real question. Uploading a document is only one step.",
+        "In an AIify It planning discussion, the team considered ongoing ingestion from automatically collected material and manually supplied files. An existing pipeline was described as partially built and still needing review. The discussion established the need for continued updates; it did not establish a completed, continuously synchronized knowledge system.",
+        "That distinction matters after launch. The person who approves a revised procedure may not be the person who maintains the assistant. Give both roles a clear responsibility: the source owner confirms what is authoritative, while the technical owner makes sure the approved change reaches the system that answers questions."
+      ]
+    },
+    {
+      "id": "define-fresh-enough",
+      "title": "Decide what fresh enough means for each source",
+      "paragraphs": [
+        "Not every document needs the same update schedule. A reference guide that changes occasionally can have a different refresh expectation from a frequently revised operating procedure. Agree on the acceptable delay between approval of a change and its availability to the assistant.",
+        "Record the source location, owner, expected refresh interval and way changes are detected. A scheduled check, a source-system change notification and a manual publishing step are different approaches. Ask the builder which one applies to each source and what happens if it stops working.",
+        "Use the source’s approval status as well as its modification date. A draft can be newer than the current policy. A formatting edit can be newer than the last substantive change. Decide which versions the assistant should treat as authoritative, rather than equating newest with correct.",
+        "For material that has an effective date, preserve that date separately. A procedure approved today may apply next month. The assistant needs enough context to answer for the relevant period instead of presenting every newly uploaded change as already in force."
+      ]
+    },
+    {
+      "id": "follow-each-version",
+      "title": "Follow the version through processing",
+      "paragraphs": [
+        "Ask for a small, inspectable update register. It should connect the original source to the version the assistant can retrieve. A green scheduled-job indicator is insufficient if one document failed while the rest completed.",
+        "The register should make these states distinguishable:"
+      ],
+      "bullets": [
+        "A change was detected in an approved source.",
+        "The intended version was retrieved successfully.",
+        "The content was processed and made available for retrieval.",
+        "Older or retired material was handled according to policy.",
+        "A verification check passed, failed or still needs review."
+      ]
+    },
+    {
+      "id": "replace-and-retire",
+      "title": "Treat replacements and deletions as real work",
+      "paragraphs": [
+        "Adding a revised document alongside its predecessor can leave two conflicting answers available. Decide how the system identifies a replacement: for example, by a stable source reference and version history. A changed filename should not automatically turn one procedure into two independent authorities.",
+        "Specify what happens when a source is deleted, withdrawn or loses approval. If historical versions are retained, define when they are eligible to answer a question and how they are labeled. Historical reference and current operating guidance need different treatment.",
+        "Do not assume that accepting an upload or removal request proves the search layer has finished updating. Ask the builder how processing completion is checked and how any delay is handled. Verify the old answer has stopped appearing where the retirement policy requires it.",
+        "Include access changes in the maintenance discussion. A source that becomes restricted should not continue supplying answers to people who no longer have permission to see it. Ask how changed permissions reach the assistant and who can investigate a mismatch. Keep the necessary history access-controlled."
+      ]
+    },
+    {
+      "id": "prove-the-changed-answer",
+      "title": "Test the answer that should have changed",
+      "paragraphs": [
+        "Choose a small set of questions tied to the revised material. For an illustrative example, a procedure changes the required approval role. After the update, ask who must approve that work, inspect the retrieved source and confirm that the answer uses the revised role.",
+        "Test a question that previously produced the old answer and another phrasing a real employee might use. Also check an unaffected question so you can spot an update that accidentally removed useful neighboring material. The goal is evidence that the intended knowledge changed in the right place.",
+        "If the answer is wrong, trace the stages separately. Was the approved version available at the source? Did the update process retrieve it? Was it processed successfully? Did retrieval return the relevant passage? Did the final answer represent that passage accurately? Each failure has a different remedy.",
+        "Repeating the upload without locating the failure can create duplicates while leaving the cause untouched. Keep the failed example, expected answer and source reference together so the responsible person can reproduce the problem."
+      ]
+    },
+    {
+      "id": "keep-failures-visible",
+      "title": "Give failed updates a visible queue",
+      "paragraphs": [
+        "Create an operational queue for missing sources, failed processing and overdue verification. Each item needs the affected source, last successful update, failure reason and responsible owner. Show whether users can still receive an older answer while the issue is unresolved.",
+        "Decide in advance when the assistant should warn about stale information, decline to answer from a withdrawn source or route the question to a person. The right response depends on the consequence of using outdated guidance. A missing refresh should not silently inherit the same treatment for every topic.",
+        "A useful maintenance review starts with one recently changed procedure. Ask the team to show the approved source, processed version, retirement of the old version and a checked answer. If that chain is visible, freshness becomes a process you can manage rather than an assumption you hope remains true."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Plan knowledge updates your team can verify",
+    "description": "Explore AIify It’s custom AI agent service, then prepare an email about your knowledge sources and how often they change.",
+    "label": "Explore custom AI agents",
+    "href": "/services/custom-ai-agents/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}

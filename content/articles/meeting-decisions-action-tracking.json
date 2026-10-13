@@ -1,0 +1,83 @@
+{
+  "slug": "meeting-decisions-action-tracking",
+  "title": "The Meeting Ended. Who Owns What Happens Next?",
+  "description": "Turn AI meeting action items into accountable work with confirmed owners, agreed due dates, one shared task record and meaningful completion evidence.",
+  "category": "Team operations",
+  "takeaway": "The summary arrives quickly and the action list looks thorough. At the next meeting, the same work is still open. Did the automation miss the task, or did nobody agree who would do it?",
+  "sections": [
+    {
+      "id": "capture-is-the-first-step",
+      "title": "Start with proposed actions, then confirm the commitment",
+      "paragraphs": [
+        "Use AI to identify candidate actions from a meeting, then confirm the owner, expected result and due date before treating them as commitments. Store confirmed work in the task system the team already uses. Follow-up automation can make missing updates visible, but extracting an action does not complete it.",
+        "In an AIify It team discussion, a participant reported using automation to capture new work from calls and cross-check their own notes. The same discussion described automated reminders for progress updates, while emphasizing that people still had to supply those updates. It was evidence of reported capture and reminder processes, not evidence of improved completion rates.",
+        "That is the gap to design around. A meeting summary records what was discussed. An accountability process establishes what somebody has agreed to deliver and how the rest of the team will know where it stands."
+      ]
+    },
+    {
+      "id": "separate-the-kinds-of-statement",
+      "title": "Separate decisions, actions and suggestions",
+      "paragraphs": [
+        "A decision changes the agreed direction. An action asks someone to do work. A suggestion might become an action later, but it does not establish a commitment on its own. Keep these categories separate when reviewing extracted items.",
+        "For a synthetic example, a team decides to keep its current supplier, asks an operations lead to compare delivery options and mentions that a different ordering process might be worth exploring. Only the comparison is clearly assigned work. Turning the final suggestion into an assigned project would create a commitment the meeting did not make.",
+        "Preserve conditions and dependencies. “Send the proposal after the pricing review” should not become an unconditional task to send it immediately. If the condition is unclear, the proposed item should ask for clarification rather than choose an interpretation that merely looks complete.",
+        "Check the discussion’s final state. People can revise or withdraw an assignment later in the same conversation. A useful review asks whether the extracted item reflects the eventual agreement, rather than the first sentence that sounded like an action."
+      ]
+    },
+    {
+      "id": "confirm-the-minimum-record",
+      "title": "Confirm the minimum useful task record",
+      "paragraphs": [
+        "Give proposed actions a short confirmation step with the meeting owner or named assignee. The reviewer should be able to accept, correct, merge or reject an item. An uncertain owner or date should stay visibly uncertain until someone resolves it.",
+        "For each confirmed action, record:"
+      ],
+      "bullets": [
+        "A concrete deliverable, phrased so the team can recognize completion.",
+        "One accountable owner, with contributors listed separately if needed.",
+        "An agreed due date or an explicit indication that a date is still needed.",
+        "Any prerequisite that changes when the work can proceed.",
+        "An access-appropriate source reference and the context needed to understand the agreement."
+      ]
+    },
+    {
+      "id": "keep-one-task",
+      "title": "Keep one task as the conversation continues",
+      "paragraphs": [
+        "Choose a single shared record for tracking the work. The summary can link to it, and later meetings can update it. Avoid creating another copy every time someone discusses the same commitment.",
+        "Before adding a new task, check whether the meeting refers to existing work. A matching title is a useful clue, but the deliverable, owner and project context should also agree. If there is doubt, propose a possible match for review instead of silently merging unrelated commitments.",
+        "Keep the original due date and any agreed changes understandable. A later discussion may change scope, ownership or timing. Record that change on the task so a reader can distinguish a revised commitment from an overdue item that has simply been renamed.",
+        "Do not publish the entire transcript to everyone who can see the task. Give recipients the context and source access appropriate to their role. A task can be broadly useful even when the meeting included other sensitive information that should stay restricted."
+      ]
+    },
+    {
+      "id": "ask-for-useful-updates",
+      "title": "Ask for the update the task actually needs",
+      "paragraphs": [
+        "Reminders should help owners report progress, blockers or changed expectations. Send the task, its agreed result and the specific missing update. A generic request to “update everything” leaves the owner to work out what the team needs to know.",
+        "Keep states meaningful. Proposed work still needs confirmation. Confirmed work has an owner. Blocked work needs the obstacle and the person who can resolve it. Completed work needs the agreed result. Adapt the labels to your team, but preserve the distinctions.",
+        "An unanswered reminder should remain an unanswered reminder. Do not infer that the work is complete because the owner did not object, or that it has failed because no message arrived. Surface the missing update through an agreed escalation route.",
+        "When a task is blocked, repeated reminders to its owner may add noise without changing anything. Route attention to the unresolved decision or dependency and keep the next review point visible."
+      ]
+    },
+    {
+      "id": "close-with-the-result",
+      "title": "Close the loop with evidence of the result",
+      "paragraphs": [
+        "Define completion in the task itself. For a document, that could mean a link to the approved version. For a system change, it could mean the agreed verification result. For a decision, it could mean the recorded decision from the responsible person. Choose evidence proportionate to the work.",
+        "If an update says work is finished but the agreed output is missing, ask for the missing evidence or review. Keep “the owner reported completion” distinct from “the result was checked” when the process requires both. An automated status change should follow the agreed rule, not optimism in a meeting summary.",
+        "At the next recurring meeting, review unresolved commitments from the shared task list before generating a fresh list. This connects the current conversation to earlier agreements. The test of the workflow is whether the team can trace one decision into owned work, a current status and a recognizable finished result."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Connect meeting actions to your team’s task process",
+    "description": "Explore AIify It’s workflow automation service, then prepare an email about how your team confirms, tracks and reviews meeting actions.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}

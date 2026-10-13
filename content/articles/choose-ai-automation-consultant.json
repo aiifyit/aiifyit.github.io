@@ -1,0 +1,88 @@
+{
+  "slug": "choose-ai-automation-consultant",
+  "title": "Choosing an AI Automation Consultant: Ask to See the Work",
+  "description": "Evaluate an AI automation consultant through scoped outcomes, relevant delivery evidence, integration assumptions, ownership, and support responsibilities.",
+  "category": "Automation strategy",
+  "takeaway": "Choose an AI automation consultant by examining what they will deliver and how you will know it works. A convincing demo is useful, but your decision also needs evidence of process understanding, a realistic scope, and clear responsibility after launch.",
+  "sections": [
+    {
+      "id": "check-process-understanding",
+      "title": "Can they explain your process back to you?",
+      "paragraphs": [
+        "Give each shortlisted provider the same bounded process to discuss. Ask them to describe the starting event, required inputs, decisions, exceptions, and finished business result. They should be able to identify where information is missing before presenting a detailed solution.",
+        "Listen for questions about what people actually do. Who resolves conflicting records? Which approvals are mandatory? What happens when the expected document never arrives? A proposal based only on the smoothest version of the process can underestimate the work your team will still need to perform.",
+        "You do not need to expect a complete design during an introductory conversation. You do need a clear explanation of what discovery must establish and how those findings will shape the scope, estimate, and decision to proceed."
+      ]
+    },
+    {
+      "id": "inspect-relevant-delivery-evidence",
+      "title": "Ask for evidence with a clear delivery status",
+      "paragraphs": [
+        "Request a redacted example relevant to your problem: a workflow, a test record, an exception queue, or an operating guide. Ask what the provider personally built and whether the example is a concept, prototype, pilot, or live system.",
+        "A working demonstration can show that a particular path is possible. It does not establish reliable operation across your case mix. Ask what inputs were used, which parts required manual help, and what remains unresolved. Respect client confidentiality; a provider should be able to explain its work without exposing another customer's private records.",
+        "Treat results claims as a separate question. What was measured, against which baseline, and over what period? If the example has no measured ROI, it can still demonstrate delivery ability, but it should not be presented as proof of savings you will receive."
+      ]
+    },
+    {
+      "id": "surface-integration-assumptions",
+      "title": "Find the assumptions that could block delivery",
+      "paragraphs": [
+        "Ask the provider to identify the systems the workflow needs to read or change, the operations it must perform, and who can authorize access. A listed integration is not enough; your specific action and account permissions must be supported.",
+        "Have the team distinguish confirmed access from assumptions that still need a technical check. Ask what happens to scope and timing if an interface is unavailable, data is incomplete, or a required permission cannot be granted.",
+        "Evaluate the proposed handling of confidential information and credentials. Request a clear description of where business data will travel, which parties will have access, and how unnecessary access will be avoided. Your own security and operational owners should review the plan before access is supplied."
+      ]
+    },
+    {
+      "id": "compare-written-scopes",
+      "title": "Compare the same written scope across providers",
+      "paragraphs": [
+        "The cheapest proposal may cover less work. Compare deliverables and dependencies before comparing totals. A useful scope should make the following points concrete enough for your process owner to review."
+      ],
+      "bullets": [
+        "Included work: the process boundary, connected systems, and expected output.",
+        "Acceptance: representative cases and the evidence required to approve the deliverable.",
+        "Business responsibilities: source data, access, decisions, and staff time you must provide.",
+        "Exclusions and uncertainty: work outside the agreement and assumptions that could change the estimate.",
+        "Changes: how new requirements are assessed and approved before extra work proceeds.",
+        "Communication: who makes decisions, how progress is shown, and how blockers are raised."
+      ]
+    },
+    {
+      "id": "clarify-ownership-before-commitment",
+      "title": "Clarify what your business will control",
+      "paragraphs": [
+        "In an automation discovery discussion, a buyer asked what would happen to the built workflows if the provider relationship ended. The provider described using business-controlled software accounts, making workflows understandable, and performing implementation work. That conversation clarified the proposed arrangement; it did not establish measured ROI or replace a written agreement.",
+        "Ask the same questions about your proposed project. Which accounts and subscriptions will your business control? Which implementation materials and operating instructions will you receive? What would another qualified person need in order to maintain the system?",
+        "Separate ownership of your workflow from access to third-party software. Ongoing subscriptions or other dependencies may still be required. Make those dependencies visible so that the decision does not rely on an assumption that everything becomes independent after delivery."
+      ]
+    },
+    {
+      "id": "understand-support-responsibilities",
+      "title": "Find out who responds after launch",
+      "paragraphs": [
+        "Ask how failures will be detected, who receives notifications, and which support responsibilities belong to the provider versus your team. Clarify the support period, available response arrangements, and the treatment of changes in connected software.",
+        "The same discovery discussion emphasized that someone inside the business should continue receiving alerts even if the provider is no longer supporting the work. This is a practical requirement to verify in your own operating plan, not a guarantee that every problem will be automatically repaired.",
+        "Ask to see the form of the operating instructions and a sample issue report. A usable support arrangement should help your team explain what is broken, identify affected work, and reach someone who can act."
+      ]
+    },
+    {
+      "id": "make-a-bounded-first-commitment",
+      "title": "Choose a first commitment you can evaluate",
+      "paragraphs": [
+        "When uncertainty remains, agree on a bounded discovery or delivery stage with explicit outputs and a decision point. Avoid treating a broad promise to transform the business as a measurable first deliverable.",
+        "A checklist cannot prove that a consultant will succeed. It can expose differences that polished presentations hide. Favor proposals that make the work, assumptions, and responsibilities easier for your own team to inspect and challenge."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Discuss a clearly defined automation job",
+    "description": "Learn about AIify It's custom AI agent work and the process, access, testing, and operating questions to bring to an inquiry.",
+    "label": "Explore custom AI agents",
+    "href": "/services/custom-ai-agents/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}

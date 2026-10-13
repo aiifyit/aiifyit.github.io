@@ -1,0 +1,75 @@
+{
+  "slug": "internal-ai-assistant-company-documents",
+  "title": "Can an Internal AI Assistant Find the Answers Your Team Needs?",
+  "description": "Plan an internal AI knowledge assistant around real employee questions, approved SOPs, useful source references and clear limits on what it should answer.",
+  "category": "Company knowledge",
+  "takeaway": "The answer is somewhere in your documents. A colleague probably knows which folder. Before building an internal AI assistant, decide which questions it should answer and what would make those answers trustworthy enough to use.",
+  "sections": [
+    {
+      "id": "choose-the-questions-first",
+      "title": "Choose the questions before uploading the documents",
+      "paragraphs": [
+        "Start an internal AI knowledge assistant with one defined business problem, a small approved source collection and questions your team can verify. Then specify how it should retrieve evidence, explain an answer and respond when the information is missing. A chat interface is only one part of that work.",
+        "Ask employees for questions they repeatedly interrupt someone to answer. Look for a coherent group: how to complete a process, where to find an approved template or who handles an exception. Select questions whose answers exist in material the team is allowed to use and whose usefulness you can judge.",
+        "Avoid beginning with every document the company has ever produced. A focused collection makes it easier to identify contradictions, missing procedures and unclear ownership. It also lets the process owner distinguish an assistant problem from a documentation problem before the project grows."
+      ]
+    },
+    {
+      "id": "define-the-source-collection",
+      "title": "Define what counts as an approved source",
+      "paragraphs": [
+        "Gather the documents needed to answer the selected questions. Record each document’s owner, intended audience and status. Identify which version is current and whether a newer instruction replaces an older one. Ask the owner to resolve disagreements instead of expecting the assistant to invent the company’s policy.",
+        "For a synthetic example, imagine an employee asking who approves a nonstandard client request. One training slide names a former role; the current procedure names a different owner. The project needs an authority rule and a corrected source collection. A fluent summary of both documents would leave the employee with the same underlying uncertainty.",
+        "The practical starting inventory should include:"
+      ],
+      "bullets": [
+        "Approved sources: the procedures, reference documents and templates the assistant may use.",
+        "Authority: which document or process owner resolves a conflict.",
+        "Audience: the people permitted to use each part of the collection.",
+        "Coverage gaps: common questions the current material cannot answer.",
+        "A correction route: where an employee reports an outdated or unclear instruction."
+      ]
+    },
+    {
+      "id": "separate-connection-from-answer-quality",
+      "title": "Check the connection and the answer separately",
+      "paragraphs": [
+        "In a knowledge-assistant demonstration, a user connection was created and used to ask questions. The presenter also revoked that connection and showed that reconnection was required. The team separately discussed document scope and how responses should be shaped for different audiences. These were distinct parts of the work.",
+        "That distinction is useful when reviewing a proposal. A working connection demonstrates that one access path functions. It does not establish that every document is correctly restricted, every answer is supported or every employee’s question will be understood. Ask the provider to show evidence for each requirement rather than treating a successful chat as acceptance of the entire system.",
+        "Require the assistant to use approved retrieval and access controls for company information. For factual process answers, ask it to identify the supporting document and relevant passage so an authorized reader can check the answer. A reference should be useful evidence, not simply a document title appended to plausible prose.",
+        "Keep the first interface appropriate to the team’s work. An existing approved chat environment may be convenient; a dedicated interface may fit other needs. Compare access controls, source visibility and operating responsibilities before choosing where the assistant will live."
+      ]
+    },
+    {
+      "id": "decide-when-it-should-ask",
+      "title": "Decide when the assistant should ask a question",
+      "paragraphs": [
+        "Some employee questions lack the context needed for a correct answer. The relevant procedure might depend on the type of request, its stage or the employee’s responsibility. Specify which missing details should prompt a clarification and which questions can be answered directly.",
+        "In the demonstration review, a stakeholder asked for the assistant to understand the person’s situation before shaping the response. The discussion showed that answer behavior still needed refinement. It did not establish a production accuracy rate or a finished solution for every audience.",
+        "For your assistant, write examples of good behavior. A straightforward question should get a concise, supported answer. An ambiguous question should get a focused clarification. A question outside the approved material should receive an honest statement of the gap and a useful route to the responsible person.",
+        "Do not use the project to quietly expand decision-making authority. If the assistant’s job is to explain an approval process, it should not grant the approval. Define that boundary in the requirements and include questions that try to cross it in your review set."
+      ]
+    },
+    {
+      "id": "review-answers-against-real-work",
+      "title": "Review answers against real work before broad use",
+      "paragraphs": [
+        "Create an evaluation set with the process owner. Include common questions, differently worded versions, questions requiring clarification, conflicting-source cases and questions with no answer in the collection. Write down the expected evidence and acceptable response before running the assistant.",
+        "For each response, check whether it answers the actual question, uses the appropriate source, includes necessary qualifications and points to evidence the employee can open. Also test access boundaries separately. A correct answer shown to the wrong person is still an unacceptable result.",
+        "A separate planning discussion about a knowledge system covered how new material would reach it, including automated intake and a controlled manual route. Part of the ingestion work still needed review. For an initial project, agree on one manageable intake route and a source owner; leave a detailed expansion plan until that route is understood.",
+        "The first useful milestone is a bounded assistant that the relevant team can evaluate on real questions. Keep a record of unanswered questions and corrections, then decide whether the next investment should improve the source material, the retrieval process or the response behavior. That gives the project a direction grounded in employees’ work rather than the size of the document collection."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Give your team a useful starting point for company knowledge",
+    "description": "Explore AIify It’s custom AI agent service, then prepare an email with the questions your team asks repeatedly and the documents that should answer them.",
+    "label": "Explore custom AI agents",
+    "href": "/services/custom-ai-agents/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}

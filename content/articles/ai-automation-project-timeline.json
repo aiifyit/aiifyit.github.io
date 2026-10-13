@@ -1,0 +1,97 @@
+{
+  "slug": "ai-automation-project-timeline",
+  "title": "When Will an AI Automation Be Ready for Real Work?",
+  "description": "Estimate an AI automation project timeline by separating build effort from access, decisions, review availability, and the dependencies that set the launch date.",
+  "category": "Automation delivery",
+  "takeaway": "A useful first automation needs a project-specific estimate. Build effort is only part of the elapsed timeline: access, business decisions, review availability, and unresolved dependencies can determine the first production date. Ask for a forecast that makes those assumptions visible.",
+  "sections": [
+    {
+      "id": "define-the-date-you-are-asking-for",
+      "title": "Define the date you are asking for",
+      "paragraphs": [
+        "“When will it be ready?” can mean a working demonstration, a reviewable pilot, or a live process that your team relies on. Those are different milestones. Agree which one the estimate covers before comparing proposals or setting an internal deadline.",
+        "For a first production delivery, describe the bounded job, the people who will use it, and what successful completion means. Include the agreed operating support and the way incomplete work will be handled. A demonstration using prepared inputs should not quietly become the promised production milestone.",
+        "Keep that initial outcome useful and specific. Adding another department, source system, or decision type may change the delivery forecast even when the new request sounds like a small extension."
+      ]
+    },
+    {
+      "id": "separate-effort-from-calendar-time",
+      "title": "Separate effort from calendar time",
+      "paragraphs": [
+        "Engineering effort estimates the work required to build and verify the solution. Calendar time also includes waiting. A developer may need an account administrator to grant access, a process owner to choose a rule, or a reviewer to confirm the output before proceeding.",
+        "Ask which tasks can run in parallel and which depend on an earlier result. Drafting the workflow may be possible while access is being arranged. Verifying the real integration usually requires the actual authorized connection. Treating both tasks as equally unblocked makes a schedule look healthier than it is.",
+        "An estimate should name its assumptions. “Ready after a short build” is incomplete if it assumes access is already working, the scope is agreed, and someone can review immediately."
+      ]
+    },
+    {
+      "id": "an-access-dependency-can-set-the-date",
+      "title": "An access dependency can set the date",
+      "paragraphs": [
+        "In an AIify It project discussion, workflow work had progressed while the required data access remained unresolved. A participant had expected access arrangements to be moving forward; the conversation revealed a mismatch in that understanding and the need to escalate ownership.",
+        "In a separate internal discussion, the team proposed more precise discovery and bounded delivery scopes to improve timeline expectations. That was a proposed planning approach. Neither discussion establishes a universal delivery duration or a measured improvement in project speed.",
+        "The practical lesson is to make dependencies visible early. People should be able to distinguish work completed from work that cannot yet be validated, and know which unresolved item controls the next milestone."
+      ]
+    },
+    {
+      "id": "put-an-owner-on-each-wait",
+      "title": "Put an owner on each wait",
+      "paragraphs": [
+        "For each blocking dependency, record what must happen, who can make it happen, the expected date, and what evidence will show it is resolved. “Waiting on the customer” or “waiting on the vendor” is too vague to manage.",
+        "Access is resolved when the required operation succeeds with the intended permissions. A decision is resolved when the responsible person agrees the rule. Review is resolved when the agreed output is accepted or a specific correction is returned. Sending a request starts the wait; it does not close it.",
+        "Identify the chain of dependencies that currently sets the earliest completion date. Focus updates and escalation there. Finishing an unrelated task may be useful progress without moving the launch date at all."
+      ]
+    },
+    {
+      "id": "read-a-sample-schedule-correctly",
+      "title": "Read a sample schedule correctly",
+      "paragraphs": [
+        "Consider a purely illustrative schedule. A team estimates five working days for implementation after access is available. Access is expected to take eight business days, and review needs two more. If those activities must happen in sequence, the plan spans fifteen business days before any additional rollout work.",
+        "That arithmetic is not a delivery benchmark. It assumes the forecast is correct, no rework is needed, and the calendars align. If some implementation can happen before access arrives, tasks may overlap. If access takes longer or the review finds a material issue, the date moves.",
+        "Ask the supplier to explain that logic for your project instead of presenting a single duration without dependencies. A range with named uncertainties can be more useful than a precise date built on invisible assumptions."
+      ]
+    },
+    {
+      "id": "reserve-review-time-in-the-plan",
+      "title": "Reserve review time in the plan",
+      "paragraphs": [
+        "Put review on the calendar as planned work. Name the person who can accept the result and agree how quickly they can respond. If a decision requires another manager, include that dependency rather than discovering it after the build is complete.",
+        "Use the agreed acceptance boundary to keep review focused. A correction needed for the promised outcome belongs in the delivery discussion. A new capability needs an explicit decision about scope and timing. Both may be worthwhile, but they affect the forecast differently.",
+        "Leave room for resolving what review uncovers. A schedule that ends when code is finished has not explained when the business can responsibly begin using it."
+      ]
+    },
+    {
+      "id": "ask-for-a-forecast-that-can-be-updated",
+      "title": "Ask for a forecast that can be updated",
+      "paragraphs": [
+        "At each meaningful milestone, compare the assumptions with what is now known. Update the expected date when access changes, scope expands, a key reviewer becomes unavailable, or the integration behaves differently from the plan.",
+        "A useful progress update should answer these questions:"
+      ],
+      "bullets": [
+        "What has been completed and verified?",
+        "What remains before the agreed production milestone?",
+        "Which dependency currently determines the earliest delivery date?",
+        "Who owns it, and when is the next reliable update expected?",
+        "What changed in the forecast, and which decision would change it again?"
+      ]
+    },
+    {
+      "id": "choose-a-date-you-can-plan-around",
+      "title": "Choose a date you can plan around",
+      "paragraphs": [
+        "The best first estimate is one your team can use to make decisions. It should separate the supplier’s work from outside dependencies, reserve real review capacity, and show the effect of uncertainty.",
+        "Once those pieces are explicit, you can decide whether the initial scope fits your deadline, whether an access issue needs escalation, or whether the rollout date needs to move. That is how a delivery estimate becomes an operational plan."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Plan a first delivery with clear dependencies",
+    "description": "Explore workflow automation with AIify It, then prepare an email about your intended outcome, deadline, and the systems or decisions that could affect delivery.",
+    "label": "Explore delivery planning",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}
