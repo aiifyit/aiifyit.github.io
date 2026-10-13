@@ -1,0 +1,75 @@
+{
+  "slug": "ai-integration-existing-business-software",
+  "title": "Can AI Work With the Software You Already Have?",
+  "description": "Can AI connect your existing CRM, email and accounting tools? Learn what to verify about interfaces, permissions and data flow before replacing business software.",
+  "category": "Connecting existing systems",
+  "takeaway": "Your team already lives in a CRM, an inbox and a few indispensable business tools. An AI project should earn its place in that setup. What needs to be true before those systems can work together?",
+  "sections": [
+    {
+      "id": "keep-the-job-in-focus",
+      "title": "Start with the handoff you want to change",
+      "paragraphs": [
+        "AI can be part of a workflow connecting existing business software when the required information, permissions and supported interfaces are available. Replacing your current applications is not automatically necessary. Equally, a promise to connect everything needs evidence for each required action.",
+        "Describe the handoff before discussing the technology. For example: approved information arrives, a record is found, a proposed update is prepared and a responsible person sees the result. Name where the information begins and where the completed work belongs. The AI component might interpret an unstructured message while ordinary integration steps handle retrieval and updates.",
+        "In a data-integration review, the team wanted to retrieve information from existing applications and keep a familiar reporting output. The discussion stalled on unresolved access and authorization questions. That is a useful lesson for buyers: a sensible workflow design can still be blocked before the first real record moves."
+      ]
+    },
+    {
+      "id": "make-an-access-map",
+      "title": "Make an access map for the actual job",
+      "paragraphs": [
+        "List every application involved and the exact action the workflow needs in it. Reading a customer record, retrieving an attachment, adding a note and changing an invoice are separate requirements. Do not accept the presence of an app logo in a connector directory as proof that all four are supported.",
+        "Ask your implementation partner to verify the necessary interface, account plan, permissions and limits against current vendor documentation and a representative account. Check reading and writing separately. If the proposed first version only needs to read, do not make broad write access a default dependency.",
+        "Your access map should answer these questions for each step:"
+      ],
+      "bullets": [
+        "What information must the workflow retrieve, and does the supported interface expose it?",
+        "What action, if any, must the workflow take in the destination application?",
+        "Who can authorize that access, and does it need approval for each account involved?",
+        "Which subscription, configuration or vendor restriction could block the required action?",
+        "Who will maintain the connection and respond when access changes?"
+      ]
+    },
+    {
+      "id": "prove-the-permission",
+      "title": "Prove permission instead of assuming it",
+      "paragraphs": [
+        "In the reviewed project, existing access through an application’s normal interface was part of the conversation. The team still needed to establish how the integration would be authorized for the relevant accounts. That work remained unresolved in the source discussion; the transcript did not show a completed connection.",
+        "Use that distinction as a practical checkpoint. Have the person responsible for access participate early. Ask the builder to demonstrate one approved read from the correct account, using the route intended for the final workflow. A general assurance that someone can log in is insufficient evidence for this step.",
+        "For work spanning several customers, departments or entities, check each account boundary explicitly. Avoid designing around an assumed master connection. Establish which party can grant access and what happens when an account is disconnected. Record the scope without placing credentials in a project document.",
+        "Keep secret entry and management inside the approved authorization or credential-management process. The useful deliverable is a verified access path and an accountable owner, not a spreadsheet of passwords."
+      ]
+    },
+    {
+      "id": "choose-the-smallest-connection",
+      "title": "Choose the simplest connection that covers the work",
+      "paragraphs": [
+        "Ask first whether the existing application can already perform the required handoff with an adequately controlled native feature. If it can, configuring that capability may be sufficient. If it cannot, compare a workflow platform, a supported integration or a custom component against the actual requirements.",
+        "In a discovery discussion, AIify It described using a workflow layer for orchestration and handing specialized processing to a separate component when appropriate. The explanation concerned how to work within different technology stacks. It did not establish that one platform supports every system or that a custom component is always needed.",
+        "For a buyer, the important question is how the parts fit together. Which component starts the job? Which interprets the information? Where are decisions recorded? Where does the result become available to the team? A diagram should make those boundaries understandable without requiring you to read code.",
+        "Avoid introducing a second place for staff to maintain the same business record unless there is a clear reason. Decide which application remains authoritative for each type of information and where people should go to correct it. That decision helps keep the integration from becoming another administrative task."
+      ]
+    },
+    {
+      "id": "retain-the-useful-output",
+      "title": "Keep the output people already use",
+      "paragraphs": [
+        "The data-integration discussion included a request to preserve a familiar tabular reporting format while improving how source data arrived. It was a requested design, not a verified finished reporting system. The general lesson is valuable: improving the upstream work does not require redesigning every downstream habit.",
+        "Ask employees to show the output they rely on. Preserve useful field meanings, record identifiers and review steps unless changing them is part of the agreed scope. A technically successful data transfer can still disappoint if staff must reconstruct their working view afterward.",
+        "Before approving a larger build, prove one complete, representative path: the correct account supplies the intended information, the integration performs only permitted actions and the result appears where the team expects. Include the business owner in checking it.",
+        "If a required application cannot support that path reliably, make the limitation explicit. You can narrow the first workflow, keep a controlled manual handoff or assess a replacement for that particular system. The replacement decision should follow the evidence about the missing capability, rather than arrive as an assumption at the start of the AI project."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Find the real integration gap",
+    "description": "Explore AIify It’s workflow integration service, then prepare an email describing the systems and handoff your team wants to connect.",
+    "label": "Explore workflow integration",
+    "href": "/services/workflow-integration/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}
