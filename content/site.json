@@ -11,7 +11,8 @@
     "/articles/",
     "/services/workflow-automation/",
     "/services/custom-ai-agents/",
-    "/services/workflow-integration/"
+    "/services/workflow-integration/",
+    "/inquire/"
   ],
   "articleIndex": {
     "title": "Practical AI automation lessons",

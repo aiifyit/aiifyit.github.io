@@ -5,6 +5,7 @@ import Footer from './components/layout/Footer';
 import BackgroundFX from './components/layout/BackgroundFX';
 import MarketingPage from './pages/MarketingPage';
 
+const InquiryPage = lazy(() => import('./pages/InquiryPage'));
 const BookPage = lazy(() => import('./pages/BookPage'));
 const SowIntakePage = lazy(() => import('./pages/SowIntakePage'));
 
@@ -19,6 +20,7 @@ function App() {
       <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<MarketingPage />} />
+          <Route path="/inquire" element={<InquiryPage />} />
           <Route path="/book" element={<BookPage />} />
           <Route path="/sow/*" element={<SowIntakePage />} />
           <Route path="*" element={<MarketingPage />} />

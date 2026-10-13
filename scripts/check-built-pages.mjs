@@ -35,12 +35,12 @@ for (const article of articles) {
     else await stat(disk);
   }
 }
-for (const route of ['book', 'sow']) {
+for (const route of ['book', 'inquire', 'sow']) {
   const entry = await readFile(`dist/${route}/index.html`, 'utf8');
   assert(entry.includes(home.match(/<script type="module"[^>]*><\/script>/)[0]), `Preserved ${route} app bundle`);
   assert(entry.includes('<div id="root"></div>'), `Preserved ${route} React root`);
 }
-assert((await readFile('dist/book/index.html', 'utf8')).includes(`rel="canonical" href="${site.url}/book/"`), 'Booking canonical');
+assert((await readFile('dist/book/index.html', 'utf8')).includes(`rel="canonical" href="${site.url}/inquire/"`), 'Booking canonical');
 assert((await readFile('dist/sow/index.html', 'utf8')).includes('name="robots" content="noindex, nofollow"'), 'Do not index SOW entry');
 assert.equal(await readFile('dist/404.html', 'utf8'), home, 'Preserved SPA fallback');
 assert(!sitemap.includes('/sow'), 'Do not index private workspace');
@@ -53,9 +53,9 @@ for (const service of services) {
   const html = await readFile(`dist${route}index.html`, 'utf8');
   assert(html.includes(`<h1>${escapeHtml(service.title)}</h1>`));
   assert(html.includes(`rel="canonical" href="${site.url}${route}"`));
-  assert(html.includes('action="/book/" method="get"'));
+  assert(html.includes('action="/inquire/" method="get"'));
   assert(html.includes(`name="service" value="${service.slug}"`));
-  assert(html.includes('Skip this step and open the calendar'));
+  assert(html.includes('Skip this step and prepare an email'));
   assert(!html.includes('type="email"'));
   const jsonld = JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1]);
   assert.equal(jsonld['@type'], 'Service');
@@ -68,3 +68,18 @@ for (const service of services) {
   }
 }
 console.log(`Service funnel checks passed (${services.length} pages).`);
+
+assert((await readFile('dist/inquire/index.html', 'utf8')).includes(`rel="canonical" href="${site.url}/inquire/"`), 'Inquiry canonical');
+for (const name of await readdir('dist/assets')) {
+  if (!name.endsWith('.js')) continue;
+  const bundle = await readFile(`dist/assets/${name}`, 'utf8');
+  assert(!bundle.includes('calendly.com/jon-aiifyit/30min'), 'Broken calendar must not be linked or loaded by shipped code');
+}
+
+assert(!sitemap.includes('/book/'), 'Do not index duplicate booking alias');
+for (const route of ['book', 'inquire']) {
+  const html = await readFile(`dist/${route}/index.html`, 'utf8');
+  assert(html.includes('<noscript>'));
+  assert(html.includes('mailto:joshua@aiifyit.com'));
+  assert(html.includes('<title>Email Joshua about your workflow | AIify It</title>'));
+}

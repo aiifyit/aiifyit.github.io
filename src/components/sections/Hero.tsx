@@ -8,7 +8,6 @@ import {
   HERO_SUBHEADLINE,
   HERO_BULLETS,
   HERO_STATS,
-  CALENDLY_URL,
 } from '../../data/constants';
 
 export default function Hero() {
@@ -94,13 +93,11 @@ export default function Hero() {
             className="flex flex-row flex-wrap items-center justify-center gap-4 mb-16"
           >
             <Button
-              href={CALENDLY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/inquire/"
               variant="primary"
               size="sm"
             >
-              Book a Strategy Call
+              Discuss your workflow
             </Button>
             <Button href="#process" variant="ghost" size="sm">
               See How It Works
