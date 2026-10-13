@@ -1,0 +1,83 @@
+{
+  "slug": "sales-to-delivery-handoff-automation",
+  "title": "Deal Accepted. Now What? Sales-to-Delivery Handoff Automation",
+  "description": "Plan sales-to-delivery handoff automation that carries accepted scope into the right project, folders, tasks, and owner, with clear status written back to sales.",
+  "category": "Workflow integration",
+  "takeaway": "A successful sales-to-delivery handoff transfers the accepted scope, creates the right working records, and puts the next action with a named person. Record those outcomes back in the sales system so both teams can see what is ready and what still needs attention.",
+  "sections": [
+    {
+      "id": "define-the-acceptance-event",
+      "title": "Agree what allows delivery setup to begin",
+      "paragraphs": [
+        "Sales-to-delivery handoff automation turns an accepted deal into organized delivery work. The starting point might be an approved proposal response, a confirmed service selection, or a deal stage backed by the evidence your business requires. Define that condition before connecting the CRM to a project tool.",
+        "A stage change is only useful if the team agrees what it means. Someone may move a deal while correcting a record or reopen it after a scope change. Check the current acceptance evidence and the selected services before creating the delivery package.",
+        "For an illustrative consultancy, a customer might accept implementation while leaving optional training undecided. Delivery setup should carry forward the implementation scope and keep training visibly unresolved. Creating every task in a generic template would give the delivery team a misleading picture of what was sold."
+      ]
+    },
+    {
+      "id": "carry-the-accepted-scope",
+      "title": "Carry the scope that was accepted",
+      "paragraphs": [
+        "Define a handoff record that sales can review and delivery can use without reconstructing the deal from messages. Preserve a reference to the accepted scope version. Later edits to a proposal should not silently change the baseline for work already handed over.",
+        "A short summary helps the receiving team, but it should point back to the approved material and retain unresolved questions. AI can prepare that summary; the workflow still needs a trusted source for commitments, exclusions, and service selections.",
+        "Include the information that determines what happens next:"
+      ],
+      "bullets": [
+        "The customer and deal references, accepted services, and source version supporting acceptance.",
+        "Deliverables, important exclusions, and any optional work that remains undecided.",
+        "Agreed dates or dependencies, with proposed dates kept distinct from confirmed commitments.",
+        "The sales contact, delivery owner, and other roles required for the first action.",
+        "Controlled links to the working project, folders, and source material once they exist."
+      ]
+    },
+    {
+      "id": "what-a-component-demo-established",
+      "title": "What a component demonstration established",
+      "paragraphs": [
+        "In an AIify It workflow demonstration, service selections and their date appeared in a tracker. The team also inspected folders and template copies in a test location, and demonstrated assigning a reviewer. These were concrete pieces of an acceptance-to-delivery workflow.",
+        "The builder manually ran components during the demonstration and described scheduled operation as future behavior. Some role details still used test values. This supported the narrower claim that setup components had been demonstrated; it did not establish autonomous, production-ready handoff from acceptance through completed delivery.",
+        "When assessing your own implementation, ask which information crossed each boundary. A folder appearing proves something useful, but delivery also needs the correct scope, accessible working material, and a real owner. Review those as distinct handoff results."
+      ]
+    },
+    {
+      "id": "map-services-to-working-records",
+      "title": "Map each accepted service to its working records",
+      "paragraphs": [
+        "Build an explicit mapping from service selection to project type, task checklist, folder structure, and template version. The operations team should be able to explain why a particular package was created. Keep optional or declined services out of that package unless someone later approves the change.",
+        "Use established customer and deal references to locate existing records before creating new ones. A returning customer may already have a shared folder but need a new project. A repeated acceptance event should find the existing handoff rather than start another copy.",
+        "Record each created destination identifier as setup progresses. If a folder is created but task creation fails, preserve that partial result and resume from the failed step after checking the destination. Restarting everything can scatter duplicate folders and projects across the team's workspace.",
+        "Keep later scope amendments separate from initial setup. Show what changed and which delivery records would be affected, with review before changing agreed work. The original acceptance record remains useful even after a revised scope is approved."
+      ]
+    },
+    {
+      "id": "write-back-meaningful-status",
+      "title": "Write the handoff result back to sales",
+      "paragraphs": [
+        "The sales record should show where the work went. Write back the destination project reference, handoff status, delivery owner, and any unresolved setup issue. This closes a practical information gap: sales can locate the work without asking someone to search another system.",
+        "Define the status values precisely. Project created, setup incomplete, awaiting delivery acceptance, and delivery accepted mean different things. Do not label a deal fully handed over merely because the first downstream record exists.",
+        "Assign ownership of shared fields. Sales might own the accepted scope reference while delivery owns operational progress. Specify which values may return to the CRM and which must stay under their existing owner's control. Avoid a broad synchronization rule that lets an old sales value overwrite a newer delivery decision.",
+        "Verify the writeback by reopening the originating deal. If that update fails after project creation, retain the project reference and flag the incomplete writeback. Recovery should repair the missing association without creating another project."
+      ]
+    },
+    {
+      "id": "have-delivery-accept-the-handoff",
+      "title": "Have the receiving owner check the package",
+      "paragraphs": [
+        "Give the delivery owner a concise notification with the scope summary, working links, outstanding decisions, and expected next action. Confirm that they can open the material using their normal account. Assignment and access both matter when work crosses teams.",
+        "Agree what counts as delivery acceptance. The owner might confirm that the scope is understandable, the required working records exist, and the next action is assigned. An unresolved commercial question should remain with the person authorized to answer it.",
+        "Start acceptance testing with a representative deal and trace it through to that receiving-owner check. Then repeat the event and interrupt one setup step to verify that recovery preserves the same project. The finished handoff should be easy to explain from either system: what was accepted, what was created, who owns it now, and what remains open."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Connect accepted deals to delivery work",
+    "description": "Explore AIify It’s workflow integration service, then prepare an email describing your sales system, delivery tools, and the context that gets lost between them.",
+    "label": "Explore workflow integration",
+    "href": "/services/workflow-integration/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}

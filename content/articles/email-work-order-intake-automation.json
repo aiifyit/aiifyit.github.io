@@ -1,0 +1,81 @@
+{
+  "slug": "email-work-order-intake-automation",
+  "title": "Email Work Order Intake Automation: Capture More Than the PDF",
+  "description": "Design email work order intake automation that accounts for message bodies, attachments, and permitted links, with visible gaps before a job is created.",
+  "category": "Email automation",
+  "takeaway": "A work order can arrive as a PDF, a paragraph in an email, or a link to a document. Reliable intake starts by accounting for those sources and showing what could not be retrieved. Otherwise, a well-built parser can process an incomplete request without anyone noticing.",
+  "sections": [
+    {
+      "id": "start-with-the-whole-request",
+      "title": "Start with the whole request",
+      "paragraphs": [
+        "Email work order intake automation connects an incoming request to a usable job record. Before extracting a job number or assigning work, it needs to establish what arrived: the message body, attached files, relevant links, and any earlier context required to understand the request.",
+        "Consider an illustrative maintenance request. The attachment describes the repair, while the email says the site entrance has changed. An automation that reads only the PDF may create a convincing job with incomplete instructions. The intake check should preserve both sources and make their relationship visible.",
+        "Define the monitored inboxes, labels, and message types first. Account for every message within that agreed scope, including those that cannot become a work order yet. This gives the team a way to find missing work without turning the integration into an archive of unrelated email."
+      ]
+    },
+    {
+      "id": "what-an-intake-review-revealed",
+      "title": "The gap can be upstream of extraction",
+      "paragraphs": [
+        "In an AIify It implementation review, the team examined incoming order emails that were missing from the downstream processing view. Examples included body-only information, absent attachments, and links to documents. Later in the discussion, a participant confirmed that email body content was stored upstream. Whether that material reached the processing and review steps still needed checking.",
+        "The proposed redesign was to make incoming messages visible even when their contents could not be processed, flag incomplete items, and let reviewers open the original body alongside attachments. That was a diagnosis and proposed change; the discussion did not verify a completed repair.",
+        "The practical lesson is to trace one request from mailbox to working record before changing the extraction prompt. Information can exist in storage while remaining unavailable to the next step or the person responsible for reviewing it."
+      ]
+    },
+    {
+      "id": "build-an-intake-register",
+      "title": "Give each incoming message a visible intake record",
+      "paragraphs": [
+        "Create a small intake register before deciding whether a message is ready for processing. Keep a stable source reference so staff can compare the mailbox with the register and distinguish a new request from a repeated processing attempt.",
+        "Separate arrival from readiness. Received, waiting for material, ready for review, and transferred to the job system describe different outcomes. A message with no attachment may be complete because its body contains the request; another may explicitly mention a file that never arrived.",
+        "A useful record includes:"
+      ],
+      "bullets": [
+        "The source message reference, arrival time, and route into the monitored inbox.",
+        "A readable body or controlled source link, including relevant instructions outside the attachment.",
+        "An inventory of expected and received attachments, with retrieval status for each.",
+        "Relevant document links and whether access is permitted, available, or unresolved.",
+        "The intake status, missing material, and person responsible for the next action."
+      ]
+    },
+    {
+      "id": "handle-links-as-separate-inputs",
+      "title": "Treat a document link as a separate input",
+      "paragraphs": [
+        "A link in an email does not establish that the automation can open the document. It may require an approved account, point to an expired share, or lead to a notification page rather than the requested file. Preserve the distinction between finding a link and retrieving its contents.",
+        "Agree which document services and locations the workflow may use. Retrieve material only through authorized connections and approved routes. Unexpected destinations, sign-in prompts, or permission failures should become visible intake exceptions. They should not trigger attempts to bypass access controls or open every link in a message.",
+        "Give the operator a specific next step: obtain the missing file through the approved channel, ask the sender to correct the share, or confirm that the link is irrelevant. Limit access to stored bodies and files to the people who need them, and apply an agreed retention policy."
+      ]
+    },
+    {
+      "id": "preserve-differences-between-sources",
+      "title": "Keep body instructions and attachment details traceable",
+      "paragraphs": [
+        "Once the material is available, extract the fields needed for the work order. Retain a reference to where each consequential value came from. An operator should be able to inspect the source of the requested work, location, due date, and any spending or access restrictions.",
+        "Decide how to handle disagreements before writing to the job system. If the body gives a different date from the attachment, show both for review unless an agreed rule clearly resolves the conflict. A summary should preserve an unresolved difference rather than blend the values into a plausible instruction.",
+        "Keep the intake identity separate from the work-order identity. A sender may resend the same request or supply a replacement attachment. Link the additional material to the appropriate existing job when the relationship is established; leave uncertain matches for review instead of silently creating or merging work."
+      ]
+    },
+    {
+      "id": "prove-completeness-with-a-mailbox-check",
+      "title": "Test what arrived, including what could not proceed",
+      "paragraphs": [
+        "Use synthetic or appropriately redacted examples covering a body-only request, an attachment-only request, complementary body and attachment instructions, a missing promised file, an inaccessible link, and a resend. Agree the expected intake state for each before running the test.",
+        "Then compare the monitored mailbox with the intake register. Every in-scope test message should have an explained outcome. Open the stored material using the operator's normal access and confirm that the review screen exposes the same information the sender supplied.",
+        "Finish by tracing a ready request into the destination job and an incomplete request into its review queue. Agree who checks that queue and how blocked items are resolved. The acceptance question is concrete: can the team account for each incoming request and see what still prevents it from becoming usable work?"
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Scope your email-to-work-order workflow",
+    "description": "Explore AIify It’s workflow automation service, then prepare an email describing your intake sources, job system, and the information your team keeps having to recover.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}
