@@ -1,0 +1,89 @@
+{
+  "slug": "ai-call-quality-assurance-context",
+  "title": "Your AI Call Scores Look Precise. Why Do Managers Disagree?",
+  "description": "Learn how to review AI call quality assurance when scores miss context, call types need different rubrics, and managers cannot trace a rating to the conversation.",
+  "category": "AI quality assurance",
+  "takeaway": "A call gets a weak rating. The manager who knows the conversation thinks the response was reasonable. Before changing the score, check what the system was asked to judge and what evidence it actually considered.",
+  "sections": [
+    {
+      "id": "when-the-rating-needs-a-second-look",
+      "title": "When the rating needs a second look",
+      "paragraphs": [
+        "In an AIify It call-review discussion, a manager raised a practical problem: isolated judgments were hard to assess without the surrounding conversation. The report also applied expectations across calls with different purposes. A missing topic could appear to be a weakness even when that topic belonged in another type of call.",
+        "The team discussed broader context, clearer presentation, and call-specific expectations. Those were requested improvements. The discussion did not establish that the changes were complete or that scoring accuracy had improved.",
+        "The useful lesson is the review method. When an AI call quality assurance system produces a disputed rating, trace the rating through the call type, the applicable rubric, and the source evidence. That gives the manager and builder a specific disagreement to resolve."
+      ]
+    },
+    {
+      "id": "define-what-this-call-was-for",
+      "title": "Define what this call was for",
+      "paragraphs": [
+        "A quick follow-up, a discovery conversation, and a periodic review can all be good calls while covering different ground. Start the evaluation with an explicit purpose. Then decide which expectations apply to that purpose.",
+        "For a synthetic example, imagine a service team that holds both planning calls and brief progress checks. Discussing long-term priorities may be required in the planning call. Penalizing every progress check for omitting that discussion would manufacture a coaching problem.",
+        "Prefer a reliable call-type field when the scheduling or operating system has one. If the model must infer the type, preserve that inference and give uncertain cases a review path. Duration alone can be misleading: a planning call can end early, and a quick check can run long."
+      ]
+    },
+    {
+      "id": "write-a-rubric-a-manager-can-use",
+      "title": "Write a rubric a manager can actually use",
+      "paragraphs": [
+        "A useful rubric names observable behavior. “Handled the issue well” leaves too much room for interpretation. “Acknowledged the concern, clarified the unresolved point, and agreed on the next action when one was needed” gives reviewers something to check.",
+        "For each criterion, document the circumstances in which it applies, acceptable evidence, and the difference between a weak response and insufficient evidence. Include a not-applicable outcome where a behavior genuinely was not required.",
+        "Keep absence and failure separate. A transcript may omit a section because the recording began late. That is an evidence limitation. It should not automatically become a judgment that the employee skipped the step."
+      ],
+      "bullets": [
+        "What was the call trying to accomplish?",
+        "Was this criterion applicable to that call?",
+        "What passage supports the judgment?",
+        "What surrounding exchange could change its meaning?",
+        "Would a trained reviewer reach the same conclusion from the same evidence?"
+      ]
+    },
+    {
+      "id": "give-the-reviewer-enough-context",
+      "title": "Give the reviewer enough context to disagree",
+      "paragraphs": [
+        "Each finding should open near the relevant passage and show enough conversation before and after it to explain the judgment. A short summary can orient the reader, but the underlying exchange needs to remain accessible to authorized reviewers.",
+        "Some judgments depend on earlier conversations. A participant may defer an item because it was already resolved or because a follow-up is already scheduled. If prior history is necessary, specify which history the evaluator may use and show whether it was available.",
+        "Avoid feeding every past interaction into every evaluation by default. Select relevant context, apply appropriate access controls, and record what was included. A manager should be able to tell whether a disputed score reflects a rubric problem, an incomplete record, or a reasonable difference in interpretation."
+      ]
+    },
+    {
+      "id": "make-the-filter-match-the-question",
+      "title": "Make the filter match the manager’s question",
+      "paragraphs": [
+        "The same review exposed another distinction: showing calls that contain weak responses is different from showing only the weak responses within those calls. If a manager selects a weakness filter and still sees a mixture of strong and weak findings, the interface adds manual sorting to the review.",
+        "Define the unit being filtered. Is each result a whole call, a topic, or an individual finding? Label it clearly and preserve a route back to the full conversation. Managers need to inspect a finding without losing the context that could explain it.",
+        "Use consistent labels across dashboards, summaries, and individual reports. When the same judgment appears under different categories, users must first interpret the reporting system before they can coach anyone."
+      ]
+    },
+    {
+      "id": "calibrate-before-you-scale",
+      "title": "Calibrate before you use scores more widely",
+      "paragraphs": [
+        "Select an authorized sample covering different call types and common edge cases. Have reviewers apply the written rubric independently before comparing their judgments with the model’s. Review disagreements criterion by criterion rather than hiding them inside an overall average.",
+        "Classify each disagreement: wrong call type, missing evidence, unclear criterion, incorrect interpretation, or reviewer disagreement. Fix the underlying issue and rerun the same cases alongside fresh examples. Save the rubric and model versions used so that a change in the scoring method does not masquerade as a change in employee performance.",
+        "Treat AI findings as review inputs while this process is being established. Decisions with meaningful consequences for staff require appropriate human judgment and a way to challenge the evidence."
+      ]
+    },
+    {
+      "id": "a-useful-acceptance-test",
+      "title": "A useful acceptance test for call QA",
+      "paragraphs": [
+        "Ask a manager to choose a disputed finding and explain it without hunting through unrelated reports. They should be able to identify the call’s purpose, see the applicable criterion, inspect the relevant conversation, and record why they accepted or changed the judgment.",
+        "If that is difficult, a more polished scorecard will not resolve the underlying problem. Improve the evidence and the review experience first. Then measure whether the system helps managers reach sound, consistent decisions with less reconstruction work."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Build call reviews your managers can use",
+    "description": "Explore how AIify It approaches custom AI agents, including the context, review steps, and decision boundaries your team needs.",
+    "label": "Explore custom AI agents",
+    "href": "/services/custom-ai-agents/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}

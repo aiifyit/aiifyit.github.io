@@ -1,0 +1,91 @@
+{
+  "slug": "ai-crm-overwriting-good-data",
+  "title": "Why Does Your CRM Keep Losing Good Data After an AI Update?",
+  "description": "Learn how to prevent AI CRM automation from overwriting trusted fields, handle conflicting updates, and test whether existing records stay intact.",
+  "category": "Workflow reliability",
+  "takeaway": "A document arrives, an automation runs, and a field your team already checked changes again. The incoming value may look perfectly reasonable. What gave it permission to replace the one you trusted?",
+  "sections": [
+    {
+      "id": "the-value-looked-valid",
+      "title": "The value looked valid",
+      "paragraphs": [
+        "A workflow review exposed a subtle problem: incoming documents were causing existing dates to be overwritten with dates that meant something different. The automation found a real value. The mistake was allowing that value to replace a field it did not belong in.",
+        "The team proposed preserving populated fields and leaving judgments about conflicting information to people. That was a requested change, rather than a demonstrated outcome from a completed rollout. It provides a useful starting point for any business using AI to update a CRM or another operational system.",
+        "Before changing the extraction prompt, inspect the write policy. A correctly read date, name, or address can still be the wrong update. Ask which source may change which field, under what conditions, and who decides when sources disagree."
+      ]
+    },
+    {
+      "id": "decide-who-owns-each-field",
+      "title": "Decide who owns each field",
+      "paragraphs": [
+        "Treat every destination field as a small policy decision. Some fields can be filled from an approved source whenever they are empty. Others should remain unchanged after a person verifies them. Some need regular updates from a designated authoritative system.",
+        "A single rule that lets every new document update every matching field collapses those differences. Recency alone is weak evidence: a recently uploaded file may describe an older event, or a different event altogether.",
+        "Write a short field policy before expanding the workflow. Start with the fields whose incorrect replacement would cause the most rework. For each, record:"
+      ],
+      "bullets": [
+        "The meaning of the field, including which event a date refers to.",
+        "The source types allowed to supply it and the evidence required.",
+        "Whether automation may fill an empty value, replace a value, or only suggest a change.",
+        "Whether human verification locks the value against automatic replacement.",
+        "Who resolves conflicting values and how that decision is recorded."
+      ]
+    },
+    {
+      "id": "compare-before-you-write",
+      "title": "Compare before you write",
+      "paragraphs": [
+        "Use a proposed-change step between extraction and the CRM update. The workflow should assemble the current value, the incoming candidate, its source, and the applicable policy before deciding what to send.",
+        "Consider this synthetic example: a CRM record has a verified service-start date. A new file contains a document-created date. Both values are valid dates, but they describe different events. The proposed-change check should reject that mapping before the update request is built.",
+        "For an eligible field with no existing value, a validated candidate may be suitable to write. For a populated field with the same value, record a no-change result. For a conflicting populated field, preserve the current value and create a review item unless a specific replacement policy authorizes the update.",
+        "Also distinguish an absent candidate from a request to clear the field. An extraction that found nothing should not quietly erase a populated field. Intentional clearing needs its own permitted condition, evidence, and audit record."
+      ]
+    },
+    {
+      "id": "protect-the-write-itself",
+      "title": "Protect the write itself",
+      "paragraphs": [
+        "Reading the current record is only part of the protection. A person might edit it between the read and the write. If the workflow submits its earlier version without checking, it can overwrite a change that happened while the automation was working.",
+        "Ask your integration team whether the receiving system supports a record-version check, conditional update, or transaction that verifies the expected value at the moment of writing. When that condition fails, reread the record and reassess the proposed change rather than forcing it through.",
+        "Be precise about integration terminology. An upsert generally decides whether to create or update a record. It does not, by itself, define which populated fields deserve protection. A partial update limits what you send, but each included field still needs an appropriate write rule.",
+        "If the API cannot enforce the protection you need, choose a narrower automation boundary. Preparing a proposed change for review can be more appropriate than allowing an unattended update."
+      ]
+    },
+    {
+      "id": "test-what-stayed-the-same",
+      "title": "Test what stayed the same",
+      "paragraphs": [
+        "A useful preservation test checks the complete resulting record, including fields that should not change. Testing only whether the new value arrived misses the damage an update could do around it.",
+        "Use synthetic records and set the expected result before running these cases:"
+      ],
+      "bullets": [
+        "Empty eligible field: the approved candidate is added and unrelated fields remain unchanged.",
+        "Existing verified value: a conflicting candidate creates a review item without replacing the value.",
+        "Same value: the workflow records no change and does not trigger unnecessary downstream actions.",
+        "No value extracted: the existing value survives; absence is not treated as permission to clear.",
+        "Wrong document type: its values cannot reach fields outside that document type’s allowed mapping.",
+        "Concurrent edit: a changed record version blocks or re-evaluates the pending write.",
+        "Repeated delivery: replaying the same event does not create duplicate review items or repeat side effects."
+      ]
+    },
+    {
+      "id": "give-conflicts-a-real-owner",
+      "title": "Give conflicts a real owner",
+      "paragraphs": [
+        "Preserving a value can also preserve an error. A protected field should therefore have a controlled correction path. Show the reviewer the current value, the candidate, their sources, and why the automation stopped. Let an authorized person accept, reject, or request better evidence.",
+        "Keep an access-controlled history of material changes and decisions. Use that history to investigate corrections and refine field policies, rather than exposing full customer records in general-purpose logs.",
+        "For your next CRM automation review, ask: “Can this workflow show which fields it deliberately left untouched?” A clear answer makes preservation testable and turns a vague promise about data quality into a concrete update policy."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Build a safer CRM update process",
+    "description": "Explore how AIify It approaches workflow integrations, including the rules that connect incoming information to existing business records.",
+    "label": "Explore workflow integration",
+    "href": "/services/workflow-integration/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}

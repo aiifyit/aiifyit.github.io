@@ -1,0 +1,99 @@
+{
+  "slug": "ai-workflow-end-to-end-testing",
+  "title": "Your AI Workflow Passed. Why Is the Job Still Unfinished?",
+  "description": "Build end-to-end tests for AI workflows that verify saved records, downstream actions, retries, and regressions beyond a successful API response.",
+  "category": "Workflow reliability",
+  "takeaway": "The dashboard is green. The receiving system accepted the request. Yet someone opens the application and finds work still waiting, a value missing, or the wrong update. What did the test actually prove?",
+  "sections": [
+    {
+      "id": "the-connection-worked",
+      "title": "The connection worked",
+      "paragraphs": [
+        "In one integration build session, the receiving side confirmed that requests had arrived. That established a useful connection milestone. The discussion then moved to payload structure, extraction rules, exceptions, and test cases that still needed attention.",
+        "It would have been premature to treat receipt of those requests as proof of correct business outcomes. The workflow had several different jobs: interpret a source, prepare the required data, transmit it, and produce the intended result in another system.",
+        "End-to-end AI workflow testing follows that entire chain. It starts with a realistic input and finishes with evidence that the resulting record and next operational step match an agreed expectation."
+      ]
+    },
+    {
+      "id": "write-the-finish-line-first",
+      "title": "Write the finish line first",
+      "paragraphs": [
+        "For each test, describe what a person should be able to observe when the work is complete. Avoid an acceptance criterion such as “the workflow runs successfully.” That describes execution without defining correctness.",
+        "Consider this synthetic example: a service request should create one draft work item, preserve the customer’s verified contact details, and appear in the coordinator’s review queue. The test should check all three conditions. It should also confirm that no customer message was sent before approval.",
+        "Start with a short test record containing the input, expected record changes, expected next action, forbidden side effects, and evidence needed to judge the result. Identify which rules are business decisions so a developer is not left to infer them from sample data."
+      ]
+    },
+    {
+      "id": "check-each-boundary",
+      "title": "Check each boundary",
+      "paragraphs": [
+        "Run the scenario through the workflow and inspect the boundaries between steps. When a test fails, these checkpoints help locate the first divergence instead of sending the entire process back for vague improvements."
+      ],
+      "bullets": [
+        "Source interpretation: did extraction identify the intended facts and preserve their meaning?",
+        "Validation: did the values satisfy the required fields, types, allowed states, and business rules?",
+        "Integration request: did the destination, record reference, and submitted values match the intended change?",
+        "Receiving system: did the expected change actually persist on the correct record?",
+        "Operational view: can the responsible person see and act on the result where they normally work?",
+        "Downstream behavior: did required actions occur, and did prohibited or duplicate actions remain absent?"
+      ]
+    },
+    {
+      "id": "read-the-result-after-the-response",
+      "title": "Read the result after the response",
+      "paragraphs": [
+        "Keep response handling and outcome verification separate. HTTP status codes describe the request according to the server’s contract. They do not independently verify that your extracted information was correct for the business task.",
+        "An asynchronous API may acknowledge acceptance before processing finishes. For example, HTTP 202 means the request was accepted for processing, not that processing completed. Follow the documented job-status or completion mechanism when one exists, then inspect the resulting business record.",
+        "Even for a completed synchronous request, compare the saved values with the expected values. Check the user-facing view if it applies formatting, filters, or additional rules. A date stored correctly but displayed under the wrong interpretation can still make the workflow unusable.",
+        "Define a reasonable completion window from the system’s documented behavior. If the result is not established in that window, mark the test unresolved or failed with the evidence collected. Do not quietly count acceptance as completion."
+      ]
+    },
+    {
+      "id": "include-the-cases-that-disrupt-the-demo",
+      "title": "Include the cases that disrupt the demo",
+      "paragraphs": [
+        "A happy-path example is a starting point. Production readiness also depends on what happens when a request is incomplete, repeated, interrupted, or in conflict with an existing record.",
+        "Use isolated test records and explicit expected outcomes for the following scenarios. These are a recommended starting set; add the failure modes specific to your process."
+      ],
+      "bullets": [
+        "Missing required input: the workflow asks for clarification or creates the expected review item.",
+        "Conflicting source values: the conflict is exposed instead of being silently resolved by guesswork.",
+        "Existing verified data: protected fields stay unchanged after the proposed update.",
+        "Partial batch failure: successful and failed items remain distinguishable and recoverable.",
+        "Repeated event: the same input does not create duplicate records, notifications, or other side effects.",
+        "Uncertain write result: the workflow checks whether the operation already happened before deciding to retry.",
+        "Unavailable dependency: the failure is visible to an owner and does not become a false completed state.",
+        "Human rejection: the denied action stays blocked throughout the remaining workflow."
+      ]
+    },
+    {
+      "id": "turn-reported-bugs-into-test-cases",
+      "title": "Turn reported bugs into test cases",
+      "paragraphs": [
+        "Another workflow review surfaced frustration with repeated testing of the same errors. The requested improvement was to connect each new test request to specific changes that had been made. That is a practical lesson for organizing acceptance testing.",
+        "When someone reports a defect, preserve an appropriately redacted or synthetic reproduction and write the expected outcome. Add it to the regression set. When the change is ready, report the version, the issue addressed, the result of the developer’s test, and the remaining question for the operator.",
+        "Rerun related cases, too. A repair to one mapping or validation rule can affect neighboring behavior. Keep the test inputs and expected outputs versioned so the team can tell whether a result changed because of the workflow or because the test itself changed."
+      ]
+    },
+    {
+      "id": "ask-for-evidence-you-can-inspect",
+      "title": "Ask for evidence you can inspect",
+      "paragraphs": [
+        "Before accepting a workflow, ask for a small, inspectable test pack: representative inputs, expected outcomes, run references, resulting-record evidence, and unresolved exceptions. Keep access appropriate to the data and avoid copying sensitive records into broad troubleshooting channels.",
+        "Report connection checks, correctness checks, and operational acceptance separately. A team can then acknowledge real progress without hiding unfinished work behind an overall green status.",
+        "The final question is simple: “Can we trace this input to the result our team actually needs?” When the evidence answers that question, the test becomes a useful release decision."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Connect the test to the real workflow",
+    "description": "Explore AIify It’s workflow integration services and the practical work of connecting systems around the outcome your team needs.",
+    "label": "Explore workflow integration",
+    "href": "/services/workflow-integration/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}

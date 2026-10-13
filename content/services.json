@@ -1,0 +1,68 @@
+[
+  {
+    "slug": "workflow-automation",
+    "title": "Workflow automation built around your operations",
+    "description": "Explore workflow automation for document processing, data validation, onboarding and approvals. Start with a focused discussion of your process.",
+    "intro": "When work keeps coming back for correction, start with the handoffs, rules and exceptions. AIify It audits workflows, builds custom automation, and manages improvements after deployment.",
+    "fit": [
+      "A repeatable process with a clear owner and outcome",
+      "Documents or records moving through validation, routing or approvals",
+      "A team that can explain the exceptions and review uncertain cases"
+    ],
+    "discuss": [
+      "Where the process starts and what a correct finished result looks like",
+      "Which steps need judgment, approval or a reliable system lookup",
+      "What evidence would show that a pilot is ready to expand"
+    ],
+    "priority": "manual-work",
+    "review": {
+      "privacy": "approved",
+      "claims": "approved",
+      "reviewedOn": "2026-10-13"
+    }
+  },
+  {
+    "slug": "custom-ai-agents",
+    "title": "Custom AI agents for a clearly defined job",
+    "description": "Plan a purpose-built AI agent with clear responsibilities, system access, testing and human review. Explore the right starting point with AIify It.",
+    "intro": "Useful agents need a specific job, clear boundaries and access to the right systems. AIify It builds purpose-built AI agents around business operations and stays involved through deployment and improvement.",
+    "fit": [
+      "A bounded task with examples of acceptable and unacceptable results",
+      "A team that can define when the agent must ask for help",
+      "Existing systems the agent needs to read from or act within"
+    ],
+    "discuss": [
+      "Whether an agent, a fixed workflow or a combination fits the task",
+      "The actions that need approval and the access the agent actually needs",
+      "How you will test uncertain cases and monitor the results"
+    ],
+    "priority": "new-agent",
+    "review": {
+      "privacy": "approved",
+      "claims": "approved",
+      "reviewedOn": "2026-10-13"
+    }
+  },
+  {
+    "slug": "workflow-integration",
+    "title": "Connect the systems your workflow depends on",
+    "description": "Explore API connectivity and workflow integration across existing business tools. Discuss data handoffs, failure recovery and operational ownership.",
+    "intro": "A workflow is only as useful as the handoffs between its systems. AIify It connects APIs, data pipelines and business platforms so automation can work within the tools your team already uses.",
+    "fit": [
+      "Work copied manually between systems or delayed at a handoff",
+      "A need to move validated records between existing platforms",
+      "An owner who can define the source of truth and exception process"
+    ],
+    "discuss": [
+      "Which system owns each field and how updates should move",
+      "What should happen when a request fails, repeats or arrives out of order",
+      "How the team will find and resolve records that need attention"
+    ],
+    "priority": "integrations",
+    "review": {
+      "privacy": "approved",
+      "claims": "approved",
+      "reviewedOn": "2026-10-13"
+    }
+  }
+]

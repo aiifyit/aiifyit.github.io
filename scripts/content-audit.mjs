@@ -3,8 +3,8 @@
  * Fail-closed validation for the public article library.
  * Privacy matching is deliberately limited: it catches common direct identifiers
  * and transcript shapes, not every name, confidential fact, or re-identification
- * risk. A human privacy/claims review is required even when this scan is clean.
- * Review values are attestations, not proof that a human review took place.
+ * risk. An editorial privacy/claims review is required even when this scan is clean.
+ * Review values are attestations, not proof that an editorial review took place.
  */
 import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
@@ -25,7 +25,7 @@ const PRIVACY_PATTERNS = [
 ];
 const QUANTITATIVE_CLAIM = /(?:\b\d+(?:[,.]\d+)*\s*(?:%|percent\b|percentage\b|times\b|x\b|hours?\b|minutes?\b|days?\b|weeks?\b|months?\b|dollars?\b|customers?\b|clients?\b|leads?\b|revenue\b|ROI\b)|[$£€]\s*\d|\b(?:double[ds]?|triple[ds]?|half|twice)\b|\b(?:one|two|three|four|five|ten|hundred|thousand)\s+(?:percent|hours?|minutes?|times|customers?|clients?)\b)/i;
 
-export const PRIVACY_SCAN_LIMITATION = 'Privacy scan is limited to common identifier/transcript patterns; it cannot establish anonymity or replace human privacy and claims review.';
+export const PRIVACY_SCAN_LIMITATION = 'Privacy scan is limited to common identifier/transcript patterns; it cannot establish anonymity or replace editorial privacy and claims review.';
 
 function isObject(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
@@ -110,6 +110,8 @@ export function auditArticles(articles, site) {
   }
   if (articles.length === 0) error('articles', 'must contain at least one article');
   const slugs = new Set();
+  const titles = new Set();
+  const descriptions = new Set();
   const articleSections = new Map();
   const links = [];
   articles.forEach((article, index) => {
@@ -124,6 +126,13 @@ export function auditArticles(articles, site) {
     }
     text(article.title, `${location}.title`, 100, 10, true);
     text(article.description, `${location}.description`, 180, 40, true);
+    for (const [field, seen] of [['title', titles], ['description', descriptions]]) {
+      if (typeof article[field] === 'string') {
+        const normalized = article[field].toLowerCase().replace(/\s+/g, ' ').trim();
+        if (seen.has(normalized)) error(`${location}.${field}`, `duplicate ${field}`);
+        seen.add(normalized);
+      }
+    }
     text(article.category, `${location}.category`, 60, 2, true);
     text(article.takeaway, `${location}.takeaway`, 1000, 10);
     const sectionIds = new Set();
@@ -150,7 +159,7 @@ export function auditArticles(articles, site) {
     }
     if (shape(article.review, `${location}.review`, ['privacy', 'claims', 'reviewedOn'])) {
       for (const gate of ['privacy', 'claims']) {
-        if (article.review[gate] !== 'approved') error(`${location}.review.${gate}`, 'must be explicitly approved after human review');
+        if (article.review[gate] !== 'approved') error(`${location}.review.${gate}`, 'must be explicitly approved after editorial review');
       }
       const date = article.review.reviewedOn;
       if (typeof date !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(date) || Number.isNaN(Date.parse(`${date}T00:00:00Z`)) || new Date(`${date}T00:00:00Z`).toISOString().slice(0, 10) !== date) {
@@ -212,6 +221,12 @@ export async function auditDirectory(root = path.resolve(path.dirname(fileURLToP
     errors.push('content/articles: could not read article directory');
   }
   const result = auditArticles(articles, site);
+  if (Array.isArray(site?.routes) && site.routes.some(route => route.startsWith('/services/'))) {
+    const services = await readJson('content/services.json');
+    const serviceResult = auditServices(services, site);
+    errors.push(...serviceResult.errors);
+    result.warnings.push(...serviceResult.warnings);
+  }
   return { errors: [...new Set([...errors, ...result.errors])].sort(), warnings: result.warnings };
 }
 
@@ -222,4 +237,25 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
   result.warnings.forEach((message) => console.warn(`WARNING ${message}`));
   console.log(PRIVACY_SCAN_LIMITATION);
   if (result.errors.length > 0) process.exitCode = 1;
+}
+
+/** Services share the same publication review and plain-text privacy checks. */
+export function auditServices(services, site) {
+  if (!Array.isArray(services) || !services.length) return { errors: ['services: expected a non-empty array'], warnings: [] };
+  const errors = [];
+  const allowed = ['slug', 'title', 'description', 'intro', 'fit', 'discuss', 'priority', 'review'];
+  const priorities = ['manual-work', 'routing', 'integrations', 'new-agent'];
+  const articleShapes = services.map((service, index) => {
+    if (!isObject(service)) { errors.push(`services[${index}]: must be an object`); return {}; }
+    for (const key of allowed) if (!Object.hasOwn(service, key)) errors.push(`services[${index}].${key}: required field is missing`);
+    for (const key of Object.keys(service)) if (!allowed.includes(key)) errors.push(`services[${index}].${key}: unknown field is not allowed`);
+    if (!priorities.includes(service.priority)) errors.push(`services[${index}].priority: unapproved topic`);
+    if (!site.routes?.includes(`/services/${service.slug}/`)) errors.push(`services[${index}].slug: service route is not registered`);
+    return { slug:service.slug, title:service.title, description:service.description, category:'Services', takeaway:service.intro,
+      sections:[{id:'fit', title:'Is this a fit?', paragraphs:service.fit}, {id:'discuss',title:'What we can discuss',paragraphs:service.discuss}],
+      cta:{title:'Discuss your workflow',description:'Book a strategy conversation.',label:'Book a call',href:'/book/'}, review:service.review };
+  });
+  for (const route of site.routes ?? []) if (route.startsWith('/services/') && !services.some(service => service?.slug && route === `/services/${service.slug}/`)) errors.push(`services: no page generated for registered route ${route}`);
+  const result = auditArticles(articleShapes, site);
+  return {errors:[...errors,...result.errors.map(error => error.replace(/^articles/, 'services'))].sort(),warnings:result.warnings.map(warning => warning.replace(/^articles/, 'services'))};
 }

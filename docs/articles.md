@@ -23,3 +23,15 @@ An article is emitted to `dist/articles/<slug>/index.html`, with its complete te
 Never store raw transcripts, private meeting/source identifiers, client names, contact details, credentials, or source ledgers here. This repository is public, including draft PR branches. Anonymization must consider combinations of details, not just names. Label synthetic examples, qualify reported outcomes, and do not turn qualitative feedback into numerical results. The auditor's heuristic scan can miss identifying content and produce false positives; it does not replace judgment.
 
 All generated article URLs use a trailing slash. Test these canonical URLs with the local preview. GitHub Pages normally redirects directory paths to their slash form, but production redirects and visual browser checks must be verified before merge; no public preview deployment is part of this draft. The booking entry has its own canonical, and the SOW entry carries a noindex directive without changing its application behavior.
+
+## Service and email inquiry funnel
+
+`content/services.json` defines three service-fit pages using existing service positioning and the same privacy/claims gates as articles. Related reading is selected from the whole library, preferring the same service and category.
+
+Articles lead to the relevant service page and then `/inquire/`. A fixed-choice topic step is optional. `/book/` remains a safe alias to the same inquiry page, so old bookmarks do not load the broken calendar. The homepage hero, navigation and post-submission link also lead to the inquiry page.
+
+The simple inquiry page has one optional overview field. “Email Joshua” opens a percent-encoded mailto draft to the verified public business contact `joshua@aiifyit.com`. The visitor reviews and sends it in their own email app. The visible address and copy-ready subject/body provide a manual fallback. This is not automatic email delivery, and the site never reports that a draft was sent. It does not store the overview, make a submission request, or place it in the page URL. Only allowlisted public service/topic/article context is read from the page query. No new third-party service, account, CRM destination or analytics integration is introduced.
+
+The existing homepage lead form still uses its existing endpoint and consent flow. Its HTTP handling now rejects unsuccessful responses instead of showing false success; this change does not prove downstream email delivery. Do not submit real or fabricated test leads.
+
+Run `npm test`, `npm run lint`, and `npm run content:dry-run` after every batch. These include mailto encoding/header-boundary cases, source-tag validation, and checks that the broken calendar is absent from shipped bundles. Before publication, review desktop/mobile navigation and the manual email fallback. Do not send a test email without authorization. Review flags describe completed editorial review, potentially assisted by AI; they do not claim a human read every word or authorize publication themselves.

@@ -8,6 +8,7 @@ import LeadForm, { type LeadFormData } from '../ui/LeadForm';
 import Modal from '../ui/Modal';
 import ScrollReveal from '../ui/ScrollReveal';
 import Button from '../ui/Button';
+import { submitLeadRequest } from '../../data/leadSubmission';
 import { CTA_HEADING, CTA_SUBHEADING, LEAD_WEBHOOK_URL } from '../../data/constants';
 
 export default function CTA() {
@@ -18,20 +19,11 @@ export default function CTA() {
   const handleSubmit = async (data: LeadFormData) => {
     setSubmitting(true);
     try {
-      if (LEAD_WEBHOOK_URL) {
-        await fetch(LEAD_WEBHOOK_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            ...data,
-            submittedAt: new Date().toISOString(),
-            source: 'aiifyit.com CTA',
-          }),
-        });
-      } else {
-        // Webhook not configured yet — surface in console for local dev
-        console.info('[LeadForm] LEAD_WEBHOOK_URL is empty. Captured data:', data);
-      }
+      await submitLeadRequest(LEAD_WEBHOOK_URL, {
+        ...data,
+        submittedAt: new Date().toISOString(),
+        source: 'aiifyit.com CTA',
+      });
       setConfirmOpen(true);
     } catch (err) {
       console.error('[LeadForm] submission failed', err);
@@ -78,17 +70,17 @@ export default function CTA() {
             <CheckCircle2 size={32} className="text-[var(--color-accent)]" />
           </div>
           <h3 className="text-2xl font-bold text-[var(--color-text)]">
-            Your information has been saved
+            Your request was submitted
           </h3>
           <p className="text-[var(--color-text-muted)] max-w-md">
             We will contact you shortly.
           </p>
           <Link
-            to="/book"
+            to="/inquire"
             onClick={() => setConfirmOpen(false)}
             className="inline-flex items-center justify-center transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-[var(--color-bg)] font-semibold px-8 py-4 rounded-xl mt-2"
           >
-            Book a call with us
+            Email Joshua
           </Link>
         </div>
       </Modal>

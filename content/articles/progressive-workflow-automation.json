@@ -1,0 +1,94 @@
+{
+  "slug": "progressive-workflow-automation",
+  "title": "Why Does Your Automation Project Keep Waiting on One Last Step?",
+  "description": "Explore a practical approach to progressive workflow automation: coordinate the full process, preserve human actions, and automate individual steps as they are ready.",
+  "category": "Automation strategy",
+  "takeaway": "The intake works. The documents can be read. One approval, integration, or write-back keeps the whole project from feeling finished. How do you make progress without pretending that unresolved step has disappeared?",
+  "sections": [
+    {
+      "id": "when-one-step-holds-the-project",
+      "title": "When one step holds the project",
+      "paragraphs": [
+        "In an internal AIify It planning discussion, the team proposed delivering a managed version of an entire workflow while some actions remained manual. The system would organize the work, send the next task to the responsible person, and monitor progress. Individual actions could then be automated as the required access, rules, and testing became available.",
+        "This was a proposed delivery approach. The discussion did not validate a delivery-speed promise or establish measured customer results. Its value as a design idea is that an unresolved integration does not have to remain invisible inside an unfinished process.",
+        "The approach is worth considering when a workflow has useful, well-understood steps alongside actions that still require judgment, authorization, or better technical access."
+      ]
+    },
+    {
+      "id": "map-the-whole-process-first",
+      "title": "Map the whole process before replacing a step",
+      "paragraphs": [
+        "Start with the trigger and follow one item all the way to the outcome the team cares about. Record each handoff, decision, system, and waiting period. Ask the people doing the work to show you the actual records and messages involved.",
+        "A diagram that ends at “send to operations” leaves the most important question unanswered: what does operations do next? Name the action, its owner, the information needed, and the evidence that it is complete.",
+        "Include exceptions in the map. A rejected request, unavailable document, or missing approval should have an explicit destination. Otherwise the coordinated workflow will look complete while the difficult cases still live in someone’s inbox.",
+        "Choose a durable record for the state of each item. Messages can notify people, but the team also needs a shared way to see what is waiting and why."
+      ]
+    },
+    {
+      "id": "make-manual-steps-part-of-the-workflow",
+      "title": "Make manual steps part of the workflow",
+      "paragraphs": [
+        "A manual step should receive a complete task, rather than an alert that asks someone to reconstruct the situation. Provide the relevant record, the requested action, the permitted options, and the condition that lets the workflow continue.",
+        "Consider a synthetic example: an intake process gathers information and prepares an update for an older application without a suitable integration. An authorized employee reviews the information, enters the update, and records the resulting reference. The workflow can then verify that reference or route the item for a check.",
+        "The proposed design must account for work done outside the system. If the employee already completed the task, a reminder should not cause a duplicate action. Give staff a clear completion method and record who completed it."
+      ]
+    },
+    {
+      "id": "separate-information-from-action",
+      "title": "Separate information gathering from action",
+      "paragraphs": [
+        "Reading a record, preparing a recommendation, approving it, and writing a change are different responsibilities. A workflow can often help with the earlier stages while preserving a deliberate boundary before a consequential action.",
+        "Label those boundaries in the design. Which sources may the system read? Which values may it propose? Who can approve them? What exact change does that approval cover? What must be checked immediately before the change occurs?",
+        "Do not treat an earlier approval as a blank check. If the record, recipient, or proposed action changes while the task waits, the workflow should revalidate the request and obtain a new decision when necessary.",
+        "Human involvement also has a cost. Review requests need enough context to be efficient, and the workflow needs to make pending work visible rather than scattering it across unmonitored notifications."
+      ]
+    },
+    {
+      "id": "choose-the-next-step-by-evidence",
+      "title": "Choose the next step using operational evidence",
+      "paragraphs": [
+        "Once the managed process is visible, inspect where people spend time, where work waits, and where corrections recur. Those observations help choose the next automation target.",
+        "A frequent, predictable action with stable inputs may be a good candidate. A rare exception with unclear policy may need process clarification first. A step that depends on an unavailable integration can remain assigned to a person while the access issue is resolved.",
+        "Before changing a step from manual to automated, agree on its acceptance criteria:"
+      ],
+      "bullets": [
+        "The inputs and destination are defined and can be verified.",
+        "The business rule is documented, including relevant exceptions.",
+        "Required access is authorized and available.",
+        "Representative normal and failure cases have expected outcomes.",
+        "Retries and repeated events do not create duplicate actions.",
+        "The team can inspect what happened and pause the step if necessary.",
+        "A fallback owner can handle work that the automated path cannot complete."
+      ]
+    },
+    {
+      "id": "keep-the-handoffs-stable-as-you-automate",
+      "title": "Keep the handoffs stable as you automate",
+      "paragraphs": [
+        "Replace a manual action behind the same clear input and completion conditions wherever practical. The surrounding workflow should continue to know what it is waiting for and what evidence allows the next step.",
+        "Test the replacement against the manual process using controlled cases. Compare the resulting records, not just whether the automation ran. Include stale data, rejected writes, partial completion, and a repeated request.",
+        "Retain a usable fallback until the team has evidence that the replacement behaves as intended. If an automated step pauses, people should know which items require attention and which actions have already occurred. A fallback that requires rebuilding the whole process from scratch offers little operational protection."
+      ]
+    },
+    {
+      "id": "define-progress-in-terms-of-completed-work",
+      "title": "Define progress in terms of completed work",
+      "paragraphs": [
+        "A managed workflow can improve visibility before every action is automated, but visibility alone does not prove a productivity gain. Measure the outcomes relevant to your operation: completed items, time spent reviewing, waiting time, rework, and unresolved exceptions.",
+        "Compare like-for-like work and make the remaining manual effort explicit. That keeps the project honest and helps you decide whether the next investment should be automation, clearer policy, or a better handoff.",
+        "The first useful question is whether your team can reliably move an item from arrival to completion with the process you have today. Then improve the steps that evidence shows are worth changing."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Find a workable next step for your automation",
+    "description": "Explore workflow integration with AIify It, including the systems, manual handoffs, and acceptance checks that shape a practical rollout.",
+    "label": "Explore workflow integration",
+    "href": "/services/workflow-integration/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}
