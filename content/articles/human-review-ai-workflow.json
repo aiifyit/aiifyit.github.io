@@ -1,0 +1,85 @@
+{
+  "slug": "human-review-ai-workflow",
+  "title": "Your AI Is Ready to Act. Who Gets the Last Look?",
+  "description": "Design human review for AI workflows with clear approval boundaries, useful review screens, exception ownership, and evidence-based expansion.",
+  "category": "AI operations",
+  "takeaway": "An AI workflow can prepare a useful answer before it is ready to make a change on someone’s behalf. Deciding where a person should step in is part of the design. How do you choose that point without turning every run into a manual task?",
+  "sections": [
+    {
+      "id": "the-boundary-was-a-business-decision",
+      "title": "The boundary was a business decision",
+      "paragraphs": [
+        "A workflow discussion drew a deliberate boundary: automation could help populate information, while people would decide whether conflicting existing values should be replaced. In another build discussion, the proposed approach kept unresolved extraction results available for another set of eyes rather than treating them as settled.",
+        "These were choices about a proposed operating process. They were not evidence that full autonomy had been achieved. Both show why “human in the loop” needs a more specific meaning than adding an approval button somewhere.",
+        "Start by identifying the decision that requires judgment or authority. Then place review before the action that depends on it. The person should be able to understand the proposed change and meaningfully accept, correct, or reject it."
+      ]
+    },
+    {
+      "id": "separate-preparation-from-permission",
+      "title": "Separate preparation from permission",
+      "paragraphs": [
+        "Map what the workflow can prepare and what it can execute. Reading a document, assembling a draft, and comparing records may be useful before the system has permission to replace data, send a message, or advance a process.",
+        "Consider this synthetic example: an agent drafts a customer follow-up using an incoming service request. It may gather the relevant facts and prepare the message automatically. A reviewer sees the recipient, complete text, and supporting context before any send occurs.",
+        "Place the approval gate on the consequential action itself. A notification that arrives after a message has been sent gives someone a chance to respond to an error, but it does not give them a chance to prevent that send.",
+        "Also check alternate paths. A rejected action should not be reachable through a retry branch, a different tool, or an automatic fallback. The workflow’s actual permissions and control flow must support the boundary shown in the interface."
+      ]
+    },
+    {
+      "id": "make-review-a-decision",
+      "title": "Make review a decision someone can make",
+      "paragraphs": [
+        "A useful review screen should reduce the work of understanding the case. Sending someone a raw payload and asking “approve?” transfers the interpretation problem to the reviewer.",
+        "Give the reviewer enough context to decide, while limiting access to unrelated or sensitive information. For a record update, show the following:"
+      ],
+      "bullets": [
+        "The exact record and fields the workflow proposes to change.",
+        "The current values beside the proposed values.",
+        "The supporting source and the relevant excerpt or location.",
+        "The reason review is required, such as a conflict or an unresolved interpretation.",
+        "The next action that approval will authorize and any downstream effects.",
+        "Clear options to approve, correct, reject, or request more information."
+      ]
+    },
+    {
+      "id": "plan-for-the-approval-that-never-arrives",
+      "title": "Plan for the approval that never arrives",
+      "paragraphs": [
+        "Every review queue needs an owner and an operational expectation. Decide who receives a case, who can act as a backup, and what happens if nobody responds. An unattended queue is unfinished work even when the automation successfully created its review item.",
+        "Define rejection, timeout, and expired-context behavior explicitly. For an action that requires approval, silence should leave it blocked. The workflow can alert the owner or move the case to an agreed escalation path without inventing permission to continue.",
+        "Approval also needs a clear scope. If a proposed recipient, message, record value, or other material detail changes after review, the earlier approval may no longer cover the action. Rebuild the proposal and obtain a fresh decision where the change matters.",
+        "Before executing a delayed approval, recheck relevant record state and policy conditions. A correct decision based on yesterday’s record can become stale after another person edits it. Preserve the connection between what was reviewed and what was actually done."
+      ]
+    },
+    {
+      "id": "expand-one-bounded-step-at-a-time",
+      "title": "Expand one bounded step at a time",
+      "paragraphs": [
+        "You do not need to choose one review mode for an entire workflow. Different actions can have different boundaries. A process may automatically prepare routine drafts while always requiring approval for replacing a verified value.",
+        "A staged rollout can begin with proposed outputs that people compare against the work they already perform. Next, allow execution after approval for a defined action. Later, consider unattended execution only for a narrowly specified, low-risk subset supported by representative tests and observed outcomes.",
+        "Set the expansion criteria before changing the mode. Include correctness for the relevant case types, the consequences of an error, the ability to detect and recover from it, and any permissions that must remain human-controlled. There is no universal number of successful examples that makes every action safe.",
+        "Sampling completed work can help monitor already-authorized, lower-risk actions. It should not replace advance approval where an action’s consequences or governing requirements demand it. Keep a practical way to return the affected action to review if its behavior changes."
+      ]
+    },
+    {
+      "id": "learn-from-the-work-people-correct",
+      "title": "Learn from the work people correct",
+      "paragraphs": [
+        "Review decisions can reveal where the workflow needs improvement. Separate corrections caused by poor extraction, ambiguous policy, stale records, and incorrect proposed actions. Each category suggests a different repair.",
+        "Turn recurring issues into test cases and connect retest requests to specific changes. A reviewer should know what was fixed and what they are being asked to verify. Repeatedly asking people to rediscover a known defect wastes the expertise the review step was meant to use.",
+        "Track whether review cases are visible, understandable, and resolved by an appropriate person. Review quality includes the operating process around the model. A technically correct approval gate provides little protection if nobody sees it or understands the decision.",
+        "For your next design review, ask: “Which action can happen only after the right person has seen the exact proposal?” A concrete answer gives human oversight a place, a purpose, and a testable boundary."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Choose the right level of automation",
+    "description": "Explore AIify It’s workflow automation services and how an automated process can fit the decisions and responsibilities already in your business.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}

@@ -1,7 +1,9 @@
 import { readFile, writeFile, mkdir, copyFile, readdir } from 'node:fs/promises';
 import { auditDirectory } from './content-audit.mjs';
+import { renderService } from './service-template.mjs';
 import { renderArticle, renderIndex, escapeHtml } from './article-template.mjs';
 const site = JSON.parse(await readFile('content/site.json', 'utf8'));
+const services = JSON.parse(await readFile('content/services.json', 'utf8'));
 const articles = await Promise.all((await readdir('content/articles')).filter(name => name.endsWith('.json')).sort().map(async name => JSON.parse(await readFile(`content/articles/${name}`, 'utf8'))));
 const { errors, warnings } = await auditDirectory();
 for (const warning of warnings) console.warn(warning);
@@ -21,7 +23,11 @@ await mkdir('dist/articles', { recursive: true });
 await writeFile('dist/articles/index.html', renderIndex(site, articles, stylesheets));
 for (const article of articles) {
   await mkdir(`dist/articles/${article.slug}`, { recursive: true });
-  await writeFile(`dist/articles/${article.slug}/index.html`, renderArticle(site, article, stylesheets));
+  await writeFile(`dist/articles/${article.slug}/index.html`, renderArticle(site, article, stylesheets, articles));
+}
+for (const service of services) {
+  await mkdir(`dist/services/${service.slug}`, { recursive: true });
+  await writeFile(`dist/services/${service.slug}/index.html`, renderService(site, service, stylesheets, articles));
 }
 // Public, verified routes only: never index SOW workspaces or client-feedback forms.
 const routes = [...site.routes, ...articles.map(article => `/articles/${article.slug}/`)];

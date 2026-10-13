@@ -1,0 +1,91 @@
+{
+  "slug": "ai-billing-audit-false-positives",
+  "title": "Your AI Billing Audit Found a Mismatch. What Did It Actually Find?",
+  "description": "An AI billing audit flag can come from the wrong document, missing evidence, or an approved exception. Learn how to separate useful findings from avoidable noise.",
+  "category": "Document automation",
+  "takeaway": "A highlighted mismatch can look like a billing mistake before anyone opens the source document. To make an AI-assisted audit useful, your team needs to know what each flag actually means and what evidence would resolve it.",
+  "sections": [
+    {
+      "id": "a-flag-is-the-start-of-the-review",
+      "title": "Start with the evidence behind the flag",
+      "paragraphs": [
+        "In an AIify It billing-audit review, the audit had run and produced an output for people to examine. During review, the team found examples involving the wrong type of document and a scanned agreement whose selected terms had been read incorrectly. Later discussion also surfaced records that were still awaiting required documentation and differences that needed business context.",
+        "These observations support a practical lesson about triage. They do not establish an error rate, savings figure, or recovered revenue. The review still depended on people checking the underlying records and deciding what action was appropriate.",
+        "For an operations team, the first design question is what a flag represents: a confirmed discrepancy, uncertain extraction, incomplete evidence, or an exception requiring interpretation."
+      ]
+    },
+    {
+      "id": "check-document-eligibility-first",
+      "title": "Check document eligibility before comparing values",
+      "paragraphs": [
+        "A folder can contain several valid documents that serve different purposes. A readable number in the wrong document can produce a very convincing comparison against an unrelated billing field.",
+        "Define the eligible document types, the relevant version, the effective period, and the fields each type can support. If a document has no relevant rate, decide whether it should be excluded from this comparison or placed in a separate evidence queue. Do not manufacture a rate just to keep the workflow moving.",
+        "In that review, the builder reported a change to skip documents with no rate rather than list them as findings. That was a reported implementation change; the discussion supplied no measured reduction in review effort.",
+        "Preserve an exclusion reason so reviewers can inspect the boundary. An exclusion rule that is too broad could hide a document your audit actually needs."
+      ]
+    },
+    {
+      "id": "separate-reading-from-interpretation",
+      "title": "Separate reading errors from interpretation errors",
+      "paragraphs": [
+        "Scanned pages, handwriting, checkboxes, and amended clauses create different extraction risks. A system may read a printed default correctly while overlooking the selected alternative beside it. It can then return a clean-looking value that misrepresents the agreement.",
+        "For consequential fields, show the source page or region alongside the extracted value. Preserve the extraction status and any uncertainty signal your tools provide. Set review thresholds using your own representative documents and the consequences of a mistake.",
+        "A high extraction confidence cannot establish that the correct document or governing clause was selected. Verify those decisions separately. If the evidence conflicts, keep the comparison unresolved until an authorized reviewer determines which terms apply."
+      ]
+    },
+    {
+      "id": "make-the-business-rule-explicit",
+      "title": "Make the business rule explicit",
+      "paragraphs": [
+        "An exact-match comparison is easy to describe. Real billing policies may include approved discounts, effective dates, exceptions, amendments, and different rules for different record states.",
+        "Consider a synthetic example: an approved amendment changes a service charge, but the system compares the current billing record with the original agreement. The numbers disagree. The open question is which evidence governs the period being checked.",
+        "Have the process owner document how approved exceptions are represented and which source takes precedence. Avoid converting a particular organization’s operating rule into a universal rule. A difference that is acceptable under one agreement or policy may require action under another.",
+        "The automation can collect and compare evidence. Its operating rules need to specify when that evidence is sufficient and when interpretation must remain with the responsible person."
+      ]
+    },
+    {
+      "id": "create-review-queues-with-different-actions",
+      "title": "Create review queues with different actions",
+      "paragraphs": [
+        "A single red list forces every reviewer to rediscover why each row was flagged. Give the team categories that lead to a clear next step:"
+      ],
+      "bullets": [
+        "Potential billing discrepancy: eligible evidence is available, but the values do not satisfy the documented rule. Review before changing anything.",
+        "Uncertain extraction: the source was found, but a critical field cannot be read reliably. Inspect the page or request a clearer copy.",
+        "Wrong or ineligible document: classification or selection needs correction before a comparison can be made.",
+        "Missing evidence: the required agreement or amendment is unavailable. Assign an owner to obtain it.",
+        "Approved exception awaiting confirmation: the difference may be legitimate, but supporting approval must be checked.",
+        "Record not yet ready for audit: the business process has not reached the state in which this comparison is applicable."
+      ]
+    },
+    {
+      "id": "close-the-loop-with-a-review-record",
+      "title": "Close the loop with a review record",
+      "paragraphs": [
+        "Each finding needs an owner, status, supporting evidence, and a recorded disposition. A reviewer should be able to explain whether the billing record was correct, the source was superseded, the extraction needed repair, or a correction was authorized.",
+        "In the observed workflow, people retained responsibility for reviewing discrepancies and handling any resulting corrections. Keep that boundary explicit. An audit output should not silently become permission to change billing, issue refunds, or alter agreements.",
+        "Link the finding to the relevant records under existing access controls. Avoid copying unnecessary sensitive information into alert emails or general-purpose logs. The reviewer needs a controlled route to the evidence, not another uncontrolled copy of it."
+      ]
+    },
+    {
+      "id": "measure-the-work-the-audit-creates",
+      "title": "Measure the work the audit creates",
+      "paragraphs": [
+        "Evaluate confirmed findings and false flags separately. Track which categories generate unnecessary review, which source problems recur, and which findings remain unresolved. Also sample records the audit did not flag so that a quieter report is not mistaken for a more complete audit.",
+        "Compare changes on a consistent set of documents and record states. A revised eligibility rule might reduce noise while accidentally excluding relevant evidence; reviewing only the remaining flags would miss that trade-off.",
+        "The useful outcome is a review process in which each flag has a clear meaning and a defensible resolution. Start there before attaching a savings claim to the volume of findings."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Make document review easier to act on",
+    "description": "Explore workflow automation with AIify It, including document eligibility, exception queues, and human review before consequential changes.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}

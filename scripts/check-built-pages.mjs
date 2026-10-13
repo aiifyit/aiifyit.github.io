@@ -29,7 +29,7 @@ for (const article of articles) {
   assert(!html.includes('src="/assets/'), 'Static articles need no app JavaScript');
   for (const [, href] of html.matchAll(/href="([^"#]+)"/g)) {
     if (!href.startsWith('/')) continue;
-    const clean = href.split('#')[0];
+    const clean = href.split(/[?#]/)[0];
     const disk = `dist${clean}${clean.endsWith('/') ? 'index.html' : ''}`;
     if (clean === '/book') await stat('dist/book/index.html');
     else await stat(disk);
@@ -46,3 +46,25 @@ assert.equal(await readFile('dist/404.html', 'utf8'), home, 'Preserved SPA fallb
 assert(!sitemap.includes('/sow'), 'Do not index private workspace');
 assert(!sitemap.includes('client-feedback'), 'Do not index feedback form');
 console.log(`Raw HTML, metadata, JSON-LD, internal links and app entry checks passed (${articles.length} article).`);
+
+const services = JSON.parse(await readFile('content/services.json', 'utf8'));
+for (const service of services) {
+  const route = `/services/${service.slug}/`;
+  const html = await readFile(`dist${route}index.html`, 'utf8');
+  assert(html.includes(`<h1>${escapeHtml(service.title)}</h1>`));
+  assert(html.includes(`rel="canonical" href="${site.url}${route}"`));
+  assert(html.includes('action="/book/" method="get"'));
+  assert(html.includes(`name="service" value="${service.slug}"`));
+  assert(html.includes('Skip this step and open the calendar'));
+  assert(!html.includes('type="email"'));
+  const jsonld = JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1]);
+  assert.equal(jsonld['@type'], 'Service');
+  assert.equal(jsonld.url, site.url + route);
+  assert(sitemap.includes(`<loc>${site.url}${route}</loc>`));
+  for (const [, href] of html.matchAll(/href="([^"#]+)"/g)) {
+    if (!href.startsWith('/')) continue;
+    const clean=href.split(/[?#]/)[0];
+    await stat(`dist${clean}${clean.endsWith('/') ? 'index.html' : ''}`);
+  }
+}
+console.log(`Service funnel checks passed (${services.length} pages).`);

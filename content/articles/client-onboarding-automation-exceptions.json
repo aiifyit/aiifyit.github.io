@@ -1,0 +1,92 @@
+{
+  "slug": "client-onboarding-automation-exceptions",
+  "title": "Your Onboarding Automation Passed. What Happens Off the Happy Path?",
+  "description": "Learn how to test client onboarding automation beyond form submission, from pricing questions and missing owners to duplicate events and staged folder creation.",
+  "category": "Workflow reliability",
+  "takeaway": "A completed intake form is easy to demonstrate. The harder test starts when someone asks a question, an owner is missing, or the next action should wait. Those paths determine whether your team can operate the workflow comfortably.",
+  "sections": [
+    {
+      "id": "what-a-passing-test-proves",
+      "title": "What a passing onboarding test proves",
+      "paragraphs": [
+        "In an AIify It onboarding test, a pricing-question path generated an email, and the intended test recipients confirmed receiving it. The team also inspected a folder-creation demonstration using test folders. Those were useful, bounded results.",
+        "The folder workflow was still unpublished, and the team wanted staff informed before it began creating folders in the operational environment. Passing a test did not settle whether that part of the rollout should begin.",
+        "This distinction matters when you buy or manage onboarding automation. Ask which path was tested, what the test actually changed, who verified the result, and which actions remain disabled. A broad statement that onboarding works can hide several different readiness states."
+      ]
+    },
+    {
+      "id": "treat-business-exceptions-as-normal-paths",
+      "title": "Treat business exceptions as normal paths",
+      "paragraphs": [
+        "A pricing question is a valid response to an intake form. So is a request to clarify the scope, update a contact, or discuss a nonstandard arrangement. The workflow should preserve that response and route it to someone who can answer.",
+        "A technical failure needs different handling. If the destination system is unavailable, retrying may be appropriate. Repeatedly asking the customer the same pricing question will not fix a failed integration.",
+        "Define a small set of states that your staff can understand. For example: received, needs clarification, waiting for an internal decision, ready for the next step, and completed. Add technical-failure status where needed. Keep the business state visible even when an integration has to retry.",
+        "For each transition, specify the event that permits it. Receiving a question should not imply acceptance of a price or authorize the work that depends on that acceptance."
+      ]
+    },
+    {
+      "id": "give-each-exception-an-owner",
+      "title": "Give each exception an owner and a stopping point",
+      "paragraphs": [
+        "The exception message needs to tell its recipient what happened, which decision is needed, and where to respond. An alert that merely announces “new form submission” pushes the interpretation back onto the team.",
+        "Check ownership at the role level. During testing, one person may occupy several roles or a builder may temporarily receive an operational alert. Production ownership needs its own verification. If the primary owner is missing or unavailable, route to an agreed backup or hold the item visibly.",
+        "Also decide what pauses. A question about pricing may hold an agreement or work order while allowing the intake record to be stored. It should not automatically stop unrelated housekeeping, nor should housekeeping accidentally advance the customer past the unresolved decision.",
+        "Keep the notification concise and link to the controlled source record. Include only the information the recipient needs for the assigned decision."
+      ]
+    },
+    {
+      "id": "check-the-result-at-the-destination",
+      "title": "Check the result at the destination",
+      "paragraphs": [
+        "A workflow’s success indicator tells you that its configured steps finished. Acceptance testing should also inspect the email inbox, record, or folder that the team will actually use.",
+        "For an email path, confirm the expected recipients, clear wording, record reference, and reply destination. Review the subject line as part of the test. An awkward or ambiguous notification can leave the recipient unsure whether they need to act.",
+        "For a folder path, inspect the location, owner, names, contents, and access. Compare the result with the agreed structure. Confirm which parts are templates and which are newly created working files.",
+        "Test records are useful for proving behavior without disturbing real work. Document where production permissions, account ownership, or existing folder contents differ, then verify those differences before expanding the rollout."
+      ]
+    },
+    {
+      "id": "run-the-exceptions-before-launch",
+      "title": "Run the exceptions before launch",
+      "paragraphs": [
+        "Use synthetic submissions and agree on expected outcomes before executing them. A practical onboarding test set should cover the situations staff would otherwise have to untangle manually:"
+      ],
+      "bullets": [
+        "An ordinary submission with all required information reaches the expected next state.",
+        "A pricing or scope question reaches the authorized decision owner and holds the dependent action.",
+        "Required information is missing, so the workflow records the gap and requests the appropriate clarification.",
+        "The same submission arrives again, and the workflow avoids duplicate emails, records, or folders.",
+        "The assigned owner is unavailable or unset, and the agreed backup or visible hold is used.",
+        "A destination rejects the request, and retry handling preserves the existing business state.",
+        "A reply arrives after the record has changed, and the workflow checks that the reply still applies before proceeding."
+      ]
+    },
+    {
+      "id": "release-the-parts-your-team-is-ready-to-use",
+      "title": "Release the parts your team is ready to use",
+      "paragraphs": [
+        "Create a release checklist for each action that affects shared systems. The person who owns the process should know what will appear, when it will appear, and what staff should do if something looks wrong.",
+        "You may be ready to collect intake responses before automatically creating folders. You may be ready to generate a draft before sending it. Separate controls make these boundaries easier to manage, provided the team can see which actions are enabled.",
+        "Agree on a pause procedure and a person authorized to use it. Preserve incoming work while paused, so that turning off an action does not silently discard requests. Before resuming, review pending items and check whether any have already been handled manually."
+      ]
+    },
+    {
+      "id": "review-the-first-real-exceptions",
+      "title": "Review the first real exceptions",
+      "paragraphs": [
+        "After an approved release, inspect the initial live cases with the process owner. Pay particular attention to pending questions and failed handoffs, because those records can remain open even when most submissions finish successfully.",
+        "Use the review to refine ownership, wording, and state transitions. Keep a record of which paths were tested and which remain unproven. That gives your team a concrete basis for expanding the automation, rather than relying on a single successful demonstration."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Plan an onboarding workflow your team can run",
+    "description": "Explore AIify It workflow automation for intake, handoffs, exceptions, and staged rollout around your existing process.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}

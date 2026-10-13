@@ -119,6 +119,8 @@ test('internal links resolve across the complete library including section fragm
   const first = fixture();
   const second = fixture();
   second.slug = 'a-second-article';
+  second.title = 'A second guide to a different workflow question';
+  second.description = 'A separate practical guide to reviewing ownership and the next action in another workflow.';
   first.cta.href = '/articles/a-second-article/#start-with-ownership';
   assert.deepEqual(auditArticles([first, second], site).errors, []);
   for (const href of ['/missing/', '/articles/missing/', '/book', '//outside.example/', 'https://outside.example/', 'javascript:alert(1)', '/articles/a-second-article/#missing', '/#missing', '/book/../', '/book/?tracking=yes', '/book/#']) {
@@ -132,7 +134,7 @@ test('pending or missing privacy and claims approvals block publication', () => 
     for (const value of ['pending', false, null, 'Approved']) {
       const changed = fixture();
       changed.review[gate] = value;
-      assert.match(errorsFor(changed), /must be explicitly approved after human review/);
+      assert.match(errorsFor(changed), /must be explicitly approved after editorial review/);
     }
   }
 });

@@ -1,0 +1,91 @@
+{
+  "slug": "ai-extraction-missing-field",
+  "title": "Your AI Document Extraction Returned a Blank. What Happens Next?",
+  "description": "A missing field can mean unreadable, absent, or not applicable. Learn how to handle nulls in AI document extraction without hiding work that still needs review.",
+  "category": "Document automation",
+  "takeaway": "An AI extraction returns an empty value. The next step has to decide whether to try again, ask a person, or close the task. A small output choice can decide whether anyone ever looks at that record again.",
+  "sections": [
+    {
+      "id": "an-empty-value-made-a-decision",
+      "title": "An empty value made a decision",
+      "paragraphs": [
+        "In a document-automation build discussion, an empty extracted value was initially considered a way to mark a field as not applicable. That would let the receiving system stop asking people to check it.",
+        "The discussion then surfaced a risk: the information could be present in wording that required interpretation. An empty response might mean the extraction missed it. The proposed starting approach changed to keeping those cases visible for another review.",
+        "That distinction matters whenever AI reads documents, forms, or messages. “Nothing was returned” tells you about the extraction result. Deciding that no value is required needs separate evidence and a business rule. This article offers a practical way to keep those decisions visible."
+      ]
+    },
+    {
+      "id": "name-the-states-you-need",
+      "title": "Name the states you need",
+      "paragraphs": [
+        "Before choosing JSON fields, list the operational states people need to distinguish. A workflow cannot handle a difference that its output has already erased.",
+        "A useful starting set is below. Adapt it to your process; these are recommended states, not a claim that every extraction system uses them."
+      ],
+      "bullets": [
+        "Found: the value is supported by a readable source and passes the relevant checks.",
+        "Not found: the source was processed, but no supported value was identified.",
+        "Not applicable: a permitted rule or authorized reviewer establishes that this field does not apply.",
+        "Uncertain: possible values conflict, or the available evidence does not support a confident selection.",
+        "Processing failed: the document could not be retrieved, read, or processed successfully.",
+        "Not processed: extraction has not yet run for this source."
+      ]
+    },
+    {
+      "id": "keep-the-value-and-status-separate",
+      "title": "Keep the value and status separate",
+      "paragraphs": [
+        "Use a result structure that carries the value separately from the status. Add a short reason and a controlled reference to the relevant source location where possible. The receiving workflow can then choose an action without guessing what an empty field means.",
+        "In JSON, an explicit null and an omitted property are different representations. Neither representation automatically supplies your business meaning. Define whether an omitted property is invalid, unchanged, or outside the requested extraction. Define what null means when it is present.",
+        "For a found value, require supporting evidence and the expected type. For not applicable, require the policy or decision that justifies it. For processing failed, include a technical error category without turning that failure into an assertion about the document.",
+        "Keep these rules consistent between extraction, validation, and the receiving application. If one step interprets null as unknown while another interprets it as completed, a valid-looking payload can still remove work from view."
+      ]
+    },
+    {
+      "id": "a-date-can-hide-in-a-sentence",
+      "title": "A date can hide in a sentence",
+      "paragraphs": [
+        "Consider this synthetic example: a supplier quote says it is valid for a specified period after its issue date. The expiration is expressed as a rule rather than printed as a standalone date. An extractor that only searches for an expiration label may return no value.",
+        "A safer process first identifies the issue date, the duration, and the wording that connects them. Once that interpretation is checked, deterministic date logic can calculate the result under an explicit policy for calendar days, business days, and boundary handling.",
+        "If the start date is missing or the wording is ambiguous, keep the case unresolved. Do not convert the missing calculation into a not-applicable result. A calculator can consistently apply a rule, but it cannot establish that the selected rule matches the source.",
+        "This is also why simply retrying an extraction may be insufficient. A missing page needs retrieval. An unreadable scan may need a better copy. Ambiguous wording needs interpretation or clarification. Match the next step to the reason."
+      ]
+    },
+    {
+      "id": "test-the-negative-results",
+      "title": "Test the negative results",
+      "paragraphs": [
+        "Your test set should include cases expected to return no usable value. Write the expected status and next action as well as the expected extracted content. Keep synthetic examples separate from approved, appropriately protected real test material.",
+        "Check these cases before allowing the workflow to close tasks automatically:"
+      ],
+      "bullets": [
+        "The value is explicitly present: extraction returns it with the correct source evidence.",
+        "The value is expressed indirectly: the workflow applies an approved interpretation or sends the case for review.",
+        "The field truly does not apply: the not-applicable rule is satisfied and recorded.",
+        "The field is absent: the result remains not found unless a separate rule establishes applicability.",
+        "Two values conflict: the workflow exposes the conflict rather than silently picking one.",
+        "The file is unreadable or incomplete: processing failure remains visible and does not suppress further review.",
+        "The same source is retried: its previous status is updated coherently without losing the review history."
+      ]
+    },
+    {
+      "id": "make-the-review-queue-informative",
+      "title": "Make the review queue informative",
+      "paragraphs": [
+        "A reviewer needs to see why an item arrived. Show the source, the extraction status, any candidate value, and the unresolved question. Let them record a supported correction or confirm that the field does not apply.",
+        "Keep error categories separate when evaluating the workflow. Repeated not-found results may reveal unfamiliar wording. Processing failures may reveal a file-access problem. Confirmed not-applicable results may be correct behavior. Combining them into one empty-value count makes improvement harder.",
+        "Before you accept an extraction workflow, ask: “What happens if the model misses a value that is actually there?” Follow that case all the way to the work queue. The answer should leave a route to discovery and correction."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Make document outputs useful downstream",
+    "description": "Explore AIify It’s custom AI agents and the workflow decisions that turn extracted information into practical next steps.",
+    "label": "Explore custom AI agents",
+    "href": "/services/custom-ai-agents/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}
