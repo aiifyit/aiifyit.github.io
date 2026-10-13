@@ -1,18 +1,23 @@
 [
   {
     "slug": "workflow-automation",
-    "title": "Workflow automation built around your operations",
-    "description": "Explore workflow automation for document processing, data validation, onboarding and approvals. Start with a focused discussion of your process.",
-    "intro": "When work keeps coming back for correction, start with the handoffs, rules and exceptions. AIify It audits workflows, builds custom automation, and manages improvements after deployment.",
+    "title": "Workflow automation, maintenance and support",
+    "description": "Build and improve business workflow automation with AIify It. Discuss ongoing maintenance, monitoring, error recovery and support responsibilities.",
+    "intro": "AIify It audits workflows, builds custom automation and manages improvements after deployment. If your team is still checking every run or chasing unresolved errors, start a conversation about workflow automation maintenance and support. The scope should reflect the systems, business risks and ownership behind the work.",
     "fit": [
-      "A repeatable process with a clear owner and outcome",
-      "Documents or records moving through validation, routing or approvals",
-      "A team that can explain the exceptions and review uncertain cases"
+      "A repeatable business process with a clear owner, from document intake and validation to routing, onboarding or approvals.",
+      "An existing automation that needs attention as business rules, data sources or connected software change.",
+      "Runs that appear successful while work remains unfinished, or errors that depend on someone noticing them.",
+      "A team that can review uncertain cases and identify which interruptions need urgent attention."
     ],
     "discuss": [
-      "Where the process starts and what a correct finished result looks like",
-      "Which steps need judgment, approval or a reliable system lookup",
-      "What evidence would show that a pilot is ready to expand"
+      "Map the starting point: which workflows are running, what starts them, who owns them and what a correct finished result looks like. Begin with a process description and redacted examples.",
+      "Define monitoring: which missed runs, failures and unresolved items should be visible, who receives each alert and how the team confirms that an issue has been handled.",
+      "Plan recovery: which failures can be retried safely, which require review and how to avoid repeating an action that already completed.",
+      "Agree on maintenance: distinguish fixes to the agreed workflow from new features, additional systems or changed business rules. Identify who approves each change and how it will be tested.",
+      "Make ownership explicit: identify who maintains access, configuration, documentation and the operational instructions your team needs when something goes wrong.",
+      "Set support expectations: discuss coverage hours, contact channels, response expectations, escalation and any work excluded from the scope. These need to be agreed for your engagement.",
+      "Start the inquiry with the systems involved, the recurring problem and its business impact. Ask what level of ongoing involvement fits; pricing and responsibilities depend on the agreed scope."
     ],
     "priority": "manual-work",
     "review": {
@@ -45,18 +50,23 @@
   },
   {
     "slug": "workflow-integration",
-    "title": "Connect the systems your workflow depends on",
-    "description": "Explore API connectivity and workflow integration across existing business tools. Discuss data handoffs, failure recovery and operational ownership.",
-    "intro": "A workflow is only as useful as the handoffs between its systems. AIify It connects APIs, data pipelines and business platforms so automation can work within the tools your team already uses.",
+    "title": "Workflow automation audit, repair and integration",
+    "description": "Discuss workflow automation audit and repair with AIify It. Trace broken handoffs, scope changes and test existing integrations before expanding them.",
+    "intro": "AIify It connects APIs, data pipelines and business platforms within the tools your team uses. When an existing automation loses records, duplicates work or sends data to the wrong place, a workflow automation audit and repair discussion can help define the next step. Start with what is failing and what should happen instead.",
     "fit": [
-      "Work copied manually between systems or delayed at a handoff",
-      "A need to move validated records between existing platforms",
-      "An owner who can define the source of truth and exception process"
+      "A partly working automation whose failures can be shown with examples, logs or an existing workflow map.",
+      "Records copied between systems with unclear matching, field ownership or update rules.",
+      "Call notes that need the correct CRM contact or account, including a review path when the match is uncertain.",
+      "An integration that needs new connections, safer recovery or clearer ownership as operations change."
     ],
     "discuss": [
-      "Which system owns each field and how updates should move",
-      "What should happen when a request fails, repeats or arrives out of order",
-      "How the team will find and resolve records that need attention"
+      "Prepare the evidence: describe the source and destination systems, the expected result and one failed handoff. Start with redacted examples; arrange any necessary access separately.",
+      "Trace the failure: distinguish missing input, incorrect extraction, record matching, field mapping, routing and a failed destination write. Agree what the audit needs to establish before choosing a repair.",
+      "Bound the repair: identify the affected steps and dependencies, what can remain in place and whether access or platform limitations change the approach. A full rebuild should have a specific reason.",
+      "Protect existing records: decide which system owns each field, how duplicates are recognized and what to do when an update is blank, repeated or arrives out of order.",
+      "Define acceptance: agree on sample cases and expected destination records, including failures and uncertain matches. Decide who reviews the results before production changes are approved.",
+      "Plan the handover: discuss documentation, access ownership, recovery steps and who maintains the integration after the initial work. Ongoing support needs its own agreed responsibilities.",
+      "Ask about fit and scope: include the affected workflow, its business impact and the systems involved in your inquiry. Feasibility, timing and price depend on reviewing those details."
     ],
     "priority": "integrations",
     "review": {

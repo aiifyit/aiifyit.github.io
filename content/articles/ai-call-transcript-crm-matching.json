@@ -1,10 +1,26 @@
 {
   "slug": "ai-call-transcript-crm-matching",
-  "title": "The Call Happened. Why Is It on the Wrong CRM Record?",
-  "description": "Trace AI call transcript matching errors across speakers, customer records, and account relationships before summaries reach the wrong CRM record.",
+  "title": "Automate Call Notes to CRM Without Mixing Up Contacts",
+  "description": "Automate call notes to CRM with clear intake fields, verified contact matching, an unmatched-call review queue and checks on the saved note.",
   "category": "Workflow integration",
-  "takeaway": "You remember the conversation. The report exists. Yet it appears under someone else, or disappears when you filter for the person who was actually on the call. Which identity did the system think it had found?",
+  "takeaway": "To automate call notes to a CRM, capture the source call, establish the right contact and account, then save only the agreed note fields. Keep uncertain matches in a visible review queue. A useful summary still needs evidence that it belongs on this record.",
   "sections": [
+    {
+      "id": "define-the-crm-note",
+      "title": "Define what the CRM should receive",
+      "paragraphs": [
+        "Start by deciding whether the destination is a contact note, an account activity or another record your team already uses. Also decide whether the automation may only append a note or may update existing fields. Those are separate permissions and should have separate rules.",
+        "Before generating a summary, prepare a small intake record. Use metadata supplied by the source system where available, and mark missing information explicitly. A name inferred from transcript text should not quietly replace a missing participant identifier.",
+        "The following is a planning checklist, not a universal CRM schema. Confirm what your call platform provides and what your CRM permits. Limit recording and transcript access to the people who need it, using your approved recording, retention and access policies."
+      ],
+      "bullets": [
+        "Source system and call reference, so the same conversation can be recognized when processing repeats.",
+        "Call date and time with its time zone, plus the responsible employee when known.",
+        "Available participant identifiers and any existing contact or account association, with their source.",
+        "A concise summary of the discussion and agreed next steps; leave an owner or due date unset when the call does not establish one.",
+        "A permitted source reference for reviewers, the proposed CRM destination and separate matching, review and write statuses."
+      ]
+    },
     {
       "id": "when-names-stop-being-enough",
       "title": "When names stop being enough",
@@ -30,6 +46,7 @@
       "paragraphs": [
         "Use a crosswalk to connect source-system identifiers to CRM record identifiers. Begin with the meeting or call reference, the participant metadata actually available, and any verified relationship already recorded in your business system.",
         "Prefer an established record association over a fresh guess from display text. That still requires checks: a meeting organizer may not be the customer, a shared mailbox may represent several people, and an old account assignment may no longer apply.",
+        "An email address or phone number can narrow the candidates, but check whether it is shared, duplicated or attached to an outdated record. Agree how each available identifier is used and what happens when two identifiers point to different people.",
         "A useful crosswalk records the following information. Keep personal data access-controlled and retain only what the integration and its reviewers need."
       ],
       "bullets": [
@@ -47,7 +64,18 @@
         "Name matching can help find candidates. Treat the candidate list as evidence to resolve, rather than permission to attach a report. Two records with the same surname, company name, or display name need additional distinguishing information.",
         "Define what counts as enough evidence for your operation. A verified source identifier already connected to one active record is a different situation from two plausible names found in transcript text. Record conflicts explicitly instead of hiding them inside a high model-confidence score.",
         "When a match remains ambiguous, retain the call in an unresolved queue with the competing candidates and a concise explanation. Do not discard it or make it look like the customer had no calls. Give the queue an owner who can establish the correct relationship.",
+        "Give the reviewer the source call reference, candidate record identifiers, the evidence for each candidate and the reason the workflow stopped. Let them confirm a match, request a correction to the source data or mark the item as outside the workflow. Record the decision so a retry does not repeat the same unresolved guess.",
         "Keep association status separate from analysis status. A call may be transcribed and summarized while its destination remains unresolved. A summary may also be unavailable for reasons unrelated to identity. Those conditions need different follow-up."
+      ]
+    },
+    {
+      "id": "write-back-the-reviewed-note",
+      "title": "Write back the note and verify its destination",
+      "paragraphs": [
+        "Once the association meets your matching policy and any required content review is complete, write the agreed note to the specific CRM record identifiers. Keep the note content separate from the relationship that attaches it to a contact, account or employee.",
+        "Track the source call reference alongside the resulting CRM note reference in the integration. Define how repeat processing is recognized before creating another note. If a request times out, check whether the destination saved it before retrying; an unclear response is not evidence that nothing happened.",
+        "Read back or inspect the saved note and its associations. Confirm the intended contact and account, timestamp and source reference in the view the team actually uses. Keep a failed or unverified write visible with an owner rather than marking the call complete because summary generation succeeded.",
+        "For a bounded pilot, use a synthetic or appropriately redacted call with an agreed destination and expected note. Include a duplicate delivery and an ambiguous participant. The result should show the correct saved note, no unintended second note and an unresolved item held for review."
       ]
     },
     {
@@ -71,8 +99,8 @@
     }
   ],
   "cta": {
-    "title": "Connect call records to the right people",
-    "description": "Explore how AIify It approaches workflow integration, including record matching, data handoffs, and the exceptions your team needs to resolve.",
+    "title": "Plan your call-notes-to-CRM integration",
+    "description": "Tell AIify It which call platform and CRM you use, what should be saved and where matching breaks down. Start with a workflow integration inquiry to discuss feasibility, review steps and scope.",
     "label": "Explore workflow integration",
     "href": "/services/workflow-integration/"
   },
