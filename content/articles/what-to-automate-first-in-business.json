@@ -1,0 +1,74 @@
+{
+  "slug": "what-to-automate-first-in-business",
+  "title": "What Should You Automate First When Every Team Has a Different Answer?",
+  "description": "Decide where to start with business process automation. Compare manual effort, business value, existing tools and readiness before choosing your first project.",
+  "category": "Automation planning",
+  "takeaway": "Sales wants faster follow-ups. Operations wants fewer spreadsheets. Finance wants less chasing. All three may have a case. How do you choose a first automation project without rewarding the loudest request?",
+  "sections": [
+    {
+      "id": "follow-one-real-job",
+      "title": "Follow one real job before choosing a tool",
+      "paragraphs": [
+        "Start with a recurring process whose burden and business value you can describe, then check whether it is ready to automate. The strongest first candidate usually has a clear owner, accessible inputs and a finished result the team can recognize. A task being frustrating is a useful signal, but it is only the beginning of the decision.",
+        "In an automation discovery discussion, AIify It recommended looking for the overlap between work that causes significant operational pain and work that matters commercially. The discussion also emphasized asking the operations team to walk through the small decisions inside a workflow. It was a prioritization approach, not evidence that a particular project had already delivered savings.",
+        "That combination matters. A senior leader can identify the business priority; the people doing the work can show where time actually goes. Ask someone to demonstrate a recent case from arrival to completion. Follow the copying, waiting, checking and correction steps that a process diagram might leave out."
+      ]
+    },
+    {
+      "id": "build-a-comparable-shortlist",
+      "title": "Turn competing requests into a comparable shortlist",
+      "paragraphs": [
+        "Give each candidate the same short description. Record what starts the work, how often it happens, who handles it and what a correct finished result looks like. Include a recent example and the systems involved. This makes it easier to compare a specific workflow with another specific workflow.",
+        "Measure hands-on effort separately from elapsed time. A request might sit for two days while someone waits for approval, yet require only ten minutes of active work. Automation could help route the approval, but it cannot create a decision the responsible person has not made. Understanding that distinction prevents a misleading savings estimate.",
+        "Use a simple scorecard rather than a complicated formula that disguises guesses. Mark each item as observed, estimated or unknown. Compare candidates on:"
+      ],
+      "bullets": [
+        "Frequency: how often the task occurs, including busy periods and seasonal spikes.",
+        "Manual burden: handling time, duplicate entry, checking and recurring rework.",
+        "Business consequence: delayed delivery, slow responses, missed handoffs or avoidable errors.",
+        "Readiness: stable rules, usable information, system access and an available process owner.",
+        "Failure cost: what happens when a result is late, incomplete or wrong."
+      ]
+    },
+    {
+      "id": "inspect-what-already-exists",
+      "title": "Check how much of the process is already automated",
+      "paragraphs": [
+        "A request to automate a whole process can conceal a much smaller gap. Before commissioning another tool, map the existing automations and the manual steps between them. The best next investment may be connecting two working pieces or removing a repeated check.",
+        "In a separate workflow review, the team proposed mapping the current process, showing what was already automated and locating the remaining step that consumed the most time. The proposed map was intended to guide the next improvement. The discussion did not establish a completed time reduction.",
+        "That is a useful buying discipline: inspect before adding. Ask whether a feature you already pay for can handle the task, whether the current workflow needs configuration, or whether a genuine integration gap remains. A custom build should have a clear job that the existing setup cannot adequately perform.",
+        "Also question work that no longer needs to happen. If a report has no reader or a duplicate approval no longer serves a purpose, removing the step may be a better first move than automating it."
+      ]
+    },
+    {
+      "id": "test-the-business-case",
+      "title": "Make the business case survive a conservative estimate",
+      "paragraphs": [
+        "Estimate the effort the proposed change could actually remove. Begin with observed task frequency and handling time, then subtract the review and exception work that would remain. Treat the result as potential capacity released, not guaranteed payroll savings. Someone still needs a plan for using that capacity.",
+        "For a synthetic example, imagine a team comparing copying order details with preparing complex proposals. The proposals consume more time per case, but requirements vary and review is substantial. Copying approved details may be more frequent, easier to verify and ready sooner. Either could win; the comparison depends on the actual burden, value and constraints.",
+        "Include the build cost, ongoing tools, maintenance and the team’s participation. A project that looks attractive only when every exception disappears needs a more cautious estimate. Ask what the decision would look like if the first version handled a narrower set of cases.",
+        "Avoid adding every possible benefit to one impressive total. Time released, faster turnaround and additional revenue may overlap. Identify which improvement you can directly measure and which depends on later changes in how the business operates."
+      ]
+    },
+    {
+      "id": "choose-a-project-you-can-explain",
+      "title": "Choose a first project you can explain in one paragraph",
+      "paragraphs": [
+        "A practical first-project brief names the process owner, the current problem, the eligible cases, the desired result and the evidence needed to justify further investment. Include the most important unresolved question. If system access is uncertain, resolving it may be the next task before a build starts.",
+        "Choose a candidate with worthwhile value and a credible path to implementation. A high-value workflow with unavailable data can remain on the shortlist while a better-prepared one moves ahead. Record why you chose it so the decision can be revisited when conditions change.",
+        "The useful question for your next operations meeting is: which recurring piece of work can we describe well enough to improve, and how will we know the improvement was worth paying for? Answering that is a stronger start than shopping for an AI tool and looking for somewhere to put it."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Find a worthwhile first automation project",
+    "description": "Explore AIify It’s workflow automation service, then prepare an email describing the process your team wants to improve.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}
