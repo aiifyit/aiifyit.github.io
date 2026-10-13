@@ -1,0 +1,11 @@
+{
+  "name": "AIify It",
+  "url": "https://www.aiifyit.com",
+  "description": "AI automation consultancy that deploys custom AI agents and workflow automation into businesses.",
+  "founder": { "name": "Joshua Pellicer" },
+  "routes": ["/", "/book/", "/articles/"],
+  "articleIndex": {
+    "title": "Practical AI automation lessons",
+    "description": "Field notes on building, testing, and improving AI agents and business workflows. Practical lessons from AIify It."
+  }
+}

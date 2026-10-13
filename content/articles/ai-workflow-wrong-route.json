@@ -1,0 +1,101 @@
+{
+  "slug": "ai-workflow-wrong-route",
+  "title": "Your AI Workflow Had the Right Data. Why Did It Choose Wrong?",
+  "description": "A real workflow review shows how a valid match can lose to a fallback. Learn what to inspect, which routing rules to make explicit, and how to test the fix.",
+  "category": "Workflow reliability",
+  "takeaway": "A request arrives with enough information to reach the right destination. The workflow completes without an obvious error. Someone still has to move the work to the correct place. Where do you start looking?",
+  "sections": [
+    {
+      "id": "the-match-was-there",
+      "title": "The match was there",
+      "paragraphs": [
+        "In one workflow review, a valid match was available but the process still selected a fallback. After the matching logic was corrected, the customer reported improved routing in the next review.",
+        "The customer’s feedback was encouraging. To know how much reliability improved, we would need to measure the routing outcomes.",
+        "The lesson starts at the point where the workflow chose a destination. Finding the right information and using it correctly are separate steps. When several checks can influence the same decision, a valid match can be overlooked or overridden.",
+        "Before rewriting a prompt, trace one misrouted request. Which information reached the decision step? Which rule won? What specifically allowed the fallback to run? Those questions help locate the failure before you change the wrong part of the system."
+      ]
+    },
+    {
+      "id": "separate-reading-from-routing",
+      "title": "Separate reading from routing",
+      "paragraphs": [
+        "An AI-assisted workflow may need interpretation at the beginning: reading a request, identifying what someone wants, or extracting a reference from messy text. Treat that output as information to validate before acting on it.",
+        "Routing introduces a different question: given the validated information and your business policy, where should the work go? If a verified, unique reference determines the destination, make that rule explicit in the workflow.",
+        "For example, a model might extract a customer reference from a message. A lookup then checks whether that reference maps to one eligible record. The routing step should use that verified result according to a documented policy. A model’s confidence in what it read should not substitute for the lookup.",
+        "Write down any legitimate exceptions, too. If a matched destination cannot receive the request, the workflow needs a defined next step. Otherwise, an exception can quietly become an excuse to use the default route."
+      ]
+    },
+    {
+      "id": "make-the-fallback-earn-its-place",
+      "title": "Make the fallback earn its place",
+      "paragraphs": [
+        "A fallback keeps work moving when the preferred route is unavailable. The risk is making it so easy to reach that it hides a problem you needed to see.",
+        "Consider this synthetic example: a request contains reference REF-204. The lookup finds one eligible destination, Team A. A later check finds an optional field blank and selects the default queue. Every step can finish successfully while the request ends up in the wrong place.",
+        "The blank field may matter. The policy must say whether it can disqualify that match. Without that decision, whichever condition runs last can become the routing policy by accident.",
+        "Use the following decision order as a starting point, then adapt it to the risks and rules of your operation:"
+      ],
+      "bullets": [
+        "One verified, eligible match: use it unless a documented exception applies.",
+        "Conflicting identifiers or multiple eligible matches: hold for review or clarification rather than choosing the first result.",
+        "No match after a completed lookup: use only the fallback approved for that situation.",
+        "Lookup failed or never completed: treat it as a technical exception. Retry safely or send it for review; do not label it “no match.”",
+        "Fallback would trigger a consequential action: require human approval before that action proceeds."
+      ]
+    },
+    {
+      "id": "leave-a-decision-record",
+      "title": "Leave a record of the decision",
+      "paragraphs": [
+        "A log that says “completed” gives an operator very little to investigate. For each routing decision, record enough to reconstruct the choice: which checks ran, their results, the rule selected, the intended destination, and the reason for any fallback.",
+        "Include the routing-rule version so a reviewer can distinguish behavior before and after a change. Use controlled references and redacted values where possible; access to troubleshooting logs should not become a new way to expose customer information.",
+        "Keep the explanation factual. “Fallback selected because the completed lookup returned no eligible match” can be checked against the lookup result. “AI thought this was best” cannot tell your team which condition to repair."
+      ]
+    },
+    {
+      "id": "test-the-boundaries",
+      "title": "Test the cases around the happy path",
+      "paragraphs": [
+        "Replaying the request that exposed the defect is a good first test. It only shows that you handled that example. Before expanding use, test the boundaries around the rule as well.",
+        "For your own workflow, use synthetic records and agree on the expected destination before running each case:"
+      ],
+      "bullets": [
+        "Exact match: one valid reference maps to one eligible destination. Confirm that destination wins.",
+        "Optional field missing: retain the valid match when the missing field is not required by policy.",
+        "Conflicting identifiers: two valid inputs point to different destinations. Confirm that the conflict is surfaced for review.",
+        "Duplicate match: more than one eligible record matches. Confirm the workflow does not silently choose the first.",
+        "Required reference missing: confirm the approved clarification, review, or fallback path is used.",
+        "No eligible match: confirm the fallback reason is recorded and the designated review owner receives the item.",
+        "Lookup unavailable: confirm a technical failure remains distinguishable from a genuine no-match result."
+      ]
+    },
+    {
+      "id": "check-where-the-work-landed",
+      "title": "Check where the work actually landed",
+      "paragraphs": [
+        "A successful response from the receiving system does not establish that the intended destination was selected. Check the resulting record as part of each test.",
+        "Compare the expected destination with the actual owner, queue, or other routing field that governs what happens next. Check that the operational view your team uses shows the same result. If a fallback requires review, verify that a named person or monitored queue can see it.",
+        "After a correction, review a bounded set of live outcomes under your usual access and approval controls. Keep exact matches, ambiguous cases, and technical failures separate when evaluating results. A general report that routing feels better is encouraging; the individual outcomes show which paths still need attention."
+      ]
+    },
+    {
+      "id": "one-question-for-the-next-review",
+      "title": "One question for your next workflow review",
+      "paragraphs": [
+        "Ask the person responsible for the workflow: “Can you show me why this request went here?”",
+        "A useful answer should connect the available inputs, the policy, the rule that ran, and the destination actually recorded. If any link is missing, that is a concrete place to investigate.",
+        "That review gives you a practical next step: correct the matching rule, resolve an ambiguous policy, improve the exception path, or gather better evidence. You can then test the change against a specific failure instead of asking the whole system to become more reliable."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Make your next workflow easier to trust",
+    "description": "Have an AI-assisted process that still needs manual correction? Talk with AIify It about its decision points, exceptions, and the evidence you need before expanding it.",
+    "label": "Book a workflow strategy call",
+    "href": "/book/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}
