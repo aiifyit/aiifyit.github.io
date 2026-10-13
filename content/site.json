@@ -1,6 +1,6 @@
 {
   "name": "AIify It",
-  "url": "https://www.aiifyit.com",
+  "url": "https://aiifyit.com",
   "description": "AI automation consultancy that deploys custom AI agents and workflow automation into businesses.",
   "founder": { "name": "Joshua Pellicer" },
   "routes": ["/", "/book/", "/articles/"],
