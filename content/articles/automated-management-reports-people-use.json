@@ -1,0 +1,82 @@
+{
+  "slug": "automated-management-reports-people-use",
+  "title": "The Report Arrived. Why Is Everyone Rebuilding It?",
+  "description": "Build automated management and client reports around the decisions people make, with clear definitions, reliable totals, and a usable next-action view.",
+  "category": "Reporting and decisions",
+  "takeaway": "AI can help turn data from existing systems into a useful report, provided you define the decision, the underlying calculations, and the output people actually need. A polished summary adds little if its recipient must rebuild a spreadsheet before taking action.",
+  "sections": [
+    {
+      "id": "watch-what-happens-after-delivery",
+      "title": "Watch what happens after delivery",
+      "paragraphs": [
+        "A report can arrive on time, contain accurate information, and still miss its purpose. The operations lead copies its rows into a worksheet. A manager adds owners and due dates. A client asks which items require a response. Those extra steps show what the report should have included.",
+        "In an AIify It reporting discussion, a recipient said the organization of an existing email output was helpful. They had then assembled a spreadsheet with additional information from the same underlying source and requested that format as part of the recurring output.",
+        "The requested enhancement was still a request in that discussion. The recipient also said business results were not yet known. The lesson is about discovering a useful format from actual use, rather than assuming that successful delivery proves the report is doing its job."
+      ]
+    },
+    {
+      "id": "choose-one-decision-and-reader",
+      "title": "Choose one decision and one reader",
+      "paragraphs": [
+        "Before connecting data sources, finish this sentence: “When this person reads the report, they need to decide or do this.” A staffing decision, a client update, and a list of overdue actions call for different levels of detail.",
+        "For an illustrative service-operations report, a manager might need to decide which unfinished jobs require intervention. The useful output could include the blocked job, the reason, its owner, and the next action. A narrative about overall activity would not give that manager enough to work with.",
+        "If several groups need different views, agree which information they share and which details belong only in each audience’s version. Be especially careful with client-facing reports: an internal explanation or another client’s record should never be included merely because it appeared in the source data."
+      ]
+    },
+    {
+      "id": "settle-definitions-before-writing-summaries",
+      "title": "Settle definitions before writing summaries",
+      "paragraphs": [
+        "List the fields and measures the report needs, then decide where each comes from. An open item might mean “not marked complete” in one system and “still awaiting acceptance” in another. Pick the meaning that supports the decision and document how conflicting states are handled.",
+        "Agree the reporting period, cutoff time, timezone, and treatment of late changes. State whether a total counts records, unique customers, or completed actions. Decide what happens when an identifier is missing or the same event appears in more than one source.",
+        "Calculate important totals through explicit, inspectable rules. Give the language model those verified results when asking it to write a summary. Require the report to distinguish missing information from a confirmed zero; the reader should not have to guess whether a quiet period was actually checked."
+      ]
+    },
+    {
+      "id": "give-the-summary-a-working-companion",
+      "title": "Give the summary a working companion",
+      "paragraphs": [
+        "A short summary can explain what changed and what deserves attention. A detailed worksheet can let people filter, assign, investigate, and follow through. Use both when the reader needs both, without turning every report into a large dashboard project.",
+        "Choose columns with a real recipient and a representative sample. Ask them to complete their usual task using it. If they immediately add a column, that is useful design feedback. If they delete most columns, reduce the output.",
+        "For an action-oriented report, consider the following fields:"
+      ],
+      "bullets": [
+        "The item or issue, described in language the recipient uses.",
+        "The current status and the relevant reporting period.",
+        "The source reference, accessible to that recipient.",
+        "The person responsible for the next action.",
+        "The next action and its due date, where one has been agreed.",
+        "A clear note when information is missing, disputed, or awaiting confirmation."
+      ]
+    },
+    {
+      "id": "keep-explanations-tied-to-evidence",
+      "title": "Keep explanations tied to evidence",
+      "paragraphs": [
+        "Give the summary a narrow job: describe the verified figures, highlight defined exceptions, and point to the supporting detail. Label interpretation as interpretation. If the data shows a backlog growing, the report should not invent a cause or attribute blame without supporting evidence.",
+        "Make it possible to trace an important sentence to the records or calculation behind it. The right source link or reference can be more useful than a longer explanation. Check that the intended audience has permission to open it.",
+        "If a source is unavailable or stale, show the coverage limit prominently. Decide whether to delay the report, publish a clearly partial version, or ask an owner to resolve the gap. Do not quietly reuse an older number under a new report date."
+      ]
+    },
+    {
+      "id": "check-whether-the-report-gets-used",
+      "title": "Check whether the report gets used",
+      "paragraphs": [
+        "Compare the first outputs with the established reporting process. Reconcile key totals and ask the recipient to walk through a decision using the report. Look for omitted items, confusing definitions, unexpected exposure, and manual reconstruction.",
+        "Agree how corrections will be handled after delivery. Recipients need to know which version is current and whether a changed figure affects an action they already took. An archive of reports is more useful when its period and version are unambiguous.",
+        "Measure the effort required to prepare and use the report, alongside corrections and unresolved questions. That gives you a basis for judging value without claiming that every report automatically produces revenue or savings. A good first milestone is a report the recipient can use as delivered."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Make reporting fit the decisions your team makes",
+    "description": "Explore workflow integration with AIify It, then prepare an email about your source systems, report recipients, and the work they need to do.",
+    "label": "Explore reporting integration",
+    "href": "/services/workflow-integration/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}

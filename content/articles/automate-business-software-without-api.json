@@ -1,0 +1,86 @@
+{
+  "slug": "automate-business-software-without-api",
+  "title": "No API? Start With What the Software Actually Allows",
+  "description": "Compare approved exports, scheduled reports, browser assistance, and manual checkpoints when business software lacks an API your team can use.",
+  "category": "Integration planning",
+  "takeaway": "You may be able to automate useful work around software without an available API. First confirm the vendor’s permitted routes, then compare exports, scheduled reports, approved browser assistance, and a bounded manual step. The right choice depends on freshness, reliability, and ongoing effort.",
+  "sections": [
+    {
+      "id": "find-out-what-no-api-means",
+      "title": "Find out what “no API” means",
+      "paragraphs": [
+        "Before pricing a workaround, clarify the constraint. The product may have no public API, your subscription may exclude it, a partner may provide an approved connector, or the vendor may restrict the requested use. These situations lead to different decisions.",
+        "Ask the vendor which options are supported for your account and purpose. Be precise about whether you need to read data, update records, or both. A permitted download route does not automatically authorize automated sign-in, a write operation, or access to additional information.",
+        "If access has been denied, do not treat a different technical route as permission to do the same prohibited thing. Ask what alternatives are allowed. A legitimate integration plan needs a permitted path as well as a working one."
+      ]
+    },
+    {
+      "id": "a-planned-alternative-is-still-a-plan",
+      "title": "A planned alternative is still a plan",
+      "paragraphs": [
+        "In an AIify It project discussion, API access was reported as unavailable for the proposed use. The team discussed separately authorized downloads and a browser-assisted way to supply downstream work. The available evidence describes a plan, not a verified production automation.",
+        "That distinction matters when evaluating a proposal. A supplier may have a sensible fallback in mind while still needing to confirm its permissions, operating conditions, and reliability. Ask which steps have actually been demonstrated using the access your project will have."
+      ]
+    },
+    {
+      "id": "compare-the-supported-routes",
+      "title": "Compare the supported routes",
+      "paragraphs": [
+        "Start with the least complicated permitted route that meets the business requirement. These are options to investigate, not features every product will provide:"
+      ],
+      "bullets": [
+        "Approved export: a person or supported process produces a file that downstream automation can read. Check the fields, record identifiers, format, and reporting period.",
+        "Scheduled report: the product delivers recurring information through a supported destination. Check its schedule, coverage, and whether the file is suitable for further processing.",
+        "Approved browser assistance: automation interacts with permitted screens or controls. Confirm what the vendor allows and where a person must handle sign-in or approval.",
+        "Manual checkpoint: an authorized employee completes a small, explicit task, then supplies the result to the automated workflow. Define its owner and completion evidence."
+      ]
+    },
+    {
+      "id": "decide-how-fresh-the-data-must-be",
+      "title": "Decide how fresh the data must be",
+      "paragraphs": [
+        "A daily file may be sufficient for a morning worklist. It may be unsuitable for a decision that depends on a change made moments ago. State the latest acceptable source time for the actual business decision before choosing a route.",
+        "For an illustrative example, a team preparing a weekly stock review might accept an approved export produced before the review starts. A process promising immediate availability to customers would need a different assessment of delay and synchronization.",
+        "Label each imported file with its source period and collection time. Decide what happens if an expected file does not arrive, arrives empty, or contains only part of the required population. A regular schedule alone does not prove that fresh, complete data is available."
+      ]
+    },
+    {
+      "id": "understand-the-browser-maintenance-tradeoff",
+      "title": "Understand the browser maintenance tradeoff",
+      "paragraphs": [
+        "Browser automation can interact with webpage controls, but those interactions depend on how the interface is built. Changes to pages or controls can require adjustments. Have the supplier explain how it identifies the correct element and detects when that assumption no longer holds.",
+        "Ask how expired sessions, authentication prompts, and unexpected screens are handled. Keep the service’s security controls intact. If a person needs to complete an authentication step, build that dependency into the operating plan instead of promising unattended execution.",
+        "For any write operation, agree what proves the change succeeded. If the browser times out after submission, the workflow should check the resulting state before repeating the action. An uncertain result needs investigation rather than another blind click."
+      ]
+    },
+    {
+      "id": "price-the-work-that-remains",
+      "title": "Price the work that remains",
+      "paragraphs": [
+        "Compare the complete operating cost of each option. Include the time needed to produce files, review exceptions, maintain browser steps, resolve failed imports, and support changes in the source application. Ask who owns each recurring task.",
+        "Make the manual part specific enough to estimate. “Someone uploads a report” leaves open who does it, which report they select, where it goes, and what happens during leave. A short, documented handoff can be manageable; an informal favor is harder to rely on.",
+        "Also consider how easy it would be to replace the route later. Keeping the downstream input format and validation rules explicit can help preserve useful work if the vendor eventually offers a suitable integration or the business changes software."
+      ]
+    },
+    {
+      "id": "agree-when-the-workflow-must-stop",
+      "title": "Agree when the workflow must stop",
+      "paragraphs": [
+        "Before proceeding, identify conditions that should pause the process: expired permission, an unexpected page, incomplete data, an unknown reporting period, or uncertainty about an earlier submission. Give each condition a responsible owner and a clear recovery step.",
+        "A useful first trial is a complete, permitted run with representative data, followed by a deliberately missing or delayed input. Review both the resulting output and the effort needed to resolve the interruption.",
+        "The decision is whether a supported route can meet your operational needs at an acceptable maintenance cost. If it cannot, changing the process or source software may be a better investment than forcing an unreliable workaround."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Find a supported route between your systems",
+    "description": "Explore workflow integration with AIify It, then prepare an email about your software, access constraints, and required data freshness.",
+    "label": "Explore integration options",
+    "href": "/services/workflow-integration/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}

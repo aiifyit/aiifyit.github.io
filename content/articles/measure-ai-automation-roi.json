@@ -1,0 +1,78 @@
+{
+  "slug": "measure-ai-automation-roi",
+  "title": "Will AI Automation Pay for Itself? Measure the Work That Remains",
+  "description": "Build a credible AI automation business case by measuring remaining human work, separating capacity from cash savings, and checking payback assumptions.",
+  "category": "Automation strategy",
+  "takeaway": "An automation project can finish faster while leaving your team with almost as much work. To judge whether it will pay for itself, measure the effort it removes, the effort it adds, and how the resulting capacity will become business value.",
+  "sections": [
+    {
+      "id": "start-with-the-existing-workload",
+      "title": "Start with a workload you can count",
+      "paragraphs": [
+        "Before approving a build, select a clearly bounded process and record what completing it currently requires. Count incoming cases, hands-on minutes, corrections, and elapsed time. Include work performed by everyone involved, rather than measuring only the person who starts the process.",
+        "In a workflow discovery discussion, a process owner described a time-consuming operation that still required human participation at several points. The team proposed mapping those steps and identifying which remaining work could be automated. The discussion established an opportunity to investigate; it did not establish measured savings or a completed return on investment.",
+        "That distinction matters when a proposal promises to automate a large share of a process. A count of automated steps tells you little about the effort removed. One difficult exception can require more attention than several routine steps combined."
+      ]
+    },
+    {
+      "id": "measure-the-work-that-survives",
+      "title": "Include the work that survives the automation",
+      "paragraphs": [
+        "Measure the future process all the way to an accepted result. Include preparing inputs, checking output, handling exceptions, correcting mistakes, and recovering failed runs. If people must continue reviewing every case, that time belongs in the estimate even when the automated portion looks impressive.",
+        "Use the same unit on both sides of the comparison. For example, compare staff minutes per completed request before and after, alongside total weekly volume. Keep waiting time separate: reducing a queue from days to hours can improve service without releasing the same number of staff hours.",
+        "Also record ongoing administration that is not attached to an individual case. Someone may need to inspect failures, update rules, manage access, and answer colleagues' questions. Include that recurring workload when estimating net capacity released."
+      ]
+    },
+    {
+      "id": "separate-types-of-value",
+      "title": "Decide what the freed time will change",
+      "paragraphs": [
+        "A credible business case names the benefit and explains how it will happen. Keep these categories separate so the same improvement is not counted twice."
+      ],
+      "bullets": [
+        "Capacity: the team can complete more work or spend more time on neglected responsibilities. Identify the work that will use the released hours.",
+        "Cash savings: an actual expense falls, such as avoidable overtime or an external processing charge. Identify the expense and when it will change.",
+        "Service quality: fewer corrections, shorter delays, or more consistent completion. Measure the operational outcome before assigning it a monetary value.",
+        "Additional revenue: improved capacity or responsiveness may support more business. Treat this as a hypothesis until you can show additional demand, completed sales, and the costs of serving them."
+      ]
+    },
+    {
+      "id": "use-a-conservative-example",
+      "title": "Calculate capacity before claiming savings",
+      "paragraphs": [
+        "Consider a purely illustrative process handling 300 requests a month. If each currently takes 12 staff minutes, the monthly workload is 60 hours. Suppose the proposed workflow would still require five minutes per request for preparation, review, and exceptions. That leaves 25 hours of case work. Add five hours of monthly administration, and the projected net capacity released is 30 hours.",
+        "These numbers are an example, not a client result or performance promise. Replacing any assumption can change the answer substantially. If difficult cases require more review than expected, the projected benefit shrinks.",
+        "Multiplying those 30 hours by an internal hourly cost can help value capacity. It does not prove that payroll or another expense will fall. Ask the process owner how that capacity will be used and what evidence would show that the intended benefit occurred."
+      ]
+    },
+    {
+      "id": "test-the-payback-case",
+      "title": "Test whether the payback survives a slower start",
+      "paragraphs": [
+        "For a simple cash-payback estimate, divide the one-time investment by the expected monthly cash benefit after recurring operating costs. If the net monthly cash benefit is zero or negative, that calculation does not produce a positive payback period. A capacity or quality case may still justify the project, but describe it accurately.",
+        "Include implementation, internal setup time, training, and transition work in the investment you evaluate. Include software, usage, support, and retained operating effort when estimating ongoing economics. Use consistent assumptions and avoid charging the same cost twice.",
+        "Run a conservative scenario with lower adoption, more review, and slower rollout. Do not assume full monthly benefits arrive during development. Ask whether the decision still makes sense if the improvement is smaller or starts later than expected."
+      ]
+    },
+    {
+      "id": "agree-on-the-proof",
+      "title": "Agree on the evidence before the pilot starts",
+      "paragraphs": [
+        "Write down the baseline, the target outcome, the measurement owner, and the decision date. Compare similar case types and volumes, including exceptions. If the pilot handles only easy work, report that limitation rather than extending its result to the whole operation.",
+        "Record quality alongside speed. A process that appears faster because it leaves hard cases unresolved has moved work out of sight. Count completed acceptable results, unresolved items, and staff repair time.",
+        "At the review, replace estimates with observed results and decide whether to expand, revise, or stop. The useful business case is one your operations team can verify from its own workload. It should explain both what improved and what people still have to do."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Define a measurable automation outcome",
+    "description": "Explore workflow automation with AIify It and discuss the current workload, remaining human effort, and evidence your team would need from a pilot.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "slug": "automate-client-document-collection",
+  "title": "Still Chasing Client Documents? Fix the Request List First",
+  "description": "Automate client document collection with clear requirements, targeted reminders, separate receipt and acceptance states, and a defined escalation owner.",
+  "category": "Client operations",
+  "takeaway": "You can automate much of the chasing when the system knows exactly what each client still owes you. Start with a current request list, connect each upload to a requirement, and make reminders respond to what has actually changed.",
+  "sections": [
+    {
+      "id": "start-with-the-outstanding-item",
+      "title": "Start with the outstanding item",
+      "paragraphs": [
+        "A client has uploaded a file, but the reminder still says their documents are missing. Another client has sent everything except one attachment and receives the original checklist again. A third is waiting for someone on your team to answer a question. Sending all three the same reminder creates more work for everyone.",
+        "The useful unit of a collection workflow is the individual requirement. Track what is required, who should provide it, its deadline, and its current state. Then a reminder can describe a specific next action instead of asking the client to reconstruct the entire request.",
+        "For an illustrative example, consider an agency collecting a logo file, product photographs, and approved copy before starting a project. A completed logo upload should remove that item from the next request, while photographs awaiting review should be shown as received."
+      ]
+    },
+    {
+      "id": "build-a-request-list-that-can-change",
+      "title": "Build a request list that can change",
+      "paragraphs": [
+        "Agree which items apply to each type of work before scheduling messages. Some requirements depend on an earlier answer. Others can be waived by an authorized team member. Record that decision so the system does not chase an item that nobody needs.",
+        "Give each requirement a plain-language description of what will satisfy it. “Product photographs” may need an explanation of the expected format or which products are included. A client who cannot tell what to send will keep generating questions, even if the reminders arrive perfectly on schedule.",
+        "Use the smallest useful set of states. The following is a suggested design, rather than a description of a particular software product:"
+      ],
+      "bullets": [
+        "Not required: the item does not apply, with the reason recorded.",
+        "Requested: the client has been told what is needed.",
+        "Received: a submission has arrived and is linked to the requirement.",
+        "Accepted: the submission satisfies the agreed requirement.",
+        "Needs replacement: the client has a specific explanation of what to change.",
+        "Waiting on our team: an internal answer or decision is blocking progress."
+      ]
+    },
+    {
+      "id": "what-the-source-work-showed",
+      "title": "A useful distinction from implementation work",
+      "paragraphs": [
+        "In an AIify It workflow demonstration, intake stages led into assignment of a human reviewer. The broader collection process still required staff to supply contact information. That is a practical reminder that automation needs a reliable request list and reachable recipients before it can handle follow-up.",
+        "In a separate planning discussion, required selections and deadline-based reminders were discussed together. The reminder branch had not yet been tested. These examples support the design questions in this article; they do not establish that an automated chasing process had been launched or that it saved a measured amount of time."
+      ]
+    },
+    {
+      "id": "make-reminders-read-the-current-state",
+      "title": "Make reminders read the current state",
+      "paragraphs": [
+        "Before preparing a reminder, check the latest requirement states. Include outstanding requests and rejected submissions that need action. Acknowledge received items without telling the client to upload them again. Where something is awaiting your review, say so.",
+        "Choose the cadence around the delivery deadline, the effort needed to provide the materials, and the relationship with the client. A large new request may need more lead time than a simple clarification. Define a limit on repeated reminders and an escalation point rather than creating an indefinite email loop.",
+        "Check the state again before sending. A client may submit the final item while a scheduled message is waiting. The workflow should suppress that outdated reminder. It should also avoid generating a fresh chase simply because the same upload was processed again."
+      ]
+    },
+    {
+      "id": "give-replies-and-exceptions-an-owner",
+      "title": "Give replies and exceptions an owner",
+      "paragraphs": [
+        "Clients will ask questions, send a document through another channel, or explain that something is unavailable. Decide who handles those replies and how that person updates the request list. Otherwise a helpful conversation can happen in an inbox while the automation continues chasing.",
+        "Keep the collection view useful for staff: what is missing, what was last requested, what the client said, and what is blocking completion. Give an owner a way to pause reminders with a reason and a review date. A pause without a review date can turn into a forgotten request.",
+        "Limit reminders to the information needed to resolve the outstanding item. Use your approved document-sharing route for the files themselves, and check who can access each client’s materials."
+      ]
+    },
+    {
+      "id": "judge-the-system-by-completed-requests",
+      "title": "Judge the system by completed requests",
+      "paragraphs": [
+        "Run a small, representative collection cycle before expanding. Include a partial submission, a rejected file, a waived requirement, a reply that needs help, and a last-minute upload. Check the request list and the actual message each person would receive.",
+        "Track completion, incorrect reminders, manual interventions, and time spent resolving questions. Compare similar work before and after the change. Counting messages sent will tell you how busy the automation was; it will not tell you whether clients found it easier to finish.",
+        "The first useful outcome is a shared, accurate answer to a simple question: what are we still waiting for, and who needs to act? Once that answer is dependable, targeted reminders become much easier to manage."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Make client follow-up easier to manage",
+    "description": "Explore workflow automation with AIify It, then prepare an email about your collection process, deadlines, and missing-document bottlenecks.",
+    "label": "Explore collection workflows",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}

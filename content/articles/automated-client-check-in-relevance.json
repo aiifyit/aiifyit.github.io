@@ -1,0 +1,82 @@
+{
+  "slug": "automated-client-check-in-relevance",
+  "title": "When Should an Automated Client Check-In Stay Quiet?",
+  "description": "Automate client check-ins with relevant timing, clear relationship status and practical suppression rules. Decide which conversations should reset the clock.",
+  "category": "Client relationships",
+  "takeaway": "A client spoke to your team yesterday. An automated check-in is due today. Sending it might feel careless, but canceling it could mean nobody asks how the relationship is going. Which conversation actually counts?",
+  "sections": [
+    {
+      "id": "define-the-purpose",
+      "title": "Give the check-in a specific purpose",
+      "paragraphs": [
+        "Automated client check-ins become more relevant when the trigger reflects the purpose of the message. Define who should receive the check-in, what it asks and which earlier interactions already satisfied that purpose. Then use those rules to decide whether to send, defer or ask the relationship owner to review.",
+        "A service update, a feedback request and a relationship review do different jobs. A call about a delivery detail may resolve the immediate task without giving the client a chance to discuss the broader relationship. If every logged conversation resets every check-in clock, frequent operational contact can prevent useful feedback.",
+        "Write the purpose in one sentence before configuring the workflow. For example: invite active clients to raise relationship concerns that have not been covered in ordinary service conversations. This is an illustrative purpose, not a universal template. Your team may need a different kind of check-in."
+      ]
+    },
+    {
+      "id": "learn-from-the-contact-gap",
+      "title": "Recognize the gap between contact and recorded contact",
+      "paragraphs": [
+        "In an AIify It workflow review, the team demonstrated check-in eligibility and reviewed sample emails. The discussion revealed a practical limit: some human conversations were not reliably logged. A workflow could consult the available history without knowing every conversation that had happened.",
+        "The relationship owner also raised the opposite concern. Automatically suppressing a check-in because someone had spoken with the service team could prevent a separate relationship conversation. The team weighed that tradeoff; the review did not establish comprehensive activity capture or a measured improvement in retention.",
+        "The lesson is to define relevant contact, rather than promising that the automation knows everything. Decide which kinds of conversation count as a completed check-in and who can record them. Make the recording step short enough to fit the team’s normal work."
+      ]
+    },
+    {
+      "id": "choose-what-resets-the-clock",
+      "title": "Choose the event that resets the clock",
+      "paragraphs": [
+        "Pick the starting event for the first check-in and the reset event for later ones. These might be the start of an active relationship and the last completed relationship review. Keep them distinct from the last message sent, last reply received and last record edit.",
+        "A sent check-in is an attempt, not proof that a conversation occurred. Store the last attempt separately from the last meaningful check-in so the system can avoid repeated messages without pretending the client engaged. Decide what should happen when a client does not respond.",
+        "For an illustrative case, a client has a recent technical support call but no recent relationship review. Your agreed policy might allow the review invitation, perhaps after owner approval if the support issue remains unresolved. Another client already completed a relationship review outside the usual channel; recording that review should move the next check-in date.",
+        "Explain these decisions in terms the team uses. A label such as “recent activity” is too vague if it combines administrative edits, support conversations and actual relationship reviews. The owner should be able to see the event that made someone eligible."
+      ]
+    },
+    {
+      "id": "build-a-relevance-policy",
+      "title": "Make the send, defer and review decisions explicit",
+      "paragraphs": [
+        "Prepare a short eligibility policy with the relationship owner. Separate conditions that clearly rule out the message from uncertain situations that deserve a person’s judgment. Give every deferral a reason and, where appropriate, a date for reconsideration.",
+        "Use these questions to build the policy:"
+      ],
+      "bullets": [
+        "Is the relationship active, and is the intended person still the right contact?",
+        "Has a check-in with the same purpose already happened or recently been attempted?",
+        "Has the client expressed a communication preference that applies to this message?",
+        "Is an unresolved issue or owner-managed conversation a reason for personal review?",
+        "Does missing contact history require review, or is there an explicitly agreed fallback?"
+      ]
+    },
+    {
+      "id": "design-for-missing-information",
+      "title": "Be honest about what the workflow cannot see",
+      "paragraphs": [
+        "List the sources the workflow actually reads. If calls, personal inboxes or offline conversations are outside that coverage, record the limitation. An empty search result should not silently become a confident claim that nobody has contacted the client.",
+        "Choose a proportionate response to incomplete information. A low-risk feedback invitation may have a different review policy from a sensitive relationship discussion. That choice belongs to the business owner. Do not let the absence of a data connection make it accidentally.",
+        "Keep the message accurate even when context is incomplete. Avoid statements about how long it has been since anyone spoke unless that history is reliable. Explain the check-in’s actual purpose and provide a clear route for the client to respond.",
+        "Check eligibility again near the sending step. A record can become eligible, wait in a queue and then change before the message goes out. Ask the builder to demonstrate what happens when the relationship closes, a check-in is logged or the owner pauses contact during that wait."
+      ]
+    },
+    {
+      "id": "review-both-sides",
+      "title": "Review the people who receive it and the people who do not",
+      "paragraphs": [
+        "Before enabling routine sends, inspect examples with the relationship owner. Include recent service contact, a recent completed check-in, no recorded history, a paused relationship and a changed primary contact. Review the reason for each decision alongside the proposed message.",
+        "Look at suppression results as closely as recipients. A workflow that sends nothing can appear safe while quietly leaving clients without the intended check-in. Give deferred and uncertain cases a visible owner so they do not vanish into a permanent exclusion.",
+        "After launch, use replies, owner corrections and inappropriate-message reports to adjust the policy. Count sends as sends, not successful relationship conversations. The useful outcome is a check-in process whose timing the team can explain and whose gaps someone is responsible for resolving."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Make recurring client contact more relevant",
+    "description": "Explore AIify It’s workflow automation service, then prepare an email describing your check-in purpose, timing and exceptions.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}

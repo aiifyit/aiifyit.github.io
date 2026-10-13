@@ -1,0 +1,83 @@
+{
+  "slug": "prepare-ai-automation-discovery",
+  "title": "Before You Hire an AI Automation Firm, Gather These Six Things",
+  "description": "Prepare for AI automation discovery with real examples, a source-to-step map, named owners and clear acceptance criteria. Use this practical readiness checklist.",
+  "category": "Automation planning",
+  "takeaway": "You can describe the problem in a sentence. The team doing the work knows a hundred details behind it. What should you bring to discovery so an automation firm can understand the real job?",
+  "sections": [
+    {
+      "id": "bring-a-real-case",
+      "title": "1. A real case from start to finish",
+      "paragraphs": [
+        "Prepare one representative process, its inputs, its current output and the people who understand its exceptions. A compact evidence packet gives a builder something concrete to inspect. You do not need to finish a company-wide documentation project before having a useful conversation.",
+        "Choose a recent normal case and show how it moved through the business. Identify what started it, what each person did, where information was copied and what made the work complete. Screenshots, redacted documents and a simple walkthrough can be more informative than a polished process diagram alone.",
+        "Include the work between the official steps. Someone may compare two records, interpret an informal request or wait for a colleague’s confirmation. These small decisions help explain what the proposed automation must actually handle. Label any part of the walkthrough that you are unsure about."
+      ]
+    },
+    {
+      "id": "bring-input-output-pairs",
+      "title": "2. Examples of inputs and acceptable outputs",
+      "paragraphs": [
+        "Bring the material that starts the process and the finished result for the same case. An incoming request paired with the completed record lets the builder trace what was copied, calculated, inferred or supplied by a person.",
+        "Add a few deliberately different examples. Include a common exception, an incomplete request and a case that required correction. Explain what made each different and what the team ultimately did. A folder full of nearly identical easy cases leaves important requirements hidden.",
+        "Use synthetic or appropriately redacted examples for early discovery. Keep the structure and variations needed to understand the task, while removing personal information and confidential details that are unnecessary for the discussion. Do not send passwords or access tokens as part of a preparation packet.",
+        "Label examples clearly as typical, exceptional or illustrative. If you do not know how common an exception is, say so. The builder should be able to distinguish a frequent operational issue from a one-off story without guessing."
+      ]
+    },
+    {
+      "id": "bring-a-source-map",
+      "title": "3. A map from each process step to its source",
+      "paragraphs": [
+        "For every important stage, list the document or system that supplies the needed information. Name the relevant fields and the destination where the result belongs. A simple spreadsheet is enough; the value is in exposing the relationships.",
+        "In an AIify It workflow discussion, a builder asked for a stage-by-stage map connecting source documents with the relevant information. The conversation revealed that expected fields and process requirements did not automatically align across the systems involved. The map was requested to clarify that gap, not demonstrated as a finished solution.",
+        "Use that lesson to prepare a source-to-step map with these headings:"
+      ],
+      "bullets": [
+        "Process stage and the event that starts it.",
+        "Source document or system, including the relevant field or section.",
+        "Information the step requires and who can explain its meaning.",
+        "Expected output and destination.",
+        "Known gaps, disagreements or information that arrives later."
+      ]
+    },
+    {
+      "id": "bring-the-right-owners",
+      "title": "4. The people who can answer different kinds of questions",
+      "paragraphs": [
+        "Identify the process owner, an experienced person who does the work and the administrator responsible for the relevant systems. They may be the same person in a small team. The important point is to cover operational knowledge, decision authority and access knowledge.",
+        "Write down who can approve changes to the process and who can decide whether a result is acceptable. A builder should not have to infer policy from whichever employee happens to attend the call. If a decision is unresolved, name the person who can settle it.",
+        "Prepare an access inventory rather than granting broad access in advance. List the tools involved, who administers them, whether a test environment exists and any known sharing restrictions. Mark integration access as verified, assumed or unknown. Discovery can identify the access actually needed before anyone is invited into production systems."
+      ]
+    },
+    {
+      "id": "bring-a-definition-of-done",
+      "title": "5. A concrete definition of a useful first result",
+      "paragraphs": [
+        "Describe the output you want to inspect at the end of a first implementation. Be specific about eligible cases and the point at which a person must review, approve or take over. “Automate our operations” is a direction; it does not describe an acceptance check.",
+        "For a synthetic example, a team might want approved request details transferred into a draft record, with missing information shown to the assigned reviewer. The packet should include a correct draft and an example that must be held for clarification. Those examples make the intended boundary visible.",
+        "Bring a baseline if you have one: typical case frequency, hands-on effort, rework or turnaround. Label observations separately from estimates. If no baseline exists, identify how you could collect it. Avoid inventing a savings target merely to fill a proposal template.",
+        "In a separate discovery discussion, the team described precise questions and detailed process information as inputs to scope and expectations. A useful preparation packet supports that work by making the expected result reviewable. It does not need to prescribe the technical architecture."
+      ]
+    },
+    {
+      "id": "bring-the-open-questions",
+      "title": "6. Constraints and questions you have not resolved",
+      "paragraphs": [
+        "List known changes that could affect the process: a planned system replacement, a revised approval policy or a team reorganization. Include constraints such as required review steps, data-location requirements and systems that must remain authoritative. Give the builder the current status of each constraint.",
+        "Write down what is outside the intended first project. Also identify assumptions you want checked, such as whether a needed field is accessible or whether the current tool already supports part of the workflow. An honest unknown is more useful than a confident answer nobody has verified.",
+        "Keep the packet compact enough to review together. One process walkthrough, paired examples, a source map, named owners, acceptance examples and an open-question list provide a concrete starting point. The first discovery conversation can then focus on the real uncertainties and what needs to be established next."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Prepare a focused automation discussion",
+    "description": "Explore AIify It’s workflow automation service, then prepare an email outlining your process and the examples you can provide.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}

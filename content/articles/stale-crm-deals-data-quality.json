@@ -1,0 +1,81 @@
+{
+  "slug": "stale-crm-deals-data-quality",
+  "title": "Are Those CRM Deals Stale, or Is Your Data?",
+  "description": "Spot stale CRM deals with meaningful activity dates, clear owners and separate cleanup queues. Build internal reminders your sales team can actually use.",
+  "category": "Sales operations",
+  "takeaway": "A dashboard flags a long list of neglected prospects. Some already became customers. Others were never prospects. Before asking the sales team to work harder, can you trust what the report is calling stale?",
+  "sections": [
+    {
+      "id": "define-the-stale-signal",
+      "title": "Start with a signal the sales team can explain",
+      "paragraphs": [
+        "You can automatically identify stale deals by checking eligible open opportunities against agreed activity, stage and next-step rules. The useful output is an internal worklist: who needs to review which deal, why it was flagged and what should happen next. Age alone does not tell you whether a prospect has been neglected.",
+        "In an AIify It reporting review, an aging dashboard was demonstrated using live records. The review exposed people in the prospect list who belonged in other categories, including existing customers. Participants called for cleanup and human checks. The report had successfully surfaced records, but that did not establish that every record represented a real follow-up opportunity.",
+        "This is a practical warning for sales managers. Automating a report makes the current data easier to see. It does not establish that the categories, dates or labels mean what your team assumes. Begin by agreeing on the decision a flag is supposed to support."
+      ]
+    },
+    {
+      "id": "choose-the-eligible-records",
+      "title": "Decide which records belong in the worklist",
+      "paragraphs": [
+        "Write an explicit definition of an active opportunity. Include the eligible pipeline and stages, whether the relationship is still open and which team owns it. A contact being present in the CRM is not enough to make that person an active sales prospect.",
+        "Keep disqualified, closed and misclassified records out of the ordinary follow-up queue. When classification is uncertain, send the record to a separate cleanup queue. Otherwise, a rep receives a task to pursue someone while an administrator is still deciding whether that person belongs in the pipeline.",
+        "Choose a clear unit of review. If the team works deals, flag deals. Several contacts at one company may belong to the same opportunity, and one contact may be involved in several opportunities. Review the opportunity and its next step rather than assuming every contact needs a separate reminder."
+      ]
+    },
+    {
+      "id": "pick-meaningful-dates",
+      "title": "Use dates that answer different questions",
+      "paragraphs": [
+        "Distinguish the last meaningful sales conversation, time in the current stage and the next agreed action. These dates help answer different questions: have we spoken recently, has the deal moved, and have we done what we promised? Avoid replacing all three with a generic last-updated field.",
+        "A record edit may reflect housekeeping. A newly logged note may describe an older conversation. Ask your CRM administrator to show exactly which events update the field you plan to use, including how backdated activity is handled. Test the behavior against known records before defining a rule around it.",
+        "Use stage-specific expectations where they make operational sense. A long purchasing review may be normal while a missed promised callback needs attention quickly. For an illustrative rule, flag an active deal when its agreed next action is overdue; use inactivity as a separate reason for review when no next action exists.",
+        "A missing date should remain visible as missing. Treating it as today hides uncertainty; treating it as extremely old mixes incomplete records with genuine inactivity. Ask the owner to confirm the relevant history."
+      ]
+    },
+    {
+      "id": "make-alerts-actionable",
+      "title": "Give each flag an owner and a useful next step",
+      "paragraphs": [
+        "A reminder that says only “stale deal” pushes the investigation back onto the rep. Include enough context to let them make a decision without reconstructing the entire history. Keep the alert focused on the internal owner; deciding whether and how to contact the prospect is a separate workflow.",
+        "An actionable worklist entry should include:"
+      ],
+      "bullets": [
+        "The deal and current owner, with a link to the CRM record.",
+        "The specific trigger: overdue action, missing next step or stage inactivity.",
+        "The relevant date and the activity or field that supplied it.",
+        "The proposed review action and any known data-quality concern.",
+        "A way to record the outcome, including a justified next review date."
+      ]
+    },
+    {
+      "id": "clear-flags-with-evidence",
+      "title": "Clear the reason, not just the notification",
+      "paragraphs": [
+        "Agree what resolves each type of alert. An overdue action might clear when the owner records the outcome and next step. A data-quality alert clears when the classification is corrected. Simply marking the notification as read should not make an unresolved deal disappear.",
+        "Allow an owner to defer a review for a stated reason, such as an agreed customer decision date. Keep the reason and next review date visible. An indefinite snooze makes the dashboard quieter while recreating the original problem.",
+        "Avoid generating a new task every time the same deal appears in a scan. Update the existing open review item where possible, and notify again when a meaningful condition changes or an agreed escalation point arrives. If an owner leaves the team, route the unresolved work to someone who can reassign it."
+      ]
+    },
+    {
+      "id": "review-the-worklist",
+      "title": "Review the exceptions before trusting the totals",
+      "paragraphs": [
+        "Run the proposed rules on a sample and ask the sales owners to classify the results: genuine missed action, acceptable waiting period, incomplete history or incorrect record. The disagreements tell you which rule or field needs attention. Keep that review separate from judging individual rep performance.",
+        "Track how many flags become useful actions and why others are dismissed. Also inspect a few deals that were not flagged, especially known neglected opportunities. A clean-looking dashboard can miss important work as easily as it can overstate it.",
+        "The next useful step is to select a small set of active deals and trace every flag back to its source. Once the team agrees that the worklist is credible, automate its refresh and internal reminders. The goal is a dependable queue of decisions, with a named owner for each one."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Build a more useful sales follow-up worklist",
+    "description": "Explore AIify It’s workflow automation service, then prepare an email about your CRM review process and the alerts your team needs.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}
