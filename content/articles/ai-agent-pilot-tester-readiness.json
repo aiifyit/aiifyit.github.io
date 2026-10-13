@@ -1,0 +1,77 @@
+{
+  "slug": "ai-agent-pilot-tester-readiness",
+  "title": "Your AI Agent Demo Is Over. Can Anyone Start Testing?",
+  "description": "Prepare an AI agent pilot with clear setup instructions, editable business guidance, a supported chat client, and feedback your team can act on.",
+  "category": "AI delivery",
+  "takeaway": "The agent answered questions during the demo. People want to try it. Then someone asks where to log in, how to connect, and whether they can change the instructions. What does the pilot still need before useful testing can begin?",
+  "sections": [
+    {
+      "id": "the-next-user-starts-cold",
+      "title": "The next user starts cold",
+      "paragraphs": [
+        "In an agent demonstration, a prospective tester asked for an interface to edit instructions and step-by-step help connecting to the system. A video already discussed in the meeting showed results, but did not cover the setup that person needed. The team proposed another walkthrough.",
+        "The conversation also raised a preference for using an existing chat application more familiar to the group. Those were requested or proposed changes. The discussion did not establish that the tutorial had been delivered, the preferred integration completed, or a tester group had accepted the product.",
+        "The practical lesson concerns the handoff after a demo. The builder knows which account to use, where the settings live, and what a successful connection looks like. Your next tester may have none of that context."
+      ]
+    },
+    {
+      "id": "separate-setup-from-feedback",
+      "title": "Separate setup problems from product feedback",
+      "paragraphs": [
+        "An invitation to “try the agent and tell us what you think” leaves several questions unanswered. Is the person testing whether they can connect, whether the instructions fit their work, or whether the responses are useful? A problem with the first can prevent evidence about the others.",
+        "Give the pilot a short first-use path. It should identify the supported application, required account access, connection steps, a safe first task, and where to report a problem. Explain what the tester should see after each important step.",
+        "When feedback arrives, identify where the person stopped. “I could not find the connection” needs different work from “the answer ignored our policy.” Preserve that distinction in your feedback process so a setup problem does not disappear into a general request to improve the model."
+      ]
+    },
+    {
+      "id": "show-how-to-start",
+      "title": "Show how to start with the tester’s access",
+      "paragraphs": [
+        "A useful setup guide begins from the screen a tester will actually have. Record or document the path with an ordinary test account rather than relying on an administrator’s already-connected session. Avoid showing credentials, private customer data, or unrelated account details.",
+        "Keep the walkthrough focused on the first successful use. A short video can make navigation easier to follow; written steps let someone resume after an interruption. Include the expected result and a recovery step for a missing option or failed connection.",
+        "Ask a colleague who was absent from the demo to follow the guide without coaching. Note where they pause or need information that the guide omitted. Revise those steps before inviting more people.",
+        "Treat this as a proposed readiness check, not a guarantee that onboarding will be effortless. The goal is to remove avoidable uncertainty and learn where real users still need help."
+      ]
+    },
+    {
+      "id": "make-instructions-reviewable",
+      "title": "Make business instructions reviewable",
+      "paragraphs": [
+        "The person best placed to judge an agent’s behavior may also need to correct its business guidance. Decide who can edit those instructions, which user group the changes affect, and who can approve them for broader use.",
+        "Give the editor enough context to understand the scope. A change intended for an internal team should not quietly become the instruction for every external user. Show the current version, affected group, and the point at which a saved change becomes active.",
+        "Keep a record of the instruction version used during each feedback session. Otherwise, two testers may be evaluating different behavior while appearing to disagree about the same agent. Retain a known baseline so you can compare a proposed change with the earlier instructions.",
+        "Use approved business guidance and synthetic examples when possible. The ability to edit a prompt should not become a reason to paste confidential information into a broadly shared configuration."
+      ]
+    },
+    {
+      "id": "test-in-the-supported-client",
+      "title": "Test in the client people will use",
+      "paragraphs": [
+        "An existing chat application can make a pilot easier to approach when it fits the task and the intended users already have appropriate access. Confirm that the planned connection actually works in that application before describing it as supported.",
+        "A request to support another client is still work to schedule and verify. Document any limitations affecting the pilot, including which features are available and which account or group can use them. Avoid assuming a successful demonstration in one client establishes the same behavior in another.",
+        "If the first pilot uses a different interface from the intended rollout, state that boundary. Collect feedback about the agent’s job separately from feedback about the temporary interface. That makes it easier to decide what must change before the next group participates."
+      ]
+    },
+    {
+      "id": "ask-for-evidence-people-can-provide",
+      "title": "Ask for evidence people can provide",
+      "paragraphs": [
+        "Choose a bounded set of participants and give them realistic, permitted tasks. Explain any usage limits before they begin. Assign someone to respond to access problems so the whole testing period is not consumed by setup questions.",
+        "For each task, request the question asked, what the person expected, what the agent returned, and whether that answer helped them take the next step. Use an approved feedback channel and minimize sensitive content. Ask for a concise reproduction rather than an unrestricted conversation export.",
+        "Track where participation reaches: invited, connected, first task completed, and useful feedback received. These stages help you see whether the immediate obstacle is access, first use, or the quality of the agent’s answers.",
+        "Before calling the pilot ready, ask someone outside the build team to start from the invitation and submit one usable feedback report. That small handoff exercise gives the next testing round a clear starting point and an owner for anything still missing."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Prepare an agent your team can evaluate",
+    "description": "Explore AIify It’s approach to custom AI agents, including a defined job, appropriate system access, and testing with the people who will use the result.",
+    "label": "Explore custom AI agents",
+    "href": "/services/custom-ai-agents/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}

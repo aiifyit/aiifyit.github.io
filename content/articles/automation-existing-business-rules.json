@@ -1,0 +1,81 @@
+{
+  "slug": "automation-existing-business-rules",
+  "title": "Why Is Your AI Workflow Rebuilding Rules Your System Already Knows?",
+  "description": "Avoid duplicate business rules in AI automation. Identify the authoritative rule source, map its schema, handle versions, and check changes before integration.",
+  "category": "Integration design",
+  "takeaway": "A new automation comes with a tidy set of rules. Then your internal team points to a database where those same decisions are already maintained. Which version will the workflow follow when the business changes?",
+  "sections": [
+    {
+      "id": "the-rules-already-existed-as-data",
+      "title": "The rules already existed as data",
+      "paragraphs": [
+        "During an integration review, the receiving team noticed that some definitions represented as rules in the delivered code already existed as data in its own systems. The developer proposed reviewing the existing schema and adapting the implementation to that structure. The mapping work and testing were still ahead.",
+        "That discovery changes the integration question. Before improving the new rules, the teams need to decide where each rule belongs and how the automation should obtain it. A second copy can behave correctly today while creating a maintenance problem the next time a policy changes.",
+        "For an AI-assisted workflow, look beyond the prompt. Decision logic may live in application code, configuration, lookup tables, or a dedicated service. The goal is to identify the maintained source for each decision and make the workflow's relationship to that source explicit."
+      ]
+    },
+    {
+      "id": "find-the-rule-and-its-owner",
+      "title": "Find the rule and its owner",
+      "paragraphs": [
+        "Start with a decision the proposed automation must make. Ask the team how that decision is made today, who changes it, and where the approved definition is stored. A familiar spreadsheet or database table is only a candidate source until someone verifies that it is current and actually governs the process.",
+        "Separate interpretation from maintained policy. A model may help identify the type of request in an incoming message. If an approved service catalog already defines what that request includes, the integration can retrieve the definition rather than ask the model to recreate it.",
+        "Build a small rule inventory for the first workflow:"
+      ],
+      "bullets": [
+        "The decision and the business meaning of its result.",
+        "The current source, its owner, and how changes are approved.",
+        "The identifier used to retrieve the applicable definition.",
+        "Any effective date, version, or conditions that select one rule over another.",
+        "What the workflow should do when the source is unavailable or the rule is ambiguous."
+      ]
+    },
+    {
+      "id": "map-meaning-before-field-names",
+      "title": "Map meaning before field names",
+      "paragraphs": [
+        "Request a schema and synthetic examples before changing the implementation. Matching two similar field names is a starting point. Verify their meanings, allowed values, units, and whether absence carries a particular meaning. Ask which combinations are valid, especially where a rule depends on more than one field.",
+        "Consider this synthetic example: an automation uses a priority flag to select a service response target. The existing system distinguishes a paid service plan from the urgency of the individual request. Translating either value into one generic priority flag would lose a distinction the business already maintains.",
+        "The mapping should preserve both concepts or explicitly document the approved transformation. A team member who understands the source data and a person responsible for the business rule should be able to explain why the conversion is valid. Record cases that cannot be mapped instead of filling them with a convenient default."
+      ]
+    },
+    {
+      "id": "validate-the-contract",
+      "title": "Validate the contract at the boundary",
+      "paragraphs": [
+        "Use a machine-checkable contract for the information passed into the workflow where the technology supports it. In JSON Schema, listing a property does not make it required; required fields must be specified explicitly. Additional properties are allowed by default unless the schema constrains them. Choose these behaviors deliberately for the integration.",
+        "Shape validation can catch a missing field, unexpected type, or unsupported value when those constraints are defined. It does not establish that the data represents the correct business concept or that a rule is current. Keep the semantic mapping and source ownership alongside the technical contract.",
+        "A useful adapter exposes the information the workflow needs through a controlled interface. It can translate names and formats without embedding another independently maintained copy of the policy. Use the application's supported access method and limit access to the data needed for this operation."
+      ]
+    },
+    {
+      "id": "decide-how-rule-changes-arrive",
+      "title": "Decide how rule changes arrive",
+      "paragraphs": [
+        "Choosing an authoritative source does not settle when the workflow should read it. A live lookup can use a recently approved change, but availability and timing now affect the run. A versioned snapshot can make a run easier to reproduce, but it needs an explicit refresh and expiry policy.",
+        "Choose that tradeoff according to the decision. Record the rule version or effective date used for material results. For a long-running job, decide whether it keeps the definition selected at the start or must re-evaluate before an action. Avoid letting different steps silently apply different revisions.",
+        "Define source failures separately from legitimate business outcomes. If the rule service is unavailable, the automation has not established that a request is ineligible. Use the approved retry, pause, or review path. If a cached rule is permitted, define which decisions may use it and how old it can be."
+      ]
+    },
+    {
+      "id": "check-the-mapping-before-retiring-a-copy",
+      "title": "Check the mapping before retiring a copy",
+      "paragraphs": [
+        "Compare the proposed integration against examples whose expected results the rule owner has confirmed. Include a current definition, a changed definition, an unknown identifier, a missing required value, and a source outage. Where the old implementation disagrees, investigate the difference; it may expose either a mapping defect or an outdated assumption in the old rules.",
+        "Make any comparison in a test environment or a controlled, non-acting evaluation. Only the approved path should perform business actions. Once the new mapping is accepted, assign responsibility for removing or disabling the superseded copy so future maintainers do not mistake it for an alternative source.",
+        "For the next integration review, ask: “When this business rule changes, how many places must someone update?” Follow the answer through code, configuration, prompts, and data. Every extra maintained copy deserves an explanation and an owner."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Connect automation to the rules you already maintain",
+    "description": "Explore how AIify It can help connect existing business systems, clarify data ownership, and define the integration boundary for your workflow.",
+    "label": "Explore workflow integration",
+    "href": "/services/workflow-integration/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "slug": "ai-archive-processing-cost-estimate",
+  "title": "Your AI Archive Estimate Looked Fine. What Will the First Batch Reveal?",
+  "description": "Estimate AI archive processing costs with a representative canary batch, actual usage records, retry allowance, and clear budget approval checkpoints.",
+  "category": "AI delivery",
+  "takeaway": "A large archive looks affordable on paper. Then a small processing run changes the estimate. Before you approve the rest, which number should you trust, and what still needs to be measured?",
+  "sections": [
+    {
+      "id": "the-estimate-changed",
+      "title": "The estimate changed after a small run",
+      "paragraphs": [
+        "In an archive-processing discussion, a builder reported revising the projected cost upward after sending a small portion of the archive through the workflow. The earlier calculation used token counts visible in the orchestration tool, which the builder said did not match the API usage.",
+        "That was a reported estimate correction. The discussion did not provide an independently reconciled final invoice or demonstrate the completed cost of the full archive. It does illustrate a useful question: has your estimate been checked against the same processing path you intend to run?",
+        "A canary batch is a deliberately limited run before a larger release. For AI archive processing, it can help test the assumptions behind the budget while the amount of work and spending remain bounded. Its usefulness depends on what you include and measure."
+      ]
+    },
+    {
+      "id": "define-the-work-being-priced",
+      "title": "Define the work being priced",
+      "paragraphs": [
+        "Start with the deliverable. “Process the archive” might mean extracting text, generating summaries, classifying documents, building a search index, or doing several of those jobs. An estimate cannot be checked if different people are pricing different work.",
+        "Write down the stages and how often each runs. A document might be split into chunks, passed through an extraction step, checked, and summarized again. An item that needs repair may take a different path. Price the actual sequence rather than assuming one file means one model request.",
+        "Include the input sent to the model, generated output, applicable tools or processing services, storage, and orchestration costs. Keep human review and setup effort visible as separate budget lines. This makes it possible to see which part changes when you adjust the design.",
+        "Fix the proposed model and processing configuration for the estimate. If those choices change during the pilot, record the change and calculate a new baseline rather than averaging unlike runs together."
+      ]
+    },
+    {
+      "id": "choose-a-useful-canary",
+      "title": "Choose a canary that can challenge the estimate",
+      "paragraphs": [
+        "The easiest files are a weak sample when the archive contains long, messy, or unusual material. Inspect the inventory and group it by characteristics likely to affect processing, such as length, format, extraction quality, and required analysis.",
+        "Select examples from each important group. Include awkward but valid files that may require additional processing. Use only material you are authorized to send to the selected services, and keep the pilot within the same privacy and retention boundaries as the intended run.",
+        "Agree on a pilot spending limit and a stopping condition before starting. Also decide which outputs will be inspected. A run that is cheap because it silently skipped difficult documents gives you a misleading cost estimate.",
+        "Keep the canary separate from the main queue so completing it does not automatically authorize the remainder. Its job is to produce evidence for the next decision."
+      ]
+    },
+    {
+      "id": "reconcile-the-usage",
+      "title": "Reconcile the usage at the billing boundary",
+      "paragraphs": [
+        "Capture both workflow-level activity and the provider’s usage records for the test. Identify which requests belong to the canary so other activity does not contaminate the comparison. Use the provider’s documented billable categories and applicable rates when converting usage into cost.",
+        "A text-length count or an orchestration dashboard can be useful for planning, but establish exactly what it includes. System instructions, repeated context, generated output, and additional calls may affect the workload. Check whether your estimate covers them rather than assuming every displayed token total means the same thing.",
+        "Token-counting tools can support a forecast, but the count is still an estimate for a specified request. Reconcile it with actual usage from the completed run. Where billing reports arrive later, label the current figure provisional and check again before treating it as settled.",
+        "Investigate discrepancies while the batch is small. A duplicate request, unexpected retry, or longer output can be easier to find in a bounded run than after the entire archive has completed."
+      ]
+    },
+    {
+      "id": "forecast-by-type",
+      "title": "Forecast by workload type",
+      "paragraphs": [
+        "For each group of files, calculate the observed processing cost per successfully completed item and record how many items contributed. Multiply that estimate by the remaining items in the same group. Keep the underlying usage and assumptions available for review.",
+        "Be consistent about failed attempts. If the cost per completed item already includes retry costs, do not add the same retry expense again. If failures are excluded, show a separate allowance and explain the evidence behind it. Unresolved failures also need a plan; they are unfinished work, even if the spending looks low.",
+        "Present a range when the sample is thin or the archive varies substantially. Explain which uncertainties widen it. A range tied to document mix and observed behavior is more useful than a precise total produced from one convenient example.",
+        "Add fixed or one-time expenses separately. Distinguish what has already been spent from the forecast remaining cost so the approver can understand the full project total."
+      ]
+    },
+    {
+      "id": "approve-the-next-batch",
+      "title": "Approve the next batch with explicit boundaries",
+      "paragraphs": [
+        "The next decision should use the revised forecast, output-quality findings, unresolved failures, and an explicit spending boundary. If the expected total has materially changed, return to the budget owner before continuing.",
+        "For larger runs, use checkpoints that compare completed items, remaining inventory, and spending against the forecast. Confirm whether a platform setting actually stops usage or merely sends an alert. Arrange a real pause mechanism where the budget requires one.",
+        "Retain completed-item references so a restart can distinguish finished work from work still pending. Re-running successful items may change both the bill and the resulting dataset.",
+        "Before releasing an archive job, ask: “What did the canary teach us that the original spreadsheet could not?” A useful answer should identify measured usage, sample limitations, output quality, and the assumptions that still govern the remaining spend."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Plan a better-supported AI processing run",
+    "description": "Explore how AIify It approaches workflow integration, including data pipelines, processing boundaries, and the evidence needed before a larger run.",
+    "label": "Explore workflow integration",
+    "href": "/services/workflow-integration/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}

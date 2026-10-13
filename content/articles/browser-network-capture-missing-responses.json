@@ -1,0 +1,81 @@
+{
+  "slug": "browser-network-capture-missing-responses",
+  "title": "Your Browser Capture Has Requests. Where Did the Responses Go?",
+  "description": "Plan a useful browser network capture for integration discovery: verify responses, check the right tab, minimize sensitive data, and validate the export.",
+  "category": "Integration discovery",
+  "takeaway": "Your team walked through the application, saved the network recording, and sent it to the developer. Then the developer asks to do the walkthrough again. What was missing from the evidence?",
+  "sections": [
+    {
+      "id": "the-walkthrough-needed-another-pass",
+      "title": "The walkthrough needed another pass",
+      "paragraphs": [
+        "In one integration discovery session, an earlier capture contained outgoing activity but lacked responses the developer needed. The team repeated the workflow. Later, an export turned out to be empty, and the team identified that it had come from the wrong developer-tools window. Another pass produced a replacement file for analysis.",
+        "That session ended with the replacement supplied and further development still ahead. It illustrates a discovery problem: completing a walkthrough and preserving usable evidence are separate jobs. The recording needs a check of its own while the people and application are still available.",
+        "For teams planning browser-based automation, this is worth resolving before implementation begins. Missing evidence can leave a developer guessing about required fields, generated references, or which action caused the application to advance. A small verification step at the start can reveal the gap before a long walkthrough needs repeating."
+      ]
+    },
+    {
+      "id": "decide-what-you-need-to-learn",
+      "title": "Decide what you need to learn",
+      "paragraphs": [
+        "Start with a short discovery question. For example: which supported operation creates a draft, what information does it require, and what tells the application that the draft exists? Prefer official API documentation, a vendor-supported integration, or approved application logs when they answer that question.",
+        "A browser observation can help explain behavior in a system you own or are explicitly authorized to inspect. Seeing an internal endpoint does not establish permission to automate it or a promise that it will remain stable. Confirm the supported integration route and applicable access restrictions before building against what you observe.",
+        "Use a test environment and synthetic records wherever possible. Agree on the permitted actions, the evidence needed, who may inspect it, and when it will be deleted. Start with minimal, redacted metadata. Do not record an entire live working session simply because the recorder makes that convenient."
+      ]
+    },
+    {
+      "id": "verify-both-sides-of-one-action",
+      "title": "Verify both sides of one action",
+      "paragraphs": [
+        "Before walking through the full process, perform one harmless, approved test action and inspect the resulting evidence. Can the developer identify what was requested, whether a response arrived, and the response information necessary to understand that step?",
+        "Consider this synthetic example: selecting a template sends a request, and the application returns the available options. A record of the selected template alone would leave the developer unable to tell whether the options were loaded dynamically, already available locally, or missing. The useful evidence might be the response's field names and value types, without retaining any real customer values.",
+        "In Chrome DevTools, the request payload and response body are available in separate views. Checking one does not establish that the other contains the evidence you need. Some responses legitimately have no body, so define what should be present for the particular operation rather than treating every empty response as a capture failure."
+      ]
+    },
+    {
+      "id": "follow-the-active-tab",
+      "title": "Follow the active tab",
+      "paragraphs": [
+        "A workflow may move into another tab or window after the first screen. At each transition, confirm which application surface you are inspecting and whether the relevant activity appears in its network log. A busy log from the launch page can look convincing while the work happens somewhere else.",
+        "By default, Chrome records network activity while DevTools is open. Confirm that recording is enabled; its Preserve log option retains requests across page loads. Neither feature removes the need to verify the browser context and the action you are observing. Start the approved observation before the test action and check it immediately afterward.",
+        "If the expected evidence is missing, stop and diagnose the capture setup. Use the application's supported debugging approach. Do not disable security protections or broaden access to make a recording easier. When necessary, ask the application owner for a safe test route or a documented integration contract."
+      ]
+    },
+    {
+      "id": "treat-the-export-as-a-deliverable",
+      "title": "Treat the export as a deliverable",
+      "paragraphs": [
+        "A saved filename proves very little about what the file contains. Before ending the session, validate the permitted export locally. File size is a useful first check, but a nonempty file can still contain the wrong workflow or lack the response you needed.",
+        "Chrome offers sanitized HAR exports that exclude headers such as Cookie, Set-Cookie, and Authorization. Do not interpret that label as a complete privacy review. Inspect the remaining URLs, parameters, and bodies for personal information, secrets, and unrelated activity before sharing anything. Prefer a minimal redacted summary when the raw archive is unnecessary.",
+        "Use this acceptance checklist for the discovery evidence:"
+      ],
+      "bullets": [
+        "The file opens in an approved local tool and contains the intended test session.",
+        "The specific action and its relevant response information can be identified.",
+        "Any missing response or unobserved step is labeled as a gap rather than inferred.",
+        "Sensitive values and unrelated traffic are excluded from the shareable version.",
+        "Only the authorized recipient receives it through the approved channel.",
+        "The recipient confirms the evidence is usable before the original session is closed, where practical."
+      ]
+    },
+    {
+      "id": "leave-with-answered-questions",
+      "title": "Leave with answered questions",
+      "paragraphs": [
+        "The result of discovery should be a short integration note: the action observed, its supported implementation route, the required inputs, the relevant response, and the unresolved questions. Keep observations separate from assumptions about what the system will do in other cases.",
+        "When you schedule the next walkthrough, ask the developer to name the smallest piece of evidence that would make it useful. Verify that piece first. You can then spend the rest of the session learning about the workflow instead of discovering afterward that the recording missed it."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Start your integration with usable evidence",
+    "description": "Discuss the systems, supported interfaces, and discovery questions behind your workflow with AIify It.",
+    "label": "Explore workflow integration",
+    "href": "/services/workflow-integration/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}

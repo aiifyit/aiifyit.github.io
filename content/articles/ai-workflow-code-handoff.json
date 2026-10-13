@@ -1,0 +1,80 @@
+{
+  "slug": "ai-workflow-code-handoff",
+  "title": "Your AI Workflow Was Handed Over. Who Can Fix It Now?",
+  "description": "Use this AI workflow handoff checklist to define code access, integration boundaries, review responsibilities, deployment ownership, and the next change.",
+  "category": "Integration delivery",
+  "takeaway": "The code and documentation have arrived. Your team starts connecting the workflow to its systems. Then someone requests a change. Who can make it, who reviews it, and which version should everyone work from?",
+  "sections": [
+    {
+      "id": "the-next-change-was-still-unclear",
+      "title": "The next change was still unclear",
+      "paragraphs": [
+        "A code-handoff discussion exposed a gap that a delivery checklist can easily miss. The receiving team was reviewing the code and preparing to integrate it. The original developer explained that, as the code became connected to the team's internal systems, making further changes would become harder without a shared development arrangement.",
+        "The participants discussed a shared repository and keeping system-specific connections behind separate functions. Those were proposed ways to continue working together. The discussion did not establish a completed integration, a working shared repository, or a production release.",
+        "The useful question for an AI workflow handoff is therefore concrete: how will the next change travel from a request to a deployed version? Answer it while both teams still understand the delivery. Otherwise, a small revision can become an exercise in finding the current files, reconstructing local edits, and discovering who can release them."
+      ]
+    },
+    {
+      "id": "name-the-current-version",
+      "title": "Name the current version",
+      "paragraphs": [
+        "Choose one authoritative place for the code and a clear reference for the delivered version. Record which version is running in each environment. An archive can be a useful delivery artifact, but it also needs a defined path for receiving corrections and distinguishing them from local modifications.",
+        "If both teams will contribute, agree on the permitted repository or module, how proposed changes are submitted, and who can merge them. Give collaborators only the access needed for their part of the work. A shared development process does not require exposing every internal repository or production environment.",
+        "For a synthetic example, imagine that the receiving team changes a field mapping while the builder fixes a parsing defect in an older copy. Without a common version history, the next delivery may omit the mapping change or require a manual reconciliation. A small reviewed change against the agreed current version makes that conflict visible before release."
+      ]
+    },
+    {
+      "id": "draw-the-integration-boundary",
+      "title": "Draw the integration boundary",
+      "paragraphs": [
+        "Identify which parts of the workflow are general logic and which depend on the receiving team's systems. Reading an internal record, translating a field name, loading current business rules, and writing a result are often useful boundaries to document.",
+        "An adapter is a small layer that translates between the workflow and one of those systems. Keeping that translation in an identifiable place can let a builder work on the workflow without reproducing the entire internal application. It also gives the receiving team a clear place to maintain system-specific changes.",
+        "Define the adapter's inputs, outputs, errors, and expected behavior. Include synthetic examples and identify any assumptions about ordering or missing data. This boundary still needs joint review: moving a mapping into a separate function does not prove that the mapping is correct or that both sides interpret it the same way."
+      ]
+    },
+    {
+      "id": "assign-decisions-along-the-change-path",
+      "title": "Assign decisions along the change path",
+      "paragraphs": [
+        "A single label such as project owner can hide several decisions. Write down who handles each part of a change, including a backup for responsibilities that would otherwise depend on one person. A compact handoff should answer:"
+      ],
+      "bullets": [
+        "Who turns operational feedback into a specific change request?",
+        "Who may edit the workflow and who maintains each system adapter?",
+        "Who confirms that a change matches the business rule?",
+        "Who reviews technical changes and resolves conflicting edits?",
+        "Who authorizes and performs deployment in the receiving environment?",
+        "Who can restore the previous approved version if the change causes a problem?"
+      ]
+    },
+    {
+      "id": "make-review-executable",
+      "title": "Make review part of the working process",
+      "paragraphs": [
+        "Where GitHub is used, a CODEOWNERS file can identify the people or teams responsible for particular files and request their review. Requiring their approval before merge is a separate repository setting. Check that the chosen plan and repository support the controls you intend to use, and verify the actual settings rather than assuming a named owner creates a mandatory gate.",
+        "Keep the review proportional to the change. A correction to a system adapter needs someone who understands that system. A business-rule change needs the person authorized to interpret the rule. Some changes require both. Record the decision with the proposed change so it remains available after the handoff meeting.",
+        "Also document the operational dependencies: environment owner, service-account owner, usage or billing contact, and the process for withdrawing a contributor's access. Store secrets only in the approved secret-management system. Handoff documents should point to responsible owners and approved procedures without containing credentials."
+      ]
+    },
+    {
+      "id": "rehearse-one-small-change",
+      "title": "Rehearse one small change",
+      "paragraphs": [
+        "Before calling the handoff complete, choose a harmless change in the test environment and follow the agreed path. Start from the current version, make the change, obtain the required review, deploy it, and verify which version is now running. Confirm that the receiving team can follow the documented recovery procedure.",
+        "The rehearsal can reveal missing repository access, undocumented configuration, unclear review responsibilities, or a deployment step that only the original builder knows. Record those gaps with owners and resolve the ones that block routine maintenance.",
+        "The handoff is easier to evaluate when the receiving team can say: “Here is the current version, here is how we change it, and here is who helps when that change crosses a system boundary.” That is a practical foundation for maintaining the workflow after its first delivery."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Plan the handoff while you build",
+    "description": "Talk with AIify It about integration boundaries, operational ownership, and how your team will maintain a connected workflow.",
+    "label": "Explore workflow integration",
+    "href": "/services/workflow-integration/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}

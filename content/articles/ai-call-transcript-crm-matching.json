@@ -1,0 +1,84 @@
+{
+  "slug": "ai-call-transcript-crm-matching",
+  "title": "The Call Happened. Why Is It on the Wrong CRM Record?",
+  "description": "Trace AI call transcript matching errors across speakers, customer records, and account relationships before summaries reach the wrong CRM record.",
+  "category": "Workflow integration",
+  "takeaway": "You remember the conversation. The report exists. Yet it appears under someone else, or disappears when you filter for the person who was actually on the call. Which identity did the system think it had found?",
+  "sections": [
+    {
+      "id": "when-names-stop-being-enough",
+      "title": "When names stop being enough",
+      "paragraphs": [
+        "In a call-reporting review, users found similar names that were hard to distinguish, calls appearing under the wrong person, and reports they expected but could not reliably locate. The team agreed to investigate the mismatches. The discussion did not establish a single root cause or demonstrate a completed repair.",
+        "The same problem matters when AI-generated call notes flow into a CRM. A readable summary can become misleading when attached to the wrong contact, account, or employee. Before improving the wording, inspect the evidence used to connect that conversation to those records.",
+        "This is an identity-reconciliation problem. The transcript, meeting platform, and CRM may each describe a participant differently. Your integration needs a defensible way to connect those descriptions without treating every similar name as the same person."
+      ]
+    },
+    {
+      "id": "separate-the-identities",
+      "title": "Separate the identities inside a call",
+      "paragraphs": [
+        "A call contains several identities that can easily be collapsed into one field. There is the person speaking, the person whose situation is being discussed, the organization involved, and the employee responsible for follow-up. They may be different people or records.",
+        "Speaker diarization helps distinguish voices within a recording. A label such as Speaker 0 does not, by itself, establish a verified CRM contact. Likewise, a name mentioned in the conversation could belong to an absent colleague rather than either participant.",
+        "Consider this synthetic example: an employee speaks with a customer about a request raised by another person at the same company. A summary that extracts all three names has useful information, but it still needs to identify which relationship each name represents.",
+        "Keep participant identity, account identity, and relationship role separate in the proposed association. Otherwise, the first recognized name can quietly become the answer to three different questions."
+      ]
+    },
+    {
+      "id": "build-a-record-crosswalk",
+      "title": "Build a record crosswalk you can inspect",
+      "paragraphs": [
+        "Use a crosswalk to connect source-system identifiers to CRM record identifiers. Begin with the meeting or call reference, the participant metadata actually available, and any verified relationship already recorded in your business system.",
+        "Prefer an established record association over a fresh guess from display text. That still requires checks: a meeting organizer may not be the customer, a shared mailbox may represent several people, and an old account assignment may no longer apply.",
+        "A useful crosswalk records the following information. Keep personal data access-controlled and retain only what the integration and its reviewers need."
+      ],
+      "bullets": [
+        "The source call reference and the system that issued it.",
+        "The candidate contact and account record identifiers.",
+        "The evidence connecting each candidate to the conversation.",
+        "The relationship being asserted, such as participant, account, or follow-up owner.",
+        "The mapping status, applicable rule version, and any human correction."
+      ]
+    },
+    {
+      "id": "make-ambiguity-visible",
+      "title": "Make ambiguity visible before association",
+      "paragraphs": [
+        "Name matching can help find candidates. Treat the candidate list as evidence to resolve, rather than permission to attach a report. Two records with the same surname, company name, or display name need additional distinguishing information.",
+        "Define what counts as enough evidence for your operation. A verified source identifier already connected to one active record is a different situation from two plausible names found in transcript text. Record conflicts explicitly instead of hiding them inside a high model-confidence score.",
+        "When a match remains ambiguous, retain the call in an unresolved queue with the competing candidates and a concise explanation. Do not discard it or make it look like the customer had no calls. Give the queue an owner who can establish the correct relationship.",
+        "Keep association status separate from analysis status. A call may be transcribed and summarized while its destination remains unresolved. A summary may also be unavailable for reasons unrelated to identity. Those conditions need different follow-up."
+      ]
+    },
+    {
+      "id": "test-the-collisions",
+      "title": "Test the collisions your names create",
+      "paragraphs": [
+        "Build a small identity test set using synthetic or appropriately redacted records. Focus on cases that could produce a believable but incorrect association. Agree on the intended contact, account, and relationship before running them.",
+        "Include two people with the same display name, one person linked to more than one account, a renamed organization, a shared meeting account, and a conversation that mentions someone who is absent. Also include a participant whose display name changes between meetings.",
+        "Check the exact record identifiers selected, not just the names shown on screen. Then open the views people use to find calls. A corrected contact association may still leave an incorrect employee or account relationship affecting filters.",
+        "For historical calls, decide whether reports should reflect the relationship at the time of the conversation or the current assignment. Make that a deliberate reporting policy rather than an accidental consequence of looking up today’s owner."
+      ]
+    },
+    {
+      "id": "repair-the-relationship",
+      "title": "Repair the relationship and its consequences",
+      "paragraphs": [
+        "When a mismatch is confirmed, identify the affected associations before reprocessing the archive. Find out whether the report also contributed to account histories, employee views, summaries, or notifications. Correcting a label on one screen may leave those dependent records unchanged.",
+        "Preserve enough history to explain the correction: the earlier association, the verified replacement, who approved it, and which dependent views were rebuilt. Avoid rewriting unrelated call content merely to repair a relationship.",
+        "For your next review, pick one known conversation and ask the team to show how it became this customer’s record. The answer should connect the source call, identity evidence, relationship, and saved association. Any unexplained jump is a specific place to investigate."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Connect call records to the right people",
+    "description": "Explore how AIify It approaches workflow integration, including record matching, data handoffs, and the exceptions your team needs to resolve.",
+    "label": "Explore workflow integration",
+    "href": "/services/workflow-integration/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}

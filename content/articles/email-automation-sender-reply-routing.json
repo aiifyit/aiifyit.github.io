@@ -1,0 +1,83 @@
+{
+  "slug": "email-automation-sender-reply-routing",
+  "title": "Your Automated Email Has the Right Name. Who Actually Sent It?",
+  "description": "Check email automation sender identity, authorized mailboxes, Reply-To routing, and failure ownership before moving from test messages to production.",
+  "category": "Workflow integration",
+  "takeaway": "The test email arrives with the right employee’s name and a polished signature. It looks ready. But the account behind the message and the inbox receiving the reply may still belong to someone else.",
+  "sections": [
+    {
+      "id": "a-test-name-can-hide-a-test-mailbox",
+      "title": "A test name can hide a test mailbox",
+      "paragraphs": [
+        "In one workflow demonstration, test messages used the intended employees’ display names while being sent from the builder’s mailbox. The reviewer checked wording and signature details. The production sending account and permitted sender addresses still needed to be configured.",
+        "The distinction was explicit in the discussion: changing the visible name was easy, while changing the sending setup required additional work. Replies needed to reach the appropriate employee. Failure notifications were also discussed, but had not yet been added.",
+        "The demonstration established a useful content-review step. It did not establish that the production mailbox, reply route, or failure handling was ready. For customer-facing email automation, those details deserve their own review before a test becomes a live process."
+      ]
+    },
+    {
+      "id": "identify-each-part-of-the-sender",
+      "title": "Identify each part of the sender",
+      "paragraphs": [
+        "A sender name is presentation. The email address, sending connection, and reply destination each have their own role. Treat them as separate configuration decisions even when your email tool displays them in the same panel.",
+        "Before launch, document what each part should be for a representative message. Use the email service’s supported configuration, and ask the mailbox administrator to verify any permissions required."
+      ],
+      "bullets": [
+        "Display name: the human-readable name shown alongside the address. Changing it does not grant permission to use another mailbox.",
+        "From address: the address presented as the message’s author. Confirm that the service permits your workflow to use it.",
+        "Sending connection: the account or approved service connection submitting the message. It may differ from the visible author under a supported delegation setup.",
+        "Reply-To: the address suggested for ordinary replies when this field is present. If it is absent, replies normally use the From address.",
+        "Delivery-status handling: the route for failed-delivery information. Verify it separately from ordinary customer replies."
+      ]
+    },
+    {
+      "id": "a-directory-lookup-is-not-a-permission",
+      "title": "A directory lookup does not configure permission",
+      "paragraphs": [
+        "A workflow can look up the employee assigned to a customer and obtain that employee’s name and email address. That solves a data-selection problem. It does not establish that the connected mail service allows the automation to send using that address.",
+        "This matters when people join, leave, or change roles. The directory can update immediately while the sending configuration remains unchanged. A workflow that assumes every new address is already usable may fail or produce a sender identity different from the one intended.",
+        "Keep a clear distinction between the selected customer owner and the approved sending configuration. Where a required sender is unavailable, pause the message and create a setup task. Use a shared fallback only if the business has explicitly chosen that identity and reply process.",
+        "Have the email administrator apply the minimum permissions needed through the provider’s supported controls. Avoid solving a launch problem by giving an automation broader mailbox access than its job requires."
+      ]
+    },
+    {
+      "id": "follow-a-real-test-reply",
+      "title": "Follow a controlled test reply",
+      "paragraphs": [
+        "After the production sending configuration is ready, send an authorized test to a controlled recipient. Expand the message details and compare the actual From and Reply-To addresses with the expected values. Do not rely solely on the inbox’s shortened sender label.",
+        "Reply to that message and confirm where the response arrives. Have the intended owner open it using their normal account and confirm they can continue the conversation. If a shared inbox is involved, identify who watches it and how replies are assigned.",
+        "Use a synthetic customer scenario to test the relationship between the outgoing message and the responsible employee. Include a case where the customer’s assigned owner changes. Decide whether replies to an earlier message should stay with the original conversation owner or reach a shared team route.",
+        "That decision affects continuity. Writing it down before launch is easier than reconstructing why a customer replied to an inbox nobody now monitors."
+      ]
+    },
+    {
+      "id": "route-failures-to-the-right-owner",
+      "title": "Route failures to the right owner",
+      "paragraphs": [
+        "A customer reply, a delivery failure, and a broken workflow are different events. They can require different people and different recovery steps. Assign an owner for each rather than assuming every problem returns to the person named in the email.",
+        "A delivery failure needs enough information to identify the attempted recipient, message, and reported problem. A workflow failure may happen before an email is submitted at all. Monitor the sending service and the automation layer as appropriate to the system’s documented behavior.",
+        "Test those notifications in a controlled environment. Confirm the responsible person actually receives and understands them. Record what should happen next: correct an address, restore a connection, investigate an uncertain send, or stop a batch.",
+        "For an uncertain outcome, inspect provider records before retrying. A timeout in the automation does not prove no message was sent. An indiscriminate retry can create duplicate customer messages."
+      ]
+    },
+    {
+      "id": "make-the-mailbox-part-of-acceptance",
+      "title": "Make the mailbox part of acceptance",
+      "paragraphs": [
+        "A practical email-automation acceptance record should capture approved wording, the expected sender identity, the verified reply destination, and the people responsible for replies and failures. Keep test evidence access-controlled and avoid exposing mailbox credentials or customer content in screenshots.",
+        "Also record who maintains the mapping when staff assignments or addresses change. Sending configuration needs an owner after launch, not just someone available during the demonstration.",
+        "Before approving the next live email workflow, open one test message and ask two questions: “Which identity did this actually use?” and “Who receives the reply?” Verify the answers in the mail system. The visible name is only the beginning of that check."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Connect email automation to the right inboxes",
+    "description": "Explore how AIify It approaches workflow integration, including sending systems, operational handoffs, and recovery when a connection or request fails.",
+    "label": "Explore workflow integration",
+    "href": "/services/workflow-integration/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-13"
+  }
+}
