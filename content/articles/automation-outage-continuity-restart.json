@@ -58,6 +58,29 @@
       ]
     },
     {
+      "id": "watch-drift-during-parallel-running",
+      "title": "Use the same reconciliation discipline during parallel running",
+      "paragraphs": [
+        "A migration can create a quieter version of the restart problem. The old workflow remains responsible for live work while its replacement runs without action permissions. If their source changes and completion histories diverge, comparing their latest outputs mixes two questions: does the new logic behave differently, and did it receive the same facts?",
+        "We ran this synthetic timeline with the same deterministic eligibility rule on both sides: propose creation only for a ready request with no existing destination result. The clock labels are invented ordering markers. No live application or AI model was involved."
+      ],
+      "bullets": [
+        "09:00: both paths see source version one, with A and B ready and no destination records. Both propose A and B. Only the old path would be authorized to act.",
+        "09:10: in the scenario, the old path has completed A and the source owner has canceled B. The shadow copy has received neither update. The old path proposes nothing; the shadow still proposes A and B. Those two disagreements reflect different histories, despite identical logic.",
+        "09:20: rebase the shadow against source version two and the verified destination result for A. Both now propose nothing. B remains canceled, and A does not need another creation."
+      ]
+    },
+    {
+      "id": "set-a-cutover-evidence-gate",
+      "title": "Make cutover depend on reconciled evidence",
+      "paragraphs": [
+        "The calculation assumes complete, instantaneous snapshots and unique references, with no concurrent changes. It illustrates state drift; it does not establish that a real platform can snapshot, export, replay or recover reliably. Verify those capabilities before relying on them, and keep uncertain items held if the necessary evidence is unavailable.",
+        "Define why the parallel period exists, who owns it and what evidence permits ending it. Compare identified cases against known source and rule versions. Before an approved cutover, account for completed actions, pending approvals, cancellations, unresolved items and arrivals around the boundary. Establish which path owns the next permitted action, so enabling the replacement cannot leave both paths active.",
+        "Agree a bounded recovery plan too: what would trigger a return, who may decide it and how work performed after cutover would be reconciled. A rollback that restores old configuration without its missing action history can recreate the very drift it is meant to resolve.",
+        "In chapter 14 of Planning for Human Systems, page 197, Stafford Beer describes parallel systems whose accounts of reality increasingly diverged. Taylor distinguishes experience of operating a system from experience of introducing it in The Principles of Scientific Management, pages 132–134. Ask a provider to show transition evidence and an authorized recovery procedure, as well as the finished-system demo. The historical accounts do not justify an irreversible rollout."
+      ]
+    },
+    {
       "id": "reconcile-before-release",
       "title": "Classify the queue before releasing it",
       "paragraphs": [

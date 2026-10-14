@@ -1,0 +1,68 @@
+{
+  "slug": "challenge-ai-proposal-with-alternatives",
+  "title": "The AI Proposal Has No Objections. Give It a Real Alternative.",
+  "description": "Review an AI investment with independent questions, testable assumptions and a credible alternative developed to the same operating detail as the favored plan.",
+  "category": "Planning and strategy",
+  "takeaway": "A proposal can win an easy meeting because it is the only option anyone has developed. Before buying, let affected people examine its assumptions separately and give a credible alternative enough detail to compete fairly.",
+  "sections": [
+    {
+      "id": "ask-before-the-group-meeting",
+      "title": "Ask people separately before the approval meeting",
+      "paragraphs": [
+        "A round of “any objections?” gives people permission to comment, but little time to work out a different approach. Send the proposed scope and assumptions to the people who will supply inputs, review outputs, operate the process and maintain it. Ask for their assessment before circulating the group’s preferred answer.",
+        "Use concrete questions: Which part relies on a condition you cannot confirm? What would make the result unusable for your role? Which difficult case is missing? What other approach could meet the same need? Ask for evidence or an example, and distinguish what the person knows from what they suspect.",
+        "Keep the exercise proportionate to the purchase. You do not need to manufacture conflict or require everyone to find a defect. A useful review makes room for material disagreement and gives it a route to resolution. People should be able to question the plan without being assigned a motive."
+      ]
+    },
+    {
+      "id": "turn-objections-into-questions",
+      "title": "Turn concerns into assumptions you can examine",
+      "paragraphs": [
+        "Replace “I don’t trust this” with the specific condition behind the concern. A proposal might assume that every request names an authorized approver, every source is current or every receiving team uses the same definition of ready. Write down what evidence supports each important assumption and what evidence would challenge it.",
+        "Sort the disagreement by what can resolve it. A disputed capability needs a check. A disagreement about acceptable consequences needs the responsible decision-maker. A missing operating agreement needs the parties who can make it. Avoid using a model’s confidence or the number of favorable votes to settle a question outside their authority.",
+        "AI can help organize objections and generate possibilities to investigate. Several AI personas responding to the same brief do not establish independent evidence. The important independence comes from relevant sources, operating knowledge and checks capable of contradicting the proposal."
+      ]
+    },
+    {
+      "id": "give-the-alternative-equal-detail",
+      "title": "Give the alternative an owner and a fair brief",
+      "paragraphs": [
+        "Choose a credible alternative that could meet the business requirement. It might configure existing software, retain a deliberate manual step or change the intake process. Give someone time to develop it. Comparing a polished custom proposal with “we could do it manually” leaves the second option too vague to evaluate.",
+        "Describe both options against the same required result, eligible cases and acceptance conditions. For each, name inputs, outputs, human work, exception handling, dependencies, maintenance and unresolved evidence. Record setup and ongoing costs on the same basis; keep unknowns visible instead of manufacturing estimates to complete the comparison.",
+        "Fair development does not require identical implementation budgets. It requires enough detail to see how each approach would actually work and where its disadvantages lie. An alternative that wins only by quietly excluding the hard cases needs revision."
+      ]
+    },
+    {
+      "id": "work-through-a-synthetic-review",
+      "title": "A synthetic review changes the proposed purchase",
+      "paragraphs": [
+        "Consider an invented proposal to turn project kickoff notes into assigned tasks automatically. The attractive demonstration extracts actions, chooses owners and creates tasks. In this synthetic review, a delivery lead raises a specific counter-case: notes often include tentative ideas or commitments dependent on a budget decision. A named person beside an idea does not establish an approved assignment.",
+        "The team develops two options for the same revised requirement: prepare a complete task draft with supporting note references, make uncertain commitments visible and create tasks only after the project owner approves them. Both must handle the same permitted notes and the same ambiguous cases.",
+        "Option A uses AI to propose task wording, owners and dependencies from the notes. A project owner checks each draft against its cited passage, resolves uncertainty and approves the final set. An authorized integration then creates the approved tasks. Maintenance includes the extraction instructions, evaluation cases and task-system connection. The unanswered question is how much reading and correction the owner still needs.",
+        "Option B has a coordinator read the same notes and enter proposed actions, owners, dependencies and source references into a structured form. Fixed rules prepare the review list; the project owner resolves and approves it before the same task-creation step. Maintenance covers the form, rules and connection. Its visible burden is the coordinator’s extraction work, including time spent distinguishing tentative discussion from agreed action.",
+        "Neither option gets to ignore missing owners, conditional commitments or conflicting dates. The comparison would measure preparation, review and correction effort against the same accepted task set. It would also check whether either path creates an assignment before approval. No performance result has been measured here.",
+        "The counter-case changes the original scope before any purchase: automatic assignment from raw notes is replaced by a reviewable proposal. It also creates a genuine buying question. Does AI-assisted preparation justify its added ownership and checking requirements compared with structured human preparation? A demonstration alone leaves that question open."
+      ]
+    },
+    {
+      "id": "decide-without-erasing-disagreement",
+      "title": "Make the decision and preserve what could change it",
+      "paragraphs": [
+        "Bring the options back together after the separate assessments. Resolve factual disputes with the relevant evidence, and have the authorized owner decide the remaining trade-offs. Record why the selected approach fits, which concerns remain and which conditions would lead you to pause or reconsider.",
+        "For the synthetic task workflow, reconsideration might follow a change to the approval requirement, a new class of ambiguous notes or evidence that reviewing generated drafts takes more work than the alternative. Set triggers around the assumptions that mattered to the choice. A dissenting view can remain in the record without preventing a legitimate decision.",
+        "This method draws on Ian I. Mitroff’s chapter 22 on management by consensus and Aron Katsenelinboigen’s chapter 13 on developed alternatives in Planning for Human Systems (1992), edited by Jean-Marc Choukroun and Roberta M. Snow. Their arguments inspire the review structure; the AI buying method and synthetic comparison are original adaptations."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Put your automation proposal to a useful test",
+    "description": "Explore AIify It’s workflow automation service, then prepare an email describing the result you need, the proposed approach and the assumptions you want examined.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-14"
+  }
+}

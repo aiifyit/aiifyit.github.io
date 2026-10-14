@@ -1,0 +1,79 @@
+{
+  "slug": "ai-quoting-delivery-capacity",
+  "title": "Before AI Promises Friday, Check Who Already Has the Slot",
+  "description": "Connect AI delivery quotes to existing bookings, shared capacity and expiring holds. Test competing orders before turning an estimated date into a promise.",
+  "category": "Workflow reliability",
+  "takeaway": "A job needs three hours of specialist work. That does not mean it can be delivered three hours from now. A useful quoting workflow must account for the work already promised, the inputs still missing and the authority to reserve the next available slot.",
+  "sections": [
+    {
+      "id": "connect-duration-to-available-capacity",
+      "title": "Ask where the work will fit",
+      "paragraphs": [
+        "Start with one service your sales team quotes repeatedly. List its required steps, the resource pool each step consumes and what must be ready before it begins. Include preparation, specialist work and acceptance. A quick drafting step can still depend on a scarce reviewer or an input the customer has not supplied.",
+        "For each pool, use the approved working calendar and current commitments. Include existing bookings, active holds and known unavailable time. Aggregate team hours can mislead when only one qualified person or piece of equipment can perform the controlling step.",
+        "Frederick Winslow Taylor connects new sales inquiries with estimated work and the existing workload of each department in Shop Management, pages 113–114. This article adapts that planning principle to AI-assisted quoting. The reservation, approval and freshness controls below are modern design requirements, not claims about capabilities established by the historical text."
+      ]
+    },
+    {
+      "id": "give-each-date-a-clear-status",
+      "title": "Separate an indication, a hold and a promise",
+      "paragraphs": [
+        "An indicative date is a forecast based on stated information. A hold temporarily sets aside defined capacity under an agreed expiry rule. A customer promise is a commitment made with the required authority. Make the distinction visible in sales records and generated wording so a draft estimate cannot quietly become a guaranteed date.",
+        "A useful hold records the job and scope revision, resource slots, owner, expiry time and time zone, and the condition for confirmation. Define which holds reduce availability and who may release or extend them. An expired quote should not continue blocking capacity indefinitely.",
+        "Before a promise is authorized, recheck the scope, required inputs, capacity and any conditions attached to the hold. A customer returning after expiry needs a fresh check. Their earlier indicative date is not evidence that the resource is still available."
+      ]
+    },
+    {
+      "id": "read-the-synthetic-capacity-ledger",
+      "title": "Worked example: two orders see the same Wednesday opening",
+      "paragraphs": [
+        "Consider a synthetic Monday-to-Friday calendar with all times in UTC. The specialist works 09:00–13:00 each day. Existing bookings fill Monday, Tuesday 09:00–12:00 and Wednesday 09:00–10:00. Thursday and Friday are free. These are invented slots, not records from a business.",
+        "New orders A and B each need two preparation hours in a separate pool with four free hours on Monday. Both inputs are ready at 09:00, and preparation finishes by 13:00. A then needs three contiguous specialist hours; B needs two. Assume no further work after specialist acceptance, no rework and no other calendar constraints.",
+        "When the quoting workflow reads the ledger on Monday afternoon, both requests independently appear to fit Wednesday starting at 10:00. A's indicative completion is 13:00 and B's is 12:00. Those suggestions compete for the same hours. Reading an available slot has not reserved it."
+      ]
+    },
+    {
+      "id": "follow-the-hold-until-it-expires",
+      "title": "Watch the answer change when a hold expires",
+      "paragraphs": [
+        "A bounded local slot-allocation model processed these events in sequence. It used invented records and made no reservations or customer communications outside the model."
+      ],
+      "bullets": [
+        "Monday 15:00: A receives a hold for Wednesday 10:00–13:00, expiring Tuesday at 12:00.",
+        "Monday 15:05: B's fresh check sees A's hold. Wednesday is unavailable; Thursday 09:00–11:00 is B's next indicative window. No hold is created for B yet.",
+        "Tuesday 12:00: A remains unconfirmed. Its hold expires and the three Wednesday hours are released.",
+        "Tuesday 12:05: B is rechecked, reserves Wednesday 10:00–12:00 and receives the designated owner's confirmation in the model.",
+        "Tuesday 12:10: A returns. Only one Wednesday hour remains, so its three-hour contiguous requirement no longer fits. Its next indicative window is Thursday 09:00–12:00."
+      ]
+    },
+    {
+      "id": "protect-the-reservation-boundary",
+      "title": "A fresh read still needs a protected reservation",
+      "paragraphs": [
+        "The exercise demonstrates the ledger rules under serial processing by one coordinator. It does not establish how any CRM or scheduling platform handles simultaneous requests, failed writes or lost acknowledgments. Actual bookings also face uncertain durations, interruptions and other constraints omitted here.",
+        "Ask the implementation team to show what happens when two requests try to reserve the same capacity at once. The system must prevent both from receiving an incompatible reservation, or keep the decision with a coordinated human booking process. A recent spreadsheet export or a check followed by an unprotected write is not evidence that competing requests cannot overlap.",
+        "Also test interrupted confirmation. If the booking may have succeeded but the response was lost, inspect the authoritative reservation before repeating it. The workflow needs a way to connect the request to the same reservation and distinguish a retry from a different job. Verify those capabilities in the actual tools rather than assuming an AI layer supplies them."
+      ]
+    },
+    {
+      "id": "keep-uncertainty-attached-to-the-date",
+      "title": "Keep the assumptions attached when the date travels",
+      "paragraphs": [
+        "A date copied into a proposal should retain its status and material conditions. State what is required from the customer, which scope the estimate covers and when availability was checked. If a duration is uncertain, use an appropriately qualified forecast and the business's agreed allowance rather than presenting an unsupported precise finish time.",
+        "After confirmation, monitor the inputs and capacity that support the promise. A late document, changed scope or unavailable specialist can affect several jobs. Flag the affected commitments and the next decision for the responsible owner; do not silently replace customer dates with a new schedule.",
+        "Before enabling automatic commitments, rehearse normal booking, overlapping requests, expired holds, delayed inputs and interrupted confirmation. The useful output is a traceable answer: which capacity supports this date, what remains conditional and who authorized the promise?"
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Connect quotes to delivery capacity",
+    "description": "Explore AIify It’s workflow integration services and discuss how quoting, booking records and delivery ownership should fit together before dates reach customers.",
+    "label": "Explore workflow integration",
+    "href": "/services/workflow-integration/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-14"
+  }
+}

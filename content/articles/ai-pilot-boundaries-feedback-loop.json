@@ -1,0 +1,94 @@
+{
+  "slug": "ai-pilot-boundaries-feedback-loop",
+  "title": "Your AI Pilot Worked. What Did You Leave Out?",
+  "description": "Compare two bounded AI pilot designs to see how isolating each case can remove the waiting, repeat requests and feedback the trial needs to examine.",
+  "category": "AI delivery",
+  "takeaway": "A pilot can follow every step from input to finished record and still miss an important interaction. If each case gets an empty queue and an available reviewer, what happens when waiting causes more work to arrive?",
+  "sections": [
+    {
+      "id": "a-smaller-test-can-change-the-question",
+      "title": "A smaller test can change the question",
+      "paragraphs": [
+        "Keeping a pilot small is sensible when data, spending and consequential actions need tight limits. But different ways of making it small teach different things. Removing customers, shared queues or return messages can remove the mechanism you intended to examine.",
+        "For example, a request-intake workflow prepares a draft, passes it to a reviewer and creates an accepted work item. Testing each request separately may verify that complete path. It cannot show what happens when several requests wait for the same reviewer and some requesters contact the team again before receiving a result.",
+        "The design question is therefore more specific than “Did we test end to end?” Ask which interactions must remain inside the boundary for the pilot’s intended conclusion to be meaningful. Reduce exposure while preserving those interactions, using synthetic records and non-acting simulations where appropriate."
+      ]
+    },
+    {
+      "id": "state-the-question-and-the-model",
+      "title": "State the question before drawing the boundary",
+      "paragraphs": [
+        "Our worked question is: can the intake process keep one work item per request when delayed review produces repeat contact? We ran a deterministic local fixture with four synthetic requests, A through D. It contained no AI model, customer data, network connection or external action.",
+        "The rules are deliberately simple. A shared reviewer handles one queued message per review round, in arrival order. A round is an abstract service slot, not a measured minute. At the end of round two, each request still awaiting its first result generates one scripted follow-up. The initial intake rule puts every incoming message into the review queue and creates a separate destination record when it is processed.",
+        "That follow-up rule is an assumption chosen to expose an interaction, not a finding about customer behavior. Each request can generate only one follow-up, and the fixture has a hard limit of twelve rounds. The exact request identity is known throughout. These constraints keep the demonstration bounded and inspectable."
+      ]
+    },
+    {
+      "id": "boundary-one-isolated-complete-cases",
+      "title": "Boundary one: a complete path, one isolated case at a time",
+      "paragraphs": [
+        "The first design sends A through intake, scripted review and the modeled destination, then clears the state before testing B, C and D. Every case receives the reviewer’s first slot. No case remains waiting at round two, so the follow-up rule never fires.",
+        "The aggregate result is four review actions, four completed requests and four destination records, with no duplicates. Those results are correct for this boundary. They show that an isolated request can complete under these rules.",
+        "The missing interaction is waiting followed by return contact. An excellent pass rate on these independent cases cannot establish that the shared process handles it. Adding more independently reset cases would still leave that interaction outside the test."
+      ]
+    },
+    {
+      "id": "boundary-two-a-shared-operating-slice",
+      "title": "Boundary two: the same seed requests share a queue",
+      "paragraphs": [
+        "The second design admits the same four initial requests together, retains the queue between rounds and keeps the scripted return-contact path active. The intake rule and destination behavior are unchanged. Only the shared operating boundary allows requests to wait while others use the reviewer."
+      ],
+      "bullets": [
+        "Rounds one and two: A and B are processed. C and D are still waiting, so each generates its one follow-up message. Those messages join the back of the same queue.",
+        "Rounds three and four: the original C and D messages are processed. All four requests now have a result, but their follow-up messages remain queued.",
+        "Rounds five and six: the queued follow-ups for C and D are processed as separate work. The fixture ends with six review actions and six destination records for four distinct requests, including two duplicate records."
+      ]
+    },
+    {
+      "id": "keep-the-feedback-when-testing-a-repair",
+      "title": "Keep the feedback loop when testing a repair",
+      "paragraphs": [
+        "The shared design exposes a failure the isolated design cannot activate: delayed service creates new messages, and the intake rule turns them into extra work. This is a demonstrated property of the constructed model. It is not evidence that real customers follow the assumed timing or that an AI system has a particular failure rate.",
+        "Within the same shared boundary, we reran a revised intake rule. A repeat message is recorded against its known request identity in the model instead of creating another queued job; no real attachment or update API is exercised. C and D still generate two follow-ups, but the run finishes with four review actions and four destination records, one per request.",
+        "The repair illustrates a candidate requirement, not a ready-made production solution. A real system must establish identity reliably, preserve any new information in a repeat message and distinguish a follow-up from a genuinely new request. Ambiguous matches need the approved review path. Exact identifiers and perfect shared state make the local example much easier than that job."
+      ]
+    },
+    {
+      "id": "record-what-was-preserved-and-what-was-simulated",
+      "title": "Record what was exercised, simulated and omitted",
+      "paragraphs": [
+        "A useful pilot report names its boundary in enough detail that someone can challenge the conclusion. In this fixture, the exercised mechanics were persistent queue state, one review slot per round, delayed return contact, repeat-message handling and final record counts. The customer and reviewer roles were entirely scripted.",
+        "The test omitted real staff judgment, interface usability, permissions, network delay, concurrent edits, ambiguous identities and actual model outputs. It did not establish live reliability, sustainable capacity, savings or readiness for broader case types. Changing the assumed follow-up threshold also changed the extra work, which is a reason to investigate that assumption in the real process.",
+        "For an authorized human pilot, preserve the necessary handoffs with appropriate participants and permitted data. Use safe substitutes for actions that must remain blocked. If the substitute cannot reproduce an important interaction, mark that question unanswered rather than letting a successful simulation stand in for it."
+      ]
+    },
+    {
+      "id": "bound-exposure-without-erasing-the-mechanism",
+      "title": "Bound exposure without erasing the mechanism",
+      "paragraphs": [
+        "Choose the smallest trial that can answer the stated question, subject to the organization’s safety, privacy and approval requirements. A complete operating slice means complete for that question; it does not mean including every department or turning on live actions.",
+        "Before starting, write down the permitted cases and data, participating roles, shared resources, relevant waiting periods, return paths, action restrictions, budget and stop conditions. Name who can pause the test and how pending work will be accounted for. If a required interaction cannot be tested safely, narrow the conclusion or choose another design.",
+        "At the review, ask: which result would have been different if we had removed this handoff, delay or return path? The answer helps distinguish an informative bounded pilot from a collection of successful demonstrations."
+      ]
+    },
+    {
+      "id": "the-source-idea-and-its-limit",
+      "title": "The source idea and its limit",
+      "paragraphs": [
+        "In chapter 23 of Planning for Human Systems, page 299, Thomas N. Gilmore and Burton Cohen discuss how reducing a program’s scale or duration can alter the interactions it depends on. Their account explicitly states on page 300 that the effects discussed were not based on a rigorous evaluation. It provides a design question, not a measured rule for sizing AI pilots.",
+        "Paramjit S. Sachdeva makes a related point about preserving the integrity of interacting activities during gradual adoption in chapter 28, page 399. The queue fixture here is our original practical adaptation. Neither historical discussion justifies expanding a pilot beyond its authorized or safe limits."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Design a pilot that answers the operating question",
+    "description": "Explore workflow automation with AIify It and discuss the case boundaries, handoffs, feedback and evidence your team needs before expanding a pilot.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-14"
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "slug": "ai-project-uncertainty-next-decision",
+  "title": "Before You Buy More AI Work, Name the Decision That’s Stuck",
+  "description": "Separate missing facts, unsettled business policy and dependencies on other decisions so your next AI project expense addresses the actual blocker.",
+  "category": "Planning and strategy",
+  "takeaway": "A stalled AI project can produce an expensive request for more examples, more analysis or another prototype. Before agreeing, write down the decision you cannot make and what would actually allow someone to make it.",
+  "sections": [
+    {
+      "id": "replace-vague-uncertainty-with-a-decision",
+      "title": "Replace “we need more certainty” with a decision",
+      "paragraphs": [
+        "Uncertainty has different sources. You may lack evidence about what a system can do. The business may not have agreed what it should do. Or your choice may depend on another team’s unresolved plan. These situations can look alike in a status report, yet call for different next steps.",
+        "Begin with one decision that matters now: approve a bounded implementation, choose a routing rule or allow a particular action. Include the scope and the person authorized to decide. “Are we ready for AI?” is too broad to diagnose; “Can we approve automatic routing for these request types?” is a useful starting point.",
+        "Then ask what answer would change that decision. A general wish for better data can absorb unlimited work. A specific question, such as whether two similar request types can be distinguished from their permitted inputs, gives a test a purpose and an end."
+      ]
+    },
+    {
+      "id": "identify-the-kind-of-answer-needed",
+      "title": "Identify the kind of answer you need",
+      "paragraphs": [
+        "Treat the following as a diagnostic aid, not a rigid filing system. One blocker can contain several kinds of uncertainty. Separate them enough to assign useful work, and revisit the classification when you learn more."
+      ],
+      "bullets": [
+        "A fact or capability question needs evidence: Can this input be read, does this field exist, or can the proposed process produce the accepted result?",
+        "A policy or value choice needs an authorized judgment: Which outcome takes priority, what trade-off is acceptable, or who is allowed to approve an exception?",
+        "A related decision needs coordination: What will another team change, which operating arrangement will they adopt, or when will a choice your plan depends on be made?"
+      ]
+    },
+    {
+      "id": "compare-three-versions-of-one-blocker",
+      "title": "Three versions of the same blocked project",
+      "paragraphs": [
+        "Here is a synthetic example, with three alternative explanations for one delay. A business wants to buy an automation that routes incoming service requests to the appropriate team. The next decision is whether to approve implementation for a defined set of request types. None of the situations or results below describes a client project.",
+        "Version one: the routing rules and team responsibilities are agreed, but nobody knows whether short customer descriptions contain enough information to distinguish repair from inspection. Commission a bounded test using permitted representative examples and independently agreed expected routes. Record ambiguous cases and missing information. That evidence can support a narrower scope, another intake question or a decision not to automate this distinction.",
+        "Version two: the descriptions are clear, but managers disagree about requests containing both repair and inspection. One wants repair to take priority; another wants inspection first. More labeled examples will reproduce the disagreement unless someone settles the rule. Bring the conflicting cases and consequences to the authorized process owner. The output needed is an approved policy, including an escalation path where the choice remains case-specific.",
+        "Version three: the current rule is clear, but the operations team is deciding whether inspection will move to a central queue. The proposed build depends on that future arrangement. Ask the owner of the operating change what is decided, what remains open and which interface can safely be used meanwhile. A better classifier cannot establish a queue that another team has not agreed to operate.",
+        "The purchasing response changes with the explanation. Fund an evidence-producing test in the first version. Arrange a policy decision in the second. Coordinate an operating dependency in the third. If all three apply, keep separate owners and completion conditions rather than rolling them into an open-ended request to improve the AI."
+      ]
+    },
+    {
+      "id": "make-the-next-work-item-decisive",
+      "title": "Make the next work item capable of resolving something",
+      "paragraphs": [
+        "A useful blocker record includes the exact question, why it affects the decision, what would answer it, who can provide that answer and who will accept it. Add the current evidence and the next review point. Avoid assigning an owner who can only chase the actual decision-maker without any agreed route to them.",
+        "For a technical test, specify the observation that would lead you to proceed, narrow the scope or stop. For a policy question, describe the competing choices and consequences without asking the model to invent the organization’s priorities. For coordination, request a concrete operating agreement or a clearly bounded interim arrangement.",
+        "Check whether the answer would change spending. If every possible test result leads to the same purchase, the test may not be addressing the real decision. Conversely, a small unanswered question can deserve attention when its answer could invalidate much of the proposed build."
+      ]
+    },
+    {
+      "id": "commit-only-as-far-as-the-answer-supports",
+      "title": "Commit only as far as the answer supports",
+      "paragraphs": [
+        "Turn each resolved question into the next justified commitment. A successful input test might justify a prototype. An agreed policy might justify testing the affected cases. A confirmed destination and operating owner might permit implementation planning. None of those findings alone establishes readiness for live unattended action.",
+        "Where practical, separate work that remains useful across several outcomes from work that depends on one unsettled choice. In the synthetic routing example, documenting request types may remain useful while a queue decision is pending. Building a deep connection to a queue about to disappear may not.",
+        "Staging also has costs. A smaller contract, temporary process or delayed decision can create repeated setup, manual work or a lost opportunity. Ask what becomes committed at each step, what can genuinely be changed later and what waiting costs. Do not describe phased delivery as automatically reversible or risk-free."
+      ]
+    },
+    {
+      "id": "review-the-answer-against-the-decision",
+      "title": "Close the question, then reopen the decision",
+      "paragraphs": [
+        "When the answer arrives, bring it back to the original decision. Record what is now supported, which assumption changed and what remains unresolved. A completed research task should end with a disposition, even if the disposition is to stop or choose a different scope.",
+        "This diagnosis adapts John Friend’s distinction among environmental uncertainty, value judgments and related decisions in chapter 7 of Planning for Human Systems (1992), edited by Jean-Marc Choukroun and Roberta M. Snow. Chapters 25 and 28 by Francisco R. Sagasti and Paramjit S. Sachdeva inform the staged-commitment guidance. The routing example and buying questions are original applications."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Clarify the decision behind your next AI project",
+    "description": "Explore AIify It’s workflow automation service, then prepare an email with the proposed workflow, the decision that is blocked and the evidence or agreement still missing.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-14"
+  }
+}

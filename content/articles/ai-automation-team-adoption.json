@@ -68,6 +68,17 @@
       ]
     },
     {
+      "id": "give-improvements-a-route-to-the-standard",
+      "title": "Give a better method a route into the standard",
+      "paragraphs": [
+        "Feedback needs a decision, not just somewhere to land. Ask for a concrete case, the proposed change and the benefit the contributor expects. Name an owner who acknowledges it, agrees a fair comparison and records whether it will be adopted, revised, deferred or rejected. Keep the reason and next step visible to the contributor.",
+        "Continue the illustrative scheduling example. A coordinator proposes putting customer availability in a prominent handoff field, rather than leaving it inside a general note. The proposal also fills a blank with “Any time” and marks a nonempty field ready for dispatch. Clearer presentation may be useful, but the bundled fallback changes the meaning of missing information.",
+        "We checked that readiness rule with four synthetic cases in a local, non-acting calculation: ordinary verified availability, a verified narrow window, a missing window and conflicting windows. The first proposal wrongly marked the missing and conflicting cases ready. A revised rule preserved the unknown or conflicting status and marked only verified availability ready; all four expected readiness checks then passed. No employee, AI model or live scheduling system was tested, and the calculation did not measure saved time.",
+        "In the worked decision record, the operations owner advances the revised handoff to a bounded usability trial and defers any efficiency claim. The coordinator receives credit for the proposal, including the useful presentation change. Record the actual authorized release decision separately: update the handoff template, authoritative rule, regression cases and role guidance together before enabling the change.",
+        "Frederick Winslow Taylor calls for comparing an operator’s proposed method with the current standard and crediting useful improvements in The Principles of Scientific Management, chapter II, page 128. Our application is a transparent proposal, test and decision route. It does not require staff to follow unsafe instructions while a safety or rights concern is disputed; preserve the appropriate pause and escalation route."
+      ]
+    },
+    {
       "id": "resolve-the-friction-before-expanding",
       "title": "Resolve the friction before expanding",
       "paragraphs": [

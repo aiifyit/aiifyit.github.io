@@ -1,0 +1,78 @@
+{
+  "slug": "compare-ai-pilot-process-improvements",
+  "title": "Did AI Save the Time, or Did You Finally Fix the Process?",
+  "description": "Compare an AI pilot with a better non-AI process. Keep cases, quality and support comparable so you can judge what deserves the next investment.",
+  "category": "Automation strategy",
+  "takeaway": "Your pilot finished faster. During setup, someone also cleaned the inputs, clarified the rules and gave the team extra help. The improvement may be valuable, but the next buying decision depends on what AI adds beyond those changes.",
+  "sections": [
+    {
+      "id": "name-the-next-purchase-decision",
+      "title": "Name the decision the comparison must answer",
+      "paragraphs": [
+        "Before collecting another speed figure, write the decision in one sentence: should we add AI to the improved process, keep the simpler workflow, or investigate a particular exception? Each question needs a different comparison. A demonstration of the complete new process cannot automatically answer which part deserves further spending.",
+        "Frederick Winslow Taylor describes a jointly observed baseline and a comparison on similar machine work in The Principles of Scientific Management, Chapter II, pages 98–100. That historical intervention changed several conditions together. Its useful lesson here is to examine the comparison carefully; it does not establish an isolated AI effect or a universal experimental method.",
+        "Ask the process owner and the people doing the work to choose permitted examples before seeing the results. Include the case types the proposed deployment will actually receive. Keep excluded work visible: a test of routine requests can answer a routine-request question without establishing performance on the entire queue."
+      ]
+    },
+    {
+      "id": "give-the-simpler-alternative-a-fair-trial",
+      "title": "Give the simpler alternative a fair trial",
+      "paragraphs": [
+        "Where feasible, compare three paths: the current process, an improved process without AI, and that improved process with the proposed AI assistance. The middle path might use a clearer form, a shared rule sheet, ordinary validation and a reusable template. Give it the same cleaned source information available to the AI-assisted path.",
+        "Keep the finish line consistent. A request is complete only when it meets the agreed acceptance criteria, including correct destination and required review. Count preparation, checking, corrections and unresolved cases. Record elapsed waiting separately from hands-on time.",
+        "Some improvements work only in combination. If AI requires a new intake structure that would otherwise be unnecessary, record its cost and the dependency. You can compare practical packages while acknowledging that the result does not separate every individual cause. Do not make the non-AI path deliberately weak to produce a more impressive contrast."
+      ]
+    },
+    {
+      "id": "work-through-a-synthetic-comparison",
+      "title": "Worked example: the missing middle comparison",
+      "paragraphs": [
+        "Consider an entirely synthetic batch of 24 service requests: 16 routine and eight exceptions. For this arithmetic exercise, assume every path reaches the same accepted outcome. The times below are assigned assumptions covering preparation, execution, checking and repair. A deterministic calculation reproduces the totals; no person or AI model was timed, and quality was not tested."
+      ],
+      "bullets": [
+        "Current process: 12 staff minutes per routine request and 20 per exception, totaling 352 minutes.",
+        "Improved process without AI: eight minutes per routine request and 16 per exception, totaling 256 minutes.",
+        "Improved process with hypothetical AI assistance: five minutes per routine request and 14 per exception, totaling 192 minutes.",
+        "The current-to-AI difference is 160 minutes. The process-only improvement accounts for 96 minutes in the scenario. The additional difference associated with the assumed AI-assisted path is 64 minutes."
+      ]
+    },
+    {
+      "id": "use-the-example-to-change-the-question",
+      "title": "Decide what the extra 64 minutes would be worth",
+      "paragraphs": [
+        "The original before-and-after presentation could lead a buyer to price the AI component against 160 minutes. Including the middle comparison changes that question to 64 minutes beyond the simpler alternative, under these assumptions. If the AI path also needs 30 minutes of batch-specific administration, the incremental capacity difference falls to 34 minutes before considering software charges.",
+        "The same exercise exposes a useful sensitivity: adding eight extra checking or repair minutes to each of the eight AI-assisted exceptions removes the entire 64-minute case-work advantage. This is a reason to investigate exception effort, not a prediction that exceptions will take that long.",
+        "These calculations cannot establish savings in your operation. They show which assumptions could reverse the choice. A real trial must replace the assigned times and assumed quality with evidence. Keep implementation costs, recurring costs and the intended use of released capacity visible without treating staff minutes as automatic cash savings."
+      ]
+    },
+    {
+      "id": "protect-the-live-comparison",
+      "title": "Avoid giving the final run an unfair advantage",
+      "paragraphs": [
+        "Running the same request three times can teach the operator its answer. Running the old process on Monday and the new one after a week of coaching can mix practice with the treatment being tested. Extra expert help, easier requests and a quieter queue can also influence the comparison.",
+        "Choose a design appropriate to the question. Where practical, allocate comparable cases randomly within relevant groups, such as case type or operator experience, and balance the order of methods. Keep a separate evaluation set that was not used to refine the workflow. The NIST/SEMATECH e-Handbook section on randomized block designs explains grouping comparable conditions and randomization; a qualified evaluator can help adapt those principles to your workflow.",
+        "A small operational comparison may still be useful when random allocation is impractical. Report the limitations plainly. Do not turn a descriptive difference into a confident causal claim, or treat one-factor-at-a-time testing as the right design for every interaction."
+      ]
+    },
+    {
+      "id": "keep-a-change-ledger",
+      "title": "Keep a short change ledger beside the results",
+      "paragraphs": [
+        "Preserve enough context to explain each run. A dated ledger should connect the evaluated cases to the source snapshot, rule version, model and instructions where relevant, operator preparation, assistance received and acceptance rubric. Record interruptions and excluded results rather than silently removing inconvenient observations.",
+        "An entry such as “new intake form, revised escalation rule, updated model and extra reviewer available” identifies a bundled intervention. It may justify buying the bundle, but it cannot establish that the model update produced the full gain. If that distinction matters financially, plan the next comparison around it.",
+        "At the buying review, separate what was assumed, what was observed and what remains unexplained. Ask whether the AI-assisted path adds enough accepted output or released capacity beyond the best feasible simpler alternative. That is a more useful basis for further investment than the largest before-and-after number."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Make the pilot answer the buying question",
+    "description": "Explore workflow automation with AIify It and discuss a comparison that separates process improvements, retained work and the additional value AI would need to demonstrate.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-14"
+  }
+}

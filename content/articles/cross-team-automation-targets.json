@@ -1,0 +1,80 @@
+{
+  "slug": "cross-team-automation-targets",
+  "title": "Two Green Dashboards, One Bad Order: Fix Conflicting Automation Targets",
+  "description": "Test whether sales and delivery automations reward compatible decisions. Use a worked rush-order scorecard to expose displaced work and hidden costs.",
+  "category": "Automation strategy",
+  "takeaway": "Sales reaches its booking target. Delivery keeps its specialist fully occupied. Both automations run correctly, yet a rush order creates more extra cost than value. Before connecting the workflows, check whether their definitions of success fit together.",
+  "sections": [
+    {
+      "id": "choose-one-disputed-decision",
+      "title": "Start with the order that causes the argument",
+      "paragraphs": [
+        "Choose a recurring cross-team decision: accepting a rush job, adding a custom feature or moving an existing delivery date. Walk one request through the people and automations that influence it. Ask what would make each participant approve, reject or escalate the same request.",
+        "A quoting assistant might prioritize booked value while a scheduling workflow prioritizes occupied specialist hours. Neither measure tells you whether the proposed work protects existing promises or covers the disruption it creates. The integration can be technically reliable while repeatedly making an unattractive trade-off.",
+        "Jamshid Gharajedaghi and Ali Geranmayeh examine incompatible departmental criteria in Chapter 12 of Planning for Human Systems: Essays in Honor of Russell L. Ackoff, edited by Jean-Marc Choukroun and Roberta M. Snow. Their sales-and-production discussion on pages 168–171 motivates this modern workflow exercise. It is an organizational argument, not evidence of measured AI performance."
+      ]
+    },
+    {
+      "id": "separate-the-goal-the-number-and-the-reward",
+      "title": "Separate the goal, the number and the response",
+      "paragraphs": [
+        "Write three short entries for each team. First, the outcome it is meant to support. Second, the indicator actually displayed. Third, what happens when that indicator improves or deteriorates. Those entries can differ: dependable delivery may be the stated goal, busy hours the measure and immediate escalation the response to unused capacity.",
+        "Ask participants how the arrangement works in practice. A useful contribution may look bad locally: sales might prevent an unsuitable order, or delivery might reserve capacity for recovery. If the dashboard recognizes only added bookings or utilization, that contribution can disappear.",
+        "Use this conversation to inspect the workflow, not to infer motives or rank individuals. The same people may cooperate perfectly well when the decision criteria make the full consequences visible. A vague instruction to collaborate will not repair a rule that penalizes the action the neighboring team needs."
+      ]
+    },
+    {
+      "id": "follow-a-rush-order-through-both-dashboards",
+      "title": "Worked example: a rush order that turns both lights green",
+      "paragraphs": [
+        "This is a synthetic scorecard with invented US-dollar amounts, not a client result or a pricing recommendation. Assume sales has booked $8,000 against a $10,000 period target. The delivery dashboard rewards filling ten available specialist hours. Those ten hours already belong to committed work.",
+        "A new rush order brings $2,000 and needs six specialist hours in that same window. It also requires $900 of incremental materials and support, excluding replacement capacity. Assume an approved external provider can perform the six displaced hours of existing work at the required quality and timing for $220 an hour. A deterministic calculation gives the following result."
+      ],
+      "bullets": [
+        "Sales reaches $10,000 of bookings, so its target is met.",
+        "The internal specialist logs six hours on the rush job and four on existing work, so all ten hours are occupied.",
+        "Before displaced work is considered, the new order appears to contribute $1,100: $2,000 less $900.",
+        "Covering the displaced work costs another $1,320: six hours multiplied by $220.",
+        "The incremental result is negative $220. Both local indicators meet their targets while the combined decision consumes more additional cost than revenue."
+      ]
+    },
+    {
+      "id": "make-the-economic-boundary-explicit",
+      "title": "Count the displaced work once",
+      "paragraphs": [
+        "The example preserves the original commitments through purchased cover. It therefore charges that cover once; it does not also subtract an invented loss of the same existing work. Unchanged fixed overhead is excluded from this incremental comparison. It would still matter in the business's wider economics.",
+        "If suitable cover is unavailable, the scenario changes. The decision owner must assess a later date, different scope or declining the request. Do not label an existing promise expendable because an estimated penalty looks small. Some service, quality and customer commitments should be constraints on the choice rather than prices the automation is free to trade away.",
+        "For a second synthetic option, assume the customer would accept a $2,400 quote with the same requirements and costs. The incremental contribution becomes $180. That makes the option worth considering under the stated assumptions; it does not automatically make acceptance appropriate. Provider availability, quality, authority and the business's required contribution still need confirmation."
+      ]
+    },
+    {
+      "id": "write-compatible-decision-rules",
+      "title": "Give both teams a compatible decision rule",
+      "paragraphs": [
+        "Keep useful departmental indicators, but add a shared acceptance test for this decision. A rush request should show the proposed customer value, additional work and cost, displaced commitments, feasible capacity and unresolved assumptions. Both teams should be able to see why the request qualifies or needs review.",
+        "Compatible criteria need not be identical. Sales can track suitable opportunities and delivery can track dependable completion. The connection is that neither workflow can earn a successful outcome merely by pushing an unresolved burden into the other's queue.",
+        "Name the person who may approve the trade-off and make sure they can actually authorize the affected resources. An escalation sent to someone who cannot arrange cover or change the offer does not resolve the decision. Where essential cost or capacity information is missing, have the automation prepare options and route the uncertainty rather than choose a convenient default."
+      ]
+    },
+    {
+      "id": "test-the-rule-before-speeding-it-up",
+      "title": "Test decisions that make the local numbers look good",
+      "paragraphs": [
+        "Use a small, non-acting test set before enabling customer commitments. Include a normal order, a rush order with supportable extra value, the negative-contribution example, unavailable cover and a request that violates an existing commitment. Agree the expected decision and who can resolve exceptions before running the test.",
+        "Follow each case through both workflows and the receiving team's work. A passing test needs a justified accept, revise, decline or escalate outcome. It also needs the relevant costs and obligations to remain visible after handoff. Quiet queues and green run histories are insufficient if the rejected trade-off still reaches the schedule.",
+        "At the next operating review, inspect a few actual decisions together. Ask where one team prevented work or expense for another, and whether the shared criteria recognized it. The useful question is whether success in one part helps the complete job succeed."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Connect teams around a workable decision",
+    "description": "Explore AIify It’s workflow integration services and discuss the rules, ownership and acceptance tests where sales and delivery processes meet.",
+    "label": "Explore workflow integration",
+    "href": "/services/workflow-integration/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-14"
+  }
+}
