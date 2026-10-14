@@ -1,7 +1,7 @@
 {
   "slug": "measure-ai-automation-roi",
   "title": "Will AI Automation Pay for Itself? Measure the Work That Remains",
-  "description": "Build a credible AI automation business case by measuring remaining human work, separating capacity from cash savings, and checking payback assumptions.",
+  "description": "Measure AI automation ROI with retained human work, original and operating baselines, tested capacity and resilience checks before claiming savings.",
   "category": "Automation strategy",
   "takeaway": "An automation project can finish faster while leaving your team with almost as much work. To judge whether it will pay for itself, measure the effort it removes, the effort it adds, and how the resulting capacity will become business value.",
   "sections": [
@@ -12,6 +12,15 @@
         "Before approving a build, select a clearly bounded process and record what completing it currently requires. Count incoming cases, hands-on minutes, corrections, and elapsed time. Include work performed by everyone involved, rather than measuring only the person who starts the process.",
         "In a workflow discovery discussion, a process owner described a time-consuming operation that still required human participation at several points. The team proposed mapping those steps and identifying which remaining work could be automated. The discussion established an opportunity to investigate; it did not establish measured savings or a completed return on investment.",
         "That distinction matters when a proposal promises to automate a large share of a process. A count of automated steps tells you little about the effort removed. One difficult exception can require more attention than several routine steps combined."
+      ]
+    },
+    {
+      "id": "keep-both-baselines",
+      "title": "Keep the investment baseline and the operating baseline",
+      "paragraphs": [
+        "Chapters 5 and 8 of The Automation Advantage, by Bhaskar Ghosh, Rajendra Prasad and Gayathri Pallail, connect benefit measurement with sustaining improvements. Our application is to keep two clearly labeled baselines.",
+        "The original investment baseline records the work before the project: volume, case mix, effort, costs and acceptable quality. Preserve it when judging the investment. If a material business change makes comparison harder, explain the adjustment rather than quietly rewriting the starting point.",
+        "The operating baseline records the current, accepted process after an improvement has been demonstrated. Use it to detect regression in effort, quality or waiting time. Date both baselines and retain their assumptions. A process can remain better than its original state while deteriorating against its recent operating standard."
       ]
     },
     {
@@ -46,12 +55,25 @@
       ]
     },
     {
+      "id": "separate-output-capacity-and-promise",
+      "title": "Separate delivered output, tested capacity and future promise",
+      "paragraphs": [
+        "Chapter 11 of Stafford Beer’s Brain of the Firm distinguishes actuality, capability and potentiality. For an automation business case, apply that distinction with three labeled records and the same definition of an accepted result:"
+      ],
+      "bullets": [
+        "Actual output: completed, accepted work during a stated period. Include unresolved cases and correction effort alongside the completed count so difficult work cannot disappear from view.",
+        "Tested current capacity: output demonstrated under stated conditions with current tools, trained staff and review coverage. Record the case mix and test duration. A brief peak or an unsustainable work pace does not establish ongoing capacity.",
+        "Conditional future capacity: a forecast that depends on a named change, such as additional trained review coverage or a repaired source connection. State the dependency, cost and uncertainty. Keep it out of the measured-benefit column until demonstrated."
+      ]
+    },
+    {
       "id": "test-the-payback-case",
       "title": "Test whether the payback survives a slower start",
       "paragraphs": [
         "For a simple cash-payback estimate, divide the one-time investment by the expected monthly cash benefit after recurring operating costs. If the net monthly cash benefit is zero or negative, that calculation does not produce a positive payback period. A capacity or quality case may still justify the project, but describe it accurately.",
         "Include implementation, internal setup time, training, and transition work in the investment you evaluate. Include software, usage, support, and retained operating effort when estimating ongoing economics. Use consistent assumptions and avoid charging the same cost twice.",
-        "Run a conservative scenario with lower adoption, more review, and slower rollout. Do not assume full monthly benefits arrive during development. Ask whether the decision still makes sense if the improvement is smaller or starts later than expected."
+        "Run a conservative scenario with lower adoption, more review, and slower rollout. Do not assume full monthly benefits arrive during development. Ask whether the decision still makes sense if the improvement is smaller or starts later than expected.",
+        "Also test whether apparent savings remove the capacity needed for ordinary disruption. Beer’s Chapter 11 warns that improved productivity figures can conceal weakened capability. Compare handling time and cost with oldest backlog age, correction effort, backup coverage and recovery time. Before counting removed capacity as a saving, rehearse a busy period or an unavailable reviewer and check whether acceptable work can still be completed. A lower average cost is incomplete evidence if the queue becomes fragile."
       ]
     },
     {
@@ -73,6 +95,6 @@
   "review": {
     "privacy": "approved",
     "claims": "approved",
-    "reviewedOn": "2026-10-13"
+    "reviewedOn": "2026-10-14"
   }
 }

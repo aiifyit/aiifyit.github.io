@@ -1,0 +1,98 @@
+{
+  "slug": "automation-inventory-retirement",
+  "title": "Your Automation Still Runs. Should You Retire It?",
+  "description": "Build an automation inventory that tracks purpose, owners and dependencies. Decide what to keep, adapt or retire as business needs and software change.",
+  "category": "Automation strategy",
+  "takeaway": "A workflow can finish every run while the business quietly stops needing its output. How do you find those automations, decide what should replace them and switch them off without breaking useful work?",
+  "sections": [
+    {
+      "id": "give-each-workflow-a-current-purpose",
+      "title": "Give each workflow a current purpose",
+      "paragraphs": [
+        "Begin with the result someone still needs. For each live automation, name the person or process that uses its output and the decision or next action it supports. “Sends a spreadsheet every Friday” describes activity. “Gives the service manager the unresolved requests needed to assign next week’s work” gives you something to review.",
+        "Ask the business owner to show a recent useful result. Check the destination as well as the run history: another workflow may consume a file that nobody opens manually. Low visible usage is a reason to investigate, especially for seasonal work or a rarely needed control.",
+        "Start with a bounded area, such as the workflows connected to a system due for replacement. Include scheduled scripts, built-in rules and small personal automations that affect shared work. Mark what you have not yet inspected so the register does not imply complete coverage."
+      ]
+    },
+    {
+      "id": "build-a-maintainable-inventory",
+      "title": "Keep a small inventory people can maintain",
+      "paragraphs": [
+        "Use one row per identifiable workflow, with links to approved operational records where needed. Keep credentials and sensitive case contents out of the register. An owner should be able to explain what the workflow does and who would notice if it disappeared.",
+        "The useful fields are:"
+      ],
+      "bullets": [
+        "Purpose and consumer: the business result, receiving role or system, and evidence of recent use.",
+        "Owners: the person accountable for the result, the technical maintainer and a backup contact.",
+        "Trigger and scope: schedule or event, eligible cases, expected output and current operating status.",
+        "Dependencies: source systems, destination records, shared components and workflows that run next.",
+        "Access responsibility: which approved connections it relies on and who administers them, without copying secrets.",
+        "Operating burden: recurring charges, review effort, recurring corrections and support work, with estimates labeled.",
+        "Last verified result: what was checked, by whom and when, including any unresolved limitation.",
+        "Relevance review: changed need or assumption, decision owner, agreed next action and review date."
+      ]
+    },
+    {
+      "id": "review-the-world-around-it",
+      "title": "Review what changed around a healthy workflow",
+      "paragraphs": [
+        "An operational check asks whether the expected work arrived. A relevance review asks whether that work still fits the business. Bring both questions to the same owner, even if different people gather the evidence.",
+        "Look for changed customer requirements, revised internal policies, different source formats, planned migrations and newly available features in software you already use. Connect each change to a specific assumption. A new intake form matters if the automation assumes every request still arrives by email; an unrelated product announcement may require no action.",
+        "Verify potential replacements against your actual account, permissions and representative cases. Marketing material or a migration plan does not establish that the replacement covers an exception your team depends on. Record “replacement unverified” separately from “ready to retire.”"
+      ]
+    },
+    {
+      "id": "trace-one-retirement-candidate",
+      "title": "Trace one candidate before deciding",
+      "paragraphs": [
+        "Consider an illustrative service team that receives a weekly export from an older request system. Its new platform now provides the manager’s worklist, so the old export appears redundant. The inventory review reveals that a separate reminder workflow still reads the exported file.",
+        "The proposed decision therefore has two parts. The manager confirms whether the new worklist meets the planning need. The reminder owner checks whether outstanding requests, exclusions and completion status can move to the replacement source. Until that dependency is resolved, deleting the export would leave the reminder process without its expected input.",
+        "In this example, useful evidence would be a comparison using representative requests, an agreed destination for open work and confirmation from both receiving owners. The scenario illustrates a decision method; it is not an AIify It migration result or a claim that a particular platform can provide the replacement."
+      ]
+    },
+    {
+      "id": "make-the-choice-explicit",
+      "title": "Choose keep, repair, adapt, consolidate or retire",
+      "paragraphs": [
+        "Avoid leaving every reviewed item marked “investigate.” Choose a direction, identify the evidence still missing and assign the next decision. Different findings call for different work:"
+      ],
+      "bullets": [
+        "Keep: the purpose remains useful and the operating evidence supports the current approach.",
+        "Repair: the purpose is sound, but a failure or recurring defect needs correction.",
+        "Adapt: the need remains, but its inputs, rules, audience or delivery method have changed.",
+        "Consolidate: another approved capability could cover the work after the overlap and remaining gaps are tested.",
+        "Retire: the owner agrees the work can end, or its necessary result has a verified replacement."
+      ]
+    },
+    {
+      "id": "make-shutdown-a-controlled-change",
+      "title": "Make retirement a controlled change",
+      "paragraphs": [
+        "Before shutdown, obtain approval from the people responsible for the process and affected systems. Account for queued items, delayed triggers and work already partly completed. Decide whether each item finishes in the existing path, transfers to a replacement or waits for an authorized decision.",
+        "Check shared dependencies before removing connections, accounts or scheduled jobs. A credential or component that appears to belong to the retiring workflow may support something else. Have the responsible administrator remove only the access that is no longer needed.",
+        "Agree what configuration and records must be retained, where they belong and who may access them. Separate stopping future execution from deleting historical information. The responsible owner should resolve any applicable retention requirements before removal.",
+        "Define the cutover, the verification check and the response if an essential output disappears. A temporary pause may be appropriate when it is safe and approved, but restarting can be risky after other systems change. Document the recovery conditions instead of assuming that turning the old workflow back on will restore the previous state."
+      ]
+    },
+    {
+      "id": "close-the-inventory-loop",
+      "title": "Record the result and the next review",
+      "paragraphs": [
+        "After the change, inspect the receiving process. Confirm that required work continues, open items are accounted for and obsolete triggers have stopped. Keep a retired entry with its decision, date and replacement or closure reference so the next maintainer understands what happened.",
+        "Agree a review cadence that matches the workflow’s consequence and rate of change, plus triggers such as a migration or owner departure. The register becomes useful when it supports a decision someone will actually make.",
+        "The lifecycle questions here are inspired by chapters 4 and 8 of The Automation Advantage by Bhaskar Ghosh, Rajendra Prasad and Gayathri Pallail, on unnecessary work and sustained ownership, and chapters 13 and 15 of Brain of the Firm by Stafford Beer, on connecting current operations with external change. The inventory fields and example are original practical adaptations."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Review the automations your business still needs",
+    "description": "Explore AIify It’s workflow automation service, then prepare an email describing an existing workflow and the change that has made you question it.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-14"
+  }
+}

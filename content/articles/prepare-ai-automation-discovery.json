@@ -11,7 +11,17 @@
       "paragraphs": [
         "Prepare one representative process, its inputs, its current output and the people who understand its exceptions. A compact evidence packet gives a builder something concrete to inspect. You do not need to finish a company-wide documentation project before having a useful conversation.",
         "Choose a recent normal case and show how it moved through the business. Identify what started it, what each person did, where information was copied and what made the work complete. Screenshots, redacted documents and a simple walkthrough can be more informative than a polished process diagram alone.",
-        "Include the work between the official steps. Someone may compare two records, interpret an informal request or wait for a colleague’s confirmation. These small decisions help explain what the proposed automation must actually handle. Label any part of the walkthrough that you are unsure about."
+        "Include the work between the official steps. Someone may compare two records, interpret an informal request or wait for a colleague’s confirmation. These small decisions help explain what the proposed automation must actually handle. Label any part of the walkthrough that you are unsure about.",
+        "For an illustrative walkthrough, imagine a coordinator opening an incoming request, checking an attachment, looking up an existing record and preparing a handoff. Before handing it over, they message a colleague about an unusual delivery constraint. Ask the receiving colleague what that message changes. It may contain essential information that never appears in the official process fields.",
+        "For each useful informal interaction, agree what should carry its purpose in the proposed process: a structured field, an explicit notification, a shared work status or a retained human conversation. Some exchanges settle uncertainty or negotiate priority and should remain conversations. Others may be unnecessary repetition. Have the receiving person confirm the proposed treatment.",
+        "Use a permitted case or realistic synthetic records and follow the work without triggering a new live action just for the demonstration. Replay the resulting map with the operator and recipient, then compare an exception. During the walkthrough, capture:"
+      ],
+      "bullets": [
+        "The exact input, the action taken and the resulting record at each step.",
+        "Where the person switches tools, copies information, waits or corrects a previous step.",
+        "Which rules are written down and which decisions rely on someone’s experience.",
+        "Who gets an informal warning, what they learn and what they do differently because of it.",
+        "Which steps were observed, which were recalled and which remain unverified."
       ]
     },
     {
@@ -37,7 +47,8 @@
         "Source document or system, including the relevant field or section.",
         "Information the step requires and who can explain its meaning.",
         "Expected output and destination.",
-        "Known gaps, disagreements or information that arrives later."
+        "Known gaps, disagreements or information that arrives later.",
+        "Useful coordination outside the system, its recipient and how its purpose should be preserved."
       ]
     },
     {
@@ -65,7 +76,8 @@
       "paragraphs": [
         "List known changes that could affect the process: a planned system replacement, a revised approval policy or a team reorganization. Include constraints such as required review steps, data-location requirements and systems that must remain authoritative. Give the builder the current status of each constraint.",
         "Write down what is outside the intended first project. Also identify assumptions you want checked, such as whether a needed field is accessible or whether the current tool already supports part of the workflow. An honest unknown is more useful than a confident answer nobody has verified.",
-        "Keep the packet compact enough to review together. One process walkthrough, paired examples, a source map, named owners, acceptance examples and an open-question list provide a concrete starting point. The first discovery conversation can then focus on the real uncertainties and what needs to be established next."
+        "Keep the packet compact enough to review together. One process walkthrough, paired examples, a source map, named owners, acceptance examples and an open-question list provide a concrete starting point. The first discovery conversation can then focus on the real uncertainties and what needs to be established next.",
+        "The walkthrough guidance draws inspiration from chapter 4 of The Automation Advantage by Bhaskar Ghosh, Rajendra Prasad and Gayathri Pallail, on observing actual work, and chapters 8 and 12 of Brain of the Firm by Stafford Beer, on coordination that formal process descriptions can miss. The prompts and illustrative example are original practical adaptations."
       ]
     }
   ],
@@ -78,6 +90,6 @@
   "review": {
     "privacy": "approved",
     "claims": "approved",
-    "reviewedOn": "2026-10-13"
+    "reviewedOn": "2026-10-14"
   }
 }

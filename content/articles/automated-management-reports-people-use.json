@@ -1,7 +1,7 @@
 {
   "slug": "automated-management-reports-people-use",
   "title": "The Report Arrived. Why Is Everyone Rebuilding It?",
-  "description": "Build automated management and client reports around the decisions people make, with clear definitions, reliable totals, and a usable next-action view.",
+  "description": "Build automated reports around real decisions, reliable totals, visible high-impact exceptions and independent checks against the underlying work.",
   "category": "Reporting and decisions",
   "takeaway": "AI can help turn data from existing systems into a useful report, provided you define the decision, the underlying calculations, and the output people actually need. A polished summary adds little if its recipient must rebuild a spreadsheet before taking action.",
   "sections": [
@@ -59,10 +59,21 @@
       ]
     },
     {
+      "id": "choose-the-exceptions-that-must-survive",
+      "title": "Choose the exceptions that must survive the summary",
+      "paragraphs": [
+        "Chapters 10 and 12 of Stafford Beer’s Brain of the Firm examine how important signals can disappear through routine filtering. Our practical application is to agree which facts a report must preserve before asking AI to shorten it.",
+        "Define those facts with the reader: an overdue high-impact item, an unresolved conflict, missing source coverage or an explicit warning that changes the next decision. Produce a structured exception list from the permitted evidence and check that the summary remains consistent with it. Do not rely on the model to decide which rare event matters most.",
+        "Use a synthetic acceptance test containing many routine completed jobs and one blocked job whose delivery decision is still urgent. Shorten the requested summary and vary the position of the blocked item in the input. The owner, unresolved condition and required decision should remain visible in the delivered view. Reassuring prose that hides the item fails the test, even if the routine totals are correct.",
+        "Keep the exception view within the audience’s permissions. An important warning needs a route to someone authorized to act; its importance does not justify exposing restricted supporting records to every report recipient."
+      ]
+    },
+    {
       "id": "check-whether-the-report-gets-used",
       "title": "Check whether the report gets used",
       "paragraphs": [
         "Compare the first outputs with the established reporting process. Reconcile key totals and ask the recipient to walk through a decision using the report. Look for omitted items, confusing definitions, unexpected exposure, and manual reconstruction.",
+        "For a proportionate independent check, sample source items through an authorized read path separate from the report’s selection and summarization steps. Include something the report omitted and something it marked complete, then compare their actual state with the delivered view. Chapter 12 of Beer’s book motivates this additional audit perspective. Asking the same model to reread the same filtered extract may repeat the same omission; a small sample also cannot establish an overall accuracy rate.",
         "Agree how corrections will be handled after delivery. Recipients need to know which version is current and whether a changed figure affects an action they already took. An archive of reports is more useful when its period and version are unambiguous.",
         "Measure the effort required to prepare and use the report, alongside corrections and unresolved questions. That gives you a basis for judging value without claiming that every report automatically produces revenue or savings. A good first milestone is a report the recipient can use as delivered."
       ]
@@ -77,6 +88,6 @@
   "review": {
     "privacy": "approved",
     "claims": "approved",
-    "reviewedOn": "2026-10-13"
+    "reviewedOn": "2026-10-14"
   }
 }

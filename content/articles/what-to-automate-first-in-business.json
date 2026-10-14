@@ -37,7 +37,20 @@
         "A request to automate a whole process can conceal a much smaller gap. Before commissioning another tool, map the existing automations and the manual steps between them. The best next investment may be connecting two working pieces or removing a repeated check.",
         "In a separate workflow review, the team proposed mapping the current process, showing what was already automated and locating the remaining step that consumed the most time. The proposed map was intended to guide the next improvement. The discussion did not establish a completed time reduction.",
         "That is a useful buying discipline: inspect before adding. Ask whether a feature you already pay for can handle the task, whether the current workflow needs configuration, or whether a genuine integration gap remains. A custom build should have a clear job that the existing setup cannot adequately perform.",
-        "Also question work that no longer needs to happen. If a report has no reader or a duplicate approval no longer serves a purpose, removing the step may be a better first move than automating it."
+        "Also question work that no longer needs to happen. If a report has no reader or a duplicate approval no longer serves a purpose, ask the responsible owner whether the step can be removed. Confirm its dependencies and any control it provides before treating it as unnecessary."
+      ]
+    },
+    {
+      "id": "choose-remove-fix-or-automate",
+      "title": "Choose whether to remove, fix or automate the work",
+      "paragraphs": [
+        "Give each candidate a proposed treatment before estimating an automation build. Separate the outcome the business needs from the current steps used to produce it. Use three questions to make the choice explicit:",
+        "Remove: does anyone still need this output, including another system or an occasional process? Verify the consumer and obtain the owner’s agreement before stopping the work.",
+        "Fix: is the task compensating for a recurring upstream problem, such as confusing instructions or inconsistent source data? Investigate that cause and test a permitted correction.",
+        "Automate: after unnecessary work and avoidable causes are addressed, is there a useful, sufficiently stable task left? Define its eligible cases, review needs and finished result.",
+        "Consider an illustrative customer-request process in which staff repeatedly correct the same category after copying details from a form. If the form offers misleading choices, the first experiment could be a corrected field and clearer guidance. Observe whether that reduces corrections before building a second system to repair them. If valid requests still need transfer between systems, that remaining step can be evaluated separately for automation.",
+        "Record the evidence for the chosen treatment, the person who can authorize the change and how you will check the result. A temporary workaround may still be worthwhile when the upstream fix is unavailable, but give it a review trigger so it does not become permanent by accident.",
+        "These questions are inspired by chapter 4 of The Automation Advantage by Bhaskar Ghosh, Rajendra Prasad and Gayathri Pallail, which examines unnecessary work and process improvement before automation. The three-way decision and customer-request example are original practical adaptations, not an AIify It project result."
       ]
     },
     {
@@ -69,6 +82,6 @@
   "review": {
     "privacy": "approved",
     "claims": "approved",
-    "reviewedOn": "2026-10-13"
+    "reviewedOn": "2026-10-14"
   }
 }

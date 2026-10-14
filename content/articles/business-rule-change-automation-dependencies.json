@@ -1,0 +1,85 @@
+{
+  "slug": "business-rule-change-automation-dependencies",
+  "title": "One Business Rule Changed. Which Automations Need Review?",
+  "description": "Trace a changed business rule through earlier workflow decisions, approval boundaries, messages and tests with a worked synthetic decision-dependency register.",
+  "category": "Automation strategy",
+  "takeaway": "A business rule can change in one meeting while several automations keep acting on the old agreement. Before updating a field or prompt, identify which earlier decisions relied on that rule and who must reconsider them.",
+  "sections": [
+    {
+      "id": "start-with-the-changed-agreement",
+      "title": "Start with the changed agreement",
+      "paragraphs": [
+        "Consider this synthetic example, created to illustrate change planning. A service team previously required a customer reference before accepting a request. It now proposes allowing people to submit without that reference. The goal is to let staff investigate incomplete requests rather than reject them at the form.",
+        "Removing the required-field check seems small. But earlier decisions assumed that every accepted request could be matched by reference. Routing, reminder wording, review instructions and reports may all depend on that assumption. Accepting a request without a reference does not establish which customer owns it.",
+        "In Chapter 14 of Brain of the Firm, Stafford Beer examines how decisions constrain one another and how changed choices can reopen a wider problem. The register and tests below are our practical application of that idea. They are a proposed method, not a reported AIify It deployment."
+      ]
+    },
+    {
+      "id": "record-why-a-choice-was-valid",
+      "title": "Record why a choice was valid",
+      "paragraphs": [
+        "A decision record should explain what was agreed and why it was reasonable. Give it a short reference, an accountable owner, the approved source or evidence, the alternatives considered, and the assumptions on which it depends. Record its scope and effective version, plus the change that would trigger reconsideration.",
+        "For this example, the original acceptance decision relied on the reference being available at intake. A matching decision then relied on that acceptance rule. Connect them explicitly: if the requirement changes, the matching owner must check whether their decision still holds.",
+        "Keep this distinct from assigning implementation work. A task says who will change the form. A decision dependency explains why the matching policy must be reconsidered even if its code has no connection to the form. Likewise, a shared-component consumer list finds technical users; it may miss a reviewer following an old instruction."
+      ]
+    },
+    {
+      "id": "work-through-the-rule-change-register",
+      "title": "Work through the rule-change register",
+      "paragraphs": [
+        "The following is a worked synthetic register. Treat the intake proposal as awaiting approval. Each dependent choice has a review status, an owner and a proposed disposition. These are illustrative decisions for this fictional workflow, not rules to apply automatically elsewhere."
+      ],
+      "bullets": [
+        "Acceptance rule: needs reapproval by the process owner. Proposed revision permits a blank reference at submission and records the request as awaiting customer identification. The effective version must say whether this applies to older waiting requests.",
+        "Matching rule: needs evidence from the data owner. Exact matching for a supplied, valid reference can remain. A blank reference must not trigger an automatic name-based association; the owner must approve any additional matching method separately.",
+        "Routing rule: needs reapproval by the operations owner. Reference-free requests need a named review destination instead of the customer-specific route. The reviewer must establish the customer before work can enter that route.",
+        "Reminder wording: needs reapproval by the communications owner. The old missing-reference request no longer applies to every blank field. A reviewer may still need more identifying information, using an approved request appropriate to the case.",
+        "Report classification: needs reapproval by the reporting owner. A permitted blank reference should appear as awaiting identification, rather than invalid intake. The report must still expose unresolved work so acceptance does not look like completion.",
+        "Access boundary: remains valid after the access owner checks it. Reviewers use only the records already permitted for their role. An optional field provides no authority to broaden searches or expose another customer’s information."
+      ]
+    },
+    {
+      "id": "follow-dependencies-until-they-settle",
+      "title": "Follow dependencies until they settle",
+      "paragraphs": [
+        "Review both direct and indirect effects. Changed routing may send more work to the review queue. If the team cannot handle that work within its agreed response window, the process owner may need to revise the intake proposal or arrange capacity before approval. Record that unresolved dependency rather than assuming the original proposal must proceed.",
+        "Ask owners to mark each choice as still valid, needing evidence or needing reapproval. A choice can remain valid, but the record should explain why. When an affected owner identifies another dependency, add it and review the consequence. Stop expanding the map when the relevant owners can account for the affected decisions and the outstanding uncertainties are visible.",
+        "AI can suggest places to inspect across approved documents and configuration. A person still needs to confirm the dependencies and resolve disagreements. An apparently complete generated list does not establish complete impact coverage."
+      ]
+    },
+    {
+      "id": "turn-each-dependency-into-a-check",
+      "title": "Turn each dependency into a check",
+      "paragraphs": [
+        "Before rollout, pair each approved change with an observable expected result. The synthetic test plan below assumes the proposed register has been approved. It specifies what to test; it does not claim these tests have run."
+      ],
+      "bullets": [
+        "Valid supplied reference: the request reaches the same verified customer and permitted route as before. Check the saved destination, not only the matching response.",
+        "Blank reference with one plausible name match: intake succeeds, customer association stays unresolved and the assigned reviewer receives the case. A plausible name alone must not attach it.",
+        "Blank reference with several plausible matches: the review item preserves the ambiguity without showing records outside the reviewer’s access.",
+        "Unknown supplied reference: the request follows the separately approved unknown-reference path. Making absence acceptable must not turn an invalid value into a confirmed match.",
+        "Waiting request from the earlier version: apply the agreed transition rule. Recheck any queued reminder so obsolete wording cannot be sent merely because it was scheduled earlier.",
+        "Report output: awaiting-identification items remain visible and are not counted as completed customer work. Reconcile the report with the underlying test requests."
+      ]
+    },
+    {
+      "id": "release-the-agreement-and-its-implementation-together",
+      "title": "Release the agreement and its implementation together",
+      "paragraphs": [
+        "Keep the approved rule, dependent decisions, reviewer instructions and test expectations connected to the implementation version. Resolve or explicitly block outstanding decisions before enabling the affected path. Confirm who authorizes release and who can pause it if the observed result differs.",
+        "Preserve the superseded record with its effective period so someone investigating an older request can understand the rule it used. After the change, inspect representative accepted outcomes and unresolved cases. The useful finish line is a consistent operating agreement across the workflow, with evidence that the implemented behavior matches it."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Plan a business-rule change across your workflow",
+    "description": "Explore AIify It’s workflow automation service and discuss the changed rule, affected decisions and evidence needed before rollout.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-14"
+  }
+}

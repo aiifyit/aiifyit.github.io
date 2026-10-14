@@ -55,6 +55,17 @@
       ]
     },
     {
+      "id": "budget-time-to-effective-correction",
+      "title": "Budget the time until the correction takes effect",
+      "paragraphs": [
+        "A quick notification can still leave the business without time to recover. In Brain of the Firm, Stafford Beer discusses feedback delay in Chapter 2 and the consequences of delayed response in Chapter 15. Our practical adaptation is to measure the whole path from the first affected work to a verified correction, including the time people need to decide.",
+        "Use this synthetic planning example: a missing intake connection first affects work at 10:00. A scheduled check observes the gap at 10:06; a notification reaches the responder at 10:08; the responder acknowledges it at 10:15; an authorized recovery decision is made at 10:25; and the affected records are restored and checked at 10:45. The intervals are 6, 2, 7, 10, and 20 minutes: 45 minutes altogether. An assumed 11:00 dispatch cutoff leaves 15 minutes of margin. These invented timings illustrate the calculation, not a service commitment or measured AIify result.",
+        "Work backward from the consequence of delay. Identify when an ordinary correction becomes a missed dispatch, an unwanted message, or another material problem. Give detection, notification, acknowledgment, decision, repair, and verification enough room inside that window. Acknowledgment does not stop the clock. Neither does restarting the integration if the affected work remains incorrect.",
+        "Name the backup action when a milestone slips. Escalating only at the final deadline leaves no time for the backup to act. For rapidly developing harm, use the agreed immediate pause or escalation path rather than waiting through a routine recovery timer. Earlier escalation still does not authorize a person or automation to exceed its permissions.",
+        "Test the budget during expected quiet periods and planned closures as well as busy periods. A suppression should have an owner, a reason, and an end condition; it should not hide unrelated failures. After an incident, compare the actual intervals with the plan. Improving a fast notification adds little if most of the lost time came from an unavailable decision-maker or an untested repair."
+      ]
+    },
+    {
       "id": "recover-without-repeating-actions",
       "title": "Check what happened before you rerun anything",
       "paragraphs": [
@@ -74,6 +85,6 @@
   "review": {
     "privacy": "approved",
     "claims": "approved",
-    "reviewedOn": "2026-10-13"
+    "reviewedOn": "2026-10-14"
   }
 }
