@@ -1,7 +1,7 @@
 {
   "slug": "human-review-ai-workflow",
   "title": "Your AI Is Ready to Act. Who Gets the Last Look?",
-  "description": "Design human review for AI workflows with clear approval boundaries, useful review screens, exception ownership, and evidence-based expansion.",
+  "description": "Plan human review for AI workflows with clear decision authority, useful evidence, reviewer capacity, backup coverage and visible exception queues.",
   "category": "AI operations",
   "takeaway": "An AI workflow can prepare a useful answer before it is ready to make a change on someone’s behalf. Deciding where a person should step in is part of the design. How do you choose that point without turning every run into a manual task?",
   "sections": [
@@ -21,7 +21,9 @@
         "Map what the workflow can prepare and what it can execute. Reading a document, assembling a draft, and comparing records may be useful before the system has permission to replace data, send a message, or advance a process.",
         "Consider this synthetic example: an agent drafts a customer follow-up using an incoming service request. It may gather the relevant facts and prepare the message automatically. A reviewer sees the recipient, complete text, and supporting context before any send occurs.",
         "Place the approval gate on the consequential action itself. A notification that arrives after a message has been sent gives someone a chance to respond to an error, but it does not give them a chance to prevent that send.",
-        "Also check alternate paths. A rejected action should not be reachable through a retry branch, a different tool, or an automatic fallback. The workflow’s actual permissions and control flow must support the boundary shown in the interface."
+        "Also check alternate paths. A rejected action should not be reachable through a retry branch, a different tool, or an automatic fallback. The workflow’s actual permissions and control flow must support the boundary shown in the interface.",
+        "Also define what a trained reviewer may resolve locally. They might reject an unsupported proposal or request missing evidence within an agreed procedure. A policy change, expanded access or a commitment beyond their authority needs the designated decision-maker. Give that person a clear escalation route rather than making every routine question wait for them.",
+        "Chapters 11 and 12 of Stafford Beer’s Brain of the Firm connect local decision-making with wider coordination. Our application is a written boundary for each reviewer: what they can settle, what they must refer, and when they may pause the affected work."
       ]
     },
     {
@@ -41,11 +43,21 @@
       ]
     },
     {
+      "id": "size-the-review-job",
+      "title": "Size the review job before opening the queue",
+      "paragraphs": [
+        "In Chapter 7 of The Automation Advantage, Bhaskar Ghosh, Rajendra Prasad and Gayathri Pallail discuss preparing people for changed work and exception handling. A practical application is to budget the human work a proposed automation leaves behind.",
+        "Estimate review demand from representative cases: incoming volume, the share requiring review and the time to reach a decision. Separate quick checks from difficult investigations; a single average can hide the cases that occupy your most experienced reviewer.",
+        "For a synthetic planning example, 120 requests a day with 15% needing eight minutes of review create 18 reviews and 144 minutes of direct review work. If only 120 reviewer-minutes are available, that covers 15 such reviews, leaving three unfinished each day. This assumes identical review times and excludes interruptions, repeat checks and existing backlog.",
+        "Compare demand with protected time from trained, authorized reviewers, including backup coverage. Check the busy period and an absent-reviewer scenario. Do not treat someone’s entire workday as available review capacity or assume a backup can act without the required context and authority."
+      ]
+    },
+    {
       "id": "plan-for-the-approval-that-never-arrives",
       "title": "Plan for the approval that never arrives",
       "paragraphs": [
         "Every review queue needs an owner and an operational expectation. Decide who receives a case, who can act as a backup, and what happens if nobody responds. An unattended queue is unfinished work even when the automation successfully created its review item.",
-        "Define rejection, timeout, and expired-context behavior explicitly. For an action that requires approval, silence should leave it blocked. The workflow can alert the owner or move the case to an agreed escalation path without inventing permission to continue.",
+        "Define rejection, timeout, and expired-context behavior explicitly. For an action that requires approval, silence should leave it blocked. The workflow can alert the owner or move the case to an agreed escalation path without inventing permission to continue. Track the age of the oldest unresolved case alongside queue size. Set escalation early enough for a qualified person to decide before delay creates a material consequence. If demand exceeds capacity, use the agreed priority or pause rule; queue pressure does not authorize skipping review.",
         "Approval also needs a clear scope. If a proposed recipient, message, record value, or other material detail changes after review, the earlier approval may no longer cover the action. Rebuild the proposal and obtain a fresh decision where the change matters.",
         "Before executing a delayed approval, recheck relevant record state and policy conditions. A correct decision based on yesterday’s record can become stale after another person edits it. Preserve the connection between what was reviewed and what was actually done."
       ]
@@ -80,6 +92,6 @@
   "review": {
     "privacy": "approved",
     "claims": "approved",
-    "reviewedOn": "2026-10-13"
+    "reviewedOn": "2026-10-14"
   }
 }

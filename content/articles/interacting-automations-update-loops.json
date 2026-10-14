@@ -1,0 +1,93 @@
+{
+  "slug": "interacting-automations-update-loops",
+  "title": "Your Automations Work Alone. Why Do They Fail Together?",
+  "description": "Find conflicting workflows that update the same records. Set shared state ownership, test delayed events, and prevent repeated actions during recovery.",
+  "category": "Workflow reliability",
+  "takeaway": "One automation marks a request ready. Another returns it to pending. Each update wakes the other, and the team receives the same notification again. The individual rules may be executing as written while their combined behavior keeps the job from settling.",
+  "sections": [
+    {
+      "id": "follow-the-shared-record",
+      "title": "Follow one record through every workflow that touches it",
+      "paragraphs": [
+        "Begin with the record that keeps changing. List every workflow, scheduled job, integration, and manual action that can read or write its important fields. Include notifications and downstream work triggered by those changes. Separate teams may each see a healthy run history without seeing the repeated work they create together.",
+        "For each participant, record the trigger, fields read, fields written, rule owner, expected next state, and external side effects. Trace a concrete sequence until no further action is expected. If the path comes back to an earlier state, ask whether a genuine new business event explains the reversal.",
+        "Stafford Beer examines coordination between interdependent operations in Chapters 8 and 12 of Brain of the Firm. His discussion of oscillation provides a useful question: are separate responses making the shared situation worse? The workflow controls and synthetic exercise here are our modern adaptation, not a software recipe or measured AIify outcome from the book."
+      ]
+    },
+    {
+      "id": "watch-a-loop-form",
+      "title": "Worked example: ready, pending, ready again",
+      "paragraphs": [
+        "Consider a synthetic service request with an accepted scope and no internal reference. An intake workflow considers it ready. A checklist workflow still treats the absent reference as a blocker. Both write the same readiness status, and each status change triggers the other. Entering ready also creates a simulated notification.",
+        "A bounded local model produced this event sequence. It used invented data and recorded notifications in memory; it sent nothing to a person or service."
+      ],
+      "bullets": [
+        "Event 1: intake changes pending to ready; a notification is recorded.",
+        "Event 2: checklist changes ready to pending because the reference is absent.",
+        "Events 3 and 4: intake restores ready and checklist restores pending.",
+        "Events 5 and 6: the same pair of changes occurs again. The model stops after six transitions with three simulated notifications and another intake event still queued."
+      ]
+    },
+    {
+      "id": "settle-the-business-disagreement",
+      "title": "Resolve the disagreement before changing the trigger",
+      "paragraphs": [
+        "The first decision belongs to the process owner: is the reference actually required for readiness? Slowing the jobs down or suppressing repeated alerts cannot answer that question. In the worked example, an authorized person confirms that the reference is optional and updates the agreed readiness definition.",
+        "Then separate observations from decisions. Intake can report that the scope was accepted. A checklist can report which required information is missing. One designated transition owner evaluates those facts and controls readiness. Other workflows can consume the resulting state without each redefining it.",
+        "This does not require one giant automation to own every business action. Assign responsibility at the field or transition that needs coordination. Document exceptions and precedence: for example, a human hold blocks readiness until an authorized person clears it. A new fact may legitimately reopen work; protecting the settled state must not suppress valid corrections."
+      ]
+    },
+    {
+      "id": "make-events-traceable",
+      "title": "Make old, repeated, and conflicting events distinguishable",
+      "paragraphs": [
+        "Keep enough event context to identify the business item, originating workflow, intended action, and relevant source revision. Avoid putting full customer payloads into broad logs. Ask the implementation team how the receiving system distinguishes a duplicate request from a different requested change.",
+        "An origin marker can help diagnose a cycle or avoid reacting to a workflow’s own update. It does not by itself stop a cycle involving several different writers. Likewise, identifying repeated deliveries does not resolve two different events that express contradictory rules.",
+        "Before acting, check whether the relevant state and authority still apply. Where the destination supports conditional updates, use them to reject a write based on an outdated version. A separate read followed by an unprotected write can still race with another change. When the available interface cannot enforce the needed boundary, narrow the automation or route the decision for coordinated review."
+      ]
+    },
+    {
+      "id": "compare-the-coordinated-run",
+      "title": "What changed in the coordinated toy run",
+      "paragraphs": [
+        "In the revised model, the agreed optional-reference policy is represented by a current source revision. One transition owner processes that revision, a duplicate of it, and a delayed older revision that still treats the reference as required. The current facts move the item from pending to ready once. The duplicate and older revision do not change it. The run ends ready with one simulated notification.",
+        "This demonstrates only the miniature model’s behavior. It uses one record, serial event processing, fixed inputs, and perfectly ordered integer revisions. It does not model concurrent writers, lost acknowledgments, crashes, transactions, or a real platform’s event-delivery guarantees. The policy change, single transition owner, and revision checks were changed together, so the result does not isolate the effect of any one control."
+      ]
+    },
+    {
+      "id": "test-the-combined-behavior",
+      "title": "Test the interaction, including legitimate reversals",
+      "paragraphs": [
+        "Keep each workflow’s own tests, then add tests with all relevant participants enabled in an isolated environment. Define the final business state and allowed side effects before running them. A passing test should explain why the record settled, rather than merely show that the event queue became quiet."
+      ],
+      "bullets": [
+        "Repeated delivery: the same event does not create another instance of the same intended action.",
+        "Delayed or reordered events: older information cannot silently replace a newer authorized decision.",
+        "Overlapping writers: a stale proposal is rejected or reassessed rather than forced through.",
+        "New valid information: a genuine cancellation or newly required approval can still change the state.",
+        "Partial interruption: an action that happened before logging failed is investigated before replay.",
+        "Manual hold and release: automation respects the hold, and release rechecks current eligibility instead of replaying old intentions."
+      ]
+    },
+    {
+      "id": "give-operators-a-stop-and-repair-path",
+      "title": "Give the combined process a stop and repair path",
+      "paragraphs": [
+        "Choose who can pause the affected actions when state reversals or repeated side effects exceed the process’s agreed expectations. Preserve waiting work and the event trail. The operator needs to see which writers remain active; pausing one job may leave another continuing to modify the record.",
+        "Before restarting, reconcile the destination with actions already taken, repair the conflicting rule or ownership boundary, and rerun the interaction tests. Limit repeat attempts and monitor the actual business result. Quieting notifications while the status continues to bounce would hide the problem.",
+        "For your next review, ask each workflow owner to explain what the others are allowed to change. A shared answer, backed by a combined test and a usable recovery path, is more useful than separate green dashboards."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Connect workflows around a shared result",
+    "description": "Explore AIify It’s workflow integration services and discuss how separately owned automations should coordinate changes to the same business records.",
+    "label": "Explore workflow integration",
+    "href": "/services/workflow-integration/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-14"
+  }
+}

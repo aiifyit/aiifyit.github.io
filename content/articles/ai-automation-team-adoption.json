@@ -1,0 +1,91 @@
+{
+  "slug": "ai-automation-team-adoption",
+  "title": "The Automation Is Ready. How Does the Team’s Work Change?",
+  "description": "Plan AI automation adoption around real roles. Define changed responsibilities, practice useful decisions and check whether the new workflow works in daily use.",
+  "category": "Team operations",
+  "takeaway": "The demonstration went well, but the team still has to decide what to stop doing, what to check and where to take an unusual case. A useful adoption plan makes those changes clear for each role.",
+  "sections": [
+    {
+      "id": "ask-about-the-work-people-want-changed",
+      "title": "Ask which work people want changed",
+      "paragraphs": [
+        "Invite the people doing the work to nominate recurring frustrations before the rollout plan is fixed. Ask for a recent example, how often it happens, what makes it difficult and what they would do with the capacity released. A task can be unpleasant because the policy is unclear or the source data is poor; installing another tool may leave that burden untouched.",
+        "Include people who receive the output, handle exceptions and cover absences. The person who saves a copying step may pass extra checking to someone else. Capture those effects together, rather than treating the first role’s experience as the whole result.",
+        "Explain the actual intention for the change and which decisions remain open. Do not promise job security, promotion or more interesting work unless the organization has made that commitment. Staff need a credible account of the proposed working day and somewhere to raise concerns."
+      ]
+    },
+    {
+      "id": "write-the-role-change",
+      "title": "Write a before-and-after description for each role",
+      "paragraphs": [
+        "For each affected role, describe one normal working cycle under the proposed process. Name the tasks that disappear, the work that remains and the new responsibilities. Replace vague statements such as “focus on higher-value work” with an approved activity and the time or support it needs.",
+        "A compact role-change note should answer:"
+      ],
+      "bullets": [
+        "What do I stop doing, and what evidence tells me the automation has taken responsibility for it?",
+        "What do I still check or decide, including cases the automation cannot resolve?",
+        "What may I correct myself, and what needs approval from another role?",
+        "How do I hand work over, record completion and get help when it is blocked?",
+        "Who covers my new responsibilities when I am unavailable?",
+        "What existing workload will be adjusted so learning and new review tasks have room?"
+      ]
+    },
+    {
+      "id": "work-through-one-role-change",
+      "title": "Work through an illustrative role change",
+      "paragraphs": [
+        "Imagine a service coordinator who copies approved request details into a scheduling system and separately warns the dispatcher when a customer has a narrow availability window. A proposed automation prepares the scheduling record. The copying may disappear, but the warning and the decision about a workable appointment still matter.",
+        "In this illustrative design, the coordinator checks unresolved details and confirms when a record is ready. The dispatcher receives the availability constraint in the handoff and decides how to schedule it. The supervisor handles disputed priorities. Each role practices its part using synthetic requests, including one whose availability is unclear.",
+        "The role-change note also says when the coordinator can stop maintaining the old duplicate list. Keeping both indefinitely would preserve work the project hoped to remove. Any temporary comparison needs an owner, a purpose and an agreed exit condition, with only one path authorized to create live appointments.",
+        "This is a proposed example, not a tested AIify It implementation. Its useful question is whether every essential responsibility still has a home after the visible manual task disappears."
+      ]
+    },
+    {
+      "id": "group-people-by-working-conditions",
+      "title": "Plan rollout groups around real working conditions",
+      "paragraphs": [
+        "People sharing a job title may encounter different work. One group handles predictable requests at a desk; another deals with interruptions, incomplete information or an unfamiliar interface. Choose early groups by the cases and conditions they can help you examine, rather than selecting only enthusiastic participants.",
+        "Ask about ordinary account permissions, devices, time available to respond, vocabulary and accessibility needs. Verify these conditions with the participants. Do not infer ability or willingness from age, seniority or department.",
+        "Keep the underlying business rules consistent while adapting instructions and practice examples to each role. If groups genuinely need different rules, have the responsible owner approve and document that difference. A training shortcut should not quietly create conflicting operating policies."
+      ]
+    },
+    {
+      "id": "practice-the-decisions-that-changed",
+      "title": "Practice the decisions that changed",
+      "paragraphs": [
+        "First-use instructions help someone reach the tool. Role practice should continue through the job: recognizing eligible work, understanding a proposed result, handling an exception and delivering an acceptable handoff. Ask the participant to complete a realistic permitted case with the instructions they will have during ordinary work.",
+        "Include a case where the proposed output should be questioned. The participant should know how to disagree, preserve the relevant evidence and route the issue without working around an approval boundary. Confidence in a fluent answer is not the same as knowing when to rely on it.",
+        "Watch where people hesitate and ask why. A missing field, ambiguous decision or unsupported permission needs a design or ownership fix. Record that separately from a step that simply needs clearer explanation. Give staff protected practice time and a named person who can resolve the problems they find."
+      ]
+    },
+    {
+      "id": "check-use-against-eligible-work",
+      "title": "Check adoption against eligible work",
+      "paragraphs": [
+        "Decide what successful use looks like before counting it. For a background automation, useful evidence may be correctly completed cases and resolved exceptions; staff may have no reason to open another application each day. For a review tool, you may need to observe whether reviewers can reach and resolve the cases assigned to them.",
+        "Compare like-for-like eligible work, and keep excluded cases visible. Ask whether people still rebuild the output, copy it into a second tracker or return to the previous process. Investigate the reason before describing those actions as resistance. The new path may be slower, incomplete or unavailable when they need it.",
+        "Use proportionate process-level measures and direct feedback: accepted handoffs, unresolved cases, correction work and whether the intended role can complete the task unaided. Explain what is being observed and why. Training attendance and login counts alone do not establish a useful change in daily work."
+      ]
+    },
+    {
+      "id": "resolve-the-friction-before-expanding",
+      "title": "Resolve the friction before expanding",
+      "paragraphs": [
+        "Give feedback a visible destination and an owner. Separate access problems, unclear responsibilities, workflow defects and concerns about the changed role. Tell participants what will change, what will stay and why. Recheck the affected task after a fix so the same obstacle does not follow the next group.",
+        "Before expanding, ask each receiving role to confirm that the handoff is usable and that new responsibilities fit the work they are expected to do. If a critical gap remains, narrow or pause the affected rollout. Set the next review around actual operating experience, including a representative busy period when relevant.",
+        "This approach is inspired by chapters 5 and 7 of The Automation Advantage by Bhaskar Ghosh, Rajendra Prasad and Gayathri Pallail, which emphasize differing working conditions, workforce involvement and preparation for changed work. The role-change questions, illustrative scenario and adoption checks here are original practical adaptations."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Plan the work around your automation",
+    "description": "Explore AIify It’s workflow automation service, then prepare an email describing the workflow and the roles whose day-to-day work would change.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-14"
+  }
+}

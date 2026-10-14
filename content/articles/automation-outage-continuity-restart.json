@@ -1,0 +1,96 @@
+{
+  "slug": "automation-outage-continuity-restart",
+  "title": "When an Automation Goes Down, How Does the Work Keep Moving?",
+  "description": "Plan permitted fallback work, visible queues, and restart reconciliation so an automation outage does not turn into missing jobs or duplicate actions.",
+  "category": "Automation reliability",
+  "takeaway": "The connection comes back, but the business has kept moving. Someone completed an urgent item manually. Another request may have succeeded before its acknowledgment was lost. Restarting safely means reconciling that work before releasing the queue.",
+  "sections": [
+    {
+      "id": "plan-the-business-job",
+      "title": "Start with the work that must continue",
+      "paragraphs": [
+        "Choose one important business job, such as accepting service requests and creating draft work items. Name the point at which delay becomes costly, which cases deserve priority, and who can choose the fallback. An outage plan needs to describe what staff should do while the builder diagnoses the fault.",
+        "Separate steps that remain useful from steps that depend on missing information. Intake might continue while scheduling pauses. Drafting might continue while sending stays blocked. If the destination itself is unavailable, recording a request in an approved holding place may be the only permitted action. Do not describe all manual work as a safe substitute.",
+        "In The Automation Advantage, Bhaskar Ghosh, Rajendra Prasad, and Gayathri Pallail discuss resilience in Chapter 9. Stafford Beer’s Brain of the Firm, Chapter 10, asks how an organization changes its operating mode during disruption. The operating states and reconciliation exercise below are our practical adaptation, not a recovery method demonstrated by either book."
+      ]
+    },
+    {
+      "id": "define-the-operating-states",
+      "title": "Make the permitted actions clear in each state",
+      "paragraphs": [
+        "Write down how the workflow enters and leaves each operating state. Give staff an accessible way to see the current state, its owner, and when it was last checked. The labels can match existing tools; the important part is that everyone understands what they permit."
+      ],
+      "bullets": [
+        "Normal: the agreed source, destination, and approval checks are available, and ordinary processing is permitted.",
+        "Degraded: named steps can continue under a documented fallback. Define the conditions, access, and person responsible for each manual action.",
+        "Paused: affected actions are blocked. Accepted requests remain visible with their priority, owner, and reason for waiting.",
+        "Recovery: the connection is available, but pending work stays controlled while the team compares automated, manual, and destination records. The authorized owner decides when ordinary processing resumes."
+      ]
+    },
+    {
+      "id": "record-the-manual-work",
+      "title": "Give fallback work the same identity as queued work",
+      "paragraphs": [
+        "Keep one controlled record of what happened to each business item. Record its source reference, intended action, current state, person handling it, completion evidence, and any uncertainty. A chat message saying “handled” is difficult to reconcile if it does not identify the work or its resulting record.",
+        "Before someone acts manually, check whether an automated attempt might already have succeeded. Assign the item so another person does not handle it simultaneously, using the system’s supported controls. If reliable checking or coordination is unavailable, hold the consequential action for investigation. Urgency does not turn uncertainty into permission.",
+        "Keep fallback access and approval boundaries intact. Moving data to an unapproved spreadsheet or sending through a personal account creates a different problem. Prepare the permitted holding place and instructions before the outage."
+      ]
+    },
+    {
+      "id": "rehearse-an-interrupted-batch",
+      "title": "Worked example: an interrupted batch and a manual completion",
+      "paragraphs": [
+        "This synthetic example uses four draft work items, labeled A through D. The automated connection fails while authorized staff can still use the destination application. The labels and event order are invented; no customer records or live service were involved."
+      ],
+      "bullets": [
+        "Before interruption: A is created and its success is recorded. B is also created, but its acknowledgment never reaches the automation.",
+        "During the outage: B remains uncertain. An authorized employee creates C manually and records its destination reference. D has not started. B, C, and D still appear in the automation’s waiting queue.",
+        "At reconnection: a restart based only on the automation’s success log would attempt B, C, and D. The team first compares the queue with current destination evidence and the manual record.",
+        "After reconciliation: A needs no further action. B and C have verified existing results. Only D is eligible for a new creation, subject to its current instructions and approval."
+      ]
+    },
+    {
+      "id": "understand-the-example-limit",
+      "title": "What a small restart model establishes",
+      "paragraphs": [
+        "We ran a bounded local model of that example. Replaying every queued item absent from the success log produced two copies each of B and C. Reconciling against the model’s destination list left one copy of each item and created only D. These are simulated record counts, not an AIify implementation result.",
+        "The model assumes perfect reads of a complete destination list, unique item references, and no concurrent writers. It has no network delay, crash recovery, permissions, or approval engine. It illustrates why a local success log can be insufficient; it does not prove a live integration can prevent duplicates. Test the real destination’s lookup, update, and retry behavior separately."
+      ]
+    },
+    {
+      "id": "reconcile-before-release",
+      "title": "Classify the queue before releasing it",
+      "paragraphs": [
+        "For each queued action, choose a disposition supported by evidence: completed and verified; still needed and eligible; changed and needing a new decision; or uncertain and held. Keep a reason and owner for every held item. An uncertain outcome deserves its own category because treating it as failure can repeat work, while treating it as success can lose work.",
+        "Recheck instructions and approvals that aged during the outage. A canceled request should not reappear merely because its old event remains queued. Record a clear recovery boundary so new arrivals and older waiting work are both accounted for. Where supported, use stable action identifiers and destination-side duplicate protection; ask exactly what they cover and how long their protection lasts."
+      ]
+    },
+    {
+      "id": "resume-at-a-manageable-pace",
+      "title": "Resume at a pace the receiving team can handle",
+      "paragraphs": [
+        "An available connection does not establish that the receiving system or its human reviewers can absorb the backlog. Release a bounded set of eligible items, inspect their resulting records, and check whether waiting work is growing elsewhere. Agree how urgent cases and ordinary arrivals share the available capacity.",
+        "Keep repeat attempts limited and give persistent failures a visible destination. A delay between attempts can reduce pressure, but it cannot resolve a contradictory business rule or an unknown earlier outcome. If evidence becomes unreliable again, return affected actions to the agreed paused state."
+      ]
+    },
+    {
+      "id": "finish-the-drill-with-evidence",
+      "title": "Finish the rehearsal with evidence",
+      "paragraphs": [
+        "Use synthetic items to rehearse interruption after a write, manual completion, changed instructions, an unavailable owner, and reconnection with an existing backlog. Check the final destination, the waiting queue, and any customer-facing side effects. Every accepted item should have a verified result or an explicitly owned reason for remaining open.",
+        "Keep the exercise’s assumptions and gaps with the plan. The useful deliverable is a procedure another authorized person can follow: what continues, what waits, what evidence permits recovery, and who decides. Review it after material changes to the workflow or the people responsible for it."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Plan the fallback before the outage",
+    "description": "Explore workflow automation with AIify It and discuss continuity, recovery ownership, and the evidence needed before restarting important work.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-14"
+  }
+}

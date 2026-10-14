@@ -49,6 +49,15 @@
       ]
     },
     {
+      "id": "verify-with-an-independent-read",
+      "title": "Use a check that can disagree with the success log",
+      "paragraphs": [
+        "A useful second check gets its evidence from the destination and its expected result from the original business requirement. Reformatting the workflow’s own success message adds little independence. In Chapter 12 of Brain of the Firm, Stafford Beer describes an operational audit channel beyond routine reporting. Our adaptation is an authorized destination check designed to expose an assumption the normal execution path could miss.",
+        "For a synthetic test, seed a service request that belongs to one test organization and define its expected owner before execution. Let the workflow run, then use a separate read-only query or the receiving application to retrieve the saved record by its stable reference. Compare organization, owner, saved values, and visible next action with the agreed expectation. Deliberately test a wrong-organization mapping: the checker should fail even if the sender reports success.",
+        "Where possible, avoid sharing the same mapping function between the writer and the checker. Asking the same model to repeat its interpretation of the same transformed payload can reproduce the original mistake. A separate screen can also share an incorrect underlying source, so explain what each check actually establishes. Sample accepted and apparently uneventful inputs as well as flagged exceptions; a small sample is evidence about those cases, not an overall accuracy rate."
+      ]
+    },
+    {
       "id": "include-the-cases-that-disrupt-the-demo",
       "title": "Include the cases that disrupt the demo",
       "paragraphs": [
@@ -64,6 +73,15 @@
         "Uncertain write result: the workflow checks whether the operation already happened before deciding to retry.",
         "Unavailable dependency: the failure is visible to an owner and does not become a false completed state.",
         "Human rejection: the denied action stays blocked throughout the remaining workflow."
+      ]
+    },
+    {
+      "id": "test-people-and-capacity-limits",
+      "title": "Run a scenario with missing people and a full queue",
+      "paragraphs": [
+        "Test operational constraints with explicit assumptions. Chapter 13 of Brain of the Firm treats scenarios as a way to examine vulnerability to assumptions. The following is our hypothetical acceptance exercise, not a forecast of workload or a completed client test.",
+        "Suppose six synthetic requests arrive together. Three require approval, but the primary reviewer is absent. The other three are eligible to proceed, while the downstream team has only two available work slots. Expect the approval-dependent actions to stay blocked, with visible ownership and the agreed backup escalation. Expect the third eligible item to remain visibly waiting rather than disappear or be labeled complete because its message was delivered.",
+        "Then restore the reviewer and one downstream slot. Check that the appropriate waiting item advances once, that its approval still applies to the current record, and that the remaining queue retains its owner and age. No response must remain different from approval. Record which outcomes the exercise verified and which staffing, timing, or platform assumptions still need a realistic operating test."
       ]
     },
     {
@@ -94,6 +112,6 @@
   "review": {
     "privacy": "approved",
     "claims": "approved",
-    "reviewedOn": "2026-10-13"
+    "reviewedOn": "2026-10-14"
   }
 }

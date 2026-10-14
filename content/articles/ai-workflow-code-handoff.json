@@ -1,7 +1,7 @@
 {
   "slug": "ai-workflow-code-handoff",
   "title": "Your AI Workflow Was Handed Over. Who Can Fix It Now?",
-  "description": "Use this AI workflow handoff checklist to define code access, integration boundaries, review responsibilities, deployment ownership, and the next change.",
+  "description": "Plan AI workflow handoff with clear code ownership, shared-component consumers, change tests and deployment responsibilities for the next revision.",
   "category": "Integration delivery",
   "takeaway": "The code and documentation have arrived. Your team starts connecting the workflow to its systems. Then someone requests a change. Who can make it, who reviews it, and which version should everyone work from?",
   "sections": [
@@ -33,6 +33,22 @@
       ]
     },
     {
+      "id": "hand-over-the-consumers-of-shared-parts",
+      "title": "Hand over the consumers of shared parts",
+      "paragraphs": [
+        "Chapters 5 and 6 of The Automation Advantage, by Bhaskar Ghosh, Rajendra Prasad and Gayathri Pallail, discuss reusable foundations and separating functions. Our application is modest: reuse a component when real workflows need the same behavior, and make responsibility for its effects visible.",
+        "A common source reader, review-packet format or run record may be worth sharing. Name the workflows that will use it and the behavior they need before investing in a shared foundation. Keep each workflow’s business rules, permitted data and approval boundaries explicit; common code does not make those responsibilities interchangeable.",
+        "For a synthetic example, intake, reporting and review preparation all use the same source reader. A proposed repair changes a missing-record response from an empty result to an explicit error. That may help intake expose a failed lookup while causing a reporting consumer to stop unexpectedly. The maintainer needs the three consumers’ expectations before deciding how to release the change.",
+        "Include a compact consumer record in the handoff:"
+      ],
+      "bullets": [
+        "The shared component, its maintained interface and current version.",
+        "Each consuming workflow, the version it uses and its responsible owner.",
+        "Expected behavior for valid, missing and failed input, with permitted data and action scope.",
+        "The acceptance checks each consumer must pass and who coordinates release or recovery."
+      ]
+    },
+    {
       "id": "assign-decisions-along-the-change-path",
       "title": "Assign decisions along the change path",
       "paragraphs": [
@@ -53,6 +69,7 @@
       "paragraphs": [
         "Where GitHub is used, a CODEOWNERS file can identify the people or teams responsible for particular files and request their review. Requiring their approval before merge is a separate repository setting. Check that the chosen plan and repository support the controls you intend to use, and verify the actual settings rather than assuming a named owner creates a mandatory gate.",
         "Keep the review proportional to the change. A correction to a system adapter needs someone who understands that system. A business-rule change needs the person authorized to interpret the rule. Some changes require both. Record the decision with the proposed change so it remains available after the handoff meeting.",
+        "For a shared component, agree which internal repairs its maintainer may approve within the existing contract. Changes to business meaning, failure behavior or permission scope need the affected owners’ review. A reusable foundation needs scoped ownership of a specific interface, not a new committee for every edit.",
         "Also document the operational dependencies: environment owner, service-account owner, usage or billing contact, and the process for withdrawing a contributor's access. Store secrets only in the approved secret-management system. Handoff documents should point to responsible owners and approved procedures without containing credentials."
       ]
     },
@@ -61,6 +78,7 @@
       "title": "Rehearse one small change",
       "paragraphs": [
         "Before calling the handoff complete, choose a harmless change in the test environment and follow the agreed path. Start from the current version, make the change, obtain the required review, deploy it, and verify which version is now running. Confirm that the receiving team can follow the documented recovery procedure.",
+        "If the change touches a shared part, run its interface checks and the affected consumers’ acceptance checks before release. Record which deployments received the revision and which still use the earlier version. Confirm how each can recover; passing the component’s own test does not establish that every consuming workflow still completes the right business action.",
         "The rehearsal can reveal missing repository access, undocumented configuration, unclear review responsibilities, or a deployment step that only the original builder knows. Record those gaps with owners and resolve the ones that block routine maintenance.",
         "The handoff is easier to evaluate when the receiving team can say: “Here is the current version, here is how we change it, and here is who helps when that change crosses a system boundary.” That is a practical foundation for maintaining the workflow after its first delivery."
       ]
@@ -75,6 +93,6 @@
   "review": {
     "privacy": "approved",
     "claims": "approved",
-    "reviewedOn": "2026-10-13"
+    "reviewedOn": "2026-10-14"
   }
 }
