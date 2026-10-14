@@ -34,6 +34,25 @@
       ]
     },
     {
+      "id": "replay-the-instruction-before-diagnosing-the-learner",
+      "title": "Replay the instruction before diagnosing the learner",
+      "paragraphs": [
+        "Preserve the exact instruction, its version, the permitted task and the account role used for an attempt. Observe the first point where the available action or resulting behavior differs from the intended path. Ask what the participant understood the instruction to mean. Record their explanation as their account, rather than guessing at motivation or skill.",
+        "Consider a constructed walkthrough of a fictional, non-acting test interface. The guide says, “Check the draft, then click Approve to finish the test.” The ordinary tester’s screen offers only “Save feedback” and “Report a problem”; Approve exists only in the builder’s view. Searching for the missing button cannot establish poor training. The guide describes the wrong role. This example is synthetic, not an observed learner trial.",
+        "A corrected instruction for that mock screen is: “Compare the draft with the supplied source. Choose Save feedback to record your evaluation; this does not send the draft. If the sources conflict, choose Report a problem and identify the conflicting passages.” The real guide must use the actual supported labels, permissions and effects, verified with the tester’s account.",
+        "Separate the repair: missing permission goes to the access owner, an unsettled business rule to its decision-maker, a misleading control to the interface owner and an unclear explanation to the guide. Changing all four at once makes it harder to learn what prevented the attempt.",
+        "In chapter 11 of Planning for Human Systems, pages 152–156, Donald A. Schön describes how replaying misleading instructions changed an interpretation of a learner’s apparent difficulty. The application here is to inspect the instruction and context before judging the person. It is not a claim about a model’s inner understanding."
+      ]
+    },
+    {
+      "id": "check-independent-use-and-transfer",
+      "title": "Check independent use, then change the case",
+      "paragraphs": [
+        "After revising the guide, ask a different participant to try without having watched the repair. Then give them an unrehearsed permitted case, such as conflicting source passages instead of the earlier straightforward match. Look for the required decision and usable feedback, not merely the same sequence of clicks. A coached success on the original example does not show independent use or transfer.",
+        "Keep supported learning effort separate from routine capacity. Record help given, attempts, corrections and whether the participant could finish unaided; do not turn a first attempt or a best coached run into a staff quota. Taylor distinguishes first-time work from familiar performance in Shop Management, pages 78 and 174–176. That limited distinction supports budgeting practice time, without adopting his work-rate or pay prescriptions."
+      ]
+    },
+    {
       "id": "make-instructions-reviewable",
       "title": "Make business instructions reviewable",
       "paragraphs": [
@@ -72,6 +91,6 @@
   "review": {
     "privacy": "approved",
     "claims": "approved",
-    "reviewedOn": "2026-10-13"
+    "reviewedOn": "2026-10-14"
   }
 }

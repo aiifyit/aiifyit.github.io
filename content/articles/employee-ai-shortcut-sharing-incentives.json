@@ -1,0 +1,82 @@
+{
+  "slug": "employee-ai-shortcut-sharing-incentives",
+  "title": "Why Would Someone Keep a Useful AI Shortcut to Themselves?",
+  "description": "Check what happens to workload, credit and productivity evidence when employees share AI improvements. Build a clear, bounded process for learning from shortcuts.",
+  "category": "Team operations",
+  "takeaway": "Asking employees to share useful AI methods also asks them to reveal something about how their work could change. Make the consequences of sharing clear before treating a quiet suggestion channel as a lack of interest.",
+  "sections": [
+    {
+      "id": "look-at-what-follows-an-improvement",
+      "title": "Look at what follows an improvement",
+      "paragraphs": [
+        "A team can genuinely welcome better methods while operating a process that discourages people from revealing them. If a disclosed shortcut immediately becomes a tighter target, the person supplying the idea may acquire extra work without time to validate, explain or maintain it. The next invitation to share arrives in that context.",
+        "This is one possible explanation, not a diagnosis of your employees. A method may be unproven, unsuitable for business data or difficult to describe. Someone may simply have no useful improvement to submit. Ask about concrete experiences and concerns before assuming that anyone is hiding knowledge.",
+        "Review what happened to recent improvement suggestions. Who received credit? Who did the testing and documentation? Did the contributor gain an ongoing support job? Did a faster result change expectations for every future case? These consequences tell you more about the invitation than an enthusiastic announcement alone."
+      ]
+    },
+    {
+      "id": "recognize-the-productivity-ratchet",
+      "title": "Recognize when a demonstration becomes a new quota",
+      "paragraphs": [
+        "A productivity ratchet occurs when evidence that work can sometimes go faster becomes a one-way increase in what people are expected to deliver. The conditions behind the faster result disappear, while the new expectation remains. Sharing an improvement can then carry a cost the discovery process has failed to acknowledge.",
+        "AI shortcuts make this distinction worth discussing explicitly. A method may help with routine inputs but need more checking on unusual ones. A colleague may have invested time in preparation that the demonstration does not show. A particularly smooth run gives you a case to investigate, not a complete description of sustainable work.",
+        "Ask which decisions the measurement will support. Comparing two permitted methods, planning team capacity and evaluating an individual are different purposes. Explain the approved use before collecting evidence, and do not quietly repurpose a process-learning exercise into individual performance monitoring."
+      ]
+    },
+    {
+      "id": "work-through-a-synthetic-ratchet",
+      "title": "A synthetic example: the faster report that changes the target",
+      "paragraphs": [
+        "Consider this invented example. A coordinator normally needs 40 minutes to prepare a routine report and 20 minutes to check it. A proposed AI method reduces preparation to 20 minutes on a simple example while checking still takes 20. These numbers are assumptions for illustration; no employee or customer result is being reported.",
+        "A manager sees a total of 40 minutes and makes that the allowance for every report. The next report contains conflicting information and needs 60 minutes of preparation plus the same 20-minute check. The original shortcut may still be useful for routine work, but the universal allowance now hides a materially different case.",
+        "A contributor could reasonably ask whether sharing the method caused that broader expectation. You cannot infer that this concern explains anyone’s silence. You can inspect whether your own planning process makes the same leap from one demonstrated result to a general workload assumption.",
+        "A better proposed evaluation would retain the case conditions, include preparation and checking, and compare routine and difficult work separately. The owner would decide what evidence is needed before changing capacity plans. The contributor’s testing and explanation time would also have an agreed place in the workload. The example illustrates a design choice, not a promise that a particular incentive arrangement will increase sharing."
+      ]
+    },
+    {
+      "id": "make-the-sharing-arrangement-explicit",
+      "title": "Explain the arrangement before requesting shortcuts",
+      "paragraphs": [
+        "Before inviting submissions, agree what the organization can honestly say about their use. The person running discovery may not control staffing, performance assessment or compensation. Get the relevant owners involved, and leave unresolved decisions visible instead of offering reassurance beyond your authority.",
+        "A practical invitation should answer the following questions in ordinary language:"
+      ],
+      "bullets": [
+        "Purpose: what decision will the method and any measurements inform?",
+        "Information: what evidence is needed, who can see it and where does it belong?",
+        "Participation: what time is available for explaining, testing and documenting the idea?",
+        "Credit: how will the contribution be acknowledged, with the contributor’s preference considered?",
+        "Workload: who decides whether a verified improvement changes expected capacity or responsibilities?",
+        "Challenge: how can someone question an interpretation or correct misleading evidence?"
+      ]
+    },
+    {
+      "id": "test-the-method-without-ranking-the-person",
+      "title": "Keep the learning focused on the method",
+      "paragraphs": [
+        "Start with a description and synthetic or properly authorized examples. Check whether the tool, information and actions are permitted before repeating the shortcut. A useful outcome does not establish permission to use confidential records in an outside service.",
+        "Evaluate the method against the job’s accepted result. Include setup, review, corrections, difficult cases and any effort transferred to someone else. Record which conditions appear necessary for the method to help. Keep unknowns visible until the comparison provides evidence.",
+        "Use the least personal detail needed for the approved purpose. Avoid a leaderboard of individual prompt counts, fastest runs or claimed hours saved. Those measures can turn the discussion toward ranking people while leaving the quality and repeatability of the method unanswered."
+      ]
+    },
+    {
+      "id": "close-the-loop-with-the-contributor",
+      "title": "Tell people what happened to the idea",
+      "paragraphs": [
+        "Give each serious submission a decision owner and a response. Explain whether it will be tested, adopted for a limited scope, held for missing evidence or declined. Describe the reason and any change to the contributor’s responsibilities. Do not make the person who volunteered an idea its permanent support owner by default.",
+        "After an adopted improvement reaches ordinary work, check whether the agreed treatment of evidence, time and credit actually happened. Correct an overgeneralized capacity assumption through the responsible owner. Credibility depends on those visible decisions more than on asking people to be enthusiastic about innovation.",
+        "Frederick Winslow Taylor describes how piece-rate cuts could discourage greater output in The Principles of Scientific Management, chapter I, pages 21–24, and chapter II, page 52. That historical incentive mechanism informs this discussion. His coercive and discriminatory labor practices are not recommendations; the AI example and participation safeguards here are original adaptations."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Learn from the work your team already understands",
+    "description": "Explore AIify It’s workflow automation service, then prepare an email describing the task you want to improve and the conditions a useful discovery process must respect.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-14"
+  }
+}

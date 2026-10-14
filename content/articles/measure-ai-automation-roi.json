@@ -33,6 +33,27 @@
       ]
     },
     {
+      "id": "compare-equal-scores-in-use",
+      "title": "Compare two results with the same headline score",
+      "paragraphs": [
+        "An aggregate score can hide a difference that matters to the receiving team. Consider four synthetic service cases, A through D. Each needs a summary and a checklist before the next team can work on it. Assume every input is ready, every document has acceptable quality and one document takes one invented minute to prepare. We ran the following deterministic schedule calculation; the durations are assumptions, not observed AI performance."
+      ],
+      "bullets": [
+        "Type batches: prepare all four summaries, then all four checklists. Eight documents are finished at minute eight. Complete packs become available at minutes five, six, seven and eight.",
+        "Complete packs: prepare A’s summary and checklist together, then B’s, C’s and D’s. The same eight documents are finished at minute eight. Complete packs become available at minutes two, four, six and eight."
+      ]
+    },
+    {
+      "id": "add-the-missing-acceptance-condition",
+      "title": "Put the operational difference into the acceptance criteria",
+      "paragraphs": [
+        "Both schedules meet the headline score of eight documents in eight minutes. If the receiving team has an agreed checkpoint at minute four, the first has no complete pack ready and the second has two. That difference does not prove the second is always better. Real template switching may take time, priority cases may need a different order, and a missing input may require skipping a case. Measure those conditions before choosing a production policy.",
+        "The useful exercise is to hold the headline result equal and ask what happens next. Check completeness at the handoff, waiting time, repair effort and consequences that cannot easily be undone. Make an essential service window or approval condition an acceptance requirement rather than allowing a high average score to compensate for violating it. Keep important secondary outcomes visible instead of compressing every trade-off into one number.",
+        "Be equally clear about precision. The customer reference, source facts and required decision may need exact agreement; extra prose polish may add no value to the next task. Validate that distinction with the receiving role before paying for more elaborate output.",
+        "K. Brian Haley’s chapter 21 in Planning for Human Systems, pages 284–287, shows how equal material-waste totals can conceal different practical needs. Britton Harris makes the broader point about omitted considerations in chapter 20, pages 277–278. Taylor distinguishes required accuracy from unnecessary finish in The Principles of Scientific Management, page 124. The service-pack calculation is our original illustration, not evidence about a current optimizer or a client’s return on investment."
+      ]
+    },
+    {
       "id": "separate-types-of-value",
       "title": "Decide what the freed time will change",
       "paragraphs": [
