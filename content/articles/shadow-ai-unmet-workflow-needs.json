@@ -1,0 +1,80 @@
+{
+  "slug": "shadow-ai-unmet-workflow-needs",
+  "title": "Shadow AI: What Is the Unapproved Tool Doing Better?",
+  "description": "Respond to unofficial AI use by finding the unmet job, handling exposure through approved channels and testing a supported replacement staff can actually use.",
+  "category": "Team operations",
+  "takeaway": "An employee mentions a personal AI tool that makes a recurring task easier. You need to understand the data risk. You also need to understand why the supported process left that task difficult enough to invite a workaround.",
+  "sections": [
+    {
+      "id": "start-with-the-job",
+      "title": "Start with the job the tool is doing",
+      "paragraphs": [
+        "Unofficial AI use can reveal a missing service inside an otherwise well-equipped business. A team may have approved software for storing information but no practical way to turn it into the summary, comparison or handoff someone needs. Buying another license will help only if it covers that job under the conditions staff actually face.",
+        "Ask the person to describe the task before asking for a demonstration. What arrives, what must leave, who needs it and when? Which part does the outside tool help with? Keep this first account proportionate. A synthetic example or description may explain the need without copying the original business information into another conversation.",
+        "Avoid deciding in advance that the cause is impatience, poor training or a deliberate refusal to follow rules. The official route might be inaccessible, slow to change or missing a necessary format. The employee might also have misunderstood an available capability. Establish which explanation fits the evidence."
+      ]
+    },
+    {
+      "id": "route-exposure-to-its-owner",
+      "title": "Give any exposure its own response",
+      "paragraphs": [
+        "Understanding a useful shortcut does not approve its continued use. If business information may have reached an unauthorized destination, follow the organization’s established reporting and response process. The responsible owner should determine the immediate restrictions and what evidence needs preserving. Avoid improvising deletion or cleanup that could remove information the response team needs.",
+        "For the workflow review, record the categories of information involved, the tool or service used, whether it only prepared material or took actions, and who depends on the result. Keep incident details within the authorized response channel. A broad improvement workshop rarely needs the actual confidential content.",
+        "Be clear about who can answer questions about permitted tools and exceptions. A manager’s interest in the productivity gain does not by itself settle the data or access decision. Any proposed replacement still needs review for its intended information and actions."
+      ]
+    },
+    {
+      "id": "find-where-the-supported-route-breaks",
+      "title": "Find the exact point where the supported route breaks",
+      "paragraphs": [
+        "Walk through the existing route with someone who uses it. Follow the task far enough to see the gap: perhaps approved search retrieves documents but cannot compare their contents, or a report request waits in a queue while the operational deadline arrives. Record the point where the person leaves the supported path and what they gain by doing so.",
+        "Separate a missing capability from an access problem, an unclear instruction and an unavailable service. Those findings lead to different remedies. Fixing an existing permission or template may be sufficient; a genuinely missing task may justify configuration, integration or a bounded new tool.",
+        "Include the receiving role. An unofficial summary may save its author time while leaving the recipient to locate missing evidence. Preserve the useful part of the shortcut and identify the extra work or uncertainty it introduces."
+      ]
+    },
+    {
+      "id": "work-through-a-synthetic-replacement",
+      "title": "A synthetic example: the weekly exception brief",
+      "paragraphs": [
+        "Consider this invented workflow, used only to illustrate the decision. A coordinator prepares a weekly brief from approved request records. The official report exports every open item, but the team meeting needs changed deadlines, unresolved dependencies and questions requiring a manager’s decision. The coordinator has been using an unapproved AI service to turn copied notes into that brief.",
+        "The unmet job is a decision-ready exception brief. A replacement that merely offers approved chat access may still leave the coordinator selecting records, copying notes and rebuilding references. The discovery question is whether an approved route can provide the needed evidence and output without those unsupported transfers.",
+        "A proposed replacement would start from a permitted view of eligible records. It would prepare a draft showing each exception, its source reference and the decision requested. A coordinator would check the draft before the meeting. Missing or contradictory information would stay visible for clarification. These are proposed requirements, not verified capabilities of any product.",
+        "Test the design with synthetic records: one changed deadline, one resolved item that should disappear, and one unresolved conflict. The recipient should be able to locate the source and understand what decision remains. The test should also show whether preparation still requires an unapproved detour. No such test or customer deployment is claimed here."
+      ]
+    },
+    {
+      "id": "make-the-supported-route-usable",
+      "title": "Agree on a replacement people can finish work with",
+      "paragraphs": [
+        "Write the missing service as a compact requirement. Give the owner enough detail to decide whether existing capabilities, a process change or new implementation work can cover it. Include:"
+      ],
+      "bullets": [
+        "The permitted input, required output and role that uses the result.",
+        "The deadline or working condition the current route cannot meet.",
+        "The review, source evidence and exception handling needed for acceptance.",
+        "The people who approve the information use and own ongoing support.",
+        "The check that will establish whether the workaround is still necessary."
+      ]
+    },
+    {
+      "id": "verify-the-gap-has-closed",
+      "title": "Check the work after the replacement arrives",
+      "paragraphs": [
+        "If an approved replacement cannot be provided immediately, the responsible owners must decide what work can continue and through which permitted route. An exception, where the organization allows one, needs explicit scope, conditions and review. Leaving the need unresolved should remain visible as an operating problem.",
+        "After a replacement is available, ask staff to complete the original job under ordinary conditions. Check the finished handoff and ask which steps still require copying, waiting or reconstruction. Confirm that relevant work and dependencies have moved before an authorized owner retires the old route. A newly approved tool is only part of the result.",
+        "Paul Broholm’s chapter 15 in Planning for Human Systems, edited by Jean-Marc Choukroun and Roberta M. Snow (1992), examines how unmet processing needs encouraged unofficial personal computing. That organizational insight inspires this approach; its historical technology discussion is not guidance on current AI security. The workflow questions and synthetic replacement are original practical adaptations."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Find the missing piece in your workflow",
+    "description": "Explore AIify It’s workflow automation service, then prepare an email describing the recurring job and where the supported process falls short. Start with a process description and synthetic examples.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-14"
+  }
+}

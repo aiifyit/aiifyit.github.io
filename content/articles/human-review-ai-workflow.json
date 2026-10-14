@@ -43,6 +43,32 @@
       ]
     },
     {
+      "id": "calibrate-against-known-answers",
+      "title": "Check agreement against independently known answers",
+      "paragraphs": [
+        "Agreement between reviewers is useful, but they can agree on the same mistake. Before relying on the review gate, build a disclosed calibration exercise with synthetic cases and an answer key checked by an authorized person other than its author. Fix the accept, reject and escalate rules before collecting responses. If the answer depends on an unsettled policy, resolve it or mark the case ambiguous rather than treating one opinion as ground truth.",
+        "For a worked synthetic pack, assume that an exact customer reference, the approved amount and the current request status are mandatory checks; a phone number is optional. Reject a definite mismatch or a proposed action on a canceled request. Escalate conflicting authoritative evidence that the reviewer cannot resolve. The six cases are:"
+      ],
+      "bullets": [
+        "Correct reference and amount, active request: accept.",
+        "Correct mandatory fields, optional phone number absent: accept.",
+        "Proposal refers to a different customer reference from its source: reject; potentially consequential misrouting.",
+        "Approved amount is 150 units, but the proposal says 105: reject; incorrect amount.",
+        "Request is canceled, but the proposal confirms dispatch: reject; action conflicts with current status.",
+        "Two equally authoritative, current records give different delivery addresses: escalate; the evidence does not settle the destination."
+      ]
+    },
+    {
+      "id": "use-calibration-to-improve-the-review",
+      "title": "Use calibration to improve the safeguard",
+      "paragraphs": [
+        "We ran a local calculation using two identical, scripted response lists for that invented pack. Both lists accepted the wrong customer reference and rejected the valid case with no phone number; their other four decisions matched the key. Agreement was six out of six, while each list missed one of the three definite defects and unnecessarily rejected one of the two valid cases. The ambiguous case was correctly escalated. These are constructed responses, not results from employees or an AI model.",
+        "Keep separate counts and denominators for missed defects, unnecessary rejections and unresolved cases. Break defects down by consequence and type so a serious routing miss is not hidden by several easy successes. A small pack checks the exercise and reveals gaps; it cannot estimate a dependable production error rate.",
+        "Review the evidence display and instruction behind each disagreement with the key. Then use fresh cases, with the same agreed policy, to check whether the repair transfers beyond memorized answers. Explain the exercise in advance, keep practice separate from live actions, and use it to improve the process rather than covertly rank staff.",
+        "Frederick Winslow Taylor describes reinspection and a prepared lot with known defects in The Principles of Scientific Management, chapter II, pages 90–91. The useful distinction is checking against a known answer as well as checking agreement. This disclosed, non-punitive exercise is our adaptation; Taylor’s covert inspection and employment practices are not the recommended procedure."
+      ]
+    },
+    {
       "id": "size-the-review-job",
       "title": "Size the review job before opening the queue",
       "paragraphs": [
