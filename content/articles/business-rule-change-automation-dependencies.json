@@ -24,6 +24,29 @@
       ]
     },
     {
+      "id": "mark-temporary-assumptions-as-unproven",
+      "title": "Keep temporary assumptions from becoming permanent facts",
+      "paragraphs": [
+        "A dependency can begin with a guess rather than an approved, evidenced standard. Label that distinction explicitly. A named owner and review date do not make an unsafe default acceptable; first check whether using it at all is permitted for the proposed scope.",
+        "Extend the synthetic reference-free intake example with a provisional planning estimate: eight minutes to identify the customer. The team has not measured representative cases. The following temporary-default record prevents that convenient number from silently becoming an operating fact."
+      ],
+      "bullets": [
+        "Status and scope: provisional assumption, introduced on 1 October in this invented record; for sizing a draft-only test, not customer promises, staff quotas or unattended routing.",
+        "Owner and evidence gap: the operations owner needs representative identification times, including ambiguous cases, interruptions and repeat checks. Eight minutes is an assumption, not an observed average.",
+        "Consumers: reviewer-capacity estimate, expected waiting time, cost forecast and decision to expand intake. Each must retain the provisional label.",
+        "Review trigger: review on 14 October in this example, or sooner if an ambiguous case or changed intake mix undermines the estimate. The dates illustrate a record; they are not a recommended universal review interval.",
+        "No new evidence at review: mark still unknown, notify the dependent decision owners and keep expansion that relies on the estimate blocked. Do not silently renew it as a validated standard."
+      ]
+    },
+    {
+      "id": "resolve-the-evidence-gap",
+      "title": "Close the evidence gap before closing the review",
+      "paragraphs": [
+        "An eventual review can support the assumption for a stated scope, revise it, retire it or leave it explicitly unknown. Record the evidence and decision, then reconsider every consumer before changing the value. A revised duration may change capacity and cost without changing the rule that customer identity must be established before routing.",
+        "Frederick Winslow Taylor describes partly guessed task standards that were meant to be revisited but were lost from view in his Testimony Before the Special House Committee, pages 270–271. Francisco R. Sagasti, in chapter 25 of Planning for Human Systems, page 335, argues that planning horizons depend on the issue and its changing conditions. The provisional record and event-based triggers here are our modern adaptation, not support for Taylor’s pay or work-rate practices."
+      ]
+    },
+    {
       "id": "work-through-the-rule-change-register",
       "title": "Work through the rule-change register",
       "paragraphs": [
