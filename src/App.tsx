@@ -8,6 +8,7 @@ import MarketingPage from './pages/MarketingPage';
 const InquiryPage = lazy(() => import('./pages/InquiryPage'));
 const BookPage = lazy(() => import('./pages/BookPage'));
 const SowIntakePage = lazy(() => import('./pages/SowIntakePage'));
+const NewOfferPage = lazy(() => import('./pages/NewOfferPage'));
 
 function App() {
   const location = useLocation();
@@ -23,6 +24,8 @@ function App() {
           <Route path="/inquire" element={<InquiryPage />} />
           <Route path="/book" element={<BookPage />} />
           <Route path="/sow/*" element={<SowIntakePage />} />
+          {/* Hidden sales page: no nav, footer, home, sitemap, or robots.txt entry. */}
+          <Route path="/new-offer" element={<NewOfferPage />} />
           <Route path="*" element={<MarketingPage />} />
         </Routes>
       </Suspense>

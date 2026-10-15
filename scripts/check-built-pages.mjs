@@ -35,7 +35,7 @@ for (const article of articles) {
     else await stat(disk);
   }
 }
-for (const route of ['book', 'inquire', 'sow']) {
+for (const route of ['book', 'inquire', 'sow', 'new-offer']) {
   const entry = await readFile(`dist/${route}/index.html`, 'utf8');
   assert(entry.includes(home.match(/<script type="module"[^>]*><\/script>/)[0]), `Preserved ${route} app bundle`);
   assert(entry.includes('<div id="root"></div>'), `Preserved ${route} React root`);
@@ -77,6 +77,33 @@ for (const name of await readdir('dist/assets')) {
 }
 
 assert(!sitemap.includes('/book/'), 'Do not index duplicate booking alias');
+
+const offer = await readFile('dist/new-offer/index.html', 'utf8');
+const robots = await readFile('dist/robots.txt', 'utf8');
+assert(offer.includes('name="robots" content="noindex, nofollow"'), 'Hidden offer is noindex');
+assert(offer.includes('<title>Hit the number this quarter | The Lever Loop | AIify</title>'));
+assert(offer.includes(`rel="canonical" href="${site.url}/new-offer/"`));
+assert(offer.includes('Book a goal call'));
+assert(!sitemap.includes('new-offer'), 'Do not list the hidden offer in the sitemap');
+assert(!robots.includes('new-offer'), 'Do not list the hidden offer in robots.txt');
+assert.equal(robots, `User-agent: *\nAllow: /\nDisallow: /sow\nDisallow: /client-feedback/\nSitemap: ${site.url}/sitemap.xml\n`);
+assert(!home.includes('new-offer'), 'Homepage shell must not link the hidden offer');
+for (const file of [
+  'src/components/layout/Header.tsx',
+  'src/components/layout/Footer.tsx',
+  'src/pages/MarketingPage.tsx',
+  'src/data/constants.ts',
+  'content/site.json',
+]) {
+  assert(!(await readFile(file, 'utf8')).includes('new-offer'), `${file} must not link the hidden offer`);
+}
+const offerSource = await readFile('src/pages/NewOfferPage.tsx', 'utf8');
+for (const phrase of ['Book a goal call', 'The Lever Loop', 'Lever Audit', 'Lever Map', 'weekly scoreboard', '$7,500', '$8,000', 'PLACEHOLDER', 'P.S.']) {
+  assert(offerSource.includes(phrase), `Offer page missing ${phrase}`);
+}
+for (const banned of ['Dreamlawn', 'Midwest', 'Drobenak', 'Heritage', 'Coalmarch', 'Real Green', 'new-mover', '1995', '$9,500', '$400,000', '400K']) {
+  assert(!offerSource.includes(banned), `Offer page must not mention ${banned}`);
+}
 for (const route of ['book', 'inquire']) {
   const html = await readFile(`dist/${route}/index.html`, 'utf8');
   assert(html.includes('<noscript>'));
