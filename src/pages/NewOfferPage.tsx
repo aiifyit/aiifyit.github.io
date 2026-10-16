@@ -4,163 +4,144 @@ import Container from '../components/ui/Container';
 import Button from '../components/ui/Button';
 import { INQUIRY_EMAIL } from '../data/inquiry';
 
-const PAGE_TITLE = 'Where to aim AI | The Lever Loop | AIify';
+const PAGE_TITLE = "Payroll for a department you don't have to hire | AIify";
 
 const GOAL_CALL_BODY = [
   'Hi Joshua,',
   '',
-  'Booking a call about The Lever Loop.',
+  'Booking a call about a bolt-on AI department.',
   '',
   'The business:',
   '',
-  'The priority already in motion this quarter:',
+  'The goal already set for this quarter:',
   '',
-  'A hunch about where the money is:',
+  'How that goal is being chased by hand today:',
   '',
 ].join('\n');
 
-const GOAL_CALL_MAILTO = `mailto:${INQUIRY_EMAIL}?subject=${encodeURIComponent('Where to aim it')}&body=${encodeURIComponent(GOAL_CALL_BODY)}`;
+const GOAL_CALL_MAILTO = `mailto:${INQUIRY_EMAIL}?subject=${encodeURIComponent('Bolt-on AI department')}&body=${encodeURIComponent(GOAL_CALL_BODY)}`;
 
-const AUDIT_PARTS = [
+const SYSTEMS = [
   {
-    title: 'Owner economics',
-    text: 'Where the money and the time actually sit. Margin, cost, the sale, the hours. We aim at value, not at whatever tool is popular this month.',
+    title: 'A no-touch CRM',
+    text: 'Calls and meetings already leave a transcript. This system reads those transcripts and keeps the customer record current. Your people do not stop to type the notes in.',
   },
   {
-    title: 'Outside-in research',
-    text: 'What is real in your market, set next to what is being sold as the next big move. Most of the fifty ideas die here.',
+    title: 'An automation builder',
+    text: 'When a job should happen the same way every time, this system builds that automation, ships it, and tests that it did the job. The automation is checked before it counts as done.',
   },
   {
-    title: 'Inside-out data',
-    text: 'Your file, your jobs, your routes, your numbers. The aim has to fit this company. A messy file is a normal place to start.',
+    title: 'A knowledge base',
+    text: 'Your people search the company’s own documents and data. They ask in plain words. The answer comes from the files and the numbers the company already has.',
   },
   {
-    title: 'Opportunity scoring',
-    text: 'Each surviving move is scored on size, speed, what it costs to prove, and how sure we can be. One of them should be obvious. If none is, we say so.',
+    title: 'A live meeting watcher',
+    text: 'It watches the meeting while the meeting is happening. What gets decided, asked, or promised becomes work for the agent: a task, a follow-up, a change to make.',
   },
   {
-    title: 'The Lever Map',
-    text: 'One page. The place we will aim, what we will build, and what your numbers have to show before we do anything bigger.',
+    title: 'An agent for your company',
+    text: 'You get one AI agent, dedicated to your company. It plans the work toward the goals you set, and it does the implementation. A person manages the agent. AI is the tool.',
   },
 ];
 
-const SPRINT_WORK = [
-  'The operation, automated where the rule is clear enough to trust.',
-  'A lead test, when a lead test is the lever: a control group, and a kill line and a scale line written before the first dollar.',
-  'The data, read in the numbers you already use to run the company.',
-  'A custom tool, built by our developers, when a tool is the move that pays.',
+const START_STEPS = [
+  {
+    title: 'We join your quarterly goal-setting',
+    text: 'You already set the goals. We sit in that meeting. We do not invent a goal for you, and we do not grade you against one.',
+  },
+  {
+    title: 'A second tack, beside the manual one',
+    text: 'You already have a way of chasing the goal by hand. We take a different tack alongside that. The manual work stays while the new system is built.',
+  },
+  {
+    title: 'First build follows the top goal',
+    text: 'Five systems are available. The first one we build is the one that maps to your top goal. The others wait until a goal calls for them.',
+  },
 ];
 
-const REASONS = [
+const ROLES = [
   {
-    title: 'We aim before we build',
-    text: 'The field is full of moves. The audit throws out the ones that do not pay in your business. We do not start with a tool and go looking for a use for it.',
+    title: 'Chief of staff',
+    text: 'Keeps the department pointed at the goals you already set.',
   },
   {
-    title: 'Proof in your numbers',
-    text: 'A bigger bet follows a result you can read. If the move spends money, that spend is tracked and it has a kill line. If the move is inside the operation, the proof is hours, cost, or margin. Same rule either way.',
+    title: 'Developers and senior developers',
+    text: 'Build the systems that have to exist in your company.',
   },
   {
-    title: 'Constraint first',
-    text: 'Eliyahu Goldratt’s book The Goal is plain about this. A business moves at the speed of its constraint. The highest-value place to aim is the constraint on the outcome you already want. Work anywhere else feels busy and does not change the result.',
+    title: 'Operations lead',
+    text: 'Keeps the day-to-day work of the department running.',
   },
   {
-    title: 'Builders, not advisors',
-    text: 'The person on the research and the data stays with the developers who build. You are not left with a deck to assign. You end the quarter with something running.',
+    title: 'Project managers',
+    text: 'A project manager is assigned to you, so the work has an owner on our side.',
   },
   {
-    title: 'Skin in the game',
-    text: 'The audit fee comes back if we cannot find a lever worth ten times that fee. If we miss work we promised to ship, the next month is half price. You can add a bonus that is paid only if the outcome we agreed is hit.',
+    title: 'AI developers',
+    text: 'Build the agent work and the connections it needs.',
   },
   {
-    title: 'A weekly scoreboard',
-    text: 'You should see the proof while it is forming. The scoreboard is short. The lever is on it. So is the number we said would move. So is what we stopped.',
+    title: 'AI-agent managers',
+    text: 'People trained to manage the agents, so a person is accountable for what an agent does.',
   },
 ];
 
 const GET_ITEMS = [
-  'A quarter aimed at the priority you are already running.',
-  'The Lever Audit and the Lever Map.',
-  'A research and data lead, plus developers who build.',
-  'One build, 30 to 60 days, on the highest-value place.',
-  'Proof in your numbers, with kill and scale lines wherever money is spent.',
-  'A weekly scoreboard.',
-  'A quarter-end review, then the next place to aim.',
-  'Code and data in your company’s name.',
-  'An optional bonus, agreed up front, paid only if that outcome is hit.',
-];
-
-const GUARANTEES = [
-  {
-    title: 'Full audit refund',
-    text: 'You pay for the Lever Audit. If it does not find a lever worth at least 10 times the audit fee, we refund that fee. “Worth” means the economics on the Lever Map: margin, cost taken out, or a result in the numbers you already run the company on. If we cannot show it, you should not continue.',
-  },
-  {
-    title: 'No dollar moves without a way to read it',
-    text: 'If a move costs money to test, we do not spend it until the result will show up in your numbers. A source, a holdout where the list is big enough, a before and after you can audit. If we cannot read it, we do not spend it.',
-  },
-  {
-    title: 'Kill lines written before spend',
-    text: 'Every test has a scale line and a kill line before the first invoice. Miss the kill line and the spend stops. We do not renegotiate the line after the money is gone.',
-  },
-  {
-    title: 'Half price next month if we miss on execution',
-    text: 'A miss means work we committed, in writing, to ship that month did not ship, and the reason is on our side. The next month is half price. A test that hits its kill line is not a miss. Stopping a loser is the job.',
-  },
-  {
-    title: 'You own the code and the data',
-    text: 'What we build for you is yours. The repo, the exports, and the accounts sit with your company. Leaving does not mean leaving the work behind.',
-  },
+  'A department beside the company you already run. You do not hire it.',
+  'People using AI every day on the quarterly goals you already set.',
+  'The first system, chosen because it maps to your top goal.',
+  'The other systems as later goals call for them.',
+  'A weekly report mapped to each department head.',
+  'Your sign-off before anything touches a live system.',
 ];
 
 const FOR_YOU = [
-  'You own or operate a home-service company, a route business, or more than one location, and you want an edge.',
-  'You already have the goals, the team, and the capital. The week is already full.',
-  'You will open the customer file, the operation, and a rough view of margin, so the aim is yours and not a generic one.',
-  'You want the people who find the place to be the people who build it.',
+  'You own or run the company, and this quarter already has a goal.',
+  'You have seen how cheap the tools are, and you do not have the hours to hire for the work, vet it, manage it, and check that it actually works.',
+  'You want your people supported on the goals they already own.',
+  'You will open the documents and the data the work needs, and you will sign off before anything goes live.',
 ];
 
 const NOT_FOR_YOU = [
-  'You want a brand campaign, a logo, or a monthly report of activity.',
-  'You want an agency that sells one channel, or a deck you will have to go and execute.',
-  'You will not share data. We cannot aim at a business we are not allowed to see.',
-  'You want a demo, a chatbot, or a model with no tie to how you make money.',
-  'You want the cheapest pair of hands, and you are ready to manage them.',
-  'You want advice to hand to another team. This partnership builds.',
+  'You want a demo, a chatbot, or a tool with no tie to a goal you already set.',
+  'You want software to take the company over so you can step away.',
+  'You will not open the files, or you will not sign off on live work.',
+  'You want the cheapest pair of hands, and you are ready to manage them yourself.',
+  'You want a brand campaign, or a monthly report of activity.',
 ];
 
 const QUESTIONS = [
   {
-    q: 'You tried agencies.',
-    a: 'An agency sells the thing it sells. That can be the right buy when you already know the move. It is the wrong buy when you still have to figure out which move, in this business, is worth making. That figuring, and then the build, is the week you are already using. We start from your operation and your numbers, and we do both. If a test misses its line, it stops, including one we recommended. The scoreboard is the record.',
+    q: 'You can just do this yourself.',
+    a: 'The tools are cheap. That is why it looks like a job you can take on yourself. Buying a tool is the easy part. Hiring for the work, vetting what gets built, managing it, and checking that it actually works are the rest of the job. That job is full time. You already have one.',
   },
   {
     q: 'AI is hype.',
-    a: 'Most of the fifty moves are. Treat the category that way until a specific move shows up in your numbers. We do not lead with a model. We lead with the place it would have to pay. If that place is a cleaner handoff or a control-group test, that is the work. If it is a tool, our developers build the tool.',
+    a: 'A lot of it is. We do not ask you to trust a pitch. The agent drafts the work and puts it in a queue. You sign off before anything touches a live system. The weekly report shows the result against the goal you already set. If the work is idle, the report shows that too.',
   },
   {
     q: 'Your data is a mess.',
-    a: 'That is the usual start. The audit is the dig. You do not need a perfect warehouse. You need access, and a team that will sit in the file until it can support a decision about where to aim. If it cannot support one, we will say so, and we will not build on a guess.',
+    a: 'That is a normal start. The knowledge base searches the documents and the data you already have. It does not need a perfect archive on day one. It needs access. If the files cannot support the work, we will say so before we build on them.',
   },
   {
     q: 'How fast does this move?',
-    a: 'Your priorities come first, because they tell us where to look. The audit comes before the build. Sprints run 30 to 60 days. Once the work is in motion you get a scoreboard every week. Some levers show a leading number in weeks. A result you would scale is allowed to take the quarter. We prove the first one in your numbers before we ask you to fund the next. This page will not promise you a revenue figure.',
+    a: 'We join the goal-setting you already do for the quarter. The first build is the system that maps to the top goal. After that, the work shows up in the weekly report. This page will not promise you a revenue figure or a date.',
   },
   {
     q: 'What does it cost?',
-    a: 'The Lever Audit starts at $7,500. A larger file or more locations can cost more, and we will tell you that number before you agree. The partnership starts at $8,000 a month, scoped for the quarter and agreed on the call, against the place we are aiming. An optional bonus is paid only if the outcome named up front is hit. The buttons on this page do not show a price. The price follows the aim.',
+    a: 'PLACEHOLDER. The price is not printed on this page. We will tell you the number on the call, before you agree. The buttons do not show a price.',
+  },
+  {
+    q: 'Will this replace your people?',
+    a: 'Your people stay. The weekly report maps results to each department head, so the help shows up on the goals they already own. The point is that they feel supported, not replaced. Agents draft and queue. You sign off before anything touches a live system.',
   },
 ];
 
-const SCOREBOARD_ROWS = [
-  ['The lever this quarter', 'blank'],
-  ['The proof we are watching', 'blank'],
-  ['Your number for that proof', 'blank'],
-  ['Money spent, if the lever spends money', 'blank'],
-  ['Kill line', 'Written before the work'],
-  ['Scale line', 'Written before the work'],
-  ['Stopped this week', 'blank'],
-  ['Next place to look', 'blank'],
+const REPORT_ROWS = [
+  ['Department head', 'blank'],
+  ['Goal they already own', 'blank'],
+  ['What moved this week', 'blank'],
+  ['Waiting on your sign-off', 'blank'],
 ];
 
 function GoalCall({ note }: { note: string }) {
@@ -204,17 +185,17 @@ export default function NewOfferPage() {
           <div className="max-w-3xl">
             <p className="text-sm uppercase tracking-widest text-[var(--color-accent)]">The Lever Loop · AIify</p>
             <h1 className="mt-5 text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl md:text-6xl">
-              Everyone says AI is huge.
+              Payroll for a department you don't have to hire.
             </h1>
             <p className="mt-5 text-2xl font-semibold leading-snug tracking-tight text-[var(--color-text)] sm:text-3xl">
-              Where's the money in your business, and who's going to do the work?
+              A bolt-on AI department. People, using AI, on the goals you already set.
             </p>
             <div className="mt-8 space-y-5 text-lg leading-relaxed text-[var(--color-text-muted)]">
               <p>
-                That is the useful question. The Lever Loop is how we answer it. We find the one place AI will pay in your business, our developers build it, we prove it in your numbers, and then we find the next one.
+                Every day, a team uses AI to help you hit the quarterly goals you already have. You do not hire them. You do not run the tools. AI is the tool, not the employee. Humans manage it.
               </p>
               <p>
-                You already have the goals, the team, and the capital. You know AI should be an unfair advantage here. What you do not have is the hours. Finding where it pays, and getting it built, does not fit beside the job you already do.
+                The department bolts on beside the company you already run. Your people stay on their jobs. This team does the AI work those jobs do not have hours for.
               </p>
             </div>
             <div className="mt-8">
@@ -232,19 +213,13 @@ export default function NewOfferPage() {
             </h2>
             <div className="mt-8 space-y-5 text-lg leading-relaxed text-[var(--color-text-muted)]">
               <p>
-                Finding where AI pays off in your business, and getting it built, is a full-time job. You already have one. Running the company eats the week. The digging does not fit in the hours that are left.
+                AI is cheap. The tools are easy to buy, so it looks like a job you can do yourself. You still cannot hire for it, vet it, manage it, or make sure it actually works. That work is a full-time job. Running the company already is one.
               </p>
               <p>
-                <span className="font-semibold text-[var(--color-text)]">Where.</span> There is no shortage of ideas. A model on the phones. A tool for the office. A test on a new channel. A pass through the customer file. Fifty moves, and a new one every week from someone selling it. Telling which one pays, in your file and on your routes, is days of work. Those days are already spent running the company.
-              </p>
-              <p>
-                <span className="font-semibold text-[var(--color-text)]">Who.</span> Your people are on the work that makes the money. An agency sells the one thing it sells. A consultant hands you a deck you still have to carry out. A freelancer still needs your hours. None of them do the digging and the building, so the hours still come out of your week.
-              </p>
-              <p>
-                <span className="font-semibold text-[var(--color-text)]">Proof.</span> You have heard the pitches. You will put real money behind a move after it shows up in your own numbers. That is the right standard, and you do not have a spare quarter to learn it the slow way. The first job is a proof you can read, small enough to stop if it misses.
+                The week is spent on the company. The leftover hours are not enough to sort the tools, staff the work, and check the result. Ideas are not the shortage. Hours are.
               </p>
               <p className="text-[var(--color-text)]">
-                We do the digging. We do the building. You stay on the company. Find the place, build that one thing, prove it, then aim again. That is the whole offer.
+                We do the digging. We do the building. You stay on the company.
               </p>
             </div>
           </div>
@@ -256,163 +231,151 @@ export default function NewOfferPage() {
           <div className="max-w-3xl">
             <p className="text-sm uppercase tracking-widest text-[var(--color-accent)]">The offer</p>
             <h2 id="offer-heading" className="mt-4 text-3xl font-bold tracking-tight md:text-5xl">
-              The Lever Loop
+              A bolt-on AI department
             </h2>
-            <p className="mt-4 text-xl leading-relaxed text-[var(--color-text)]">
-              AIify’s quarterly operating-partner program.
-            </p>
             <div className="mt-6 space-y-5 text-lg leading-relaxed text-[var(--color-text-muted)]">
               <p>
-                One place. One build. One proof. Then the next place. You are not hiring a demo, and you are not hiring a tour of tools. You are hiring the aim and the build, in the same team.
+                A team of people, using AI, working every day toward the goals you set for the quarter. The department sits beside the company you already run. You keep the company. We do this work.
               </p>
               <p>
-                Joshua Pellicer and AIify come in for the quarter as the people who do the work: a lead on the research and the data, and developers who build. The work is custom. Two companies in the same trade can leave with different builds, because the aim comes from the business in front of us.
-              </p>
-              <p>
-                Your own priorities set the context. What you are already pushing this quarter tells us where to look, and which fashionable project to ignore. The partnership is priced per quarter. An optional bonus can be tied to the outcome we name up front. The price is set on the call. It is not printed on the button.
+                Humans manage the department. The agent drafts and queues. AI stays the tool.
               </p>
             </div>
           </div>
         </Container>
       </section>
 
-      <section className="border-t border-[var(--color-border-subtle)] py-12 md:py-16 lg:py-20" aria-labelledby="how-heading">
+      <section className="border-t border-[var(--color-border-subtle)] py-12 md:py-16 lg:py-20" aria-labelledby="systems-heading">
         <Container>
           <div className="max-w-3xl">
-            <h2 id="how-heading" className="text-3xl font-bold tracking-tight md:text-5xl">
-              How it works
+            <h2 id="systems-heading" className="text-3xl font-bold tracking-tight md:text-5xl">
+              Five systems
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-[var(--color-text-muted)]">
-              Four moves. The same four every quarter. The work inside them changes, because the place worth aiming at changes.
+              This is the work the department can take on. Plain systems. The first one we build is the one that matches your top goal.
             </p>
           </div>
-
           <ol className="mx-auto mt-12 max-w-3xl space-y-6">
-            <li className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface)] p-6 md:p-8">
-              <p className="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)]">01</p>
-              <h3 className="mt-3 text-2xl font-bold tracking-tight">Your quarter sets the aim</h3>
-              <p className="mt-4 text-base leading-relaxed text-[var(--color-text-muted)] md:text-lg">
-                You already know what this quarter is for. A market, a margin, a crew, a line of work. Bring that. We use it as the map. We do not invent a goal for you, and we do not grade you against one. If a project does not touch what you are already pushing, it is not the lever.
-              </p>
-            </li>
-
-            <li className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface)] p-6 md:p-8">
-              <p className="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)]">02</p>
-              <h3 className="mt-3 text-2xl font-bold tracking-tight">The Lever Audit</h3>
-              <p className="mt-4 text-base leading-relaxed text-[var(--color-text-muted)] md:text-lg">
-                Deep research, plus your own data, before anyone builds. The job is to name the highest-value place to aim, and to throw out the moves that are only noise.
-              </p>
-              <dl className="mt-6 space-y-5">
-                {AUDIT_PARTS.map((part) => (
-                  <div key={part.title}>
-                    <dt className="font-semibold text-[var(--color-text)]">{part.title}</dt>
-                    <dd className="mt-1 text-base leading-relaxed text-[var(--color-text-muted)]">{part.text}</dd>
-                  </div>
-                ))}
-              </dl>
-            </li>
-
-            <li className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface)] p-6 md:p-8">
-              <p className="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)]">03</p>
-              <h3 className="mt-3 text-2xl font-bold tracking-tight">30 to 60 day sprints</h3>
-              <p className="mt-4 text-base leading-relaxed text-[var(--color-text-muted)] md:text-lg">
-                We build that one thing. Not five projects. The sprint uses whatever the lever actually needs.
-              </p>
-              <ul className="mt-6 space-y-3">
-                {SPRINT_WORK.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-base leading-relaxed text-[var(--color-text-muted)]">
-                    <Check className="mt-1 h-5 w-5 shrink-0 text-[var(--color-accent)]" aria-hidden="true" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </li>
-
-            <li className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface)] p-6 md:p-8">
-              <p className="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)]">04</p>
-              <h3 className="mt-3 text-2xl font-bold tracking-tight">Prove it, then aim again</h3>
-              <p className="mt-4 text-base leading-relaxed text-[var(--color-text-muted)] md:text-lg">
-                Every week, one scoreboard. The lever, the proof, what we stopped, what is next. At the end of the quarter we keep what your numbers supported, drop what they did not, and point the next quarter at the next place. Then the loop runs again.
-              </p>
-              <div className="mt-6 overflow-hidden rounded-xl border border-dashed border-[var(--color-border)]">
-                <p className="bg-[var(--color-surface-2)] px-4 py-3 text-xs font-semibold uppercase tracking-widest text-[var(--color-accent)]">
-                  Placeholder layout · not a result
-                </p>
-                <div className="overflow-x-auto">
-                  <table className="w-full min-w-[320px] text-left text-sm">
-                    <caption className="sr-only">Empty weekly scoreboard layout. No client numbers.</caption>
-                    <thead>
-                      <tr className="border-b border-[var(--color-border-subtle)] text-[var(--color-text-muted)]">
-                        <th scope="col" className="px-4 py-3 font-medium">Line</th>
-                        <th scope="col" className="px-4 py-3 font-medium">This week</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {SCOREBOARD_ROWS.map(([line, value]) => (
-                        <tr key={line} className="border-b border-[var(--color-border-subtle)] last:border-0">
-                          <th scope="row" className="px-4 py-3 font-medium text-[var(--color-text)]">{line}</th>
-                          <td className="px-4 py-3 text-[var(--color-text-muted)]">{value}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-                <p className="px-4 py-3 text-sm leading-relaxed text-[var(--color-text-muted)]">
-                  The cells say “blank” because this is the shape of the weekly scoreboard, not a client’s week. Your numbers go here after the work starts. None are filled in on this page.
-                </p>
-              </div>
-            </li>
-          </ol>
-
-          <div className="mx-auto mt-12 max-w-3xl">
-            <GoalCall note="If this is the team you wanted on the aim and the build, book the call." />
-          </div>
-        </Container>
-      </section>
-
-      <section className="border-t border-[var(--color-border-subtle)] bg-[var(--color-surface)] py-12 md:py-16 lg:py-20" aria-labelledby="why-heading">
-        <Container>
-          <div className="max-w-3xl">
-            <h2 id="why-heading" className="text-3xl font-bold tracking-tight md:text-5xl">
-              Why this will work
-            </h2>
-            <p className="mt-6 text-lg leading-relaxed text-[var(--color-text-muted)]">
-              Six reasons. Each one is a rule of the work.
-            </p>
-          </div>
-          <div className="mt-10 grid gap-6 md:grid-cols-2">
-            {REASONS.map((reason, index) => (
-              <article key={reason.title} className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-bg)] p-6 md:p-8">
+            {SYSTEMS.map((system, index) => (
+              <li key={system.title} className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface)] p-6 md:p-8">
                 <p className="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)]">
                   {String(index + 1).padStart(2, '0')}
                 </p>
-                <h3 className="mt-3 text-xl font-bold tracking-tight">{reason.title}</h3>
-                <p className="mt-3 text-base leading-relaxed text-[var(--color-text-muted)]">{reason.text}</p>
-              </article>
+                <h3 className="mt-3 text-2xl font-bold tracking-tight">{system.title}</h3>
+                <p className="mt-4 text-base leading-relaxed text-[var(--color-text-muted)] md:text-lg">{system.text}</p>
+              </li>
             ))}
-          </div>
+          </ol>
+        </Container>
+      </section>
 
-          <div className="mt-8 max-w-3xl rounded-2xl border border-[var(--color-border-subtle)] p-6 md:p-8">
-            <h3 className="text-xl font-bold tracking-tight">A public example. Not your lever, unless the audit says so.</h3>
-            <div className="mt-4 space-y-4 text-base leading-relaxed text-[var(--color-text-muted)]">
+      <section className="border-t border-[var(--color-border-subtle)] bg-[var(--color-surface)] py-12 md:py-16 lg:py-20" aria-labelledby="start-heading">
+        <Container>
+          <div className="max-w-3xl">
+            <h2 id="start-heading" className="text-3xl font-bold tracking-tight md:text-5xl">
+              How it starts
+            </h2>
+            <p className="mt-6 text-lg leading-relaxed text-[var(--color-text-muted)]">
+              We start from the quarter you are already planning. The manual approach stays in place while the first system is built.
+            </p>
+          </div>
+          <ol className="mx-auto mt-12 max-w-3xl space-y-6">
+            {START_STEPS.map((step, index) => (
+              <li key={step.title} className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-bg)] p-6 md:p-8">
+                <p className="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)]">
+                  {String(index + 1).padStart(2, '0')}
+                </p>
+                <h3 className="mt-3 text-2xl font-bold tracking-tight">{step.title}</h3>
+                <p className="mt-4 text-base leading-relaxed text-[var(--color-text-muted)] md:text-lg">{step.text}</p>
+              </li>
+            ))}
+          </ol>
+          <div className="mx-auto mt-12 max-w-3xl">
+            <GoalCall note="Bring the goal you already set. We will tell you which system we would build first." />
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-12 md:py-16 lg:py-20" aria-labelledby="safety-heading">
+        <Container>
+          <div className="max-w-3xl">
+            <h2 id="safety-heading" className="text-3xl font-bold tracking-tight md:text-5xl">
+              A person stays in the loop
+            </h2>
+            <div className="mt-6 space-y-5 text-lg leading-relaxed text-[var(--color-text-muted)]">
               <p>
-                People argue about a lot of moves. Speed to the first reply is one of them, and the public research is old enough to read for yourself. The InsideSales.com / MIT lead-response study, led by James Oldroyd, measured web leads. Its finding: the odds of contacting a lead if called in 5 minutes versus 30 minutes drop 100 times, and the odds of qualifying that lead drop 21 times. The study did not measure close rate. It is a reason to look at first response. It is not a reason to assume first response is your lever.
+                Agents draft the work and put it in a queue. A person reviews that queue. Nothing touches a live system without your sign-off.
               </p>
               <p>
-                Valve+Meter’s secret-shopper study sent inquiries to 466 U.S. home-service companies. It reported that 95% did not respond within five minutes. That is an industry pattern. It is not a number from a company we work with, and it is not a claim about your shop. If the audit says speed is the place to aim, we prove it on your file before we build anything.
-              </p>
-              <p className="text-sm">
-                Sources:{' '}
-                <a className="text-[var(--color-accent)] underline underline-offset-4" href="https://web.archive.org/web/20090529010553/http://www.leadresponsemanagement.org/mit_study" target="_blank" rel="noopener noreferrer">
-                  InsideSales.com / MIT lead-response study
-                </a>
-                {' · '}
-                <a className="text-[var(--color-accent)] underline underline-offset-4" href="https://valveandmeter.com/wp-content/uploads/2024/03/VM_Speed2Lead.pdf" target="_blank" rel="noopener noreferrer">
-                  Valve+Meter, Speed to Lead in Home Services
-                </a>
-                .
+                You see the change before it goes out. A draft can sit. A live system does not change until you say so.
               </p>
             </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-t border-[var(--color-border-subtle)] py-12 md:py-16 lg:py-20" aria-labelledby="report-heading">
+        <Container>
+          <div className="max-w-3xl">
+            <h2 id="report-heading" className="text-3xl font-bold tracking-tight md:text-5xl">
+              A weekly report for each department head
+            </h2>
+            <div className="mt-6 space-y-5 text-lg leading-relaxed text-[var(--color-text-muted)]">
+              <p>
+                Every week, the results are mapped to each department head. The people who own those goals can see what moved, and what is waiting on a sign-off.
+              </p>
+              <p>
+                The report is there so your people feel supported, not replaced. The work shows up as help on a goal they already have.
+              </p>
+            </div>
+            <div className="mt-8 overflow-hidden rounded-xl border border-dashed border-[var(--color-border)]">
+              <p className="bg-[var(--color-surface)] px-4 py-3 text-xs font-semibold uppercase tracking-widest text-[var(--color-accent)]">
+                Placeholder layout · not a result
+              </p>
+              <div className="overflow-x-auto">
+                <table className="w-full min-w-[320px] text-left text-sm">
+                  <caption className="sr-only">Empty weekly report layout. No client numbers.</caption>
+                  <thead>
+                    <tr className="border-b border-[var(--color-border-subtle)] text-[var(--color-text-muted)]">
+                      <th scope="col" className="px-4 py-3 font-medium">Line</th>
+                      <th scope="col" className="px-4 py-3 font-medium">This week</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {REPORT_ROWS.map(([line, value]) => (
+                      <tr key={line} className="border-b border-[var(--color-border-subtle)] last:border-0">
+                        <th scope="row" className="px-4 py-3 font-medium text-[var(--color-text)]">{line}</th>
+                        <td className="px-4 py-3 text-[var(--color-text-muted)]">{value}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="px-4 py-3 text-sm leading-relaxed text-[var(--color-text-muted)]">
+                The cells say “blank” because this is the shape of the weekly report, not a client’s week. Your numbers go here after the work starts. None are filled in on this page.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      <section className="border-t border-[var(--color-border-subtle)] bg-[var(--color-surface)] py-12 md:py-16 lg:py-20" aria-labelledby="team-heading">
+        <Container>
+          <div className="max-w-3xl">
+            <h2 id="team-heading" className="text-3xl font-bold tracking-tight md:text-5xl">
+              The people on the department
+            </h2>
+            <p className="mt-6 text-lg leading-relaxed text-[var(--color-text-muted)]">
+              Roles, not a headcount. Humans hold these jobs. AI is the tool they use.
+            </p>
+          </div>
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {ROLES.map((role) => (
+              <article key={role.title} className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-bg)] p-6 md:p-8">
+                <h3 className="text-xl font-bold tracking-tight">{role.title}</h3>
+                <p className="mt-3 text-base leading-relaxed text-[var(--color-text-muted)]">{role.text}</p>
+              </article>
+            ))}
           </div>
         </Container>
       </section>
@@ -435,49 +398,7 @@ export default function NewOfferPage() {
         </Container>
       </section>
 
-      <section className="border-t border-[var(--color-border-subtle)] py-12 md:py-16 lg:py-20" aria-labelledby="risk-heading">
-        <Container>
-          <div className="max-w-3xl">
-            <h2 id="risk-heading" className="text-3xl font-bold tracking-tight md:text-5xl">
-              You should not have to fund a hunch
-            </h2>
-            <p className="mt-6 text-lg leading-relaxed text-[var(--color-text-muted)]">
-              You have the capital. You also have the sense to wait for a result you can read. These terms put the downside of a bad aim on us.
-            </p>
-            <div className="mt-8 space-y-6">
-              {GUARANTEES.map((item) => (
-                <article key={item.title}>
-                  <h3 className="text-xl font-bold tracking-tight">{item.title}</h3>
-                  <p className="mt-2 text-base leading-relaxed text-[var(--color-text-muted)] md:text-lg">{item.text}</p>
-                </article>
-              ))}
-            </div>
-            <div className="mt-10">
-              <GoalCall note="Book the call if the terms are the part you wanted in writing. The button still has no price on it." />
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      <section className="border-t border-[var(--color-border-subtle)] bg-[var(--color-surface)] py-12 md:py-16 lg:py-20" aria-labelledby="pay-heading">
-        <Container>
-          <div className="max-w-3xl">
-            <h2 id="pay-heading" className="text-3xl font-bold tracking-tight md:text-5xl">
-              Optional pay when the agreed outcome hits
-            </h2>
-            <div className="mt-6 space-y-5 text-lg leading-relaxed text-[var(--color-text-muted)]">
-              <p>
-                The quarterly fee pays for the aim and the build. On top of it, you can tie a bonus to the outcome you already care about this quarter. Before the work starts we agree on that outcome, on what counts as hitting it, and on the bonus.
-              </p>
-              <p>
-                Hit it and the bonus is paid. Miss it and the bonus is not paid. The bonus is optional. It does not change the kill lines, and it does not turn the quarter into a hunt for a goal you did not already have.
-              </p>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      <section className="py-12 md:py-16 lg:py-20" aria-labelledby="fit-heading">
+      <section className="border-t border-[var(--color-border-subtle)] py-12 md:py-16 lg:py-20" aria-labelledby="fit-heading">
         <Container>
           <h2 id="fit-heading" className="max-w-3xl text-3xl font-bold tracking-tight md:text-5xl">
             Who this is for
@@ -520,10 +441,10 @@ export default function NewOfferPage() {
             </h2>
             <div className="mt-5 space-y-4 text-base leading-relaxed text-[var(--color-text-muted)] md:text-lg">
               <p>
-                Completed quarters will be listed here only after the numbers are sourced and the client has approved the wording. Nothing in this block is a result.
+                Finished work will be listed here only after the numbers are sourced and the client has approved the wording. Nothing in this block is a result.
               </p>
               <p>
-                This page does not describe an engagement, name a customer, or show a before and after. If you want proof from a finished quarter, ask on the call. We will tell you what we can share. We will not write a result to fill the space.
+                This page does not describe an engagement, name a customer, or show a before and after. If you want proof from finished work, ask on the call. We will tell you what we can share. We will not write a result to fill the space.
               </p>
             </div>
           </div>
@@ -577,27 +498,24 @@ export default function NewOfferPage() {
         <Container>
           <div className="max-w-3xl">
             <h2 id="close-heading" className="text-3xl font-bold tracking-tight md:text-5xl">
-              If you want the edge, book the call.
+              If you want the department, book the call.
             </h2>
             <div className="mt-6 space-y-5 text-lg leading-relaxed text-[var(--color-text-muted)]">
               <p>
-                Bring the business, the priority you are already running, and whether you will open the data. If you have a hunch about where the money is, bring that too. Joshua Pellicer will tell you if The Lever Loop fits this quarter.
+                Bring the business and the goal you already set for this quarter. We will tell you which system we would build first, and whether we should work together. If we should not, we will say that too.
               </p>
               <p>Three things are enough.</p>
             </div>
             <ol className="mt-6 list-decimal space-y-2 pl-5 text-lg leading-relaxed text-[var(--color-text)]">
-              <li>What you are already pushing.</li>
-              <li>Where you suspect AI could pay, if you have a hunch.</li>
-              <li>Whether you will open the data.</li>
+              <li>The goal you already set.</li>
+              <li>How you are chasing it by hand today.</li>
+              <li>Whether you will open the documents and the data, and sign off before anything goes live.</li>
             </ol>
-            <p className="mt-6 text-lg leading-relaxed text-[var(--color-text-muted)]">
-              We will say if we should work together. If we should not, we will say that too.
-            </p>
             <div className="mt-8">
-              <GoalCall note={`Opens a draft to ${INQUIRY_EMAIL}. You review it in your own email app and send it yourself. Joshua replies from AIify.`} />
+              <GoalCall note={`Opens a draft to ${INQUIRY_EMAIL}. You review it in your own email app and send it yourself. AIify replies from that address.`} />
             </div>
             <p className="mt-10 border-t border-[var(--color-border-subtle)] pt-6 text-base leading-relaxed text-[var(--color-text-muted)]">
-              <span className="font-semibold text-[var(--color-text)]">P.S.</span> The audit fee comes back if we cannot find a lever worth ten times that fee. Kill lines are written before any spend. You own what we build. The only decision on the call is whether we should aim the next quarter at your business.
+              <span className="font-semibold text-[var(--color-text)]">P.S.</span> Agents draft and queue the work. Nothing touches a live system without your sign-off. You are not hiring a department on this page. You are booking a call to see if this one fits the quarter you already have.
             </p>
           </div>
         </Container>

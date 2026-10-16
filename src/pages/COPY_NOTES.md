@@ -1,39 +1,57 @@
-# Copy notes — /new-offer (The Lever Loop)
+# Copy notes — /new-offer (bolt-on AI department)
 
 Hidden page. Not linked from the nav, footer, homepage, or sitemap. `noindex, nofollow` on the page. Not listed in `robots.txt`.
 
-The reader is an ambitious owner or investor-operator of a home-service or multi-location business. They already have goals, a team, and capital. They are past the “AI is the future” speech. They want an edge in their own business, and they will not spend the week sorting hype or managing a freelancer.
-
-The rejected hook (“I need to hit my number this quarter” / “I’m done paying for marketing I can’t track”) is gone on purpose. It made AIify sound like an ads shop, put the reader in a victim seat, and treated a missing goal as the problem. Good operators already hit goals. The quarterly priority is context for where to aim, not the pain.
+The reader is an owner who already sets quarterly goals. The week is full. AI tools are cheap, so the work looks like something they can take on themselves. They cannot hire for it, vet it, manage it, or check that it works.
 
 ## Voice
 
-Write to the owner. Do not write as the owner. No quoted inner monologue, and no prospect first person in a headline, subhead, card, question, or button: not “my business,” not “I know AI should,” not “who’s going to build it for me.” Say “you” and “your.” AIify’s own “we” stays. The line on the page is “Where’s the money in your business, and who’s going to do the work?”
+Write to the owner. Do not write as the owner. No quoted inner monologue, and no prospect first person: not “my business,” not “I know AI should,” not “for me.” Say “you” and “your.” AIify’s own “we” stays.
 
-## The conversation
+Keep these lines where they earn their place: “You are not short on ideas or ambition. You are short on time.” and “We do the digging. We do the building.”
 
-Everyone says AI is huge. Where’s the money in your business, and who’s going to do the work?
+## The offer
 
-What they lack is time. Finding where AI pays off, and getting it built, is a full-time job, and running the company already is one. They still want proof in their own numbers before they put more in. We do the digging and the building.
+A bolt-on AI department. A team of people using AI every day to help you hit the quarterly goals you already set. Headline: “Payroll for a department you don't have to hire.” AI is the tool, not the employee. Humans manage it.
+
+The Lever Loop stays as the eyebrow only. The product name in the body is the department. The old loop (find one place, build it, prove it, aim again) was the previous offer.
+
+## Five systems, in plain words
+
+1. A no-touch CRM, fed by call and meeting transcripts.
+2. An automation builder that ships and tests automations.
+3. A knowledge base: search over the company’s own documents and data. Do not say “RAG.”
+4. A live meeting watcher that turns what is said in meetings into agent work.
+5. One dedicated AI agent for the company. It plans and implements toward the goals. Do not name Grokbot or Hermes.
+
+## How it starts, safety, reporting, team
+
+We join quarterly goal-setting, take a different tack beside the manual approach already in use, and build first whichever system maps to the top goal.
+
+Human in the loop. Agents draft and queue. Nothing touches a live system without the owner’s sign-off. The old 10× audit refund, kill lines, and half-price next month were terms of the retired Lever Audit and partnership. They are not restated here.
+
+Weekly reports map results to each department head, so people feel supported, not replaced.
+
+Roles, with no personal names and no internal capacity numbers: chief of staff, developers and senior developers, an operations lead, project managers (one assigned to the owner), AI developers, and trained AI-agent managers.
 
 ## Systems used
 
-- **Collier — enter the conversation already in their head.** The headline is the noise they are tired of hearing (“Everyone says AI is huge”) and the next line is the question they are actually asking.
-- **Schwartz — sophisticated market, new mechanism.** This reader has heard the category claim. The hook names the mechanism in the first screen: find the one place, build it, prove it in their numbers, then find the next one. The Lever Loop is that mechanism. Skepticism is handled as a standard for proof, not as a wound.
-- **Halbert.** Specifics a buyer can check: one place per quarter, 30–60 day builds, audit from $7,500, partnership from $8,000 a month, a 10× audit refund, half-price next month on an execution miss.
-- **Sugarman — slippery slide.** Short sentences. The first screen states the mechanism, then the page answers where, who, and proof, then the terms. No table of contents. One action: book a call.
-- **Caples and Ogilvy — headlines and specificity.** The headline is the reader’s question, not a pun. The public studies stay named and limited to what they measured, and they are an example of a move we do not assume is theirs. Price sits in the cost answer, not on the button.
-- **Kennedy — no-BS.** Who it is not for is as plain as who it is for. The refund, the kill lines, and ownership of the code are rules. No countdown and no fake scarcity.
-- **PAS, aimed at desire.** The problem is time. The owner is not short on ideas or ambition. Digging through the business and getting the right move built is a full-time job, and they already have one. The solution is the loop: we dig, we build, they stay on the company. The reader is after an edge, not a rescue.
-- **Risk reversal.** Full audit refund if no lever is worth 10× the fee. No spend we cannot read in their numbers. Kill lines written before spend. Half-price next month if we miss on execution. They own the code and the data. Optional bonus only if the outcome agreed up front is hit.
+- **Collier — enter the conversation already in their head.** Cheap AI makes the owner think they can do this themselves. The page meets that thought, then names the hours the tools do not remove.
+- **Schwartz — sophisticated market, new mechanism.** The mechanism is a department of people using AI, bolted on beside the company. The five systems are the mechanism made concrete. Skepticism is handled by sign-off and a weekly report, not by a wound.
+- **Halbert.** Specifics a buyer can check: five named systems, goal-setting as the start, sign-off before live changes, a weekly report per department head, named roles. Price is a placeholder because this offer does not have a published number.
+- **Sugarman — slippery slide.** Short sentences. One action: book a call. No table of contents.
+- **Caples and Ogilvy.** The headline is the offer in the owner’s language. No pun. No study cited as if it proved this department.
+- **Kennedy — no-BS.** Who it is not for is as plain as who it is for. No countdown and no fake scarcity. No client story standing in for proof.
+- **PAS.** Problem: time, plus the DIY trap. Agitation: hire, vet, manage, and prove it works. Solution: we dig, we build, the department does the daily work.
 
 ## What this page refuses to invent
 
 - No client name, no anonymized engagement, no case study.
 - Past-results and testimonial blocks are labeled placeholders and are empty on purpose.
-- The scoreboard is a blank layout, labeled as a layout.
-- The only figures from outside the offer itself are the InsideSales.com / MIT lead-response study (contact and qualification odds; it did not measure close rate) and Valve+Meter’s secret-shopper count of 466 home-service companies (95% did not respond within five minutes). Both are linked, and both are offered as a public example, not as the reader’s problem.
+- The weekly report table is a blank layout, labeled as a layout.
+- No vendor names. No “RAG.” No headcount.
+- The InsideSales.com / MIT and Valve+Meter speed-to-lead studies were on the previous page. They measured first response. They are not evidence for this department, so they are gone.
 
 ## Price
 
-Buttons say “Book a call” and do not show a price. The cost answer states the floors: Lever Audit from $7,500, partnership from $8,000 a month, agreed for the quarter on the call, plus an optional bonus tied to the outcome named up front.
+Buttons say “Book a call” and do not show a price. The cost answer is a PLACEHOLDER with no number. The previous page published a Lever Audit from $7,500 and a partnership from $8,000 a month. Those floors belonged to that retired offer. They are not the price of this department, and they are not reprinted here as if they were.
