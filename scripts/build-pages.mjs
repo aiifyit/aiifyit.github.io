@@ -16,7 +16,7 @@ if (!stylesheets.length) throw new Error('Built site stylesheet not found');
 await copyFile('dist/index.html', 'dist/404.html');
 function hiddenOfferShell(shell) {
   const title = 'Get your quarterly goals done without hiring anyone or learning AI | AIify';
-  const description = 'You set the goals. We bring the people, the systems and the follow-through.';
+  const description = 'You tell us what has to get done this quarter. A chief of staff, developers, and a project manager use AI on that work every day, and you say OK before anything goes out.';
   const url = `${site.url}/new-offer/`;
   return shell
     .replace(/<title>.*?<\/title>/, `<title>${escapeHtml(title)}</title>`)
@@ -28,7 +28,7 @@ function hiddenOfferShell(shell) {
     .replace(/(<meta name="twitter:description" content=")[^"]*("[^>]*>)/, `$1${escapeHtml(description)}$2`)
     .replace(`rel="canonical" href="${site.url}/"`, `rel="canonical" href="${url}"`)
     .replace('</head>', '<meta name="robots" content="noindex, nofollow">\n</head>')
-    .replace('<div id="root"></div>', `<noscript><main style="max-width:42rem;margin:64px auto;padding:24px;font-family:system-ui,sans-serif"><p style="letter-spacing:.12em;text-transform:uppercase;font-size:12px">The Lever Loop</p><h1>Get your quarterly goals done without hiring anyone or learning AI.</h1><p>You set the goals. We bring the people, the systems and the follow-through.</p><p><a href="mailto:joshua@aiifyit.com?subject=Bolt-on%20AI%20department">Book a call</a></p></main></noscript>\n<div id="root"></div>`);
+    .replace('<div id="root"></div>', `<noscript><main style="max-width:42rem;margin:64px auto;padding:24px;font-family:system-ui,sans-serif"><p style="letter-spacing:.12em;text-transform:uppercase;font-size:12px">AIify</p><h1>Get your quarterly goals done without hiring anyone or learning AI.</h1><p>${escapeHtml(description)}</p><p><a href="mailto:joshua@aiifyit.com?subject=Quarterly%20goals">Book a call</a></p></main></noscript>\n<div id="root"></div>`);
 }
 
 for (const route of ['book', 'inquire', 'sow', 'new-offer']) {
