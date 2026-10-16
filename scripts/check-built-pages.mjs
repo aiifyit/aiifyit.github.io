@@ -82,7 +82,7 @@ const offer = await readFile('dist/new-offer/index.html', 'utf8');
 const robots = await readFile('dist/robots.txt', 'utf8');
 assert(offer.includes('name="robots" content="noindex, nofollow"'), 'Hidden offer is noindex');
 assert(offer.includes('<title>Get your quarterly goals done without hiring anyone or learning AI | AIify</title>'));
-assert(offer.includes('content="You set the goals. We bring the people, the systems and the follow-through."'));
+assert(offer.includes('content="You tell us what has to get done this quarter. A chief of staff, developers, and a project manager use AI on that work every day, and you say OK before anything goes out."'));
 assert(offer.includes('<h1>Get your quarterly goals done without hiring anyone or learning AI.</h1>'));
 assert(offer.includes(`rel="canonical" href="${site.url}/new-offer/"`));
 assert(offer.includes('Book a call'));
@@ -106,19 +106,19 @@ for (const file of [
 const offerSource = await readFile('src/pages/NewOfferPage.tsx', 'utf8');
 for (const phrase of [
   'Book a call',
-  'The Lever Loop',
   'Get your quarterly goals done without hiring anyone or learning AI.',
-  'You set the goals. We bring the people, the systems and the follow-through.',
-  'bolt-on AI department',
-  'A no-touch CRM',
-  'An automation builder',
-  'A knowledge base',
-  'A live meeting watcher',
-  'sign-off',
+  'You tell us what has to get done this quarter.',
+  'The CRM updates itself',
+  'Follow-ups, quotes, and reminders',
+  'company knowledge base',
+  'Someone watching the meeting',
+  'An AI agent that belongs to your company',
+  'until you say OK',
   'department head',
   'Chief of staff',
   'PLACEHOLDER',
   'P.S.',
+  "You're not short on ideas or ambition. You're short on time.",
 ]) {
   assert(offerSource.includes(phrase), `Offer page missing ${phrase}`);
 }
@@ -135,8 +135,13 @@ for (const banned of [
 assert(!/\bmy\b/i.test(offerSource), 'Write to the owner: no prospect "my"');
 assert(!/\bme\b/.test(offerSource), 'Write to the owner: no prospect "me"');
 assert(!/\bI\b/.test(offerSource), 'Write to the owner: no prospect "I"');
-assert(offerSource.includes('You are not short on ideas or ambition. You are short on time.'), 'The gap is time');
-assert(offerSource.includes('We do the digging. We do the building.'), 'We do the digging and the building');
+const offerCopy = offerSource.replace(/className="[^"]*"/g, '');
+for (const vague of ['follow-through', 'leverage', 'mechanism', 'outcomes', 'transform', 'bolt-on', 'sign-off', 'We do the digging']) {
+  assert(!offerCopy.toLowerCase().includes(vague), `Offer page must not say ${vague}`);
+}
+for (const vague of [/\bsystems\b/i, /\blever\b/i, /\baim\b/i]) {
+  assert(!vague.test(offerCopy), `Offer page must not say ${vague}`);
+}
 for (const route of ['book', 'inquire']) {
   const html = await readFile(`dist/${route}/index.html`, 'utf8');
   assert(html.includes('<noscript>'));
