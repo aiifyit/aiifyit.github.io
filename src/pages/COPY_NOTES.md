@@ -12,7 +12,7 @@ Keep these lines where they earn their place: “You are not short on ideas or a
 
 ## The offer
 
-A bolt-on AI department. A team of people using AI every day to help you hit the quarterly goals you already set. Headline: “Your AI team, already built and already working.” Subhead: “You set the goals. We bring the people, the systems and the follow-through.” AI is the tool, not the employee. Humans manage it.
+A bolt-on AI department. A team of people using AI every day to help you hit the quarterly goals you already set. Headline: “Get your quarterly goals done without hiring anyone or learning AI.” Subhead: “You set the goals. We bring the people, the systems and the follow-through.” AI is the tool, not the employee. Humans manage it.
 
 The Lever Loop stays as the eyebrow only. The product name in the body is the department. The old loop (find one place, build it, prove it, aim again) was the previous offer.
 

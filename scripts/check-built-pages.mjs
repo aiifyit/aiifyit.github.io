@@ -81,9 +81,9 @@ assert(!sitemap.includes('/book/'), 'Do not index duplicate booking alias');
 const offer = await readFile('dist/new-offer/index.html', 'utf8');
 const robots = await readFile('dist/robots.txt', 'utf8');
 assert(offer.includes('name="robots" content="noindex, nofollow"'), 'Hidden offer is noindex');
-assert(offer.includes('<title>Your AI team, already built and already working | AIify</title>'));
+assert(offer.includes('<title>Get your quarterly goals done without hiring anyone or learning AI | AIify</title>'));
 assert(offer.includes('content="You set the goals. We bring the people, the systems and the follow-through."'));
-assert(offer.includes('<h1>Your AI team, already built and already working.</h1>'));
+assert(offer.includes('<h1>Get your quarterly goals done without hiring anyone or learning AI.</h1>'));
 assert(offer.includes(`rel="canonical" href="${site.url}/new-offer/"`));
 assert(offer.includes('Book a call'));
 assert(offer.includes('mailto:joshua@aiifyit.com'));
@@ -107,7 +107,7 @@ const offerSource = await readFile('src/pages/NewOfferPage.tsx', 'utf8');
 for (const phrase of [
   'Book a call',
   'The Lever Loop',
-  'Your AI team, already built and already working.',
+  'Get your quarterly goals done without hiring anyone or learning AI.',
   'You set the goals. We bring the people, the systems and the follow-through.',
   'bolt-on AI department',
   'A no-touch CRM',
