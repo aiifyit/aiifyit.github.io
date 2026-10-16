@@ -4,100 +4,100 @@ import Container from '../components/ui/Container';
 import Button from '../components/ui/Button';
 import { INQUIRY_EMAIL } from '../data/inquiry';
 
-const PAGE_TITLE = 'Hit the number this quarter | The Lever Loop | AIify';
+const PAGE_TITLE = 'Where to aim AI | The Lever Loop | AIify';
 
 const GOAL_CALL_BODY = [
   'Hi Joshua,',
   '',
-  'I want to book a goal call about The Lever Loop.',
-  '',
-  'The number I need to hit this quarter:',
+  'I want to book a call about The Lever Loop.',
   '',
   'The business:',
   '',
-  'The last thing I paid for that I could not track:',
+  'What I am already pushing this quarter:',
+  '',
+  'Where I suspect the money is, if I have a hunch:',
   '',
 ].join('\n');
 
-const GOAL_CALL_MAILTO = `mailto:${INQUIRY_EMAIL}?subject=${encodeURIComponent('Goal call - the quarterly number')}&body=${encodeURIComponent(GOAL_CALL_BODY)}`;
+const GOAL_CALL_MAILTO = `mailto:${INQUIRY_EMAIL}?subject=${encodeURIComponent('Where to aim it')}&body=${encodeURIComponent(GOAL_CALL_BODY)}`;
 
 const AUDIT_PARTS = [
   {
     title: 'Owner economics',
-    text: 'Cost per sale, gross margin, and payback. What a sale is allowed to cost if you are going to scale it. What gets killed.',
+    text: 'Where the money and the time actually sit. Margin, cost, the sale, the hours. We aim at value, not at whatever tool is popular this month.',
   },
   {
     title: 'Outside-in research',
-    text: 'How buyers actually find a company like yours. Where you show up. Where you are invisible. What is public about the channels and the competitors.',
+    text: 'What is real in your market, set next to what is being sold as the next big move. Most of the fifty ideas die here.',
   },
   {
     title: 'Inside-out data',
-    text: 'The customer file, the estimates that never closed, the cancels, the routes, the source codes. We dig. A messy file is a normal starting point.',
+    text: 'Your file, your jobs, your routes, your numbers. The aim has to fit this company. A messy file is a normal place to start.',
   },
   {
     title: 'Opportunity scoring',
-    text: 'Each find is scored against the goal: how big it is, how fast it can move, what it costs to get proof, and how sure we can be.',
+    text: 'Each surviving move is scored on size, speed, what it costs to prove, and how sure we can be. One of them should be obvious. If none is, we say so.',
   },
   {
     title: 'The Lever Map',
-    text: 'One page. The biggest constraint between you and the number, and the opportunities sitting next to it. This is the plan for the quarter.',
+    text: 'One page. The place we will aim, what we will build, and what your numbers have to show before we do anything bigger.',
   },
 ];
 
 const SPRINT_WORK = [
-  'Operations that eat hours, automated where the rule is clear enough to trust.',
-  'Small lead tests. A control group. A kill line and a scale line written before the first dollar goes out.',
-  'The read on the data, in the numbers you already use: cost per lead, cost per sale, close rate, payback.',
-  'Custom tools, built by our developers, when a tool is actually the constraint.',
+  'The operation, automated where the rule is clear enough to trust.',
+  'A lead test, when a lead test is the lever: a control group, and a kill line and a scale line written before the first dollar.',
+  'The data, read in the numbers you already use to run the company.',
+  'A custom tool, built by our developers, when a tool is the move that pays.',
 ];
 
 const REASONS = [
   {
-    title: 'We test before we scale',
-    text: 'Money follows proof. A small test with a control group tells you whether a channel earns its keep. Clear the line and it gets more budget. Miss the line and it dies. There is no six-month “let’s see.”',
+    title: 'We aim before we build',
+    text: 'The field is full of moves. The audit throws out the ones that do not pay in your business. We do not start with a tool and go looking for a use for it.',
   },
   {
-    title: 'Attribution on every dollar',
-    text: 'No dollar moves unless it can be tied to a lead and a sale. Source codes, unique links, call tracking where the phone matters, a holdout when a list is big enough to split. If it cannot be tracked, it is not spent.',
+    title: 'Proof in your numbers',
+    text: 'A bigger bet follows a result you can read. If the move spends money, that spend is tracked and it has a kill line. If the move is inside the operation, the proof is hours, cost, or margin. Same rule either way.',
   },
   {
     title: 'Constraint first',
-    text: 'Eliyahu Goldratt’s book The Goal named what operators already know. A business moves at the speed of its constraint. Effort piled anywhere else feels busy and does not change the number. The audit exists to name that constraint. We do not start with a tool and go looking for a job for it.',
+    text: 'Eliyahu Goldratt’s book The Goal is plain about this. A business moves at the speed of its constraint. The highest-value place to aim is the constraint on the outcome you already want. Work anywhere else feels busy and does not change the result.',
   },
   {
     title: 'Builders, not advisors',
-    text: 'The person in the research and the data stays in the room with the developers who build. You end the quarter with something running: a workflow, a test in market, a tool your people use, a scoreboard your operator can read on Friday.',
+    text: 'The person on the research and the data stays with the developers who build. You are not left with a deck to assign. You end the quarter with something running.',
   },
   {
     title: 'Skin in the game',
-    text: 'The audit fee comes back if we cannot find a lever worth ten times that fee. If we miss on work we promised to ship, the next month is half price. You can add a bonus that is paid only if the quarterly number is hit.',
+    text: 'The audit fee comes back if we cannot find a lever worth ten times that fee. If we miss work we promised to ship, the next month is half price. You can add a bonus that is paid only if the outcome we agreed is hit.',
   },
   {
     title: 'A weekly scoreboard',
-    text: 'You should not be wondering, in week six, whether this is working. The scoreboard is short. The number is on it. So is the kill line. So is what we stopped.',
+    text: 'You should see the proof while it is forming. The scoreboard is short. The lever is on it. So is the number we said would move. So is what we stopped.',
   },
 ];
 
 const GET_ITEMS = [
-  'The quarterly goal, written as one number.',
+  'A quarter aimed at the priority you are already running.',
   'The Lever Audit and the Lever Map.',
   'A research and data lead, plus developers who build.',
-  'Sprints of 30 to 60 days on the single biggest lever.',
-  'Tests with control groups, tracking, and kill and scale lines set before spend.',
+  'One build, 30 to 60 days, on the highest-value place.',
+  'Proof in your numbers, with kill and scale lines wherever money is spent.',
   'A weekly scoreboard.',
-  'A quarter-end review, then the next goal.',
+  'A quarter-end review, then the next place to aim.',
   'Code and data in your company’s name.',
-  'An optional bonus, agreed up front, paid only if the number is hit.',
+  'An optional bonus, agreed up front, paid only if that outcome is hit.',
 ];
 
 const GUARANTEES = [
   {
     title: 'Full audit refund',
-    text: 'You pay for the Lever Audit. If it does not find a lever worth at least 10 times the audit fee, we refund that fee. “Worth” means the economics written on the Lever Map: margin, cost taken out, or a contribution to the quarterly number that we can show you. If we cannot show it, you should not continue.',
+    text: 'You pay for the Lever Audit. If it does not find a lever worth at least 10 times the audit fee, we refund that fee. “Worth” means the economics on the Lever Map: margin, cost taken out, or a result in the numbers you already run the company on. If we cannot show it, you should not continue.',
   },
   {
-    title: 'No dollar moves without tracking',
-    text: 'If a spend cannot be tied to a source and a sale, it does not go out. This is a rule of the work, not a slogan on a proposal.',
+    title: 'No dollar moves without a way to read it',
+    text: 'If a move costs money to test, we do not spend it until the result will show up in your numbers. A source, a holdout where the list is big enough, a before and after you can audit. If we cannot read it, we do not spend it.',
   },
   {
     title: 'Kill lines written before spend',
@@ -114,59 +114,60 @@ const GUARANTEES = [
 ];
 
 const FOR_YOU = [
-  'You own or operate a home-service company, a route business, or more than one location.',
-  'You think in cost per sale, margin, and payback. You have a number for this quarter.',
-  'You will open the customer file, the lead sources, and a rough view of margin.',
-  'You want the people who find the constraint to be the people who build the fix.',
+  'You own or operate a home-service company, a route business, or more than one location, and you want an edge.',
+  'You already have the goals, the team, and the capital. You will not spend your week sorting through AI news.',
+  'You will open the customer file, the operation, and a rough view of margin, so the aim is yours and not a generic one.',
+  'You want the people who find the place to be the people who build it.',
 ];
 
 const NOT_FOR_YOU = [
   'You want a brand campaign, a logo, or a monthly report of activity.',
-  'You will not share data. A constraint we are not allowed to see stays hidden.',
-  'You want a demo, a chatbot, or a model with no tie to a number.',
-  'You are shopping for the cheapest month-to-month vendor.',
+  'You want an agency that sells one channel, or a deck you will have to go and execute.',
+  'You will not share data. We cannot aim at a business we are not allowed to see.',
+  'You want a demo, a chatbot, or a model with no tie to how you make money.',
+  'You want the cheapest pair of hands, and you are ready to manage them.',
   'You want advice to hand to another team. This partnership builds.',
 ];
 
 const QUESTIONS = [
   {
     q: 'We tried agencies.',
-    a: 'Then you already know the failure. Activity, a report, and no sale you can point at. This is not a retainer for a channel. A test that misses its kill line gets cut, including one we recommended. The scoreboard is the argument, every week, in the numbers you asked for.',
+    a: 'An agency sells the thing it sells. That can be the right buy when you already know the move. It is the wrong buy when the question is which move, in this business, is worth making. We start from your operation and your numbers. If a test misses its line, it stops, including one we recommended. The scoreboard is the record.',
   },
   {
     q: 'AI is hype.',
-    a: 'Treat it that way until it moves a number. We do not lead with a model. We lead with the constraint. If the lever is a cleaner source code and a control-group test, that is the work. If the lever is a tool, our developers build the tool. The word is not the product. The number is.',
+    a: 'Most of the fifty moves are. Treat the category that way until a specific move shows up in your numbers. We do not lead with a model. We lead with the place it would have to pay. If that place is a cleaner handoff or a control-group test, that is the work. If it is a tool, our developers build the tool.',
   },
   {
     q: 'My data is a mess.',
-    a: 'That is the usual start. The audit is the dig. You do not need a perfect warehouse or five tidy years of source codes. You need access, and a team willing to sit in the mess until it will support a decision. If the file cannot support one, we will say so, and we will not spend media on a guess.',
+    a: 'That is the usual start. The audit is the dig. You do not need a perfect warehouse. You need access, and a team that will sit in the file until it can support a decision about where to aim. If it cannot support one, we will say so, and we will not build on a guess.',
   },
   {
     q: 'How fast does this move?',
-    a: 'The goal is locked at the start. The audit comes before the build. Sprints run 30 to 60 days inside the quarter. Once the work is in motion you get a scoreboard every week, not a reveal on the last day. Some levers show a leading number in weeks: response rate, speed to first contact, cost per lead. A cost per sale you can scale is allowed to take the quarter. This page will not promise you a revenue figure.',
+    a: 'Your priorities come first, because they tell us where to look. The audit comes before the build. Sprints run 30 to 60 days. Once the work is in motion you get a scoreboard every week. Some levers show a leading number in weeks. A result you would scale is allowed to take the quarter. We prove the first one in your numbers before we ask you to fund the next. This page will not promise you a revenue figure.',
   },
   {
     q: 'What does it cost?',
-    a: 'The Lever Audit starts at $7,500. A larger file or more locations can cost more, and we will tell you that number before you agree. The partnership starts at $8,000 a month, scoped for the quarter and agreed on the goal call, against the number you bring. An optional bonus is paid only if that number is hit. The buttons on this page do not show a price. The price follows the goal.',
+    a: 'The Lever Audit starts at $7,500. A larger file or more locations can cost more, and we will tell you that number before you agree. The partnership starts at $8,000 a month, scoped for the quarter and agreed on the call, against the place we are aiming. An optional bonus is paid only if the outcome named up front is hit. The buttons on this page do not show a price. The price follows the aim.',
   },
 ];
 
 const SCOREBOARD_ROWS = [
-  ['Goal for the quarter', 'blank'],
-  ['Sales tied to a source', 'blank'],
-  ['Spend tied to a source', 'blank'],
-  ['Cost per sale', 'blank'],
-  ['Kill line', 'Written before the spend'],
-  ['Scale line', 'Written before the spend'],
+  ['The lever this quarter', 'blank'],
+  ['The proof we are watching', 'blank'],
+  ['Your number for that proof', 'blank'],
+  ['Money spent, if the lever spends money', 'blank'],
+  ['Kill line', 'Written before the work'],
+  ['Scale line', 'Written before the work'],
   ['Stopped this week', 'blank'],
-  ['Build next', 'blank'],
+  ['Next place to look', 'blank'],
 ];
 
 function GoalCall({ note }: { note: string }) {
   return (
     <div>
       <Button href={GOAL_CALL_MAILTO} size="lg" className="w-full sm:w-auto">
-        Book a goal call
+        Book a call
       </Button>
       <p className="mt-4 max-w-md text-sm leading-relaxed text-[var(--color-text-muted)]">{note}</p>
     </div>
@@ -203,21 +204,21 @@ export default function NewOfferPage() {
           <div className="max-w-3xl">
             <p className="text-sm uppercase tracking-widest text-[var(--color-accent)]">The Lever Loop · AIify</p>
             <h1 className="mt-5 text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl md:text-6xl">
-              I need to hit my number this quarter.
+              Everyone says AI is huge.
             </h1>
             <p className="mt-5 text-2xl font-semibold leading-snug tracking-tight text-[var(--color-text)] sm:text-3xl">
-              I’m done paying for marketing I can’t track.
+              Where's the money in my business, and who's going to do the work?
             </p>
             <div className="mt-8 space-y-5 text-lg leading-relaxed text-[var(--color-text-muted)]">
               <p>
-                If that is the sentence in your head, stay. This page is for owners and investor-operators of home-service and multi-location businesses. People who already think in cost per sale, margin, and payback.
+                That is the useful question. The Lever Loop is how we answer it. We find the one place AI will pay in your business, our developers build it, we prove it in your numbers, and then we find the next one.
               </p>
               <p>
-                The Lever Loop is a quarterly partnership built around the one number you have to hit. We lock it. We find the constraint in the way. A research lead and our developers then go after that constraint, and the weekly scoreboard shows whether the number moved.
+                You already have the goals, the team, and the capital. You know AI should be an unfair advantage here. What you do not have is a clean way to pick the move, or a team that will both find it and build it while your people keep running the company.
               </p>
             </div>
             <div className="mt-8">
-              <GoalCall note={`Opens a draft to ${INQUIRY_EMAIL}. Nothing is sent until you send it. Bring the number. There is no price on this button.`} />
+              <GoalCall note={`Opens a draft to ${INQUIRY_EMAIL}. Nothing is sent until you send it. No price on this button.`} />
             </div>
           </div>
         </Container>
@@ -227,23 +228,23 @@ export default function NewOfferPage() {
         <Container>
           <div className="max-w-3xl">
             <h2 id="problem-heading" className="text-3xl font-bold tracking-tight md:text-5xl">
-              You have the number. You do not have the trail.
+              You are not short a goal. You are short an aim, and a builder.
             </h2>
             <div className="mt-8 space-y-5 text-lg leading-relaxed text-[var(--color-text-muted)]">
               <p>
-                You already did the hard thinking. Customers to add. Revenue to book. A cost per sale you can live with. Margin that pays a new customer back inside the year. The quarter has a date on it. The number does not care about a new logo.
+                Good operators already know what the year is for. The quarter has priorities. The team is busy hitting them. The gap is not ambition. The gap is where, in this business, AI is actually worth pointing.
               </p>
               <p>
-                Then the money goes out, and the trail goes cold. Ads run. Mail drops. A retainer sends a report full of clicks, impressions, and “awareness.” Nobody can put a finger on a dollar and name the sale it bought. You have funded that kind of quarter before. You are not funding it again.
+                <span className="font-semibold text-[var(--color-text)]">Where.</span> There is no shortage of ideas. A model on the phones. A tool for the office. A test on a new channel. A pass through the customer file. Fifty moves, and a new one every week from someone selling it. You cannot tell which of them would pay here, and you will not give up a week to research it. You are running the company.
               </p>
               <p>
-                So this quarter opens with two bad choices. Spend and hope. Or hold the budget and watch the season go by. Hope is not a system. Sitting still does not hit the number either.
+                <span className="font-semibold text-[var(--color-text)]">Who.</span> Your people are already doing the work that makes the money. An agency sells the one thing it sells. A consultant hands you a deck. A freelancer still needs you to manage them. None of those both find the opportunity and build it.
               </p>
               <p>
-                The thing in the way is specific. One constraint. A follow-up that is too slow. A customer list nobody has worked. A route that makes the next-door sale cheaper than a stranger across town. A channel you are scaling before it has earned the scale. Until that constraint has a name, every new tactic is another guess with a cleaner invoice.
+                <span className="font-semibold text-[var(--color-text)]">Proof.</span> You have heard the pitches. You will put real money behind a move after it shows up in your own numbers. That is the right standard. The first job is a proof you can read, small enough to stop if it misses.
               </p>
               <p className="text-[var(--color-text)]">
-                Name the constraint. Prove the fix on a small test. Spend only where the proof is. That is the whole offer.
+                Find the place. Build that one thing. Prove it. Then aim again. That is the whole offer.
               </p>
             </div>
           </div>
@@ -262,13 +263,13 @@ export default function NewOfferPage() {
             </p>
             <div className="mt-6 space-y-5 text-lg leading-relaxed text-[var(--color-text-muted)]">
               <p>
-                One goal. One number. One quarter. You are not hiring a demo, and you are not hiring a deck. You are hiring a team that gets on the number with you.
+                One place. One build. One proof. Then the next place. You are not hiring a demo, and you are not hiring a tour of tools. You are hiring the aim and the build, in the same team.
               </p>
               <p>
-                Joshua Pellicer and AIify come in for the quarter as the people who do the work: a lead on the research and the data, and developers who build. The work is custom. Two companies in the same trade can leave the quarter with different builds, because the build follows the goal.
+                Joshua Pellicer and AIify come in for the quarter as the people who do the work: a lead on the research and the data, and developers who build. The work is custom. Two companies in the same trade can leave with different builds, because the aim comes from the business in front of us.
               </p>
               <p>
-                The partnership is priced per quarter. An optional bonus can be tied to hitting the goal. The price is set on the goal call, against that goal. It is not printed on the button.
+                Your own priorities set the context. What you are already pushing this quarter tells us where to look, and which fashionable project to ignore. The partnership is priced per quarter. An optional bonus can be tied to the outcome we name up front. The price is set on the call. It is not printed on the button.
               </p>
             </div>
           </div>
@@ -282,16 +283,16 @@ export default function NewOfferPage() {
               How it works
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-[var(--color-text-muted)]">
-              Four moves. The same four every quarter. The work inside them changes, because your constraint changes.
+              Four moves. The same four every quarter. The work inside them changes, because the place worth aiming at changes.
             </p>
           </div>
 
           <ol className="mx-auto mt-12 max-w-3xl space-y-6">
             <li className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface)] p-6 md:p-8">
               <p className="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)]">01</p>
-              <h3 className="mt-3 text-2xl font-bold tracking-tight">Lock the quarterly goal</h3>
+              <h3 className="mt-3 text-2xl font-bold tracking-tight">Your quarter sets the aim</h3>
               <p className="mt-4 text-base leading-relaxed text-[var(--color-text-muted)] md:text-lg">
-                In the first working session we write the one goal and the number that means it happened. Not three goals. One. Revenue, customers, cost per sale, margin, payback. If it cannot be counted, it is not the goal. A sale, when sales are the number, means a booked job with payment attached. A lead is not a sale. A quote is not a sale.
+                You already know what this quarter is for. A market, a margin, a crew, a line of work. Bring that. We use it as the map. We do not invent a goal for you, and we do not grade you against one. If a project does not touch what you are already pushing, it is not the lever.
               </p>
             </li>
 
@@ -299,7 +300,7 @@ export default function NewOfferPage() {
               <p className="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)]">02</p>
               <h3 className="mt-3 text-2xl font-bold tracking-tight">The Lever Audit</h3>
               <p className="mt-4 text-base leading-relaxed text-[var(--color-text-muted)] md:text-lg">
-                Research plus the data, before anyone builds. The job of the audit is to find the biggest constraint between you and the goal, and the opportunities hiding beside it.
+                Deep research, plus your own data, before anyone builds. The job is to name the highest-value place to aim, and to throw out the moves that are only noise.
               </p>
               <dl className="mt-6 space-y-5">
                 {AUDIT_PARTS.map((part) => (
@@ -315,7 +316,7 @@ export default function NewOfferPage() {
               <p className="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)]">03</p>
               <h3 className="mt-3 text-2xl font-bold tracking-tight">30 to 60 day sprints</h3>
               <p className="mt-4 text-base leading-relaxed text-[var(--color-text-muted)] md:text-lg">
-                We pull the single biggest lever. Not five projects. The one that moves the number. The sprint uses whatever that lever actually needs.
+                We build that one thing. Not five projects. The sprint uses whatever the lever actually needs.
               </p>
               <ul className="mt-6 space-y-3">
                 {SPRINT_WORK.map((item) => (
@@ -329,9 +330,9 @@ export default function NewOfferPage() {
 
             <li className="rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface)] p-6 md:p-8">
               <p className="text-sm font-semibold uppercase tracking-widest text-[var(--color-accent)]">04</p>
-              <h3 className="mt-3 text-2xl font-bold tracking-tight">A weekly scoreboard, then repeat</h3>
+              <h3 className="mt-3 text-2xl font-bold tracking-tight">Prove it, then aim again</h3>
               <p className="mt-4 text-base leading-relaxed text-[var(--color-text-muted)] md:text-lg">
-                Every week, one scoreboard. The number, the spend, what is working, what hit a kill line, what we do next. At the end of the quarter we review against the goal, keep what proved out, stop what did not, and set the next number. Then the loop runs again.
+                Every week, one scoreboard. The lever, the proof, what we stopped, what is next. At the end of the quarter we keep what your numbers supported, drop what they did not, and point the next quarter at the next place. Then the loop runs again.
               </p>
               <div className="mt-6 overflow-hidden rounded-xl border border-dashed border-[var(--color-border)]">
                 <p className="bg-[var(--color-surface-2)] px-4 py-3 text-xs font-semibold uppercase tracking-widest text-[var(--color-accent)]">
@@ -364,7 +365,7 @@ export default function NewOfferPage() {
           </ol>
 
           <div className="mx-auto mt-12 max-w-3xl">
-            <GoalCall note="If the four moves are the conversation you wanted, book the goal call. Bring the number." />
+            <GoalCall note="If this is the team you wanted on the aim and the build, book the call." />
           </div>
         </Container>
       </section>
@@ -376,7 +377,7 @@ export default function NewOfferPage() {
               Why this will work
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-[var(--color-text-muted)]">
-              Six reasons. Each one is a rule we can be fired for breaking.
+              Six reasons. Each one is a rule of the work.
             </p>
           </div>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
@@ -392,13 +393,13 @@ export default function NewOfferPage() {
           </div>
 
           <div className="mt-8 max-w-3xl rounded-2xl border border-[var(--color-border-subtle)] p-6 md:p-8">
-            <h3 className="text-xl font-bold tracking-tight">Two public studies. Not our clients.</h3>
+            <h3 className="text-xl font-bold tracking-tight">A public example. Not your lever, unless the audit says so.</h3>
             <div className="mt-4 space-y-4 text-base leading-relaxed text-[var(--color-text-muted)]">
               <p>
-                Speed shows up often enough in home services that it is worth naming, as research you can read yourself. The InsideSales.com / MIT lead-response study, led by James Oldroyd, measured web leads. Its finding: the odds of contacting a lead if called in 5 minutes versus 30 minutes drop 100 times, and the odds of qualifying that lead drop 21 times. The study did not measure close rate. Use it as a reason to time the first response. Do not read it as a revenue promise.
+                People argue about a lot of moves. Speed to the first reply is one of them, and the public research is old enough to read for yourself. The InsideSales.com / MIT lead-response study, led by James Oldroyd, measured web leads. Its finding: the odds of contacting a lead if called in 5 minutes versus 30 minutes drop 100 times, and the odds of qualifying that lead drop 21 times. The study did not measure close rate. It is a reason to look at first response. It is not a reason to assume first response is your lever.
               </p>
               <p>
-                Valve+Meter’s secret-shopper study sent inquiries to 466 U.S. home-service companies. It reported that 95% did not respond within five minutes. That is an industry pattern. It is not a number from a company we work with, and it is not a claim about your shop. If speed is the constraint, we prove it on your file before we build anything.
+                Valve+Meter’s secret-shopper study sent inquiries to 466 U.S. home-service companies. It reported that 95% did not respond within five minutes. That is an industry pattern. It is not a number from a company we work with, and it is not a claim about your shop. If the audit says speed is the place to aim, we prove it on your file before we build anything.
               </p>
               <p className="text-sm">
                 Sources:{' '}
@@ -438,10 +439,10 @@ export default function NewOfferPage() {
         <Container>
           <div className="max-w-3xl">
             <h2 id="risk-heading" className="text-3xl font-bold tracking-tight md:text-5xl">
-              The risk sits with us until the work proves out
+              You should not have to fund a hunch
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-[var(--color-text-muted)]">
-              You have paid for work you could not track. The downside of finding out should not sit on you alone. These are the terms.
+              You have the capital. You also have the sense to wait for a result you can read. These terms put the downside of a bad aim on us.
             </p>
             <div className="mt-8 space-y-6">
               {GUARANTEES.map((item) => (
@@ -452,7 +453,7 @@ export default function NewOfferPage() {
               ))}
             </div>
             <div className="mt-10">
-              <GoalCall note="Book the goal call if the terms are the part you needed to see. The button still has no price on it." />
+              <GoalCall note="Book the call if the terms are the part you wanted in writing. The button still has no price on it." />
             </div>
           </div>
         </Container>
@@ -462,14 +463,14 @@ export default function NewOfferPage() {
         <Container>
           <div className="max-w-3xl">
             <h2 id="pay-heading" className="text-3xl font-bold tracking-tight md:text-5xl">
-              Optional pay for hitting the goal
+              Optional pay when the agreed outcome hits
             </h2>
             <div className="mt-6 space-y-5 text-lg leading-relaxed text-[var(--color-text-muted)]">
               <p>
-                The quarterly fee pays for the team and the work. On top of it, you can tie a bonus to the goal. Before the quarter starts we agree on the number, on what counts as hitting it, and on the bonus.
+                The quarterly fee pays for the aim and the build. On top of it, you can tie a bonus to the outcome you already care about this quarter. Before the work starts we agree on that outcome, on what counts as hitting it, and on the bonus.
               </p>
               <p>
-                Hit the number and the bonus is paid. Miss it and the bonus is not paid. The bonus is optional. Some owners want the extra stake. Some do not. Either way, the kill lines stay where they were written.
+                Hit it and the bonus is paid. Miss it and the bonus is not paid. The bonus is optional. It does not change the kill lines, and it does not turn the quarter into a hunt for a goal you did not already have.
               </p>
             </div>
           </div>
@@ -522,7 +523,7 @@ export default function NewOfferPage() {
                 Completed quarters will be listed here only after the numbers are sourced and the client has approved the wording. Nothing in this block is a result.
               </p>
               <p>
-                This page does not describe an engagement, name a customer, or show a before and after. If you want proof from a finished quarter, ask on the goal call. We will tell you what we can share. We will not write a result to fill the space.
+                This page does not describe an engagement, name a customer, or show a before and after. If you want proof from a finished quarter, ask on the call. We will tell you what we can share. We will not write a result to fill the space.
               </p>
             </div>
           </div>
@@ -576,27 +577,27 @@ export default function NewOfferPage() {
         <Container>
           <div className="max-w-3xl">
             <h2 id="close-heading" className="text-3xl font-bold tracking-tight md:text-5xl">
-              Bring the number. We will tell you if we should work this quarter.
+              If you want the edge, book the call.
             </h2>
             <div className="mt-6 space-y-5 text-lg leading-relaxed text-[var(--color-text-muted)]">
               <p>
-                If the quarter has a number on it, and you are done paying for work you cannot trace to a sale, book the goal call with Joshua Pellicer.
+                Bring the business, the priority you are already running, and whether you will open the data. If you have a hunch about where the money is, bring that too. Joshua Pellicer will tell you if The Lever Loop fits this quarter.
               </p>
-              <p>Bring three things.</p>
+              <p>Three things are enough.</p>
             </div>
             <ol className="mt-6 list-decimal space-y-2 pl-5 text-lg leading-relaxed text-[var(--color-text)]">
-              <li>The number.</li>
-              <li>The last thing you paid for that you could not track.</li>
+              <li>What you are already pushing.</li>
+              <li>Where you suspect AI could pay, if you have a hunch.</li>
               <li>Whether you will open the data.</li>
             </ol>
             <p className="mt-6 text-lg leading-relaxed text-[var(--color-text-muted)]">
-              We will say if The Lever Loop fits. If it does not, we will say that too.
+              We will say if we should work together. If we should not, we will say that too.
             </p>
             <div className="mt-8">
               <GoalCall note={`Opens a draft to ${INQUIRY_EMAIL}. You review it in your own email app and send it yourself. Joshua replies from AIify.`} />
             </div>
             <p className="mt-10 border-t border-[var(--color-border-subtle)] pt-6 text-base leading-relaxed text-[var(--color-text-muted)]">
-              <span className="font-semibold text-[var(--color-text)]">P.S.</span> The audit fee comes back if we cannot find a lever worth ten times that fee. Kill lines are written before any spend. You own what we build. The only decision on the call is whether your number and this team belong in the same quarter.
+              <span className="font-semibold text-[var(--color-text)]">P.S.</span> The audit fee comes back if we cannot find a lever worth ten times that fee. Kill lines are written before any spend. You own what we build. The only decision on the call is whether we should aim the next quarter at your business.
             </p>
           </div>
         </Container>
@@ -607,7 +608,7 @@ export default function NewOfferPage() {
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[var(--color-border-subtle)] bg-[var(--color-bg)]/95 backdrop-blur-xl md:hidden">
         <div className="px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
           <Button href={GOAL_CALL_MAILTO} size="sm" className="w-full">
-            Book a goal call
+            Book a call
           </Button>
         </div>
       </div>

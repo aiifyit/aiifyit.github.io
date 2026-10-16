@@ -2,26 +2,34 @@
 
 Hidden page. Not linked from the nav, footer, homepage, or sitemap. `noindex, nofollow` on the page. Not listed in `robots.txt`.
 
-The reader is a numbers-driven owner or investor-operator of a home-service or multi-location business. Problem-aware, solution-skeptical. They already have a quarterly number. They have paid for marketing they could not trace to a sale. They do not need a category lecture about AI.
+The reader is an ambitious owner or investor-operator of a home-service or multi-location business. They already have goals, a team, and capital. They are past the “AI is the future” speech. They want an edge in their own business, and they will not spend the week sorting hype or managing a freelancer.
+
+The rejected hook (“I need to hit my number this quarter” / “I’m done paying for marketing I can’t track”) is gone on purpose. It made AIify sound like an ads shop, put the reader in a victim seat, and treated a missing goal as the problem. Good operators already hit goals. The quarterly priority is context for where to aim, not the pain.
+
+## The conversation
+
+“Everyone says AI is huge. Where’s the money in my business, and who’s going to actually do it?”
+
+What they lack is where to aim, who will both find it and build it, and proof in their own numbers before they put more in.
 
 ## Systems used
 
-- **Collier — enter the conversation already in their head.** The headline is their sentence: “I need to hit my number this quarter.” The next line is the other one: “I’m done paying for marketing I can’t track.” The page never opens with the company.
-- **Schwartz — awareness.** Problem-aware, not unaware. The mechanism (one constraint, proof before spend) is introduced only after the problem is named. Skepticism toward agencies and toward AI is handled in the FAQ, not by shouting a bigger claim.
-- **Halbert.** Specifics a buyer can check: one goal, 30–60 day sprints, audit from $7,500, partnership from $8,000 a month, a 10× audit refund, half-price next month on an execution miss. No borrowed glory.
-- **Sugarman — slippery slide.** Short sentences. Each section ends on the next question (what is the constraint, what do we actually do, what happens to the money, what if it fails). No table of contents. One repeated action: book the goal call.
-- **Caples and Ogilvy — headlines and specificity.** The headline is the reader’s own stake, not a pun. Public studies are named, dated, and limited to what they measured. The price sits in the cost FAQ, not on the button.
-- **Kennedy — no-BS.** Who it is not for is as clear as who it is for. Kill lines, ownership of code and data, and the refund are stated as rules. No countdown, no fake scarcity, no “limited spots.”
-- **PAS.** Problem: a number with no trail from dollar to sale. Agitation: spend-and-hope versus sitting out the quarter. Solution: The Lever Loop.
-- **Risk reversal.** Full audit refund if no lever is worth 10× the fee. No dollar without tracking. Kill lines written before spend. Half-price next month if we miss on execution. The client owns the code and the data. Optional bonus only if the goal is hit.
+- **Collier — enter the conversation already in their head.** The headline is the noise they are tired of hearing (“Everyone says AI is huge”) and the next line is the question they are actually asking.
+- **Schwartz — sophisticated market, new mechanism.** This reader has heard the category claim. The hook names the mechanism in the first screen: find the one place, build it, prove it in their numbers, then find the next one. The Lever Loop is that mechanism. Skepticism is handled as a standard for proof, not as a wound.
+- **Halbert.** Specifics a buyer can check: one place per quarter, 30–60 day builds, audit from $7,500, partnership from $8,000 a month, a 10× audit refund, half-price next month on an execution miss.
+- **Sugarman — slippery slide.** Short sentences. The first screen states the mechanism, then the page answers where, who, and proof, then the terms. No table of contents. One action: book a call.
+- **Caples and Ogilvy — headlines and specificity.** The headline is the reader’s question, not a pun. The public studies stay named and limited to what they measured, and they are an example of a move we do not assume is theirs. Price sits in the cost answer, not on the button.
+- **Kennedy — no-BS.** Who it is not for is as plain as who it is for. The refund, the kill lines, and ownership of the code are rules. No countdown and no fake scarcity.
+- **PAS, aimed at desire.** The problem is a crowded field of AI moves and nobody to execute the right one. The agitation is the cost of aiming wrong or having to manage the build yourself. The solution is the loop. The reader is after an edge, not a rescue.
+- **Risk reversal.** Full audit refund if no lever is worth 10× the fee. No spend we cannot read in their numbers. Kill lines written before spend. Half-price next month if we miss on execution. They own the code and the data. Optional bonus only if the outcome agreed up front is hit.
 
 ## What this page refuses to invent
 
 - No client name, no anonymized engagement, no case study.
 - Past-results and testimonial blocks are labeled placeholders and are empty on purpose.
 - The scoreboard is a blank layout, labeled as a layout.
-- The only figures from outside the offer itself are the InsideSales.com / MIT lead-response study (contact and qualification odds; it did not measure close rate) and Valve+Meter’s 2018 secret-shopper count of 466 home-service companies (95% did not respond within five minutes). Both are linked.
+- The only figures from outside the offer itself are the InsideSales.com / MIT lead-response study (contact and qualification odds; it did not measure close rate) and Valve+Meter’s secret-shopper count of 466 home-service companies (95% did not respond within five minutes). Both are linked, and both are offered as a public example, not as the reader’s problem.
 
 ## Price
 
-Buttons say “Book a goal call” and do not show a price. The cost FAQ states the floors: Lever Audit from $7,500, partnership from $8,000 a month, agreed for the quarter on the call, plus an optional bonus tied to the goal.
+Buttons say “Book a call” and do not show a price. The cost answer states the floors: Lever Audit from $7,500, partnership from $8,000 a month, agreed for the quarter on the call, plus an optional bonus tied to the outcome named up front.
