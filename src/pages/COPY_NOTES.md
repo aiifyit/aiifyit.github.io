@@ -6,9 +6,13 @@ The reader is an ambitious owner or investor-operator of a home-service or multi
 
 The rejected hook (“I need to hit my number this quarter” / “I’m done paying for marketing I can’t track”) is gone on purpose. It made AIify sound like an ads shop, put the reader in a victim seat, and treated a missing goal as the problem. Good operators already hit goals. The quarterly priority is context for where to aim, not the pain.
 
+## Voice
+
+Write to the owner. Do not write as the owner. No quoted inner monologue, and no prospect first person in a headline, subhead, card, question, or button: not “my business,” not “I know AI should,” not “who’s going to build it for me.” Say “you” and “your.” AIify’s own “we” stays. The line on the page is “Where’s the money in your business, and who’s going to do the work?”
+
 ## The conversation
 
-“Everyone says AI is huge. Where’s the money in my business, and who’s going to actually do it?”
+Everyone says AI is huge. Where’s the money in your business, and who’s going to do the work?
 
 What they lack is where to aim, who will both find it and build it, and proof in their own numbers before they put more in.
 

@@ -103,9 +103,10 @@ const offerSource = await readFile('src/pages/NewOfferPage.tsx', 'utf8');
 for (const phrase of ['Book a call', 'The Lever Loop', 'Lever Audit', 'Lever Map', 'weekly scoreboard', '$7,500', '$8,000', 'PLACEHOLDER', 'P.S.', 'Where\'s the money']) {
   assert(offerSource.includes(phrase), `Offer page missing ${phrase}`);
 }
-for (const banned of ['Dreamlawn', 'Midwest', 'Drobenak', 'Heritage', 'Coalmarch', 'Real Green', 'new-mover', '1995', '$9,500', '$400,000', '400K', 'I need to hit my number', 'done paying', 'can\'t track', 'can’t track']) {
+for (const banned of ['Dreamlawn', 'Midwest', 'Drobenak', 'Heritage', 'Coalmarch', 'Real Green', 'new-mover', '1995', '$9,500', '$400,000', '400K', 'I need to hit my number', 'done paying', 'can\'t track', 'can’t track', 'my business', 'My data', 'We tried agencies', 'I want to book', 'What I am', 'for me']) {
   assert(!offerSource.includes(banned), `Offer page must not mention ${banned}`);
 }
+assert(offerSource.includes("Where's the money in your business"), 'Write to the owner, not as the owner');
 for (const route of ['book', 'inquire']) {
   const html = await readFile(`dist/${route}/index.html`, 'utf8');
   assert(html.includes('<noscript>'));

@@ -9,13 +9,13 @@ const PAGE_TITLE = 'Where to aim AI | The Lever Loop | AIify';
 const GOAL_CALL_BODY = [
   'Hi Joshua,',
   '',
-  'I want to book a call about The Lever Loop.',
+  'Booking a call about The Lever Loop.',
   '',
   'The business:',
   '',
-  'What I am already pushing this quarter:',
+  'The priority already in motion this quarter:',
   '',
-  'Where I suspect the money is, if I have a hunch:',
+  'A hunch about where the money is:',
   '',
 ].join('\n');
 
@@ -131,7 +131,7 @@ const NOT_FOR_YOU = [
 
 const QUESTIONS = [
   {
-    q: 'We tried agencies.',
+    q: 'You tried agencies.',
     a: 'An agency sells the thing it sells. That can be the right buy when you already know the move. It is the wrong buy when the question is which move, in this business, is worth making. We start from your operation and your numbers. If a test misses its line, it stops, including one we recommended. The scoreboard is the record.',
   },
   {
@@ -139,7 +139,7 @@ const QUESTIONS = [
     a: 'Most of the fifty moves are. Treat the category that way until a specific move shows up in your numbers. We do not lead with a model. We lead with the place it would have to pay. If that place is a cleaner handoff or a control-group test, that is the work. If it is a tool, our developers build the tool.',
   },
   {
-    q: 'My data is a mess.',
+    q: 'Your data is a mess.',
     a: 'That is the usual start. The audit is the dig. You do not need a perfect warehouse. You need access, and a team that will sit in the file until it can support a decision about where to aim. If it cannot support one, we will say so, and we will not build on a guess.',
   },
   {
@@ -207,7 +207,7 @@ export default function NewOfferPage() {
               Everyone says AI is huge.
             </h1>
             <p className="mt-5 text-2xl font-semibold leading-snug tracking-tight text-[var(--color-text)] sm:text-3xl">
-              Where's the money in my business, and who's going to do the work?
+              Where's the money in your business, and who's going to do the work?
             </p>
             <div className="mt-8 space-y-5 text-lg leading-relaxed text-[var(--color-text-muted)]">
               <p>
