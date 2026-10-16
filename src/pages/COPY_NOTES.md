@@ -14,7 +14,7 @@ Write to the owner. Do not write as the owner. No quoted inner monologue, and no
 
 Everyone says AI is huge. Where’s the money in your business, and who’s going to do the work?
 
-What they lack is where to aim, who will both find it and build it, and proof in their own numbers before they put more in.
+What they lack is time. Finding where AI pays off, and getting it built, is a full-time job, and running the company already is one. They still want proof in their own numbers before they put more in. We do the digging and the building.
 
 ## Systems used
 
@@ -24,7 +24,7 @@ What they lack is where to aim, who will both find it and build it, and proof in
 - **Sugarman — slippery slide.** Short sentences. The first screen states the mechanism, then the page answers where, who, and proof, then the terms. No table of contents. One action: book a call.
 - **Caples and Ogilvy — headlines and specificity.** The headline is the reader’s question, not a pun. The public studies stay named and limited to what they measured, and they are an example of a move we do not assume is theirs. Price sits in the cost answer, not on the button.
 - **Kennedy — no-BS.** Who it is not for is as plain as who it is for. The refund, the kill lines, and ownership of the code are rules. No countdown and no fake scarcity.
-- **PAS, aimed at desire.** The problem is a crowded field of AI moves and nobody to execute the right one. The agitation is the cost of aiming wrong or having to manage the build yourself. The solution is the loop. The reader is after an edge, not a rescue.
+- **PAS, aimed at desire.** The problem is time. The owner is not short on ideas or ambition. Digging through the business and getting the right move built is a full-time job, and they already have one. The solution is the loop: we dig, we build, they stay on the company. The reader is after an edge, not a rescue.
 - **Risk reversal.** Full audit refund if no lever is worth 10× the fee. No spend we cannot read in their numbers. Kill lines written before spend. Half-price next month if we miss on execution. They own the code and the data. Optional bonus only if the outcome agreed up front is hit.
 
 ## What this page refuses to invent

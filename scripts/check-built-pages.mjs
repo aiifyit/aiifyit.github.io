@@ -107,6 +107,10 @@ for (const banned of ['Dreamlawn', 'Midwest', 'Drobenak', 'Heritage', 'Coalmarch
   assert(!offerSource.includes(banned), `Offer page must not mention ${banned}`);
 }
 assert(offerSource.includes("Where's the money in your business"), 'Write to the owner, not as the owner');
+assert(offerSource.includes('You are short on time'), 'The gap is time');
+assert(offerSource.includes('We do the digging. We do the building.'), 'We do the digging and the building');
+assert(!offerSource.includes('short an aim'), 'Do not frame the gap as a missing aim or builder');
+assert(!offerSource.includes('short a goal'), 'Do not frame the gap as a missing goal');
 for (const route of ['book', 'inquire']) {
   const html = await readFile(`dist/${route}/index.html`, 'utf8');
   assert(html.includes('<noscript>'));
