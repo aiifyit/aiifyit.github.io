@@ -81,11 +81,13 @@ assert(!sitemap.includes('/book/'), 'Do not index duplicate booking alias');
 const offer = await readFile('dist/new-offer/index.html', 'utf8');
 const robots = await readFile('dist/robots.txt', 'utf8');
 assert(offer.includes('name="robots" content="noindex, nofollow"'), 'Hidden offer is noindex');
-assert(offer.includes('<title>Where to aim AI | The Lever Loop | AIify</title>'));
+assert(offer.includes('<title>Payroll for a department you don&#39;t have to hire | AIify</title>'));
 assert(offer.includes(`rel="canonical" href="${site.url}/new-offer/"`));
 assert(offer.includes('Book a call'));
+assert(offer.includes('mailto:joshua@aiifyit.com'));
 assert(!offer.includes('I need to hit my number'));
 assert(!offer.includes('cannot track'));
+assert(!offer.includes('calendly.com'), 'Hidden offer must use the mailto handoff');
 assert(!sitemap.includes('new-offer'), 'Do not list the hidden offer in the sitemap');
 assert(!robots.includes('new-offer'), 'Do not list the hidden offer in robots.txt');
 assert.equal(robots, `User-agent: *\nAllow: /\nDisallow: /sow\nDisallow: /client-feedback/\nSitemap: ${site.url}/sitemap.xml\n`);
@@ -100,17 +102,38 @@ for (const file of [
   assert(!(await readFile(file, 'utf8')).includes('new-offer'), `${file} must not link the hidden offer`);
 }
 const offerSource = await readFile('src/pages/NewOfferPage.tsx', 'utf8');
-for (const phrase of ['Book a call', 'The Lever Loop', 'Lever Audit', 'Lever Map', 'weekly scoreboard', '$7,500', '$8,000', 'PLACEHOLDER', 'P.S.', 'Where\'s the money']) {
+for (const phrase of [
+  'Book a call',
+  'The Lever Loop',
+  'Payroll for a department you don\'t have to hire',
+  'bolt-on AI department',
+  'A no-touch CRM',
+  'An automation builder',
+  'A knowledge base',
+  'A live meeting watcher',
+  'sign-off',
+  'department head',
+  'Chief of staff',
+  'PLACEHOLDER',
+  'P.S.',
+]) {
   assert(offerSource.includes(phrase), `Offer page missing ${phrase}`);
 }
-for (const banned of ['Dreamlawn', 'Midwest', 'Drobenak', 'Heritage', 'Coalmarch', 'Real Green', 'new-mover', '1995', '$9,500', '$400,000', '400K', 'I need to hit my number', 'done paying', 'can\'t track', 'can’t track', 'my business', 'My data', 'We tried agencies', 'I want to book', 'What I am', 'for me']) {
+for (const banned of [
+  'Dreamlawn', 'Midwest', 'Drobenak', 'Heritage', 'Coalmarch', 'Real Green', 'new-mover', '1995',
+  '$9,500', '$400,000', '400K', '$7,500', '$8,000', 'Lever Audit', 'Lever Map',
+  'Grokbot', 'Hermes', 'RAG',
+  'I need to hit my number', 'done paying', 'can\'t track', 'can’t track',
+  'my business', 'My data', 'We tried agencies', 'I want to book', 'What I am', 'for me',
+  'short an aim', 'short a goal',
+]) {
   assert(!offerSource.includes(banned), `Offer page must not mention ${banned}`);
 }
-assert(offerSource.includes("Where's the money in your business"), 'Write to the owner, not as the owner');
-assert(offerSource.includes('You are short on time'), 'The gap is time');
+assert(!/\bmy\b/i.test(offerSource), 'Write to the owner: no prospect "my"');
+assert(!/\bme\b/.test(offerSource), 'Write to the owner: no prospect "me"');
+assert(!/\bI\b/.test(offerSource), 'Write to the owner: no prospect "I"');
+assert(offerSource.includes('You are not short on ideas or ambition. You are short on time.'), 'The gap is time');
 assert(offerSource.includes('We do the digging. We do the building.'), 'We do the digging and the building');
-assert(!offerSource.includes('short an aim'), 'Do not frame the gap as a missing aim or builder');
-assert(!offerSource.includes('short a goal'), 'Do not frame the gap as a missing goal');
 for (const route of ['book', 'inquire']) {
   const html = await readFile(`dist/${route}/index.html`, 'utf8');
   assert(html.includes('<noscript>'));
