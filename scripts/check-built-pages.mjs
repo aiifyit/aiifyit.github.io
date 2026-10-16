@@ -81,9 +81,11 @@ assert(!sitemap.includes('/book/'), 'Do not index duplicate booking alias');
 const offer = await readFile('dist/new-offer/index.html', 'utf8');
 const robots = await readFile('dist/robots.txt', 'utf8');
 assert(offer.includes('name="robots" content="noindex, nofollow"'), 'Hidden offer is noindex');
-assert(offer.includes('<title>Hit the number this quarter | The Lever Loop | AIify</title>'));
+assert(offer.includes('<title>Where to aim AI | The Lever Loop | AIify</title>'));
 assert(offer.includes(`rel="canonical" href="${site.url}/new-offer/"`));
-assert(offer.includes('Book a goal call'));
+assert(offer.includes('Book a call'));
+assert(!offer.includes('I need to hit my number'));
+assert(!offer.includes('cannot track'));
 assert(!sitemap.includes('new-offer'), 'Do not list the hidden offer in the sitemap');
 assert(!robots.includes('new-offer'), 'Do not list the hidden offer in robots.txt');
 assert.equal(robots, `User-agent: *\nAllow: /\nDisallow: /sow\nDisallow: /client-feedback/\nSitemap: ${site.url}/sitemap.xml\n`);
@@ -98,10 +100,10 @@ for (const file of [
   assert(!(await readFile(file, 'utf8')).includes('new-offer'), `${file} must not link the hidden offer`);
 }
 const offerSource = await readFile('src/pages/NewOfferPage.tsx', 'utf8');
-for (const phrase of ['Book a goal call', 'The Lever Loop', 'Lever Audit', 'Lever Map', 'weekly scoreboard', '$7,500', '$8,000', 'PLACEHOLDER', 'P.S.']) {
+for (const phrase of ['Book a call', 'The Lever Loop', 'Lever Audit', 'Lever Map', 'weekly scoreboard', '$7,500', '$8,000', 'PLACEHOLDER', 'P.S.', 'Where\'s the money']) {
   assert(offerSource.includes(phrase), `Offer page missing ${phrase}`);
 }
-for (const banned of ['Dreamlawn', 'Midwest', 'Drobenak', 'Heritage', 'Coalmarch', 'Real Green', 'new-mover', '1995', '$9,500', '$400,000', '400K']) {
+for (const banned of ['Dreamlawn', 'Midwest', 'Drobenak', 'Heritage', 'Coalmarch', 'Real Green', 'new-mover', '1995', '$9,500', '$400,000', '400K', 'I need to hit my number', 'done paying', 'can\'t track', 'can’t track']) {
   assert(!offerSource.includes(banned), `Offer page must not mention ${banned}`);
 }
 for (const route of ['book', 'inquire']) {

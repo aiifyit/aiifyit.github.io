@@ -15,8 +15,8 @@ const stylesheets = [...shell.matchAll(/<link\b[^>]*rel="stylesheet"[^>]*href="(
 if (!stylesheets.length) throw new Error('Built site stylesheet not found');
 await copyFile('dist/index.html', 'dist/404.html');
 function hiddenOfferShell(shell) {
-  const title = 'Hit the number this quarter | The Lever Loop | AIify';
-  const description = 'The Lever Loop is a quarterly partnership for owners who have to hit a number and are done paying for work they cannot track.';
+  const title = 'Where to aim AI | The Lever Loop | AIify';
+  const description = 'The Lever Loop finds the highest-value place for AI in your business, builds it, proves it in your numbers, and then finds the next one.';
   const url = `${site.url}/new-offer/`;
   return shell
     .replace(/<title>.*?<\/title>/, `<title>${escapeHtml(title)}</title>`)
@@ -28,7 +28,7 @@ function hiddenOfferShell(shell) {
     .replace(/(<meta name="twitter:description" content=")[^"]*("[^>]*>)/, `$1${escapeHtml(description)}$2`)
     .replace(`rel="canonical" href="${site.url}/"`, `rel="canonical" href="${url}"`)
     .replace('</head>', '<meta name="robots" content="noindex, nofollow">\n</head>')
-    .replace('<div id="root"></div>', `<noscript><main style="max-width:42rem;margin:64px auto;padding:24px;font-family:system-ui,sans-serif"><p style="letter-spacing:.12em;text-transform:uppercase;font-size:12px">The Lever Loop</p><h1>I need to hit my number this quarter.</h1><p>I am done paying for marketing I cannot track. This is a quarterly partnership: one goal, a deep audit, sprints on the biggest constraint, and a weekly scoreboard.</p><p><a href="mailto:joshua@aiifyit.com?subject=Goal%20call%20-%20the%20quarterly%20number">Book a goal call</a></p></main></noscript>\n<div id="root"></div>`);
+    .replace('<div id="root"></div>', `<noscript><main style="max-width:42rem;margin:64px auto;padding:24px;font-family:system-ui,sans-serif"><p style="letter-spacing:.12em;text-transform:uppercase;font-size:12px">The Lever Loop</p><h1>Everyone says AI is huge.</h1><p>Where is the money in your business, and who is going to do the work? We find the one place worth aiming at, build it, prove it in your numbers, and then find the next one.</p><p><a href="mailto:joshua@aiifyit.com?subject=Where%20to%20aim%20it">Book a call</a></p></main></noscript>\n<div id="root"></div>`);
 }
 
 for (const route of ['book', 'inquire', 'sow', 'new-offer']) {
