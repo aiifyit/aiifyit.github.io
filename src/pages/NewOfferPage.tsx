@@ -115,7 +115,7 @@ const GUARANTEES = [
 
 const FOR_YOU = [
   'You own or operate a home-service company, a route business, or more than one location, and you want an edge.',
-  'You already have the goals, the team, and the capital. You will not spend your week sorting through AI news.',
+  'You already have the goals, the team, and the capital. The week is already full.',
   'You will open the customer file, the operation, and a rough view of margin, so the aim is yours and not a generic one.',
   'You want the people who find the place to be the people who build it.',
 ];
@@ -132,7 +132,7 @@ const NOT_FOR_YOU = [
 const QUESTIONS = [
   {
     q: 'You tried agencies.',
-    a: 'An agency sells the thing it sells. That can be the right buy when you already know the move. It is the wrong buy when the question is which move, in this business, is worth making. We start from your operation and your numbers. If a test misses its line, it stops, including one we recommended. The scoreboard is the record.',
+    a: 'An agency sells the thing it sells. That can be the right buy when you already know the move. It is the wrong buy when you still have to figure out which move, in this business, is worth making. That figuring, and then the build, is the week you are already using. We start from your operation and your numbers, and we do both. If a test misses its line, it stops, including one we recommended. The scoreboard is the record.',
   },
   {
     q: 'AI is hype.',
@@ -214,7 +214,7 @@ export default function NewOfferPage() {
                 That is the useful question. The Lever Loop is how we answer it. We find the one place AI will pay in your business, our developers build it, we prove it in your numbers, and then we find the next one.
               </p>
               <p>
-                You already have the goals, the team, and the capital. You know AI should be an unfair advantage here. What you do not have is a clean way to pick the move, or a team that will both find it and build it while your people keep running the company.
+                You already have the goals, the team, and the capital. You know AI should be an unfair advantage here. What you do not have is the hours. Finding where it pays, and getting it built, does not fit beside the job you already do.
               </p>
             </div>
             <div className="mt-8">
@@ -228,23 +228,23 @@ export default function NewOfferPage() {
         <Container>
           <div className="max-w-3xl">
             <h2 id="problem-heading" className="text-3xl font-bold tracking-tight md:text-5xl">
-              You are not short a goal. You are short an aim, and a builder.
+              You are not short on ideas or ambition. You are short on time.
             </h2>
             <div className="mt-8 space-y-5 text-lg leading-relaxed text-[var(--color-text-muted)]">
               <p>
-                Good operators already know what the year is for. The quarter has priorities. The team is busy hitting them. The gap is not ambition. The gap is where, in this business, AI is actually worth pointing.
+                Finding where AI pays off in your business, and getting it built, is a full-time job. You already have one. Running the company eats the week. The digging does not fit in the hours that are left.
               </p>
               <p>
-                <span className="font-semibold text-[var(--color-text)]">Where.</span> There is no shortage of ideas. A model on the phones. A tool for the office. A test on a new channel. A pass through the customer file. Fifty moves, and a new one every week from someone selling it. You cannot tell which of them would pay here, and you will not give up a week to research it. You are running the company.
+                <span className="font-semibold text-[var(--color-text)]">Where.</span> There is no shortage of ideas. A model on the phones. A tool for the office. A test on a new channel. A pass through the customer file. Fifty moves, and a new one every week from someone selling it. Telling which one pays, in your file and on your routes, is days of work. Those days are already spent running the company.
               </p>
               <p>
-                <span className="font-semibold text-[var(--color-text)]">Who.</span> Your people are already doing the work that makes the money. An agency sells the one thing it sells. A consultant hands you a deck. A freelancer still needs you to manage them. None of those both find the opportunity and build it.
+                <span className="font-semibold text-[var(--color-text)]">Who.</span> Your people are on the work that makes the money. An agency sells the one thing it sells. A consultant hands you a deck you still have to carry out. A freelancer still needs your hours. None of them do the digging and the building, so the hours still come out of your week.
               </p>
               <p>
-                <span className="font-semibold text-[var(--color-text)]">Proof.</span> You have heard the pitches. You will put real money behind a move after it shows up in your own numbers. That is the right standard. The first job is a proof you can read, small enough to stop if it misses.
+                <span className="font-semibold text-[var(--color-text)]">Proof.</span> You have heard the pitches. You will put real money behind a move after it shows up in your own numbers. That is the right standard, and you do not have a spare quarter to learn it the slow way. The first job is a proof you can read, small enough to stop if it misses.
               </p>
               <p className="text-[var(--color-text)]">
-                Find the place. Build that one thing. Prove it. Then aim again. That is the whole offer.
+                We do the digging. We do the building. You stay on the company. Find the place, build that one thing, prove it, then aim again. That is the whole offer.
               </p>
             </div>
           </div>
