@@ -4,7 +4,7 @@ import Container from '../components/ui/Container';
 import Button from '../components/ui/Button';
 import { INQUIRY_EMAIL } from '../data/inquiry';
 
-const PAGE_TITLE = 'Your AI team, already built and already working | AIify';
+const PAGE_TITLE = 'Get your quarterly goals done without hiring anyone or learning AI | AIify';
 
 const GOAL_CALL_BODY = [
   'Hi Joshua,',
@@ -185,7 +185,7 @@ export default function NewOfferPage() {
           <div className="max-w-3xl">
             <p className="text-sm uppercase tracking-widest text-[var(--color-accent)]">The Lever Loop · AIify</p>
             <h1 className="mt-5 text-4xl font-bold leading-[1.08] tracking-tight sm:text-5xl md:text-6xl">
-              Your AI team, already built and already working.
+              Get your quarterly goals done without hiring anyone or learning AI.
             </h1>
             <p className="mt-5 text-2xl font-semibold leading-snug tracking-tight text-[var(--color-text)] sm:text-3xl">
               You set the goals. We bring the people, the systems and the follow-through.
