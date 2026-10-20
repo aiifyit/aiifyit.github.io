@@ -1,0 +1,73 @@
+{
+  "slug": "staged-email-automation-rollout",
+  "title": "Launch an Automated Email Campaign in Small Batches You Can Pause",
+  "description": "Roll out email automation in small batches: size each round, watch the first one, own the pause, use unique links and feed bounces back into the next send.",
+  "category": "Email automation",
+  "takeaway": "When an automated email goes to your whole client list at once, any mistake in it reaches everyone before you notice. Send to a small group first, watch what happens, and keep a person ready to stop it. A broken link then annoys 25 people instead of 400.",
+  "sections": [
+    {
+      "id": "send-in-rings",
+      "title": "Send to a small group first, then widen",
+      "paragraphs": [
+        "The safest way to launch an automated email campaign to your clients is in rounds that get bigger as you gain confidence. You send the first round, check that everything downstream worked, and only then let the next round go.",
+        "In a planning discussion for an annual outreach at a professional services firm, the team needed to email a few hundred clients and ask each one to choose a service option through a form before a fixed deadline. They split the list into rounds: the first 25 clients on day one, the next 50 the following day, then 100, then everyone remaining. Each email went out from the client's own account manager's mailbox, and a shared tracking spreadsheet recorded whether the email arrived, whether it was opened, whether the form link was clicked and what the client answered.",
+        "The deadline could not move, so launch day could not slip. Batching let them start on time without betting the whole list on the first send. If the first round revealed a problem, they could fix it while most clients had not yet received anything.",
+        "You can size your own rounds the same way. Make the first one small enough that you could personally apologize to every recipient if something went wrong, and large enough to show real behavior, such as opens, clicks and replies. Then grow each round by roughly doubling, as long as the previous one looked clean."
+      ]
+    },
+    {
+      "id": "decide-what-wrong-looks-like",
+      "title": "Decide in advance what would make you stop",
+      "paragraphs": [
+        "Before the first round went out, the team agreed on a contingency plan. They would watch the tracker fill in after the first 25 emails, and if things did not look right, the automation would stop rather than keep going. The person who built it said plainly that if anything looked odd, they would turn it off.",
+        "The discussion left the phrase \"not looking right\" fairly open. You will get more out of the first round if you write down the specific signals before you send. Here are the ones we recommend checking, based on general practice rather than anything measured in that project:"
+      ],
+      "bullets": [
+        "Bounces: more than one or two undeliverable addresses in a small round usually means the contact list has a problem.",
+        "Form or link errors: any recipient who reports that the link fails, shows the wrong person's details or says the form is already filled out.",
+        "Merge mistakes: a wrong name, a blank field or the wrong account manager in the greeting or signature.",
+        "Tracker gaps: emails that were sent but never show up in your tracking sheet, which means you will not know who still needs a reminder.",
+        "Confused replies: several people writing back to ask what the email is about, which points to unclear wording rather than a technical fault."
+      ]
+    },
+    {
+      "id": "own-the-off-switch",
+      "title": "Give one person the pause, and make sure it actually works",
+      "paragraphs": [
+        "A pause plan only helps if someone is clearly responsible for it and can act quickly. Name the person who watches the first round and the person who can stop the automation. In the discussion, the business side agreed to flag problems and the builder agreed to check independently and switch it off. Having both watching is a good habit, especially when one of them is out of the office on the day of the biggest send, which happened in that project.",
+        "Find out exactly what pausing does in your setup. Ask whether it stops only future rounds or also emails already queued, whether scheduled reminder emails will still go out, and how you restart without sending anyone a duplicate. Try the pause once during testing so you know it takes seconds rather than a hunt through settings.",
+        "Check your sending limits before launch day as well. The firm's sending mailbox had a cap of about 100 approved senders, and the list was over it. They removed senders they did not need and kept the first round to accounts that were already verified. Your email platform will have its own daily, hourly or sender limits, and you want to discover them in testing, not halfway through a round."
+      ]
+    },
+    {
+      "id": "test-the-whole-path",
+      "title": "Test the whole path with links unique to each person",
+      "paragraphs": [
+        "The day before launch, the team ran one more complete test: the email, the form submission, the tracker update and the steps that happen after a client responds. An earlier test had already caught a real problem. One tester clicked her form link and was told the questions had already been answered.",
+        "The cause was that the test emails all shared the same tracking ID, so one person's submission locked the form for everyone using that link. If that had reached real clients, people would have opened their email and been told they were already done. The fix was to make sure every recipient gets their own link, and that a link will not open for someone it was not sent to.",
+        "When you test, send to several real inboxes you control, not just your own. Have each tester fill in their form, then check that one person's answers never appear on another person's link. Forward a link to a colleague and confirm what they see. Then check that each response lands on the right row of your tracker and triggers the right next step, such as an automatic reply or a notification to the account manager."
+      ]
+    },
+    {
+      "id": "close-the-bounce-loop",
+      "title": "Feed bounces back into the next round",
+      "paragraphs": [
+        "After the early rounds went out, bounce alerts started arriving and the team realized there was no workflow for them yet. They set up a simple interim process. A coordinator receives the bounce, asks the client's account manager for the correct address and updates the client list. The next round then reads the list again and automatically includes anyone who has not been reached yet or whose earlier email bounced, using the corrected address.",
+        "That small loop is worth copying because it means a bad address costs you a day, not a client. Out-of-office replies were treated as harmless, since those clients will see the email when they return. A real bounce means the client never got it, so it needs a person.",
+        "Before you launch, decide where bounce alerts go, who fixes the address, where the fix is recorded and how the next send picks it up. Keep a column in your tracker for clients who need a resend, so nobody depends on memory.",
+        "Once the last round is out, the same tracker tells you who still has not responded, which is exactly the list your scheduled reminder emails should use."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Plan your next automated client outreach",
+    "description": "Explore AIify It's workflow automation service, then send us a short description of the email you need to send, who it goes to and what has to happen when people respond.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-20"
+  }
+}
