@@ -1,0 +1,94 @@
+{
+  "slug": "ai-assistant-classifier-model-tiering",
+  "title": "Your AI Assistant Doesn't Need Its Best Model for Every Sentence",
+  "description": "Put a small, fast model in front of your most capable one. Learn how to define the gate, test it with tricky cases, and decide which way it should fail.",
+  "category": "Agent design",
+  "takeaway": "Picture an AI assistant that listens to your meetings. Every few seconds it gets a fresh chunk of transcript and has to decide: is any of this for me? Most of the time the answer is no. People are talking to each other, someone's coughing, the transcription picked up half a word.",
+  "sections": [
+    {
+      "id": "two-jobs-two-models",
+      "title": "Two jobs, two models",
+      "paragraphs": [
+        "If you send every one of those chunks to your most capable model, you pay for a lot of careful thinking about nothing. You also wait longer, because bigger models are usually slower. The fix is to split the job in two: a smaller, faster model that only decides whether something needs action, and your most capable model that only runs when the answer is yes.",
+        "The first model is the gate. Its whole job is a narrow question with a short answer. Is this remark addressed to the assistant? Is this an action item? Should it go to the planner, the answer step, or nowhere? It returns a decision and a one-line reason.",
+        "The second model does the real work: answering the question, writing the plan, drafting the follow-up. It sees far fewer inputs, but each one actually matters, so it's worth the cost and the wait.",
+        "In one internal test of a meeting assistant built this way, the gate ran on a mid-tier model and the conversation ran on a top-tier one. That split is a reasonable starting point. You don't need the smartest model to answer \"was that sentence for me?\" You do need it to answer the question that sentence asked."
+      ]
+    },
+    {
+      "id": "write-the-gates-rules-down",
+      "title": "Write the gate's rules down",
+      "paragraphs": [
+        "A classifier is only as good as its definition. \"Respond when someone needs you\" sounds clear until you hit a real meeting. Write down the cases in plain language before you write the prompt:"
+      ],
+      "bullets": [
+        "Someone says the assistant's name or clearly speaks to it: route to the main model.",
+        "Someone asks a question aimed at another person on the call: don't respond, even if the assistant knows the answer.",
+        "Someone agrees to do something by a date: flag it as an action item.",
+        "Filler, crosstalk, single words, transcription junk: ignore."
+      ]
+    },
+    {
+      "id": "make-the-gates-decisions-visible-while-you-test",
+      "title": "Make the gate's decisions visible while you test",
+      "paragraphs": [
+        "Make the gate return a reason with every decision, like \"ignored: question directed at another participant.\" That reason is what lets you debug it later. Without it, a miss just looks like the assistant being quiet.",
+        "The most useful thing in that test was simple: the tester asked for the classifier's answer to show up in the chat. When the assistant didn't respond, he could see why, instead of guessing.",
+        "Do the same. During testing, print every gate decision and its reason somewhere you can watch in real time. You'll spot patterns fast. Maybe it treats every question as addressed to the assistant. Maybe it ignores anything that doesn't start with the assistant's name. You can't fix a pattern you can't see.",
+        "Once it's in daily use, move those decisions out of the chat and into a log. Your team doesn't need to see every \"ignored,\" but you still want the record."
+      ]
+    },
+    {
+      "id": "build-a-test-script-of-tricky-cases",
+      "title": "Build a test script of tricky cases",
+      "paragraphs": [
+        "Don't test with the easy stuff. Anyone can route \"Hey assistant, what's on my calendar?\" Build a short script that pokes at the edges, and run it every time you change the gate:"
+      ],
+      "bullets": [
+        "A direct question to the assistant.",
+        "An indirect one, like \"can you pull up last week's numbers,\" with no name attached.",
+        "A question clearly meant for another person on the call.",
+        "A correction: \"I'm talking to you.\" This catches the case where the gate wrongly decided an earlier remark was for someone else.",
+        "An off-the-wall question, like asking the assistant what it would name itself, to see whether the gate treats unusual requests as real ones.",
+        "A single stray word or garbled fragment from the transcription.",
+        "A remark addressed to the gate itself, if your users know it exists."
+      ]
+    },
+    {
+      "id": "decide-which-way-it-should-fail",
+      "title": "Decide which way it should fail",
+      "paragraphs": [
+        "In that internal test, the tester ran almost exactly this list in about ten minutes, and it surfaced questions the team hadn't answered yet, like what the assistant should do with a question meant for another attendee. That's the point. The script turns vague worries into specific decisions.",
+        "Your gate will get things wrong. Decide ahead of time which mistake you'd rather live with.",
+        "If it misses requests, people repeat themselves and slowly stop trusting it. If it triggers too often, it interrupts conversations and does work nobody asked for. For a meeting assistant that only drafts private notes, erring toward responding is cheap. For one that posts in a shared chat or acts on your behalf, erring toward silence is usually safer.",
+        "Whichever way you lean, give people an explicit override. A phrase like \"assistant, this is for you\" should always get through the gate. When someone has to say \"I'm talking to you,\" the gate already failed once; the override makes sure it doesn't fail twice."
+      ]
+    },
+    {
+      "id": "dont-fix-a-bad-definition-with-a-bigger-model",
+      "title": "Don't fix a bad definition with a bigger model",
+      "paragraphs": [
+        "When the gate makes mistakes, the tempting fix is to run it on your most capable model too. Resist that at first. Upgrading costs you the speed and savings that were the reason for the split, and it often doesn't help, because the problem is usually the definition, not the model's intelligence.",
+        "Look at the logged misses and false triggers first. Sort them into groups. Most will trace back to a rule you never wrote down or wrote vaguely. Fix the rule, add the case to your test script, and rerun the script. Only consider a bigger model if the gate keeps failing on cases your rules already describe clearly."
+      ]
+    },
+    {
+      "id": "one-thing-to-try-this-week",
+      "title": "One thing to try this week",
+      "paragraphs": [
+        "Pick one AI workflow you already run where most inputs need no action: an inbox triage, a meeting assistant, a support queue. Write down, in plain sentences, how it decides what deserves real attention. Then write five tricky test cases like the ones above and run them. If you can't explain a decision it made, that's your first fix, and it'll cost you less than a bigger model."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Design an assistant that knows when to step in",
+    "description": "Explore AIify It's custom AI agent service, then prepare an email about the job your assistant should handle and the cases it should leave alone.",
+    "label": "Explore custom AI agents",
+    "href": "/services/custom-ai-agents/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-21"
+  }
+}
