@@ -1,0 +1,91 @@
+{
+  "slug": "vendor-name-matching-year-end-tax-forms",
+  "title": "Your Books Say \"Acme Plumbing.\" The W-9 Says Something Else.",
+  "description": "Automate year-end contractor tax-form prep without losing vendors to name mismatches. Normalize names, use review buckets, and test against last year.",
+  "category": "Workflow automation",
+  "takeaway": "Say you want an agent to handle the first pass of year-end contractor tax forms. It reads the year's payables by vendor, checks each vendor's W-9, and tells you who needs a form. Sounds simple. Then you notice your books say \"Acme Plumbing\" and the W-9 says \"Acme Plumbing, LLC,\" and the whole thing hinges on whether the agent knows those are the same business.",
+  "sections": [
+    {
+      "id": "exact-matches-are-rare",
+      "title": "Exact matches are rare",
+      "paragraphs": [
+        "Nobody types a vendor's full legal name into the books. People type what's on the invoice, or what they call the vendor out loud. So you get \"Acme Plumbing\" in the books, \"Acme Plumbing, LLC\" on the W-9, an extra space here, a missing comma there, and \"Inc\" dropped half the time.",
+        "Then there are trade names. The W-9 might list \"Smith Holdings LLC\" as the legal name and \"Acme Plumbing\" on the business name line, because that's the name the business works under.",
+        "If your agent only accepts exact matches, one of two things happens. It quietly skips real vendors who should get a form, or it flags almost everyone and your staff ends up checking every row by hand. Either way, you haven't saved anything.",
+        "In one recent project, this was the first question the bookkeeping team asked when they saw the workflow: does it know the match doesn't have to be exact? It's the right question to ask before anything else."
+      ]
+    },
+    {
+      "id": "clean-up-names-before-you-compare",
+      "title": "Clean up names before you compare them",
+      "paragraphs": [
+        "Before the agent compares anything, have it build a cleaned-up version of each name. That usually means:"
+      ],
+      "bullets": [
+        "Lowercase everything.",
+        "Strip punctuation like commas and periods.",
+        "Collapse extra spaces.",
+        "Remove common entity endings such as LLC, Inc, Corp, Co, and Ltd for the comparison.",
+        "Keep the original name exactly as written, so the final record and the review list show what's really in the books and on the form."
+      ]
+    },
+    {
+      "id": "check-both-name-lines-and-the-tax-id",
+      "title": "Check both name lines, and the tax ID when you have it",
+      "paragraphs": [
+        "A W-9 has two name lines: the legal name and the business or trade name. Have the agent try the vendor from the books against both. \"Acme Plumbing\" won't match \"Smith Holdings LLC,\" but it will match the business name line on the same form.",
+        "Names are the weakest way to match, though. If the vendor record in your books has a tax ID and the W-9 has one too, compare those first and fall back to names only when the ID is missing. Two vendors can have similar names. They shouldn't share an ID."
+      ]
+    },
+    {
+      "id": "give-the-agent-more-than-yes-or-no",
+      "title": "Give the agent more than yes or no",
+      "paragraphs": [
+        "The common mistake is letting the agent answer only \"qualifies\" or \"doesn't qualify.\" Real year-end data needs more buckets than that. Give each vendor one of these outcomes, with a short reason attached:"
+      ],
+      "bullets": [
+        "Needs a form: confident match, above your reporting threshold, and the W-9 shows an entity type that gets one.",
+        "Excluded: under the threshold, or the W-9 shows an entity type you don't report for, like most corporations. Show the reason, for example \"excluded: W-9 lists a C corporation.\"",
+        "Over the threshold, no W-9 on file: you can't know the entity type until the form comes in, so this is a review item, not an exclusion. It's also your list of who to chase for a W-9.",
+        "Uncertain match: the names are close but not close enough to be sure. Show both names side by side so a person can decide in a few seconds."
+      ]
+    },
+    {
+      "id": "test-against-last-years-finished-list",
+      "title": "Test it against last year's finished list",
+      "paragraphs": [
+        "You already have an answer key: the list your team prepared by hand last year. Run the agent on last year's payables and W-9s, then compare its output to what your team actually filed. Every difference is either a matching problem, a rule problem, or a mistake from last year, and all three are worth knowing about.",
+        "Then add a few test vendors on purpose to see what it catches: one corporation, one vendor known by a trade name, one with a comma in a different place, one with no W-9 at all. If any of those land in the wrong bucket, you found the problem before it mattered.",
+        "Thresholds and rules change, so put the reporting threshold in a setting you can update each year instead of burying it in a prompt, and confirm the current rules with your tax advisor before you rely on the output."
+      ]
+    },
+    {
+      "id": "you-dont-need-a-live-connection-to-start",
+      "title": "You don't need a live connection to start",
+      "paragraphs": [
+        "It's tempting to wait until the agent can connect straight to your accounting software. You don't have to. A downloaded payables-by-vendor report for the year is enough for the first pass, and it's often faster than waiting on app approvals and access.",
+        "The catch: if your clients or departments use different accounting platforms, each one exports a different layout. Add a step that converts every report into the same columns, such as vendor name, tax ID if present, and total paid, before any matching happens. Ask for a real sample export from each platform early so you aren't guessing at the format."
+      ]
+    },
+    {
+      "id": "dont-let-one-bad-row-stop-the-batch",
+      "title": "Don't let one bad row stop the batch",
+      "paragraphs": [
+        "Some rows will fail. A W-9 is unreadable, a total is blank, a name is just an initial. When that happens, the agent should put the row on an error list with the reason, send an alert, and keep going with the rest.",
+        "That list needs an owner, though. A skipped row nobody looks at is just a vendor who didn't get a form. Name the person who clears the error list and the review list, and when they're expected to do it.",
+        "Done this way, your staff stops rebuilding the report from scratch every January. They start from a first pass that's mostly right, and they spend their time on the short list of vendors that actually needs a human."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Automate the first pass, keep the judgment calls",
+    "description": "Explore AIify It's workflow automation service, then send us an email about the year-end report your team rebuilds by hand and where the names stop matching.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-22"
+  }
+}
