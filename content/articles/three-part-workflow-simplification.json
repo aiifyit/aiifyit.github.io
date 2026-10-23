@@ -1,0 +1,87 @@
+{
+  "slug": "three-part-workflow-simplification",
+  "title": "Your Automation Has 60 Steps. Does It Actually Need Them?",
+  "description": "Simplify a bloated automation by sorting every step into collect, decide, or deliver. Cut empty checks, batch lookups, and build something your team can fix.",
+  "category": "Workflow automation",
+  "takeaway": "Most business workflows come down to three parts: get the information, apply your rules to it, and put the result where people use it. If your automation has 60 steps, sort each one into those three buckets. The steps that don't fit, or don't do anything when you open them, are usually the ones to cut.",
+  "sections": [
+    {
+      "id": "big-workflows-look-impressive",
+      "title": "A big workflow looks impressive until it breaks",
+      "paragraphs": [
+        "On a recent review, an automation that had been generated from a planning call came out at around 60 steps in a visual workflow builder. It mostly worked. It also looked like a lot of serious work, and that's part of the problem.",
+        "Picture handing that to the team who has to live with it. Six weeks later it fails on step 37. Can anyone on their side look at it and figure out why? With 60 steps, probably not. With 10 steps that each do one clear thing, there's a good chance they can.",
+        "The builder tool wasn't the issue. The same logic fit in about 10 steps in the same tool once someone took the time to untangle it."
+      ]
+    },
+    {
+      "id": "three-parts",
+      "title": "Almost every workflow is three parts",
+      "paragraphs": [
+        "Strip away the detail and most business processes do the same three things:"
+      ],
+      "bullets": [
+        "Collect: pull the information you need, from your own systems or outside ones.",
+        "Decide: apply your business rules to it. \"If it's this kind of customer, do X. Otherwise, do Y.\"",
+        "Deliver: write the result into the system where people work, or show it to the person who needs it."
+      ]
+    },
+    {
+      "id": "sort-every-step",
+      "title": "Sort every step into a bucket",
+      "paragraphs": [
+        "Go through the workflow one step at a time and ask which of the three parts it belongs to. You'll start seeing patterns fast.",
+        "The first place to look is collection. Where are all the spots where the workflow fetches data? In the review above, it called the same endpoint three separate times for pieces of the same record. That could almost certainly be one batched call.",
+        "Then look at the decision steps. Your real rules usually fit in a short list. If you count twenty branches but can only say five rules out loud, some of those branches are duplicates or leftovers.",
+        "Delivery is usually the simplest part: map the fields and write them. If it's sprawling, the mapping probably isn't settled yet."
+      ]
+    },
+    {
+      "id": "open-each-check",
+      "title": "Open each check and see if it does anything",
+      "paragraphs": [
+        "Step names can lie. In that same workflow, one step was labeled as a check that records were linked correctly. When you opened it, it just set \"linked = true.\" There was no logic behind it at all.",
+        "This happens a lot when a tool builds a workflow from a meeting transcript or a description. Someone says \"then we validate the responses,\" and the tool adds a step called \"validate responses,\" whether or not anything gets validated.",
+        "For every check, ask two questions. What exactly makes this pass? And what happens when it fails? If you can't answer both, the step is either decoration or a bug waiting to happen."
+      ]
+    },
+    {
+      "id": "write-the-logic-in-plain-words",
+      "title": "Write the logic in plain words first",
+      "paragraphs": [
+        "Before rebuilding anything, write the process the way you'd explain it to a new hire. What information do we need? Where does it come from? If the first source comes back empty or useless, where do we check next? What rules do we apply? Where does the answer go?",
+        "Sketching it on a whiteboard tool helps, because you can see the three parts side by side before you commit to a build.",
+        "You can also ask an AI model to do the first pass for you. Paste in the workflow or the process description and ask it to split everything into three simple lists: what we collect and from where, what business logic we apply, and what we present. It costs you almost nothing, and comparing its answer to the 60-step version shows you what's padding."
+      ]
+    },
+    {
+      "id": "find-mappings-from-history",
+      "title": "Use past records to settle the field mapping",
+      "paragraphs": [
+        "A lot of bloat comes from not knowing which fields line up between the data you pull and the system you write to. So the workflow adds extra lookups and checks to cover every guess.",
+        "There's a better way. Take a big batch of past records where a person already filled in the right answer, something like 1,500 of them, and compare those against the raw data your automation pulls for the same records. Over that many, the fields that match become obvious, and you can say with real confidence which ones map to which.",
+        "Then look at the mismatches before you call them errors. Some are trivial, like capitalization, which you fix by comparing everything in lowercase. Others are real differences in timing. If a balance in your system was last updated six months ago, of course it doesn't match today's number. Check the last-updated date before you flag it."
+      ]
+    },
+    {
+      "id": "test-every-branch",
+      "title": "Then test every branch, not just the easy one",
+      "paragraphs": [
+        "The bloated version in that review had another problem: every test ran through the same branch. The happy path worked, and nobody had seen the others run.",
+        "Once you're down to a handful of clear rules, it's easy to build one test case per branch, plus a few where the data is missing or the first source comes back empty. That's a short list you can actually run every time something changes.",
+        "Simple isn't about making the work look smaller. It's about making sure the people who own the workflow next can understand it, test it, and fix it."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Get an automation your team can actually maintain",
+    "description": "Explore AIify It's workflow automation service, then send us an email about the workflow that grew too big to follow and what it's supposed to do.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-23"
+  }
+}
