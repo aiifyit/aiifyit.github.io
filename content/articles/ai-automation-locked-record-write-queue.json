@@ -1,0 +1,109 @@
+{
+  "slug": "ai-automation-locked-record-write-queue",
+  "title": "What should your AI automation do when the record it needs to update is locked?",
+  "description": "Your system of record locks records while people edit them, and API writes get no shared lock. Here's how to build a lock-aware write queue that works.",
+  "category": "Workflow reliability",
+  "takeaway": "When a person opens a record, the system locks it. If your automation tries to write while the record is open, the write fails, or it overwrites what the person is doing, or it leaves the record half updated. Respect the lock, keep the update, and apply it once the record is free.",
+  "sections": [
+    {
+      "id": "the-problem-shows-up-at-the-last-step",
+      "title": "The problem shows up at the last step",
+      "paragraphs": [
+        "You've built an AI automation that reads records, checks them, and produces something useful. Now you want it to write those results back into your system of record, whether that's a CRM, an ERP, or a loan or case management system. That's the step that makes it useful day to day.",
+        "Then you hit a problem. When a person opens a record, the system locks it. If your automation tries to write while the record is open, the write fails, or it overwrites what the person is doing, or it leaves the record half updated. You ask the vendor about a shared lock that API users can see and respect. They say it's on the roadmap. Maybe it's in beta. It isn't something you can use today.",
+        "A recent project review ran into exactly this. The team stopped waiting for the vendor and built a lock-aware write queue. This article explains how it works and why it's the sensible default."
+      ]
+    },
+    {
+      "id": "why-you-shouldnt-force-the-write-or-skip-it",
+      "title": "Why you shouldn't force the write or skip it",
+      "paragraphs": [
+        "When a write hits a locked record, there are two tempting shortcuts. Both cause trouble.",
+        "Forcing the write means retrying hard until it gets through, or using whatever admin path ignores the lock. That puts your automation in a fight with the person who has the record open. Their save can wipe out your update, or your update can wipe out their work. Either way, nobody finds out until something downstream looks wrong.",
+        "Skipping the write means logging an error and moving on. That feels safe, but the result quietly disappears. The automation did its job, the check passed or flagged something, and none of it reached the record. Staff assume the automation covered it. It didn't.",
+        "What you actually want is in between. Respect the lock, keep the update, and apply it once the record is free."
+      ]
+    },
+    {
+      "id": "how-a-lock-aware-write-queue-works",
+      "title": "How a lock-aware write queue works",
+      "paragraphs": [
+        "The idea is simple. When the automation has an update ready, it doesn't write straight away. It adds the update to a queue, and a small worker processes that queue.",
+        "None of this needs special infrastructure. A table with the record ID, the payload, a status, an attempt count, a next-retry time, and a last-error note is enough for most teams.",
+        "For each item, the worker does this:"
+      ],
+      "bullets": [
+        "Check the lock. Before writing, ask the system whether the record is open or locked. If the system doesn't report locks directly, try a lightweight write or read that shows lock status and treat a lock error as \"busy,\" not \"failed.\"",
+        "Hold if locked. If the record is locked, leave the item in the queue and record why: \"record open by a user.\"",
+        "Retry with backoff. Try again later, waiting a little longer each time. For example, 2 minutes, then 5, then 15, then 30. People usually close records within minutes, so most items clear on the first or second retry.",
+        "Re-read before writing. When the record is free, read it again before you write anything. Someone may have changed it while it was locked. If the inputs your result depended on have changed, rerun the check rather than writing a stale result. This step matters most. A queue that writes old answers onto new data is worse than having no queue.",
+        "Write only the fields you own. Update the specific fields your automation is responsible for and nothing else.",
+        "Expire or escalate. If an item has been waiting too long, say a full business day, stop retrying quietly. Mark it as stuck and send it to a person. A record that stays locked for a day usually means something else is going on, like an abandoned session."
+      ]
+    },
+    {
+      "id": "make-the-queue-visible-to-staff",
+      "title": "Make the queue visible to staff",
+      "paragraphs": [
+        "The technical part is usually the easy part. The bigger risk is confusion. If an update doesn't appear in the record, people will ask why.",
+        "The team in the project review had already met this with an earlier job that synced documents into each record's file folder. Staff kept asking, \"Why hasn't this gone in yet?\" The answer was almost always, \"It's locked.\" Once people understood that, they were fine with it. The delay was never the problem. Not knowing what was happening was.",
+        "So show the queue's status where people already work. A plain status per item does the job:"
+      ],
+      "bullets": [
+        "Waiting: record open by someone",
+        "Retrying (attempt 3, next try at 2:40)",
+        "Written",
+        "Stuck: needs review"
+      ]
+    },
+    {
+      "id": "ship-read-only-first-then-turn-on-writes",
+      "title": "Ship read-only first, then turn on writes",
+      "paragraphs": [
+        "You don't need writes switched on to start getting value. In the project review, the team had already built the write-back function but kept it off during testing. The automation read records, ran its quality checks, and sent results to a separate working list, a hot-list style dashboard, rather than into the system of record.",
+        "The key detail was that each result also listed exactly which fields it would update once writes were turned on. That gave reviewers a concrete preview. They could check the proposed values against the real record, spot mapping mistakes, and agree on field ownership before anything was written.",
+        "When the previews have been right for long enough that people stop questioning them, you switch writes on. The queue is already built and the fields are already agreed, so nobody is surprised."
+      ]
+    },
+    {
+      "id": "keep-the-queue-small-with-scoped-triggers",
+      "title": "Keep the queue small with scoped triggers",
+      "paragraphs": [
+        "A lock-aware queue works best when it isn't flooded. The same team scoped the trigger to items entering the working list, meaning new applications. That's a dozen or two a day, ideally 50 to 100, not a daily re-check of the whole pipeline.",
+        "This matters for locking. Every write is a chance to collide with a person. Re-checking thousands of records a day means thousands of chances, and your queue fills with items that didn't need updating. Triggering on new or changed items keeps the queue short, keeps retries cheap, and makes a stuck item stand out.",
+        "Last, don't plan around the vendor's beta. A shared lock for API users may arrive eventually. In this case it had been in beta for months, with some fixes not expected until the following year. If it ships and works, you can replace your lock check with it. Until then, the queue is the plan."
+      ]
+    },
+    {
+      "id": "checklist",
+      "title": "Checklist",
+      "paragraphs": [
+        "Respect the lock, keep the update, and apply it once the record is free."
+      ],
+      "bullets": [
+        "Never force a write past a lock, and never drop a write silently.",
+        "Queue each update with record ID, payload, status, attempt count, next-retry time, and last error.",
+        "Check the lock before every write and treat \"locked\" as \"busy,\" not \"failed.\"",
+        "Retry with increasing delays.",
+        "Re-read the record before writing, and rerun the check if inputs changed.",
+        "Write only the fields your automation owns.",
+        "Escalate items stuck past a set limit, such as one business day.",
+        "Show plain-language queue status where staff already work.",
+        "Run read-only first, with a list of the exact fields each result would touch.",
+        "Trigger on new items only, not the full pipeline.",
+        "Treat any vendor locking feature as a future swap, not a dependency."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Queue updates around locked records",
+    "description": "Explore AIify It’s workflow integration services and how to write automation results back to existing records without forcing a lock or dropping the update.",
+    "label": "Explore workflow integration",
+    "href": "/services/workflow-integration/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-26"
+  }
+}
