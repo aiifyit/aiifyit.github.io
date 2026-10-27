@@ -1,0 +1,114 @@
+{
+  "slug": "automation-api-app-approval",
+  "title": "Logging In Is Not the Same as Letting an Automation Read Your Books",
+  "description": "Why an automation that pulls data from your accounting software needs its own registered app and API keys, and how to plan the approval steps so they don't hold up your project.",
+  "category": "Integration planning",
+  "takeaway": "You probably already have a way to let outside people into your accounting software. You add them as a user, or they invite you, and they can see the books. Some platforms go further. An accounting firm might have a console where clients add the firm, and the firm can then add as many staff as it wants to view each client's books.",
+  "sections": [
+    {
+      "id": "it-is-built-for-a-human-who-logs-in",
+      "title": "It is built for a human who logs in",
+      "paragraphs": [
+        "That works well for people. It is built for a human who logs in, clicks through screens, and reads what's there. An automation doesn't work that way. It needs to request data directly, often across many companies, on a schedule, without anyone sitting at a keyboard. For that, most platforms want a registered developer app with its own API keys. QuickBooks Online is a common example, and in our experience many other business platforms work the same way.",
+        "This catches a lot of projects off guard. People assume that because the consultant already has a login, the automation can use it. It can't. Here is what to expect and how to keep it from becoming the thing that stalls you."
+      ]
+    },
+    {
+      "id": "who-should-own-the-app",
+      "title": "Who should own the app",
+      "paragraphs": [
+        "Create the developer app under an account the business controls. That means a company admin account, not your consultant's personal login. Once it exists, add the consultant as an admin so they can do the setup work.",
+        "The reason is simple. Vendors change. If the app lives in someone else's personal account and that relationship ends, you can lose access to the keys your automation depends on, and you may end up rebuilding from scratch. If the business owns it, you can add or remove people as needed and keep running."
+      ]
+    },
+    {
+      "id": "dont-worry-about-the-billing-section",
+      "title": "Don't worry about the billing section",
+      "paragraphs": [
+        "When you open the developer portal, you may see a section about billing and subscriptions. On many platforms that part is for developers who sell their app to other businesses. If you're building something for your own internal use, creating the app is usually free. Read the terms for your platform, but don't let that screen slow you down."
+      ]
+    },
+    {
+      "id": "production-keys-come-after-a-questionnaire",
+      "title": "Production keys come after a questionnaire",
+      "paragraphs": [
+        "You can often get test or sandbox keys right away. The production keys, the client ID and secret that let the automation touch real data, usually stay locked until the platform approves a compliance questionnaire.",
+        "The questions vary by platform, but you should expect things like:"
+      ],
+      "bullets": [
+        "A link to a public privacy policy.",
+        "Where the app is hosted. If you use a hosted workflow tool, find out which region its servers are in.",
+        "The IP address ranges the app will call from. If your hosting tool assigns these, you may need to come back and fill them in later.",
+        "Whether the app uses generative AI.",
+        "Whether the app handles payments.",
+        "A link to the instructions that told you to create the app."
+      ]
+    },
+    {
+      "id": "bring-your-it-or-privacy-owner",
+      "title": "Bring your IT or privacy owner into the questionnaire session",
+      "paragraphs": [
+        "Before you sit down to answer, pull in whoever owns your IT and privacy documents. A lot of these answers already exist somewhere in your business. You just need the person who knows where.",
+        "Answer honestly for what the app does right now. If the scope changes later, for example you add AI features, go back and update your answers. Don't describe a future version of the app you haven't built yet, and don't leave out something it already does."
+      ]
+    },
+    {
+      "id": "plan-for-the-wait",
+      "title": "Plan for the wait",
+      "paragraphs": [
+        "Approval time is hard to predict. We've seen it come back in about 20 minutes. We've also seen a platform quote five to eight business days.",
+        "You can't control which one you get, so submit the questionnaire in the first week of the project. That way the review runs in the background while you build and test with sandbox data. If you wait until the automation is finished, approval becomes the only thing between you and going live, and you'll spend a week waiting on it."
+      ]
+    },
+    {
+      "id": "each-company-still-has-to-authorize-the-app",
+      "title": "Each company still has to authorize the app",
+      "paragraphs": [
+        "Getting production keys doesn't mean the automation can read every company's books. On most platforms, each company or client has to authorize the app once, usually by having someone with access log in and click through a consent screen.",
+        "If you're automating across dozens of client companies, that's dozens of authorizations. Decide up front who does them. It might be the consultant, or it might be someone at the firm who already has access to every client. Whoever it is, give them a short walkthrough video so they aren't guessing at each screen.",
+        "Also test whether bulk authorization works on your platform before you promise anyone a go-live date. Some platforms make it easy to authorize many companies in one pass. Others make you go one at a time. You want to know which before you commit to a timeline."
+      ]
+    },
+    {
+      "id": "a-checklist-you-can-use",
+      "title": "A checklist you can use",
+      "paragraphs": [
+        "Here is what to expect and how to keep it from becoming the thing that stalls you."
+      ],
+      "bullets": [
+        "Confirm whether your automation needs a developer app, not just a user login.",
+        "Create the app under a company admin account the business controls.",
+        "Add your consultant as an admin on that account.",
+        "Check the billing section, but expect app creation to be free for internal use.",
+        "Find your public privacy policy link.",
+        "Find out which region your hosting or workflow tool runs in.",
+        "Ask your hosting tool for the IP ranges it calls from, or plan to add them later.",
+        "Write down whether the app uses generative AI or handles payments.",
+        "Save the link to the instructions you followed to create the app.",
+        "Bring your IT or privacy owner into the questionnaire session.",
+        "Submit the questionnaire in week one.",
+        "Decide who will authorize each company, and record a short walkthrough video for them.",
+        "Test bulk authorization before setting a launch date.",
+        "Update your questionnaire answers whenever the app's scope changes."
+      ]
+    },
+    {
+      "id": "start-early",
+      "title": "Start early",
+      "paragraphs": [
+        "None of this is hard. It just takes time you don't control, so the main thing is to start early."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Plan the app approval before you build",
+    "description": "Explore AIify It's workflow integration service, then prepare an email about the accounting platform, who should own the developer app, and when you need production access.",
+    "label": "Explore workflow integration",
+    "href": "/services/workflow-integration/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-27"
+  }
+}
