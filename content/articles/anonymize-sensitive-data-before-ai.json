@@ -1,0 +1,94 @@
+{
+  "slug": "anonymize-sensitive-data-before-ai",
+  "title": "Want AI on Sensitive Documents? Take the Sensitive Part Out First.",
+  "description": "Before your team points AI chat tools at client or patient records, swap names, birth dates, and ID numbers for tokens so the AI never sees who anyone is.",
+  "category": "Agent access and security",
+  "takeaway": "If your documents are full of names, birth dates, Social Security numbers, and client details, don't ask the AI to be careful with them. Put a local scrubbing step in front of it, so the AI only ever works with placeholders and the real values stay in a locked store your own people control.",
+  "sections": [
+    {
+      "id": "dont-trust-the-ai-to-look-away",
+      "title": "Don't trust the AI to look away",
+      "paragraphs": [
+        "Your team wants to use AI chat tools on real work. The real work is full of personal details: names, dates of birth, Social Security numbers, phone numbers, patient or client histories.",
+        "The usual answer is a policy and a prompt. Tell people what not to paste, tell the AI not to repeat anything sensitive, and hope both hold. That is a lot of trust to place in instructions.",
+        "On a recent AIify It call, we talked through a different approach. Instead of trusting the AI not to look, you make sure there is nothing identifying for it to see. A plain, local step strips the sensitive values out before any document reaches the AI."
+      ]
+    },
+    {
+      "id": "how-the-scrubbing-step-works",
+      "title": "How the scrubbing step works",
+      "paragraphs": [
+        "The setup described on the call has a few simple parts. None of the scrubbing involves AI. It is an ordinary script running on your own system."
+      ],
+      "bullets": [
+        "Scan incoming documents. The script looks for anything that matches the shape of a name, date of birth, Social Security number, phone number, and similar details.",
+        "Replace each value with a token. A name becomes something like PERSON_0142. The cleaned document is saved as plain text. Files with a person's name in the filename get renamed too.",
+        "Store the key separately. The real values and the token mapping go into an encrypted database that only authorized people can open.",
+        "Point the AI at the clean folder only. The team's chat tool gets a connector to the scrubbed folder and no other data connections. It works with whatever chat tool you prefer.",
+        "Look people up locally. When someone wants to ask \"where are we with this client,\" they find the client's ID number in a secure local lookup and ask the AI about that ID."
+      ]
+    },
+    {
+      "id": "put-real-names-back-without-ai",
+      "title": "Put the real names back without AI",
+      "paragraphs": [
+        "At some point the work has to go out with real names on it. A report, a letter, a summary for a file.",
+        "That swap is also done without AI. A plain find-and-replace, using pattern matching, reads the tokens in the AI's output, looks each one up in the encrypted key, and writes the real value back in. The finished version is saved to a separate output folder.",
+        "The point is that the AI never does the re-identification. It never holds the key, so it can't leak what it never had. The person who built this version said it took about two hours to get working. When they tried to trick the AI into revealing who people were, it couldn't.",
+        "One detail worth copying: images drop out when documents become plain text. Rather than having AI describe them, replace each image with a link so a person can open the original when they need it."
+      ]
+    },
+    {
+      "id": "why-not-just-build-your-own-chat",
+      "title": "Why not just build your own internal chat?",
+      "paragraphs": [
+        "The other common route is to use only a provider's API under a signed agreement and build your own internal chat tool on top of it. That is safer in one way. Your data goes through a channel with terms you negotiated.",
+        "The trade-off is real, though. You lose much of what makes the polished chat apps useful, like multi-step research and tool calling. And now you own a chat app. Someone has to maintain it, fix it, and keep it current.",
+        "The scrubbing approach lets your team keep using the full-featured tools they already know, because what those tools see has already been cleaned. You can also combine the two. Scrubbing doesn't stop you from choosing providers and agreements carefully."
+      ]
+    },
+    {
+      "id": "where-pattern-matching-falls-short",
+      "title": "Where pattern matching falls short",
+      "paragraphs": [
+        "A scrubbing script only catches what it is built to catch. Social Security numbers and phone numbers have predictable shapes. Plenty of identifying details don't.",
+        "Watch for things like:"
+      ],
+      "bullets": [
+        "Free-text clues, such as \"the patient's daughter, who teaches at the local high school.\"",
+        "Uncommon names, nicknames, and misspellings the script doesn't recognize.",
+        "Street addresses, record numbers, account numbers, and internal case IDs.",
+        "Combinations of ordinary details, like age, town, job, and diagnosis, that point to one person even when no single detail does."
+      ]
+    },
+    {
+      "id": "test-it-on-your-own-documents",
+      "title": "Test it on your own documents",
+      "paragraphs": [
+        "Decide what counts as identifying for your data before you build. A list that works for one kind of record may miss what matters in another.",
+        "Then run the script on real samples, not just tidy test files. Read the output yourself and look for anything that slipped through. Keep spot-checking after launch, because new document types bring new surprises.",
+        "Make the tokens consistent. The same person should get the same token in every document. That way the AI can still connect records and notice that PERSON_0142 appears in three files, without ever knowing who that is."
+      ]
+    },
+    {
+      "id": "guard-the-key-and-know-the-limits",
+      "title": "Guard the key, and know what this doesn't settle",
+      "paragraphs": [
+        "The encrypted key database is now the most sensitive thing in the system. Keep it separate from the scrubbed folder, limit who can open it, and log access so you can see who looked up what.",
+        "Be clear about what this layer is. It reduces risk by keeping identifying data away from the AI. It is not a legal compliance determination. If you work under healthcare privacy rules or other regulations, check your obligations with counsel before relying on any setup like this.",
+        "Done well, it changes the question your team has to answer. You are no longer asking whether the AI will behave. You are checking whether the scrubbing caught everything, and that is something you can actually test."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Give your AI tools the data they need, and nothing more",
+    "description": "Explore custom AI agents with AIify It, including scrubbed data pipelines, limited connections, and re-identification your own team controls.",
+    "label": "Explore custom AI agents",
+    "href": "/services/custom-ai-agents/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-28"
+  }
+}
