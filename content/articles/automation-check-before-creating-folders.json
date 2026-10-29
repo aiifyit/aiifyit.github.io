@@ -1,0 +1,92 @@
+{
+  "slug": "automation-check-before-creating-folders",
+  "title": "Before Your Automation Creates a Folder, It Should Look for One",
+  "description": "When an automation takes over a setup task people used to do by hand, it has to check what already exists first. Here's how to handle folders and records your team already created.",
+  "category": "Workflow automation",
+  "takeaway": "An automation that takes over a manual setup task has to search before it creates. If it expects one exact name, it will either fail or make duplicates next to the folders your staff already made. Search on a dependable pattern, decide what happens when it finds zero, one or several matches, and never rename or move what people made without the owner's say.",
+  "sections": [
+    {
+      "id": "the-problem-with-taking-over-a-manual-job",
+      "title": "The problem with taking over a job people used to do",
+      "paragraphs": [
+        "Say your team creates a yearly folder structure for every client in a shared drive. Someone opens each client folder, adds a folder for the new tax year, and builds out the subfolders inside it. It's repetitive, so it's a good candidate for automation.",
+        "The catch is that people have been doing this by hand for a while, and they didn't all do it the same way. One client has a folder called \"Tax\". Another has \"2026 Taxes\". A third has \"Client Name - Tax\". Some clients have nothing yet.",
+        "If you build the automation to expect one exact name, two things can go wrong. It can fail because it can't find what it expected, or it can quietly create a second folder next to the one a person already made. Now staff have two places to save documents, and someone has to clean up the mess later. Neither outcome is what you wanted from automating the task."
+      ]
+    },
+    {
+      "id": "the-default-rule",
+      "title": "The default rule: search first, then use or create",
+      "paragraphs": [
+        "Build the automation on a simple rule. Assume the folder probably hasn't been made yet, but check before acting on that assumption. Search for it. If it's there, use it. If it isn't, create it.",
+        "The part people skip is what the automation is not allowed to do. It should never rename, move or merge folders that people made, even if they don't match the standard. Those folders may already hold documents, links that others rely on, or sharing settings someone set up on purpose. Tidying them up is a decision for whoever owns that client or that part of the drive. The automation can report that a folder doesn't follow the naming standard. It shouldn't fix it on its own."
+      ]
+    },
+    {
+      "id": "dont-guess-from-the-calendar",
+      "title": "Don't guess based on the time of year",
+      "paragraphs": [
+        "It's tempting to reason from the calendar. \"We're well into the year, so surely most clients already have their folder.\" Or the opposite: \"It's early, so nobody will have made one yet.\" Don't build on either guess.",
+        "Coverage is usually patchier than you'd expect. Once people hear a process is going to be automated, some of them stop doing the manual step, which is reasonable. Others keep going out of habit. So you end up with some clients done, some not, and no clean line between them. The only safe approach is to check every client, every time."
+      ]
+    },
+    {
+      "id": "match-on-a-pattern",
+      "title": "Match on a pattern, and decide what each result means",
+      "paragraphs": [
+        "Since the names vary, don't search for an exact name. Find something dependable that the folders have in common. In the tax example, that might be the word \"tax\" appearing anywhere in the folder name, ignoring capital letters. Look at real folder names from a range of clients before you settle on the pattern, so you know what you're actually matching against.",
+        "Then decide in advance what happens for each possible result. Write it down so it's agreed and not just something the person building the automation decided:"
+      ],
+      "bullets": [
+        "Zero matches: create the folder using the standard name and structure.",
+        "One match: use it. Add any missing subfolders inside it, but leave existing contents alone.",
+        "Several matches: stop for that client and flag it for a person. Two folders with \"tax\" in the name could be an old year and a new one, a duplicate, or something unrelated. A person can tell which one is right in seconds. An automation that guesses can file a year of documents in the wrong place."
+      ]
+    },
+    {
+      "id": "parent-folder-and-structure",
+      "title": "Check the parent folder and agree what goes inside",
+      "paragraphs": [
+        "Look one level up as well. Before the automation creates a tax folder inside a client folder, it needs that client folder to exist, and it needs permission to write there. If the client folder is missing, or the automation's account isn't allowed to create it, the automation should say so clearly in a report or alert. Failing quietly is the worst result, because everyone assumes the setup ran.",
+        "Then make the inside of the folder consistent. Agree on one hierarchy: which subfolders exist, what they're called, and in what order. The folders the automation creates and the folders people create by hand should look the same. Otherwise you've just swapped one kind of inconsistency for another.",
+        "Teach that structure to the team in their training call when the automation goes live. People will still create folders by hand sometimes, for a new client mid-year or because they need it before the automation runs. If they know the agreed structure, what they make will match, and the automation will find it next time."
+      ]
+    },
+    {
+      "id": "test-and-apply-to-records",
+      "title": "Test on a few clients, and use the same rule for records",
+      "paragraphs": [
+        "Run the automation on a small set of test clients first. Pick a mix: one with no folder, one with a folder in the standard name, one with a hand-made folder under a different name, and if you can, one with two possible matches. Then have someone open the shared drive and actually look at the result. The person building the automation often doesn't have access to see the client folders directly, so their logs may say everything worked while the drive shows something else.",
+        "The same idea applies beyond folders. If your automation adds rows to a tracker or records to a CRM, it should look up the existing record for that company before creating a new one. Match on something dependable, like a client ID or email domain, rather than a company name typed slightly differently each time. Use the same zero, one or several logic. Checking first takes a little more effort to build, and it saves you from a deduplication project later."
+      ]
+    },
+    {
+      "id": "checklist",
+      "title": "A short checklist before you switch it on",
+      "paragraphs": [
+        "Run through this before the automation takes over the task for real:"
+      ],
+      "bullets": [
+        "The automation searches before it creates, for every client, every run.",
+        "The match uses a dependable pattern based on real folder names, not one exact name.",
+        "There's an agreed action for zero, one and several matches, and \"several\" goes to a person.",
+        "The automation never renames, moves or merges what people made without the owner's decision.",
+        "Missing parent folders and permission problems produce a clear report, not a silent failure.",
+        "One folder hierarchy is agreed, and the team has been shown it in their training.",
+        "It has been run on a small set of test clients, and someone with access has opened the drive to check.",
+        "Trackers and CRM records follow the same rule: look up the existing record before adding one."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Automate setup tasks without creating duplicates",
+    "description": "Explore AIify It's workflow automation service and talk through the manual setup work you'd like to hand over, including what already exists and how the automation should treat it.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-10-29"
+  }
+}
