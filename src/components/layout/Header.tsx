@@ -40,11 +40,11 @@ export default function Header() {
           : 'bg-transparent'
       }`}
     >
-      <Container className="flex items-center h-18 py-4">
+      <Container className="flex items-center h-22 py-4">
         {/* Left: Logo */}
         <div className="flex-1 flex justify-start">
           <a href={homeHref} aria-label="AIify home" className="flex items-center">
-            <Logo className="h-10" />
+            <Logo className="h-14" />
           </a>
         </div>
 
@@ -104,14 +104,14 @@ export default function Header() {
             transition={{ duration: 0.2 }}
             className="fixed inset-0 z-50 bg-[var(--color-bg)]/95 backdrop-blur-xl flex flex-col"
           >
-            <Container className="flex items-center justify-between h-18 py-4">
+            <Container className="flex items-center justify-between h-22 py-4">
               <a
                 href={homeHref}
                 aria-label="AIify home"
                 className="flex items-center"
                 onClick={() => setMobileOpen(false)}
               >
-                <Logo className="h-10" />
+                <Logo className="h-14" />
               </a>
               <button
                 className="p-2 text-[var(--color-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] rounded-lg"
