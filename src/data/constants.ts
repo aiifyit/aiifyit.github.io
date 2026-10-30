@@ -14,9 +14,9 @@ export const NAV_ITEMS: NavItem[] = [
 ];
 
 export const HERO_EYEBROW = "Want to Use AI in Your Business?";
-export const HERO_HEADLINE = "We Got You.";
+export const HERO_HEADLINE = "Do in Hours What Used to Take Months. Custom AI for Your Business.";
 export const HERO_SUBHEADLINE =
-  "Build Real AI Employees that Never Sleep. Massively cut costs, custom AI agents wired into your operations, hands-on implementation that never stops.";
+  "Automate your company's critical, expensive tasks with an always-on swarm of AI agents, co-managed alongside you by our experts so it runs smoothly, cuts costs, and frees your team to focus on growth.";
 
 export const HERO_BULLETS = [
   "We audit your workflows and fix what's costing you time & money",
