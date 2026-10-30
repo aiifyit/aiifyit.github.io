@@ -90,7 +90,7 @@ export default function Hero() {
           {/* CTAs */}
           <motion.div
             {...fadeUp(0.4)}
-            className="flex flex-row flex-wrap items-center justify-center gap-4 mb-16"
+            className="flex flex-row flex-wrap items-center justify-center gap-4"
           >
             <Button
               href="/inquire/"
@@ -103,6 +103,14 @@ export default function Hero() {
               See How It Works
             </Button>
           </motion.div>
+
+          <img
+            src="/images/spacexsi-transformation-partner.svg"
+            alt="AIify It is a registered SpaceX Super Intelligence Transformation Partner"
+            width={1442}
+            height={252}
+            className="mx-auto mt-[25px] mb-16 block h-[72px] w-auto max-w-full object-contain"
+          />
         </div>
 
         {/* Stats Bar */}
