@@ -125,7 +125,7 @@ export function auditArticles(articles, site) {
       routes.add(`/articles/${article.slug}/`);
     }
     text(article.title, `${location}.title`, 100, 10, true);
-    text(article.description, `${location}.description`, 180, 40, true);
+    text(article.description, `${location}.description`, 300, 40, true);
     for (const [field, seen] of [['title', titles], ['description', descriptions]]) {
       if (typeof article[field] === 'string') {
         const normalized = article[field].toLowerCase().replace(/\s+/g, ' ').trim();
