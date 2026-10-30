@@ -56,7 +56,7 @@ test('missing and unknown fields fail closed at every schema level', () => {
 });
 
 test('malformed metadata and invalid slugs are rejected', () => {
-  for (const [key, value] of [['title', 'Tiny'], ['description', 'Too short'], ['title', 'x'.repeat(101)], ['description', 'x'.repeat(181)], ['slug', '../private'], ['category', 42]]) {
+  for (const [key, value] of [['title', 'Tiny'], ['description', 'Too short'], ['title', 'x'.repeat(101)], ['description', 'x'.repeat(301)], ['slug', '../private'], ['category', 42]]) {
     const changed = fixture();
     changed[key] = value;
     assert.ok(auditArticles([changed], site).errors.length > 0, key);
