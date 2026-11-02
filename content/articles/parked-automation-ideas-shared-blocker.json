@@ -1,0 +1,97 @@
+{
+  "slug": "parked-automation-ideas-shared-blocker",
+  "title": "Your Parked Automation Ideas Might Share One Fix",
+  "description": "Why automation ideas that all depend on one unconnected system get parked forever, and how to scan your backlog for the one fix that unlocks several at once.",
+  "category": "Automation planning",
+  "takeaway": "Here's a pattern that shows up in almost every automation project. You list out everything worth automating. A handful of the best ideas all need the same system, say your accounting software, and nobody is sure yet whether it can be connected. So someone says, \"Let's start with the other ones while we figure that out.\" That's a reasonable call in the moment. The problem is what happens next, which is usually nothing.",
+  "sections": [
+    {
+      "id": "while-we-figure-that-out-becomes-forever",
+      "title": "\"While we figure that out\" becomes forever",
+      "paragraphs": [
+        "The team gets busy building the ideas that were easy to start. Those go live, people are happy, and new requests come in. Meanwhile the parked ideas sit on a list. Nobody owns the question of whether the accounting system can be connected, so nobody answers it.",
+        "Months later you look at that list and realize a whole cluster of valuable work has been waiting on one question that was never asked out loud. Often it's the most valuable cluster, because the system everyone was nervous about connecting is the one the business actually runs on."
+      ]
+    },
+    {
+      "id": "ask-what-each-idea-actually-needs",
+      "title": "Ask what each idea actually needs",
+      "paragraphs": [
+        "The moment you hear \"these all require the accounting system,\" stop and get specific. For each idea, ask:"
+      ],
+      "bullets": [
+        "Which data does it need? Invoices, customer balances, payments, the chart of accounts?",
+        "Does it only read that data, or does it need to write back?",
+        "How often? Once a month, once a day, or every time something changes?"
+      ]
+    },
+    {
+      "id": "the-blocker-is-usually-smaller-than-it-looks",
+      "title": "The blocker is usually smaller than it looks",
+      "paragraphs": [
+        "Once you write those answers down, the big scary dependency usually turns into a short list of concrete questions. Does the software have an API for invoices? Does read-only access need a separate app approval? Can a daily export to a shared folder cover the monthly reports for now?",
+        "Questions like that can often be investigated in minutes, especially if you hand them to an AI assistant with access to the vendor's documentation. Sometimes the answer is yes and you just start. Sometimes it's \"yes, but you need an approval that takes a week,\" which is still far better than an indefinite maybe. And sometimes it's a real no, which is also useful, because now you can pick a workaround on purpose instead of by default."
+      ]
+    },
+    {
+      "id": "scan-the-whole-list-for-shared-blockers",
+      "title": "Scan the whole list for shared blockers",
+      "paragraphs": [
+        "Keep a running list of parked ideas for each business or department you're automating. Then, every few weeks, go through the whole list with one question in mind: is there a single fix here that frees up several ideas at once?",
+        "That fix might be connecting one system, getting one login approved, cleaning up one messy data field, or getting one manager to agree on a rule. When you find one, rank it above the one-off ideas. Unlocking five ideas with one piece of work is almost always a better use of the next week than building a sixth standalone automation."
+      ]
+    },
+    {
+      "id": "note-the-access-each-idea-needs",
+      "title": "Note the access each idea needs",
+      "paragraphs": [
+        "While you're scanning, write down what access each parked idea depends on, and flag the ones likely to be a headache. Vendor approvals, admin accounts held by someone outside the company, and systems with strict security reviews all take time you don't control.",
+        "Once you know which ones are slow, request them early. That way the waiting happens in the background while you build other things, instead of becoming the only thing standing between you and going live."
+      ]
+    },
+    {
+      "id": "prune-stale-ideas-before-you-scan",
+      "title": "Prune stale ideas before you scan",
+      "paragraphs": [
+        "A backlog where nothing has been touched in months will give you a misleading scan. Many of those ideas were for problems that got solved another way, people who left, or processes that changed. If you scan that list as-is, most of what comes back is dead weight.",
+        "Add a last-reviewed date to each idea. Before you look for shared blockers, either re-confirm old ideas with the person who asked for them or drop them. A short, current list is worth more than a long, stale one."
+      ]
+    },
+    {
+      "id": "let-an-ai-assistant-do-the-sorting",
+      "title": "Let an AI assistant do the sorting",
+      "paragraphs": [
+        "This is a good job for an AI assistant. Give it the list and ask it to group the ideas by the system or access each one depends on, flag any group with three or more ideas, and point out ideas that look stale or duplicated. You still decide what to do, but you skip the tedious part of reading every line and remembering what it needs.",
+        "Then give every shared blocker an owner and a date. \"We'll figure it out\" with no name attached is how the list got stuck in the first place."
+      ]
+    },
+    {
+      "id": "a-checklist-you-can-use",
+      "title": "A checklist you can use",
+      "paragraphs": [
+        "Run through this every few weeks:"
+      ],
+      "bullets": [
+        "Keep one parked-ideas list per business or department.",
+        "Add a last-reviewed date to every idea, and drop or re-confirm old ones.",
+        "For each idea, write down which system it depends on, what data it needs, read or write, and how often.",
+        "Group ideas by shared dependency and look for any group of three or more.",
+        "Turn each big dependency into specific questions and investigate them right away.",
+        "Flag access that will be slow to get, and request it early.",
+        "Give each shared blocker an owner and a date.",
+        "Rank fixes that unlock several ideas above standalone ideas."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Find the fix that unlocks your backlog",
+    "description": "Explore AIify It's workflow automation service, then send us your list of parked automation ideas and the systems they depend on.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-11-02"
+  }
+}
