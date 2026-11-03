@@ -1,0 +1,116 @@
+{
+  "slug": "crm-export-missing-email-body-forward",
+  "title": "Your CRM Export Shows Who Replied, Not What They Said",
+  "description": "If your CRM export has subject lines but no email bodies, a read-only forwarding mailbox lets an AI assistant update deal next steps while you wait on IT.",
+  "category": "Workflow integration",
+  "takeaway": "An AI assistant can only keep deal follow-ups current if it can read the emails, not just a list of them. The CRM export you get often has contact names, subject lines, and reply flags, but no message bodies, attachments, or meeting transcripts. Rather than wait weeks for full access, forward a sales lead's new mail into a separate mailbox the AI can only read, and let it update the next-step sheet and draft reminders for a person to send. Keep asking for proper read-only access in parallel, because the forward is how you start this week, not the permanent setup.",
+  "sections": [
+    {
+      "id": "a-list-of-emails-isnt-the-emails",
+      "title": "A list of emails isn't the emails",
+      "paragraphs": [
+        "Say you want an AI assistant to keep a sales lead's next-step sheet current: what each customer asked for, what's due, and who owes whom a reply. Someone pulls an export from your CRM to get you started. It has contact names, subject lines, and a flag showing whether each email got a reply. It usually doesn't have the text of the emails, the attachments, or transcripts from calls.",
+        "The next steps live in that missing text. Picture a row with the subject \"Re: Re: pricing\" and the reply flag set. The email behind it asks for a second pricing option on the quote and an updated timeline before the customer's review meeting on Friday. That's two tasks and a deadline, and none of it is in the export.",
+        "With only the export, the most the AI can tell you is that someone replied to a thread called \"pricing,\" which your CRM already shows. Attachments matter just as much, since that's usually where the quote, the spec, or the signed form lives. The AI can't work out what an email said from its subject line, and you don't want it guessing."
+      ]
+    },
+    {
+      "id": "why-waiting-for-full-access-stalls",
+      "title": "Why waiting for full access stalls the work",
+      "paragraphs": [
+        "The obvious fix is to ask IT for full access to the CRM and the mailbox. That request can sit in security review for weeks, and the hesitation is usually fair. Broad CRM access tends to mean every contact in the company, not just the ones in one person's pipeline, and mailbox access raises the same question about everything else in that inbox.",
+        "You don't have to win that argument to get started. The worry is about scope, so give the reviewers something small and easy to describe, and start there while the bigger request works its way through."
+      ]
+    },
+    {
+      "id": "start-with-a-forward-into-a-read-only-mailbox",
+      "title": "Start with a forward into a mailbox the AI can only read",
+      "paragraphs": [
+        "Create one dedicated shared mailbox inside your company's email system. On the sales lead's account, add a rule that automatically forwards new incoming email, attachments included, to that mailbox. Then give the AI assistant read-only access to that one mailbox, edit access to the next-step sheet it maintains, and nothing else.",
+        "Now the AI sees what that one person receives, from today onward. It can't browse the CRM, anyone else's inbox, or the company contact list. You'll probably still need whoever runs your email to create the mailbox and approve the AI's access, but that's a far narrower request than opening up the CRM, and narrow requests are easier to say yes to.",
+        "A few details decide whether it works in practice:"
+      ],
+      "bullets": [
+        "Don't forward to an outside address, including one an AI tool gives you. Many company email setups block automatic forwarding outside the company, and security teams are right to be wary of it. Keep the mail in your own system and let the AI read it there.",
+        "Make sure the rule runs on the mail server. Some mail apps also offer rules that only run while the app is open on someone's computer, which ties your whole setup to that laptop being on.",
+        "Check that forwarded copies keep the original sender, date, and attachments. A plain forward often shows your sales lead as the sender and tucks the real one into the message text, which makes matching less reliable. Forwarding as an attachment, or a redirect option if your mail app has one, usually keeps the original intact.",
+        "Decide what not to forward. Most rules let you add exceptions, like anything marked private or mail from HR and payroll. Less unrelated mail means less for the AI to ignore and a setup that's easier to defend.",
+        "Forwarding rules usually only act on incoming mail. If the next steps depend on what your sales lead promised in their own replies, check whether your mail app can forward sent messages too."
+      ]
+    },
+    {
+      "id": "what-the-ai-does-with-each-email",
+      "title": "What the AI does with each email",
+      "paragraphs": [
+        "Each time an email lands in the shared mailbox, the AI reads the body and attachments, works out which deal it belongs to, and updates that deal's row in the next-step sheet. If your meeting tool emails call notes or transcripts to the sales lead, those come through the same way.",
+        "The export you already have isn't wasted. Its contact names and subject lines help the AI match each email to the right row. When there's no clear match, the AI should list the email for a person to sort instead of guessing.",
+        "For each deal, have the sheet show:"
+      ],
+      "bullets": [
+        "The current status, in a sentence or two of plain language.",
+        "The next step, who owns it, and when it's due.",
+        "Commitments on either side, like a promised quote or an agreed review date.",
+        "The source email's sender, date, and subject, so a person can find it and check the AI's reading.",
+        "A drafted reminder when something is due or overdue, ready for a person to edit and send."
+      ]
+    },
+    {
+      "id": "no-sending-no-team-tracker-edits",
+      "title": "Two limits: no sending, and no editing the team tracker",
+      "paragraphs": [
+        "The AI doesn't send email. It drafts reminders, and a person decides what goes out. Make that a permission, not just an instruction. If the AI's only email access is read access to the shared mailbox, it has nothing to send from, even by mistake. An assistant that can email customers in your sales lead's name is a much bigger security conversation, and a wrong message to a customer is hard to take back.",
+        "If the wider team works from a separate tracker, like a bid list or a shared pipeline sheet, keep the AI out of it. Other people make decisions from that tracker, so a wrong edit spreads. Details from one person's inbox may not belong in front of the whole team. And once a bot is editing a shared sheet, it gets harder to tell who changed what and why.",
+        "Let the AI own its next-step sheet. When something there is confirmed and belongs on the team tracker, a person copies it over. If that step tends to get forgotten, have the AI flag the rows that probably need it."
+      ]
+    },
+    {
+      "id": "keep-asking-for-proper-access",
+      "title": "Keep asking for proper access in parallel",
+      "paragraphs": [
+        "The forward is how you start this week, not the permanent setup, and it's worth saying that from day one. It depends on one rule in one person's mailbox. If that rule gets turned off or edited, or the person changes roles, updates stop and nothing warns you. The forward itself carries no CRM context, like deal stage or value. And every forwarded email is another copy of customer mail sitting in a second mailbox, so agree how long it stays there.",
+        "Send the fuller request the same day you set up the forward. Ask for an export that includes email bodies and attachments, plus call transcripts if you have them, and for read-only access limited to that one person's pipeline. A specific, limited request gives security far less to worry about than \"access to the CRM.\" The forward also gives them something concrete to review: one mailbox, read-only, one sheet the AI can edit, nothing sent.",
+        "Until proper access arrives, have the AI show at the top of the sheet when it last received an email, so a quiet working day gets noticed. And plan how the workaround ends: once access is in place, a named person turns the rule off and decides what happens to the mail already in the shared mailbox."
+      ]
+    },
+    {
+      "id": "old-mail-needs-its-own-export",
+      "title": "Old mail needs its own export",
+      "paragraphs": [
+        "A forward only catches mail that arrives after you switch it on. Open deals already have history: the quote that went out last month, the reply that pushed a decision to next quarter. Without it, the next-step sheet starts half empty, and the AI may draft a reminder for something that was handled weeks ago.",
+        "Plan to bring that history in separately. Newer webmail apps often have no easy way to bulk export a folder, so don't count on the sales lead doing it from a browser in five minutes. Ask IT whether they can export it with admin tools, check whether the desktop version of your mail app still has an export option, or, for a short list of deals, have the sales lead forward the key threads by hand once.",
+        "Keep the history to open deals and a reasonable window, like the last few months. That's less to move, less for the AI to work through, and an easier yes from security."
+      ]
+    },
+    {
+      "id": "a-checklist-to-start-this-week",
+      "title": "A checklist to start this week",
+      "paragraphs": [
+        "Use this to get the first version running:"
+      ],
+      "bullets": [
+        "Check what your CRM export actually includes: bodies, attachments, and transcripts, or only names, subjects, and reply flags.",
+        "Create one dedicated shared mailbox inside your own email system.",
+        "Add a forwarding rule on the sales lead's mail that runs on the server, sends new messages with attachments, and skips mail the work doesn't need.",
+        "Send a few test emails and confirm the original sender, date, and attachments come through.",
+        "Decide whether you need the sales lead's sent replies too, and how they'll get in.",
+        "Give the AI read access to that mailbox and edit access to the next-step sheet, nothing more. It drafts reminders; a person sends them.",
+        "Leave the team's bid or pipeline tracker to people.",
+        "Request the fuller export and restricted read-only access the same day.",
+        "Arrange a one-time export of recent history for open deals.",
+        "Show when the last email arrived, so a silent day gets checked.",
+        "Name the person who turns the forward off when proper access is in place."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Update deal next steps from the actual emails",
+    "description": "Explore AIify It's workflow integration service, then send us a short note on what your CRM export includes, what your next-step sheet needs to show, and where access is stuck.",
+    "label": "Explore workflow integration",
+    "href": "/services/workflow-integration/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-11-03"
+  }
+}
