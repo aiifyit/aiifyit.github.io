@@ -1,0 +1,106 @@
+{
+  "slug": "label-plan-steps-agent-human-or-both",
+  "title": "Before Your AI Runs the Plan, Label Every Step Agent, Human, or Both",
+  "description": "How to split goals from tasks, approve the plan twice, and mark each step Agent, Human, or Both so AI assistants and people stop colliding on shared work.",
+  "category": "AI operations",
+  "takeaway": "Handing a whole goal to an AI assistant without labeling the steps is how work stalls or crosses a line. Break goals into tasks, approve the goal plan first, then mark every execution step Agent, Human, or Both and approve those labels before anything runs.",
+  "sections": [
+    {
+      "id": "the-just-handle-it-trap",
+      "title": "\"Just handle it\" mixes work that should stay separate",
+      "paragraphs": [
+        "A common pattern shows up when a team starts using AI assistants on real plans. Someone pastes a big quarterly goal into the chat and asks the assistant to handle it. The assistant invents a long list of steps: research, a judgment call, a send, a wait for another team, a spreadsheet update, another send.",
+        "Some of those steps are perfect for an agent. Some need a person. Without labels, the agent either stalls on the human parts or pushes past a boundary it should not cross. You end up with a plan that looks complete and a process that is not safe to run.",
+        "The fix is not \"more careful prompting.\" The fix is a short operating rule: separate goals from tasks, approve the direction, then label every execution step before anything starts.",
+        "You do not need a fancy project system to start. A spreadsheet with the right columns beats a clever agent with no labels."
+      ]
+    },
+    {
+      "id": "goals-are-not-tasks",
+      "title": "Keep goals as outcomes and tasks as work",
+      "paragraphs": [
+        "A goal is the outcome you want. A task is a concrete piece of work under that goal. When both live as the same kind of row, people and agents treat a destination like a to-do and invent steps before anyone agreed on the destination.",
+        "Use a shared planning sheet or board where goals are parent rows and tasks are children. Approve the goal-level plan first: what are we trying to achieve, who owns it, and what does \"done\" look like? Only after that approval should you break the plan into task rows with owners and due dates.",
+        "This sounds basic, and it is. The point is that agents are very good at filling empty space. If you skip the goal approval, they will happily invent a detailed path toward the wrong place."
+      ]
+    },
+    {
+      "id": "two-approvals-before-execution",
+      "title": "Approve twice before execution starts",
+      "paragraphs": [
+        "One approval is not enough once agents can run work on their own. Use two gates:",
+        "Treat missing approvals as a hard stop. If the second review has not happened, the agent should leave the work alone rather than \"helpfully\" starting the easy steps."
+      ],
+      "bullets": [
+        "First approval: a person reviews and accepts the goal-level plan.",
+        "Second approval: after that plan becomes task steps, each owner reviews the labeled steps (Agent, Human, or Both) before execution starts."
+      ]
+    },
+    {
+      "id": "two-approvals-why",
+      "title": "Why the second approval matters",
+      "paragraphs": [
+        "The first gate answers \"are we building the right thing?\" The second answers \"who is allowed to do each part?\" Agents should not start until both exist. If you only approve the goal, the agent still has room to invent steps that send messages, change records, or wait forever on someone who was never told they were on the hook.",
+        "Keep the second review short. The owner does not need to rewrite the whole plan. They need to confirm the labels, the owners, and the blockers. A five-minute voice or sheet review is enough when the labels are visible."
+      ]
+    },
+    {
+      "id": "label-every-step",
+      "title": "Label every step Agent, Human, or Both",
+      "paragraphs": [
+        "Add a clear field on each task or step with three options: Agent, Human, or Both. Make the meaning boring and specific:"
+      ],
+      "bullets": [
+        "Agent: the assistant runs the step and reports back with a link or summary the owner can review.",
+        "Human: the step goes on the owner's list with a reminder. The agent does not pretend it can finish it.",
+        "Both: write which parts the agent owns and which parts the person owns. Ambiguous steps stay Both until someone decides."
+      ]
+    },
+    {
+      "id": "label-behavior",
+      "title": "Make the labels drive behavior",
+      "paragraphs": [
+        "Labels only help if execution follows them. Agent-only work should run and notify the owner with what changed. Human-only work should notify right away and get a daily follow-up until it is done. Shared work should stay blocked when the agent part depends on a human part that is still open.",
+        "If a step is hard to label, that is useful information. It usually means the step mixes a judgment call with mechanical work. Split it. Put the judgment on Human and the mechanical follow-through on Agent, or keep it Both with both sides named.",
+        "Also watch for fake completion. An agent that marks a Human step done because it drafted a note did not finish the work. The label tells you who still owes the result."
+      ]
+    },
+    {
+      "id": "blocked-on-and-claims",
+      "title": "Put blockers in a real field, and claim shared rows",
+      "paragraphs": [
+        "Next to status, add a \"Blocked on\" field. When a step needs a person, a login, a decision, or another team's answer, write the blocker there. Do not bury it in a long notes cell. Agents and people should be able to scan the sheet and see why work is waiting without reading a paragraph.",
+        "If more than one assistant or person can edit the same plan, require a short claim before anyone changes a shared row. One owner claims the task, makes the edit, then releases it. That stops two agents from overwriting each other while both think they are being helpful."
+      ]
+    },
+    {
+      "id": "checklist",
+      "title": "A checklist you can use on your next plan",
+      "paragraphs": [
+        "Before you let agents execute against a shared plan, run through this:"
+      ],
+      "bullets": [
+        "Goals are parent rows; tasks are children with owners and due dates.",
+        "A person approved the goal-level plan before task steps were generated.",
+        "Every execution step is labeled Agent, Human, or Both.",
+        "Both steps name which parts each side owns; ambiguous steps stay Both until decided.",
+        "Owners approved the labeled steps before execution started.",
+        "Agent-only work reports back with a reviewable result; human-only work gets reminders.",
+        "Shared work that depends on a person stays blocked until that part is done.",
+        "Status has a \"Blocked on\" field that names the real wait.",
+        "Shared-sheet edits start with a claim so two editors do not collide."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Put clear boundaries on your AI agents",
+    "description": "Explore AIify It's custom AI agents service, then tell us how your team currently splits agent work from human work on shared plans.",
+    "label": "Explore custom AI agents",
+    "href": "/services/custom-ai-agents/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-11-04"
+  }
+}
