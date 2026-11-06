@@ -1,0 +1,82 @@
+{
+  "slug": "ai-dashboard-numbers-source-links",
+  "title": "Can You Trace Every Number on Your Sales Dashboard?",
+  "description": "Link every number on an automated sales dashboard to its source records. Catch duplicate estimates and impossible values before anyone acts on the totals.",
+  "category": "Sales operations",
+  "takeaway": "An automated sales dashboard shows a long list of open proposals and a 100% conversion rate. Some of those proposals belong to customers who already accepted a different estimate. Before you act on the numbers, can you click through to the records behind each one?",
+  "sections": [
+    {
+      "id": "link-every-number",
+      "title": "Put a source link next to every number",
+      "paragraphs": [
+        "Before you rely on an automated sales dashboard, make every number on it traceable. Next to each figure, add a link that opens the list of records behind it, and give each record in that list a link to the matching record in the source system. The person checking the dashboard should be able to get from a total to a single estimate or job in a couple of clicks.",
+        "Without that trail, checking a number means exporting data, rebuilding the filters in a spreadsheet and hoping you applied the same rules the dashboard did. Few managers have time to do that every week. And when automation or AI tools make a polished dashboard quick to build, it can look finished long before anyone has checked the logic behind it.",
+        "Links also change what happens when a number looks wrong. Instead of debating whether the report is broken, you open the records and look. Either they support the number, or they show you which records the logic is mishandling."
+      ]
+    },
+    {
+      "id": "watch-for-duplicates",
+      "title": "Watch for duplicate records that inflate the numbers",
+      "paragraphs": [
+        "In an AIify It dashboard review, a service business’s sales dashboard was built on estimate data from its field-service software. When a customer accepted one estimate, the software left that customer’s other estimates open. The dashboard counted those leftovers as open proposals, so the pipeline looked bigger than it was, and the same records pushed the conversion rate to an impossible 100%.",
+        "Each customer made one decision, but the dashboard counted several records. The effect on conversion depends on the formula. Suppose, for illustration, that the rate is accepted estimates divided by estimates that were either accepted or declined. If the options a customer passed over simply stay open and nothing is ever marked declined, the only estimates with a decision are accepted ones, so the rate can only come out at 100%.",
+        "The inflated proposal count is the harder problem to spot, because a bigger pipeline looks like good news. Check what your own system does. If technicians present options as separate estimates, or a price change creates a new estimate instead of updating the old one, find out what happens to the records the customer did not accept. If they stay open, a dashboard that simply counts open estimates will overstate your pipeline.",
+        "Duplicates can also come from the way the dashboard combines data. If a customer has two contacts or two service addresses, each of their estimates can end up on two rows. A source link makes this easy to catch, because the same estimate shows up twice in the list behind the number."
+      ]
+    },
+    {
+      "id": "define-one-unit",
+      "title": "Decide what counts as one proposal",
+      "paragraphs": [
+        "Choose the unit the dashboard counts, usually the customer or the job, and write the definition down where dashboard users can see it. Count jobs if one customer can have unrelated work, such as a repair this spring and a replacement next year; counting customers would merge the two. If estimates are not reliably linked to jobs in your system, the customer may be the more accurate unit until that is fixed.",
+        "Then choose the estimate that represents each unit. If one was accepted, use it: the unit counts as one win, at that estimate’s value. The options the customer passed over are neither losses nor open proposals. If nothing has been accepted yet, the unit counts as one open proposal, and you need a written rule for its value, such as taking the most recent estimate. If the customer turned everything down, it counts as one loss.",
+        "Next, close or ignore the leftover estimates. Closing them in the source system is cleaner, because every other report that reads those records benefits too. That can be a step in the office routine or an automation that closes the remaining options when one is accepted. If you cannot change the source yet, have the dashboard ignore them, show how many it ignored and put a source link on that count as well, so the manager can see exactly what was left out.",
+        "Define conversion in the same terms. One option is won jobs divided by jobs that received an estimate in the period. If you divide by jobs that reached a decision instead, set a point where an unanswered proposal counts as lost, such as 60 days without a reply. Otherwise, in a system where nothing gets marked declined, the rate can still show 100% after the leftovers are gone."
+      ]
+    },
+    {
+      "id": "flag-impossible-values",
+      "title": "Flag numbers that cannot be right",
+      "paragraphs": [
+        "Some numbers tell you the logic is broken before anyone opens a record. A 100% conversion rate across a month of estimates is one of them. Treat it as a data problem until someone shows otherwise, and have the dashboard raise it automatically instead of relying on someone to notice. When a check fails, show a warning next to the affected number and alert the person who maintains the dashboard.",
+        "Checks worth running on every refresh include:"
+      ],
+      "bullets": [
+        "A conversion rate of 100% or more, or one that falls to zero in an ordinary week.",
+        "Negative counts, totals or durations, such as an estimate accepted before it was created.",
+        "A won job that still has estimates in the open proposal count.",
+        "More than one accepted estimate on a job, which may be a real add-on or a duplicate.",
+        "A sharp jump or drop since the last refresh, which someone should confirm against what actually happened."
+      ]
+    },
+    {
+      "id": "validate-against-the-source",
+      "title": "Check the dashboard against the source before rollout",
+      "paragraphs": [
+        "Before the dashboard goes to the sales team, compare it with the source system for a period you know well, such as last month. Take a sample of jobs, work out from the source system how each one should be counted and compare that with what the dashboard did. Include awkward cases on purpose: a customer offered several options, an estimate revised after a price change, a job the customer turned down, a canceled job and a customer with more than one service address.",
+        "Write down every difference and its cause. Some will be dashboard logic to fix. Some will be office or field habits that create extra records. Some will be genuine edge cases that need a rule. Roll out once the remaining differences are ones you understand and can explain to the people using the numbers.",
+        "After rollout, keep the checking light and regular. Ask the manager who uses the dashboard to click through a few numbers each week and open some of the records behind them, such as a won job, an open proposal and a record the dashboard excluded. When something looks off, they can send the link instead of a description, which makes the problem much quicker to find. Repeat the comparison whenever the office changes how estimates are created, such as a new template or a new way of presenting options."
+      ]
+    },
+    {
+      "id": "match-refresh-to-the-decision",
+      "title": "Refresh each number as often as the decision needs",
+      "paragraphs": [
+        "Set each number’s refresh schedule by asking when someone will act on it. If a manager watches customer sentiment so they can call back an unhappy customer the same day, refreshing every 15 minutes may be worth it. If the conversion rate comes up in a weekly sales meeting, a daily refresh is plenty. Refreshing everything every few minutes puts extra load on the source system and makes numbers shift while people are discussing them.",
+        "Show when each number was last refreshed, right next to it. If a refresh fails, say so on the dashboard instead of showing the last successful figures as if they were current. If the sync stopped at 9 a.m., the person checking sentiment at 3 p.m. needs to know that before deciding who to call.",
+        "A practical place to start: take the three numbers your team looks at most, add a source link to each and trace a handful of the records behind them back to the source system. Fix the counting rules the trace exposes, add the automatic checks and then set a refresh schedule for each number based on when someone acts on it."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Build a sales dashboard you can check",
+    "description": "Explore AIify It’s workflow automation service, then prepare an email about the dashboard numbers your team relies on and the systems they come from.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-11-06"
+  }
+}
