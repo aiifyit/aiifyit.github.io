@@ -1,0 +1,128 @@
+{
+  "slug": "ship-working-automation-before-write-apis",
+  "title": "Don't Wait for Write Access to Ship a Working Automation",
+  "description": "Don't stall your automation waiting on write access. Automate the reads, hand blocked writes to a named person, and switch each one on after it passes a test.",
+  "category": "Automation strategy",
+  "takeaway": "You don't need write access to every system before your automation can do real work. Automate the steps that read data, plus anything else you've already tested. Turn each step that changes data into a clear task for a named person inside the same workflow. Then automate those writes one at a time, switching each one on only after it passes a test.",
+  "sections": [
+    {
+      "id": "reads-are-ready-writes-are-not",
+      "title": "The reads are ready. The writes aren't.",
+      "paragraphs": [
+        "Most business automations do two kinds of work. They read: look up a customer, pull an order, check a balance. And they write: create an invoice, change a status, add a note to a record. In API terms, reads are mostly GET requests, and writes are mostly POST, PUT, or PATCH requests.",
+        "Read access often shows up first. Letting software look at your records is a smaller decision than letting it change them, so write access tends to need extra approval, a higher permission level, or an admin who's hard to pin down. Even once you have the credentials, some of the API calls that change data turn out to be poorly documented or unreliable, and you only find that out by trying them.",
+        "The tempting plan is to wait until every write works before anyone uses anything. That's how a project goes stop-start. You build for a few days, then wait on a credential. It arrives, so you book a call to test a write against the live system. You insert test data, spot a problem, undo it, and go back to waiting. Weeks go by, and nobody has a process that actually runs."
+      ]
+    },
+    {
+      "id": "skip-the-clickable-mockup",
+      "title": "Skip the clickable mockup",
+      "paragraphs": [
+        "When the real thing is blocked, it's tempting to show progress with a clickable mockup: screens, arrows, maybe a demo that walks through the process with made-up data. It looks finished, and people nod along.",
+        "But a mockup doesn't prove the process works, and it can't answer the questions that matter. Is the data where everyone says it is? Do customer records match across systems? How often is an important field blank? How long does the process take at real volume? A mockup never touches real data, so none of that comes up. And when the real build starts, the mockup gets thrown away and rebuilt.",
+        "Build a working version instead, even if people handle some of its steps for now. It runs on real records from the first week. The parts you build are the parts you keep. And the problems it turns up are real ones you'd have to solve anyway."
+      ]
+    },
+    {
+      "id": "automate-what-you-have-tested",
+      "title": "Automate everything you've already tested",
+      "paragraphs": [
+        "Start with the steps you have tested access for. Not the ones that should work once the credentials arrive, but the ones you've actually run against the real system and seen work.",
+        "That's usually where most of the work is anyway. Finding the right customer, checking the numbers, and deciding what should happen all take lookups and rules. The write at the end is often the simplest bit: put these values in those fields. Once the workflow has done everything before it, a person can often make that change in a minute or two.",
+        "Here's what typically goes in the automate-now pile:"
+      ],
+      "bullets": [
+        "Pulling the records the process starts from, such as new orders, form submissions, or overdue invoices.",
+        "Looking things up in other systems and matching them, like finding the customer in your CRM and their account in your accounting software.",
+        "Applying your business rules: what kind of case this is, what should happen next, and whether anything looks wrong.",
+        "Working out the exact values that need to be written, such as invoice lines, a new status, or a corrected address.",
+        "Sending messages from an email or chat account you've already connected and tested.",
+        "Any write you already have tested access for. The blocked writes shouldn't hold up the ones that work."
+      ]
+    },
+    {
+      "id": "make-blocked-writes-human-steps",
+      "title": "Turn each blocked write into a real human step",
+      "paragraphs": [
+        "For every write you can't automate yet, add a step to the same workflow that hands it to a specific person. Not a line in a process document that says \"finance creates the invoice.\" A real step that runs every time, sends the task to a named owner, and records who did it and when. The person who does it today already has access, so nothing here waits on an approval.",
+        "Write the message so the person never has to go looking for anything. Say what to do and where, give the exact values, link to the record, and explain how to report back. For example: \"Create an invoice in the accounting system for the customer and lines below. Reply with the invoice number when it's done, or reply 'can't' with the reason.\"",
+        "Then design the step to match its future automated version. If the API call that creates an invoice needs a customer ID and line items and returns an invoice number, the person gets the customer ID and line items and replies with the invoice number. When you automate that write later, you swap out one step, and nothing before or after it has to change.",
+        "The same idea works when an AI agent handles part of the job. Let it read, look things up, and draft the exact change, then route the write to a person until that write has passed its own test."
+      ]
+    },
+    {
+      "id": "capture-who-and-where-in-discovery",
+      "title": "In discovery, find out who does each write and where to reach them",
+      "paragraphs": [
+        "A human step is only as good as its routing. \"Someone in finance handles that\" isn't something you can build. The workflow needs a person or team, a channel, and an exact address it can send to.",
+        "Collect this during discovery, while you're already talking to the people who know. Chasing a channel ID or the right shared inbox later means another round of emails and another wait, which is the stop-start you're trying to avoid. For each write that will start out manual, write down:"
+      ],
+      "bullets": [
+        "What gets written, and in which system, in one line.",
+        "Who does it today, by role, and who covers when they're out.",
+        "Where to message them: the channel type, such as Slack, Teams, or email, plus the exact address the workflow needs, like a channel ID, a user ID, or an email address.",
+        "Whether a shared channel or team inbox works better than one person's direct messages, so tasks don't sit unseen while someone is on vacation.",
+        "What they need in the message to make the change without looking anything up.",
+        "What the workflow needs back, if anything: a simple confirmation, a new record number, or a reason it couldn't be done.",
+        "How long the workflow can wait before it sends a reminder or goes to the backup person."
+      ]
+    },
+    {
+      "id": "send-and-wait-or-send-only",
+      "title": "Choose send-and-wait or send-only for each human step",
+      "paragraphs": [
+        "Every human step needs one more decision: does the workflow wait for the person, or does it tell them and move on?",
+        "Use send-and-wait when anything after the step depends on it. The workflow sends the task, pauses until the person responds, then carries on with whatever they sent back. In the invoice example, the next step emails the customer their invoice number, so the workflow has to wait for it. Many workflow tools have a built-in way to do this, often as an option on their Slack, Teams, or email steps. If yours doesn't, you can send a link to a short form and have the form submission trigger the rest of the workflow.",
+        "Use send-only when the human step is the last thing that happens. The workflow sends the task and finishes. If the final step is marking the deal as closed in your CRM and nothing comes after it, there's no reason to hold the run open waiting for a reply.",
+        "Put a limit on every wait. Send a reminder after a set time, then go to the backup person, so a run doesn't sit paused for a week because someone missed a message. And since your reads already work, the workflow can often check the person's work by reading the record back and confirming the change is there before it moves on. That catches typos and the occasional \"done\" that wasn't."
+      ]
+    },
+    {
+      "id": "build-and-test-writes-separately",
+      "title": "Build each write on the side and test it before you switch it on",
+      "paragraphs": [
+        "While the human steps are carrying the process, build the automated versions of those writes as separate pieces. Keep them off the live path. Nobody should hit a new write by accident while you're still working on it.",
+        "When a write is ready, test it with the people who own the process on a short call. Run it against a real or agreed test record. Check that the right fields changed, that nothing else changed, and that you can reverse the change if you need to. Only after that test passes do you put the automated write into the live workflow in place of the human step.",
+        "If the test fails, leave the human step in place and fix the write later. A working process with a person in one spot beats a broken automation that writes bad data into a live system. Don't turn a write on because it worked once in a sandbox and then hope for the best."
+      ]
+    },
+    {
+      "id": "automation-grows-one-write-at-a-time",
+      "title": "Let the automation grow one proven write at a time",
+      "paragraphs": [
+        "From the first day, people get a managed process that actually runs. The reads and the tested steps happen automatically. The blocked writes show up as clear tasks for named people. Nothing depends on a mockup or a promise that access is \"coming soon.\"",
+        "Each time a write passes its test, you remove one human step. The rest of the workflow stays the same. Over a few weeks, the process can go from mostly human writes to mostly automated ones without ever stopping the work.",
+        "This also changes how you talk about the project. You're not waiting for a big go-live day when every API finally works. You're shipping a working process now, and you're improving it every time a write earns its place."
+      ]
+    },
+    {
+      "id": "a-checklist-you-can-use",
+      "title": "A checklist you can use",
+      "paragraphs": [
+        "Before your next automation build, run through this:"
+      ],
+      "bullets": [
+        "List every step as a read or a write, and mark which ones you have already tested against the real system.",
+        "Automate every tested step now, including any writes that already work.",
+        "For each blocked write, add a human step in the same workflow with a named owner and a clear message.",
+        "In discovery, capture the channel type and exact address for every human write step, plus a backup person.",
+        "Use send-and-wait when later steps need the result; use send-only when the human step is last.",
+        "Set a wait limit with a reminder and an escalation path.",
+        "Build each write automation off the live path and test it with the process owners before switching it on.",
+        "If a write test fails, keep the human step until the write is fixed.",
+        "Skip clickable mockups; ship a working process that uses real records from week one."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Start running the parts you can automate today",
+    "description": "Explore AIify It's workflow automation service, then send us a short list of the systems your process reads from and writes to, and which access you already have.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-11-05"
+  }
+}
