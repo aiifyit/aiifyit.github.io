@@ -1,0 +1,101 @@
+{
+  "slug": "test-automation-third-party-portal-rules",
+  "title": "Before You Test an Automation Against a Third-Party Portal",
+  "description": "Read a vendor portal’s rules before you automate against it. Then test with a dedicated account, small batches and records whose answers you already know.",
+  "category": "Workflow integration",
+  "takeaway": "An automation that signs in to a vendor portal and handles the lookups and data entry your team now does by hand could save hours every week. But the portal has rules about bots, the login belongs to someone and the data behind the screens may be incomplete. Before the first test run, do you know what the portal allows, which account the tests will use and how you will tell a bug in your automation from a gap in the vendor’s data?",
+  "sections": [
+    {
+      "id": "read-the-rules-first",
+      "title": "Read the portal’s rules before you test",
+      "paragraphs": [
+        "Before anyone points an automation at a vendor portal, read what the portal’s terms and help pages say about bots, scripts, scraping and rate limits. Many portals forbid automated access, and some detect it and lock the account. That may be the same account your team needs for tomorrow’s real work.",
+        "Do not try to slip past detection or make the automation pass for a person. If the rules forbid automated access or are unclear, ask the vendor for an official route instead: an API, a data feed, a file transfer or a test account on a practice copy of the portal. Some vendors have these but do not advertise them. Say in writing which records and fields you need, how often and roughly how many a day.",
+        "If the vendor says no, decide with eyes open whether the project goes on. You might keep that step manual, automate only the work on your side of the portal or limit the automation to what the rules allow. Write down what the terms say and what you decided."
+      ]
+    },
+    {
+      "id": "use-a-dedicated-account",
+      "title": "Give the automation its own account",
+      "paragraphs": [
+        "Do not test with an employee’s personal login. Every test request is then tied to that person, and if the portal locks the account, it locks them out of their real job. Sharing one person’s login with software or builders may also conflict with your compliance rules or the vendor’s terms.",
+        "Ask the vendor for a separate account for the automation, often called a service account. It should have only the access the workflow needs, such as read-only access if it just looks things up. Then a lockout during testing stops the automation, not your staff, and the vendor can tell its traffic apart from your team’s.",
+        "Multi-factor sign-in codes need the same care. They exist to prove that a specific person is signing in, so do not forward them to builders or have someone read them out each morning. Ask the vendor how a service account should handle sign-in. If they have no answer, that belongs in the decision about whether to go on, not on a list of problems to engineer around."
+      ]
+    },
+    {
+      "id": "add-one-controlled-layer",
+      "title": "Put one controlled layer between the automation and the portal",
+      "paragraphs": [
+        "Route every request through one small service, often called a gateway, instead of letting each script and builder connect to the portal directly. The automation asks the gateway for, say, the status of one record. The gateway signs in with credentials only it holds, makes the request and passes back the result.",
+        "The credentials then live in one place, and the builders never see them. Every request is logged with the time, the record reference and the outcome, so you can answer the vendor if they ask what happened. Requests are throttled to a polite rate, within any limits the vendor has published or agreed to. And one switch stops all traffic if something goes wrong.",
+        "Be clear about the gateway’s limits. It protects your credentials, but it does not make automated access acceptable where the portal’s rules forbid it, and it should never be used to hide where the traffic comes from."
+      ]
+    },
+    {
+      "id": "start-small",
+      "title": "Start with a handful of records",
+      "paragraphs": [
+        "Make the first run small enough to check every result by hand. For illustration, run five records, then 25, then 100, then a normal day’s volume, moving up only when the last step ran cleanly. A field read from the wrong place is easy to spot in five records and much harder to untangle in hundreds.",
+        "Agree on a request budget up front, with the vendor if they will discuss it and within your own team either way. For illustration, the budget might be 200 requests a day for the first two weeks, spaced a few seconds apart. Have the gateway enforce it, so a bug stuck in a loop cannot send thousands of requests overnight.",
+        "Stop at the first sign of trouble: a lockout, an unexpected password reset, a check asking you to prove you are human or a warning from the vendor. Pause all traffic, do not retry and do not look for a way around the block. Retrying after a block can turn a short lockout into a closed account. Find out what happened, tell the vendor if it involves their system and resume only when you understand the cause."
+      ]
+    },
+    {
+      "id": "backtest-known-records",
+      "title": "Backtest against records you already know",
+      "paragraphs": [
+        "Before you trust the automation with new work, run it on records whose answers you already know from your own system, such as a sample from last month. Include awkward cases on purpose: an unusual name or reference format, a record that changed partway through and one that was canceled.",
+        "Keep a simple table with one row per record: your reference, what your own system says, what the automation got back and whether the two match. When a row does not match, have someone look the record up by hand in the portal. If they find what the automation missed, you have a bug to fix. If the portal shows them nothing either, for a record you know exists, the problem is in the vendor’s data, not your automation, and the table is your proof.",
+        "For illustration, say you run 40 records you know exist: 34 come back as expected and six come back empty. A manual search finds two of the six, so you fix how the automation searches. It finds nothing for the other four, so those are gaps in the vendor’s data. Send the vendor the table, limited to the references and fields they need, so they have something specific to check."
+      ]
+    },
+    {
+      "id": "record-the-manual-process",
+      "title": "Get the spec from the person who does the work",
+      "paragraphs": [
+        "The person who does this work by hand knows things nobody has written down, such as which screen times out or which field only appears after another is filled in. Ask them to record a short screen video of a few typical cases and one awkward one, talking through what they do as they go.",
+        "Then ask for a one-page tip sheet listing every field they fill in, where it sits on the screen and where the value comes from. Hand both to whoever is building the automation as the spec, whether that is your own staff or an outside team such as AIify It. When the automation and the person get different results, everyone checks the same reference instead of arguing from memory.",
+        "Use the vendor’s test records for the video if there are any. If the video has to show real customer details, store it where only the project team can open it and delete it once the build is done."
+      ]
+    },
+    {
+      "id": "keep-working-while-you-wait",
+      "title": "Keep working while you wait, and plan for change requests",
+      "paragraphs": [
+        "Vendor replies, account setup and data fixes can take weeks. Meanwhile, start the work that does not depend on the portal: pick the records for your backtest, clean up the data the automation will use and build the screen where your team reviews results and exceptions. When access arrives, you start testing instead of starting the project.",
+        "Also plan for what happens after the first workflow goes live. Once people use it every day, they find cases nobody mentioned, steps they want changed and other tasks they want automated. A wave of 20 or more change requests is common. Keep them on one list, group related ones and set aside time in the first weeks after launch to work through them."
+      ]
+    },
+    {
+      "id": "checklist-before-testing",
+      "title": "Use this checklist before the first test run",
+      "paragraphs": [
+        "Each of these should be true before anyone runs a test against the portal:"
+      ],
+      "bullets": [
+        "You have read and written down the portal’s rules on bots, scraping and rate limits.",
+        "You have asked the vendor for an official route and recorded the answer.",
+        "The automation has its own account, and nobody forwards multi-factor codes.",
+        "One gateway holds the credentials, logs every request and enforces a polite rate.",
+        "A request budget is agreed, and the first run covers a handful of records.",
+        "Everyone knows to stop at the first lockout, block or warning.",
+        "You have a backtest list of records with known answers.",
+        "The builder has a screen video and a one-page tip sheet.",
+        "Work that does not need portal access is underway.",
+        "Time is set aside after launch for change requests."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Get your portal integration ready to test",
+    "description": "Explore AIify It’s workflow integration service, then prepare an email about the portal your team works in, what they do there by hand and what access the vendor offers.",
+    "label": "Explore workflow integration",
+    "href": "/services/workflow-integration/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-11-09"
+  }
+}
