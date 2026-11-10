@@ -1,0 +1,107 @@
+{
+  "slug": "ai-vendor-proposal-side-by-side-comparison",
+  "title": "Vendor Proposals Come Back in Every Format. Let AI Line Them Up.",
+  "description": "Use AI to turn vendor proposals that arrive as emails, PDFs, and links into one side-by-side comparison, without losing judgment, history, or control.",
+  "category": "Workflow automation",
+  "takeaway": "When you send out a request for proposals, the replies come back as email text, PDFs, and links. AI is good at pulling those into one comparison sheet, but only if you fix the intake first, give it a fixed template, keep the math in formulas, and flag weak proposals instead of deleting them. Start with the comparison step alone and leave decks, contract checks, and vendor history for later.",
+  "sections": [
+    {
+      "id": "the-messy-part-is-the-replies",
+      "title": "Sending the request is easy. The replies are the mess.",
+      "paragraphs": [
+        "Plenty of teams work like this. You have a discovery call with a client, write up what they need, turn it into a custom request, and send it to a handful of vendors. That part is under control.",
+        "Then the answers come back. One vendor replies in the body of an email. Another attaches a PDF. A third sends a link to a portal page. Somebody on your team saves everything into a project folder and then spends hours copying rates, dates, terms, and fine print into a comparison sheet by hand.",
+        "On a recent planning call, a team doing exactly this was already using a few saved AI prompts to fill some columns and write pros and cons. It helped, but every project still started from scratch. Here's how to turn that into a workflow you can rely on."
+      ]
+    },
+    {
+      "id": "start-with-the-comparison-only",
+      "title": "Automate the comparison first, and only the comparison",
+      "paragraphs": [
+        "Once you start, it's tempting to automate everything around the proposals too: the client presentation, checking the final contract against what was promised, a history of every vendor you've ever worked with. Those are all good ideas. Don't build them yet.",
+        "The side-by-side comparison is where the hours go and where every later step gets its data. If that sheet is accurate, the deck, the contract check, and the vendor history get much easier to build later. If it isn't, everything downstream inherits the errors. So build the comparison first, use it on real projects, and add the next piece after that."
+      ]
+    },
+    {
+      "id": "fix-intake-before-ai",
+      "title": "Fix where replies land before you touch the AI",
+      "paragraphs": [
+        "The AI can only compare proposals it can see. In most teams, replies go back to whoever sent the request, not to a shared inbox. So half the proposals end up in individual inboxes and never reach the automation.",
+        "For version one, keep it simple: pick one shared inbox as the only source the automation reads, and ask everyone to forward any reply that lands with them. That's a small habit change, and it gives you one place to look when something's missing.",
+        "Later you can have the automation watch each person's inbox and match replies to open requests by project name or reference number. Wait on that until the basic version works. It's more access to set up and more ways to grab the wrong email."
+      ]
+    },
+    {
+      "id": "fixed-template",
+      "title": "Give the AI a fixed template, and keep the math in formulas",
+      "paragraphs": [
+        "If you ask an AI to \"compare these proposals,\" you'll get a different layout every time. Instead, decide on your comparison columns once and use the same sheet on every project. The AI's job is to fill in fields like price, dates, capacity, included services, and terms, not to design the table.",
+        "Keep every calculation as a spreadsheet formula. Totals, taxes, fees, and minimum spends should be worked out by the sheet from the numbers the AI fills in, not by the AI itself. Formulas give you the same answer every time. A model doing arithmetic inside a paragraph might not, and you won't notice until a client does.",
+        "Have the AI note where each value came from, like the file name and page, so anyone can check a number in seconds."
+      ]
+    },
+    {
+      "id": "flag-dont-delete",
+      "title": "Flag weak proposals. Don't delete them.",
+      "paragraphs": [
+        "Your first instinct might be to let the AI throw out proposals that miss your criteria. Don't. Your criteria are usually preferences, not hard rules, and the client may still want to see a vendor whose dates are a little off or whose price is higher than you hoped.",
+        "So the AI should keep every proposal in the sheet and add a flag with a plain reason: \"dates don't match,\" \"over budget by about 15%,\" \"can't meet the capacity you asked for.\" A person can sort by flags in seconds. They can't review a proposal the automation already threw away."
+      ]
+    },
+    {
+      "id": "pull-out-conflicting-clauses",
+      "title": "Pull out clauses that clash with your standard terms",
+      "paragraphs": [
+        "Every team has a few terms it always pushes back on. Maybe you always ask vendors to waive a requirement that you use their own add-on services, or you never accept certain cancellation terms. Those clauses are easy to miss in a long proposal and expensive to miss in a signed contract.",
+        "Give the AI your list of terms to watch for and have it quote any matching clause word for word in its own column, with where it found it. Don't let it summarize these. A summary like \"standard terms apply\" is exactly how the problem slips through. The quote goes in front of a person, and the person decides."
+      ]
+    },
+    {
+      "id": "plan-for-revisions",
+      "title": "Plan for revised proposals and manual edits",
+      "paragraphs": [
+        "Proposals change. After a round of back-and-forth, a vendor sends a new PDF or just writes the new price in an email. Your workflow needs to handle that update without wiping out the row and starting over.",
+        "Two rules make this work. First, keep every version: when a revision arrives, update the current values and keep the earlier reply in the history, so you can see what changed. Second, once the AI has filled the sheet, your team must still be able to edit it by hand, and the automation shouldn't overwrite those edits on its next run. If people can't fix the sheet, they'll stop trusting it and go back to building their own."
+      ]
+    },
+    {
+      "id": "keep-people-on-the-decisions",
+      "title": "Keep people on the decisions and the outbound messages",
+      "paragraphs": [
+        "The AI fills the sheet. A person still picks the shortlist, because that call depends on knowing the client in ways a proposal doesn't show. Any email that goes out to a vendor or a client gets read by someone before it's sent.",
+        "In the first prototype, go further: switch off every step that writes into your other systems. Let it read, extract, and fill the comparison, and nothing else, until you've tested it on real projects and trust the results. Then turn on the writes one at a time.",
+        "If your contracts or confidentiality rules require it, replace client names with placeholders before the documents go to an AI model, and put the real names back in your own sheet afterward."
+      ]
+    },
+    {
+      "id": "checklist",
+      "title": "A checklist before you build",
+      "paragraphs": [
+        "Before you automate your proposal comparison, make sure you can say yes to these:"
+      ],
+      "bullets": [
+        "The first build covers the side-by-side comparison only. Decks, contract checks, and vendor history come later.",
+        "Every reply reaches one shared inbox, and the team knows to forward replies that land with them.",
+        "The comparison template has fixed columns, and the AI fills fields instead of inventing a layout.",
+        "Totals, taxes, fees, and minimums are spreadsheet formulas, not AI output.",
+        "Each value notes the file and page it came from.",
+        "Proposals that miss your criteria are flagged with a reason, never deleted.",
+        "Clauses that clash with your standard terms are quoted word for word for a person to review.",
+        "Revisions update the row, keep the history, and never overwrite manual edits.",
+        "A person picks the shortlist and reviews every outbound email.",
+        "Steps that write into other systems stay off until testing is done, and client names are swapped for placeholders if your rules require it."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Stop rebuilding the comparison sheet by hand",
+    "description": "Explore AIify It's workflow automation service, then send us one recent set of vendor replies and the comparison sheet you built from them.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-11-10"
+  }
+}
