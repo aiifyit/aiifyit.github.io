@@ -2,38 +2,47 @@
   "title": "Offer AI Agent Swarms Under Your Brand | AIify Partner Program",
   "description": "Offer your clients done-for-them AI agent swarms under your brand. You keep the client and set the price. We co-manage the work behind you for a fixed fee.",
   "program": "AIify Partner Program",
-  "cta": "Get a quote",
+  "cta": "Message us",
   "hero": {
     "heading": "Give your clients a premium AI offer under your brand.",
     "body": "Offer your clients a premium offer they really want: done-for-them AI agent swarms, co-managed by our expert AI management team. You keep your clients, and we serve them with you.",
     "secondary": "See the partner economics"
   },
   "intro": {
-    "heading": "You have the clients. Now you have the offer.",
-    "body": [
-      "Your clients trust you. They want AI that changes how their business runs, and they would rather get it from you than from someone new.",
-      "The hard part comes after the sale. Someone has to build the system, work with the people, and stay with it every week. You don't have to staff that. You make the offer. We do the work behind you."
-    ],
-    "label": "What you get to offer",
-    "points": [
-      {
-        "title": "A premium offer under your brand.",
-        "body": "Done-for-them AI agent swarms, sold by you to clients who already trust you."
-      },
-      {
-        "title": "No AI team to build.",
-        "body": "You don't hire, train, or manage anyone. We do."
-      },
-      {
-        "title": "You stay the face.",
-        "body": "You own the client relationship. We are the backend."
-      },
-      {
-        "title": "You set the price.",
-        "body": "We charge a fixed wholesale fee. What you charge above it is yours."
-      }
-    ],
-    "builtFor": "Business owners, firms, advisors, and networks in any industry who already have clients."
+    "label": "Why now",
+    "heading": "Now you have the AI advantage.",
+    "lead": "Your clients now expect an active AI advantage from you. If you don't bring one, they'll start going elsewhere for it.",
+    "question": "But how do you do that when all your effort already goes into delivering your current service, AI is changing like crazy, and you still have to stay on top of your own industry?",
+    "compareLabel": "Two ways to do it",
+    "hard": {
+      "label": "The hard way",
+      "sub": "Expensive and complicated.",
+      "items": [
+        "Pay for an in-house AI team",
+        "Recruit and vet AI talent",
+        "Hire a manager to run them",
+        "Keep up with AI as it changes",
+        "Test every new tool",
+        "Run payroll",
+        "Carry insurance",
+        "Replace people when they quit",
+        "Train and retrain the team",
+        "Do all of it while running your company and expanding in your industry"
+      ]
+    },
+    "ours": {
+      "label": "Our way",
+      "sub": "Let us do it with you.",
+      "items": [
+        "We bring the AI team, and we manage it.",
+        "We keep up with AI and test the tools.",
+        "We handle the people side: payroll, insurance, turnover, and training.",
+        "You keep running your company and growing in your industry.",
+        "You reap the rewards.",
+        "We keep you on top, as the AI partner in your business."
+      ]
+    },
+    "closing": "Partner with us and we do all of that with you, under your brand. You keep your customer."
   },
   "model": {
     "heading": "What your clients get",
@@ -41,24 +50,24 @@
     "label": "How it works",
     "steps": [
       {
-        "title": "You bring the client.",
-        "body": "You make the offer under your brand and set your price."
+        "title": "You keep the client.",
+        "body": "You make the offer under your brand. The client stays yours."
       },
       {
-        "title": "Set up for them.",
+        "title": "We set it up for them.",
         "body": "We set up the AI agent swarm around how their business already runs."
       },
       {
-        "title": "Built with them every week.",
-        "body": "At the start, each user gets a weekly build session with us of about 30 minutes. We log in remotely every day to check on it and keep it working."
+        "title": "We build with them every week.",
+        "body": "At the start, each user gets a weekly build session with us of about 30 minutes. We check in every day to keep it working."
       },
       {
-        "title": "Aimed at their goals.",
-        "body": "Each quarter, we set their goals in the system so the work stays focused. Live dashboards show their team how the business is running."
+        "title": "We aim the agents at their goals.",
+        "body": "Each quarter, we set their goals in the system so the agents stay focused on what matters."
       },
       {
-        "title": "Credit goes to their people.",
-        "body": "Their team builds it with us, so their team gets the credit. You keep the client."
+        "title": "The credit goes to your brand.",
+        "body": "Their team builds it with us and gets better at it. Your client sees the results under your brand."
       }
     ],
     "platform": "We currently co-manage in Grok Bot, and our approach doesn't depend on any one platform."
@@ -77,13 +86,33 @@
   },
   "economics": {
     "label": "Partner economics",
-    "heading": "You set the price. We charge a fixed fee. The difference is yours.",
-    "body": "We charge a fixed wholesale fee per seat each month. You decide what your client pays.",
-    "feesLabel": "Fulfillment fees",
-    "marketLabel": "What partners charge",
-    "market": "Partners often charge about $10,000 a month. That's an example, not a requirement. You set the price.",
-    "priceLabel": "Why the price holds",
-    "price": "Tool-only seats without co-management run around $500 per seat per month. That's just software. You're offering the people who make it work, and that's why it's premium."
+    "heading": "One simple price per company account.",
+    "body": "We deliver for $4,000 per month per company account. Each account includes two members, usually an executive and their chief of staff.",
+    "points": [
+      {
+        "title": "You sell it at a premium.",
+        "body": "We recommend selling it for $10,000 a month and keeping the difference."
+      },
+      {
+        "title": "You keep all the client data.",
+        "body": "The data stays with you and your client."
+      },
+      {
+        "title": "You pay us monthly.",
+        "body": "Your bill is based on the number of accounts."
+      },
+      {
+        "title": "It scales with your clients.",
+        "body": "When a company wants to expand, each new account is an additional $4,000 a month for us to fulfill. There's no limit to how far it scales."
+      }
+    ],
+    "accountLabel": "Company account",
+    "accountMembers": [
+      "Executive",
+      "Chief of staff"
+    ],
+    "accountFee": "$4,000 / month to AIify",
+    "addLabel": "Add an account"
   },
   "ownership": {
     "label": "What you keep",
@@ -118,57 +147,9 @@
       }
     ]
   },
-  "burden": {
-    "label": "Why partner",
-    "heading": "What you don't have to do",
-    "body": "Offering AI on your own means building an AI company inside your company. Here's what you skip.",
-    "items": [
-      {
-        "task": "Pay for an in-house AI team",
-        "handled": "Our team, not yours"
-      },
-      {
-        "task": "Recruit and vet AI talent",
-        "handled": "We handle hiring"
-      },
-      {
-        "task": "Hire a manager to run them",
-        "handled": "We manage it"
-      },
-      {
-        "task": "Scramble to stay on top of AI",
-        "handled": "We keep up"
-      },
-      {
-        "task": "Test every new tool",
-        "handled": "We test them"
-      },
-      {
-        "task": "Run payroll for them",
-        "handled": "Not on your payroll"
-      },
-      {
-        "task": "Carry insurance for them",
-        "handled": "Not on your books"
-      },
-      {
-        "task": "Replace people when they quit",
-        "handled": "We handle turnover"
-      },
-      {
-        "task": "Train and retrain the team",
-        "handled": "We train them"
-      },
-      {
-        "task": "Do all of this while running your company and handling your own industry expansion",
-        "handled": "You focus on your business"
-      }
-    ],
-    "closing": "Partner with us and we do all of that for you, under your brand. You keep your customer."
-  },
   "quote": {
-    "heading": "Tell us who you'd offer this to.",
-    "body": "Tell us roughly who your clients are and how many seats you have in mind. We'll send a quote you can build your offer around.",
+    "heading": "Let's talk about a partnership.",
+    "body": "Tell us a little about your business and your clients. We'll get back to you personally.",
     "reply": "We reply personally. No automated sequence."
   }
 }

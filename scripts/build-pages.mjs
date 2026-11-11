@@ -21,7 +21,7 @@ function hiddenOfferShell(shell) {
   const image = `${site.url}/images/offer/hero.jpg`;
   const hero = 'Give your clients a premium AI offer under your brand.';
   const subhead = 'Offer your clients a premium offer they really want: done-for-them AI agent swarms, co-managed by our expert AI management team. You keep your clients, and we serve them with you.';
-  const mailto = `mailto:${inquiry.recipient}?subject=${encodeURIComponent('AIify partner quote')}&body=${encodeURIComponent(['Hi Joshua,', '', "I'd like a quote for offering AI co-management under our name.", '', 'Source: /new-offer', 'Name: ', 'Company: ', 'Email: ', 'Rough number of seats: ', '', 'Anything we should know:', ''].join('\r\n'))}`;
+  const mailto = `mailto:${inquiry.recipient}?subject=${encodeURIComponent('AIify partnership inquiry')}&body=${encodeURIComponent(["I'd like to talk about a partnership.", '', 'Source: /new-offer', 'Name: ', 'Company: ', 'Email: ', '', 'Anything we should know:', ''].join('\r\n'))}`;
   return shell
     .replace(/<title>.*?<\/title>/, `<title>${escapeHtml(title)}</title>`)
     .replace(/(<meta name="description" content=")[^"]*("[^>]*>)/, `$1${escapeHtml(description)}$2`)
@@ -34,7 +34,7 @@ function hiddenOfferShell(shell) {
     .replace('name="twitter:image" content="/og-image.png"', `name="twitter:image" content="${escapeHtml(image)}"`)
     .replace(`rel="canonical" href="${site.url}/"`, `rel="canonical" href="${url}"`)
     .replace('</head>', `<script>document.documentElement.dataset.page="offer"</script>\n<meta name="robots" content="noindex, nofollow">\n</head>`)
-    .replace('<div id="root"></div>', `<noscript><main style="max-width:42rem;margin:0 auto;padding:64px 24px;min-height:100vh;font-family:system-ui,sans-serif;background:#f3f0e8;color:#1c1915"><p style="letter-spacing:.14em;text-transform:uppercase;font-size:12px">AIify Partner Program</p><h1>${escapeHtml(hero)}</h1><p>${escapeHtml(subhead)}</p><p><a href="${escapeHtml(mailto)}">Get a quote</a></p><p>We reply personally. No automated sequence.</p></main></noscript>\n<div id="root"></div>`);
+    .replace('<div id="root"></div>', `<noscript><main style="max-width:42rem;margin:0 auto;padding:64px 24px;min-height:100vh;font-family:system-ui,sans-serif;background:#f3f0e8;color:#1c1915"><p style="letter-spacing:.14em;text-transform:uppercase;font-size:12px">AIify Partner Program</p><h1>${escapeHtml(hero)}</h1><p>${escapeHtml(subhead)}</p><p><a href="${escapeHtml(mailto)}">Message us</a></p><p>We reply personally. No automated sequence.</p></main></noscript>\n<div id="root"></div>`);
 }
 
 for (const route of ['book', 'inquire', 'sow', 'new-offer']) {

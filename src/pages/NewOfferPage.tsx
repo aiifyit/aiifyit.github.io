@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import CreditChapter from '../components/offer/CreditChapter';
-import BurdenChapter from '../components/offer/BurdenChapter';
 import LeadersChapter from '../components/offer/LeadersChapter';
 import OfferChrome, { OfferBrand } from '../components/offer/OfferChrome';
 import copy from '../data/offerCopy.json';
-import { AgentSwarm, FeeIllustration, QuoteAmbient } from '../components/offer/OfferGraphics';
+import { AgentSwarm, QuoteAmbient } from '../components/offer/OfferGraphics';
 import Reveal from '../components/offer/Reveal';
 import OfferQuoteForm from '../components/offer/OfferQuoteForm';
 import OwnershipChapter from '../components/offer/OwnershipChapter';
+import AccountStack from '../components/offer/AccountStack';
 import StepSequence from '../components/offer/StepSequence';
 import { OfferHeading, QuoteButton } from '../components/offer/OfferMotion';
 
@@ -83,7 +83,6 @@ export default function NewOfferPage() {
 
         <StepSequence />
         <LeadersChapter />
-        <BurdenChapter />
         <CreditChapter />
 
         <section id="partner-economics" className="offer-economics offer-section" aria-labelledby="economics-heading">
@@ -91,13 +90,7 @@ export default function NewOfferPage() {
             <p className="offer-eyebrow">{copy.economics.label}</p>
             <OfferHeading id="economics-heading">{copy.economics.heading}</OfferHeading>
             <p className="offer-prose mt-6">{copy.economics.body}</p>
-            <div className="offer-fee-table">
-              <table><caption>{copy.economics.feesLabel}</caption><thead><tr><th scope="col">Coverage</th><th scope="col">What it includes</th><th scope="col">Your fee to AIify</th></tr></thead>
-                <tbody><tr><th scope="row">Standard</th><td>AI agent swarm co-management for one user</td><td>$2,000 per seat per month wholesale</td></tr><tr><th scope="row">Executive</th><td>Coverage for one executive plus the person who acts as their chief of staff</td><td>$4,000 per executive per month wholesale</td></tr></tbody>
-              </table>
-            </div>
-            <FeeIllustration />
-            <div className="offer-price-context"><div><h3>{copy.economics.marketLabel}</h3><p>{copy.economics.market}</p></div><div><h3>{copy.economics.priceLabel}</h3><p>{copy.economics.price}</p></div></div>
+            <div className="offer-account-grid"><ul className="offer-economics-points">{copy.economics.points.map(point => <li key={point.title}><h3>{point.title}</h3><p>{point.body}</p></li>)}</ul><AccountStack /></div>
 
           </Reveal>
         </section>

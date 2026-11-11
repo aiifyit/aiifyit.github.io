@@ -1,14 +1,14 @@
 import { INQUIRY_EMAIL, INQUIRY_MESSAGE_LIMIT } from './inquiry.ts';
 
+export const OFFER_LEAD_ENDPOINT = 'https://aiify-offer-lead.joshua-509.workers.dev/submit';
 export const OFFER_QUOTE_SOURCE = '/new-offer';
-export const OFFER_QUOTE_SUBJECT = 'AIify partner quote';
+export const OFFER_QUOTE_SUBJECT = 'AIify partnership inquiry';
 
 export interface OfferQuoteInput {
   name: string;
   company: string;
   email: string;
-  seats: string;
-  note?: string;
+  note: string;
 }
 
 function rejectControlCharacters(value: string, label: string) {
@@ -33,22 +33,19 @@ export function createOfferQuoteDraft(input: OfferQuoteInput) {
   const name = oneLine(input.name, 'Name', 120);
   const company = oneLine(input.company, 'Company', 160);
   const email = oneLine(input.email, 'Email', 200);
-  const seats = oneLine(input.seats, 'Rough number of seats', 40);
   const note = (input.note ?? '').trim();
+  if (!note) throw new Error('Tell us a little about what you need.');
   if (note.length > INQUIRY_MESSAGE_LIMIT) throw new Error('Keep your note to 500 characters.');
   if (note) rejectControlCharacters(note, 'the note');
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) throw new Error('Enter a valid email address.');
 
   const lines = [
-    'Hi Joshua,',
-    '',
-    "I'd like a quote for offering AI co-management under our name.",
+    "I'd like to talk about a partnership.",
     '',
     `Source: ${OFFER_QUOTE_SOURCE}`,
     `Name: ${name}`,
     `Company: ${company}`,
     `Email: ${email}`,
-    `Rough number of seats: ${seats}`,
   ];
   if (note) lines.push('', 'Anything we should know:', note);
   const body = lines.join('\n').replace(/\r\n|\r|\n/g, '\r\n');
