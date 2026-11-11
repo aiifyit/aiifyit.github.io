@@ -1,0 +1,140 @@
+{
+  "title": "Offer AI Agent Swarms Under Your Name | AIify Partner Program",
+  "description": "Put a premium AI offer in front of your clients under your own brand. You keep the relationship and set the price. AIify sets up and co-manages the swarm behind you for a fixed fee.",
+  "program": "AIify Partner Program",
+  "cta": "Get a quote",
+  "hero": {
+    "heading": "Give your clients a premium AI offer under your name.",
+    "body": "AI agent swarm co-management for your clients, members, coaches, or portfolio companies. It goes out under your brand and we fulfill it. You keep the relationship, set the price, and keep the margin.",
+    "secondary": "See the partner economics"
+  },
+  "intro": {
+    "heading": "You already have the relationships. Now you have the offer.",
+    "body": [
+      "You already have the relationships and the trust. Your clients want AI that actually changes how their business runs, and they would rather get it from you than from a stranger.",
+      "The hard part is what comes after the sale. Someone has to build the system, train the people, and stay with it every week, and you don't want to staff that. You don't have to. You make the offer and we do the work behind you."
+    ],
+    "label": "What you get to offer",
+    "points": [
+      {
+        "title": "A premium offer with your name on it.",
+        "body": "AI agent swarm co-management, sold by you, to the people who already trust you."
+      },
+      {
+        "title": "The capability without an AI staffing company.",
+        "body": "You don't hire, train, or manage a delivery team."
+      },
+      {
+        "title": "You stay the face.",
+        "body": "You own the client relationship. We work behind you."
+      },
+      {
+        "title": "A margin you control.",
+        "body": "You set the price and we charge a fixed fulfillment fee. The spread is yours."
+      }
+    ],
+    "builtFor": "Firms, networks, advisors, and investors in any industry who already serve clients, members, coaches, or portfolio companies."
+  },
+  "model": {
+    "heading": "What your clients actually get",
+    "body": "Plenty of companies have bought AI software and seen nobody use it. Your clients get something different. People set the swarm up for them, build it with them every week, and run it alongside them every day. That is why it gets used, and why your clients come back to you pleased instead of disappointed.",
+    "label": "How it works for each client",
+    "steps": [
+      {
+        "title": "Set up for them.",
+        "body": "We set up the AI agent swarm around how their business already runs."
+      },
+      {
+        "title": "Built with them every week.",
+        "body": "At the start, each user gets a 30-minute session with us each week, and we build their system with them."
+      },
+      {
+        "title": "Looked after daily.",
+        "body": "We log in remotely every day to check on the swarm and keep it working."
+      },
+      {
+        "title": "Aimed at their goals.",
+        "body": "Every quarter, their goals are set inside the system so the work keeps pointing at what matters."
+      },
+      {
+        "title": "The credit stays with their people.",
+        "body": "Their team builds it with us, so their team gets the credit. Your client sees their own people getting better, and you're the one who made it happen."
+      }
+    ],
+    "platform": "We currently co-manage in Grok Bot, and our approach doesn't depend on any one platform."
+  },
+  "evidence": {
+    "heading": "What it looks like when it works",
+    "body": "Here is a recent engagement we ran directly. It's one engagement, not a guarantee, but it shows what your clients could experience.",
+    "facts": [
+      "Three people, $10,000 a month.",
+      "We connected to their systems, including one with no API. For that one, we sign in and pull the numbers several times during the workday.",
+      "We built live dashboards their team uses to run the business.",
+      "Within two weeks, the savings already covered more than a year of the cost.",
+      "They wanted to continue."
+    ],
+    "closing": "That is the outcome you want your name attached to."
+  },
+  "economics": {
+    "label": "Partner economics",
+    "heading": "You set the price. We charge a fixed fee. The spread is yours.",
+    "body": "We charge a fixed fulfillment fee per seat, and you decide what to charge your client.",
+    "feesLabel": "Fulfillment fees",
+    "marketLabel": "What the market bears",
+    "market": "Partners often charge around $10,000 a month. That's an example, not a requirement. The price is yours to set.",
+    "priceLabel": "Why the price holds",
+    "price": "Tool-only seats with no co-management run around $500 per seat per month. Those seats are software. You're selling the people who make the software get used, and that's why the offer is premium."
+  },
+  "calculator": {
+    "heading": "Run your numbers",
+    "coverage": "Coverage type",
+    "coverageHelp": "Executive covers the executive and the person who acts as their chief of staff.",
+    "seats": "Number of seats",
+    "seatsHelp": "Count one seat per user, or one per executive on Executive coverage.",
+    "price": "Your monthly price per seat",
+    "priceHelp": "This is what your client pays you. You decide.",
+    "due": "Monthly due to AIify",
+    "monthly": "Your monthly gross profit",
+    "annual": "Annualized gross profit",
+    "noSpread": "At this price there is no spread. Set your price above the fulfillment fee to see your margin.",
+    "footnote": "Monthly due to AIify = fee × seats. Gross profit = (your price − fee) × seats. Annualized = monthly gross profit × 12. These are estimates, not projections of sales or client results. Your final terms come with your quote."
+  },
+  "ownership": {
+    "label": "What you keep",
+    "heading": "Your client. Your work. Your long-term position.",
+    "points": [
+      {
+        "title": "You keep the relationship.",
+        "body": "Your client buys from you and works with you. We stay in the background and fulfill."
+      },
+      {
+        "title": "You keep what's built for your clients.",
+        "body": "Everything built specifically for your clients belongs to you: their instructions, their playbooks, their agent setups. AIify keeps its own methods."
+      },
+      {
+        "title": "You keep the long view.",
+        "body": "This is a long-term engagement. Clients sometimes plan to build an internal team later, and that rarely turns out cheaper. You can offer them a durable arrangement that keeps working."
+      }
+    ],
+    "questionsLabel": "The three questions partners ask",
+    "questions": [
+      {
+        "q": "Will my clients know AIify is involved?",
+        "a": "You are the face of the offer and you own the relationship. We work behind you as your fulfillment team."
+      },
+      {
+        "q": "Shouldn't we just build this team internally?",
+        "a": "We can help you do that later. It's rarely cheaper, because you'd have to hire, train, and manage the people yourself. This model gives you the margin without the headcount."
+      },
+      {
+        "q": "Is this just software?",
+        "a": "No. The software is a small part of the offer. What you're offering is setup, weekly sessions where we build with each person, daily hands-on care, and quarterly direction."
+      }
+    ]
+  },
+  "quote": {
+    "heading": "Tell us who you'd offer this to.",
+    "body": "Give us a rough picture of your clients and how many seats you have in mind. We'll come back with a quote you can build your offer around.",
+    "reply": "We reply personally. No automated sequence."
+  }
+}

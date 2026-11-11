@@ -6,6 +6,7 @@ import {
   marginView,
   type OfferService,
 } from '../../data/offerEconomics.ts';
+import copy from '../../data/offerCopy.json';
 
 export interface QuoteCarry {
   seats: string;
@@ -110,17 +111,14 @@ export default function OfferCalculator({ service, onService, onQuote }: OfferCa
   };
 
   return (
-    <div className="offer-panel mt-12 bg-[var(--offer-card)] p-6 md:p-10">
-      <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">Estimate your partner margin</h3>
-      <p className="mt-4 max-w-2xl leading-relaxed text-[var(--offer-muted)]">
-        Enter your numbers. All results are estimates based on our fulfillment fees and the price you set. They don't include your own sales, delivery, or overhead costs.
-      </p>
+    <div className="offer-panel offer-calculator mt-12 bg-[var(--offer-card)] p-6 md:p-10">
+      <h3 className="text-2xl font-semibold tracking-tight md:text-3xl md:text-4xl">{copy.calculator.heading}</h3>
 
       <div className="mt-10 grid items-start gap-10 lg:grid-cols-2">
         <div>
-          <label htmlFor="offer-seats" className="block text-sm font-semibold">Seats you could enroll</label>
+          <label htmlFor="offer-seats" className="block text-sm font-semibold">{copy.calculator.seats}</label>
           <p id="offer-seats-help" className="mt-1 text-sm leading-relaxed text-[var(--offer-muted)]">
-            The number of people (or executives) you think you could bring into the program.
+            {copy.calculator.seatsHelp}
           </p>
           <div className="mt-3 flex items-center gap-2">
             <button type="button" className="offer-step" aria-label="Fewer seats" onClick={() => bump(-1)}>−</button>
@@ -151,9 +149,9 @@ export default function OfferCalculator({ service, onService, onQuote }: OfferCa
         </div>
 
         <div>
-          <label htmlFor="offer-price" className="block text-sm font-semibold">Your monthly price per seat</label>
+          <label htmlFor="offer-price" className="block text-sm font-semibold">{copy.calculator.price}</label>
           <p id="offer-price-help" className="mt-1 text-sm leading-relaxed text-[var(--offer-muted)]">
-            What you would charge your client for each seat per month.
+            {copy.calculator.priceHelp}
           </p>
           <div className="mt-3 flex items-center border border-[var(--offer-line)] bg-white focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-[var(--offer-navy)]">
             <span className="pl-4 text-[var(--offer-muted)]" aria-hidden="true">$</span>
@@ -181,7 +179,8 @@ export default function OfferCalculator({ service, onService, onQuote }: OfferCa
       </div>
 
       <fieldset className="mt-8">
-        <legend className="text-sm font-semibold">Service type</legend>
+        <legend className="text-sm font-semibold">{copy.calculator.coverage}</legend>
+        <p className="mt-1 text-sm leading-relaxed text-[var(--offer-muted)]">{copy.calculator.coverageHelp}</p>
         <div className="mt-3 grid gap-3 md:grid-cols-2">
           {(Object.entries(OFFER_SERVICES) as [OfferService, (typeof OFFER_SERVICES)[OfferService]][]).map(([id, option]) => (
             <label
@@ -206,21 +205,21 @@ export default function OfferCalculator({ service, onService, onQuote }: OfferCa
 
       <div className="mt-10 bg-[#f6efe4] p-6 md:p-8" aria-live="polite">
         <div className="grid gap-8 md:grid-cols-3">
-          <Figure label="Estimated monthly amount due to AIify" value={view.incomplete ? null : view.monthlyDue} />
+          <Figure label={copy.calculator.due} value={view.incomplete ? null : view.monthlyDue} />
           {view.showNoSpread ? (
             <p role="status" className="max-w-xl border-l-2 border-[var(--offer-brass)] pl-4 text-base leading-relaxed md:col-span-2">
-              At this price there is no spread. Your price per seat needs to be above the fulfillment fee for this offer to make you a profit.
+              {copy.calculator.noSpread}
             </p>
           ) : (
             <>
               <Figure
-                label="Estimated monthly gross profit"
+                label={copy.calculator.monthly}
                 helper="(Your price − AIify fulfillment fee) × seats"
                 value={view.showProfit ? view.monthlyProfit : null}
                 emphasis
               />
               <Figure
-                label="Estimated annualized gross profit"
+                label={copy.calculator.annual}
                 helper="Monthly gross profit × 12"
                 value={view.showProfit ? view.annualProfit : null}
               />
@@ -237,7 +236,7 @@ export default function OfferCalculator({ service, onService, onQuote }: OfferCa
       </div>
 
       <p className="mt-8 text-sm leading-relaxed text-[var(--offer-muted)]">
-        These are estimates, not projections of sales or client results. Your final terms come with your quote.
+        {copy.calculator.footnote}
       </p>
       <button
         type="button"
