@@ -9,22 +9,49 @@ import Modal from '../ui/Modal';
 import ScrollReveal from '../ui/ScrollReveal';
 import Button from '../ui/Button';
 import { submitLeadRequest } from '../../data/leadSubmission';
-import { CTA_HEADING, CTA_SUBHEADING, LEAD_WEBHOOK_URL } from '../../data/constants';
+import { createContactDraft, OFFER_LEAD_ENDPOINT } from '../../data/contactLead';
+import { CTA_HEADING, CTA_SUBHEADING } from '../../data/constants';
 
 export default function CTA() {
   const [submitting, setSubmitting] = useState(false);
   const [confirmOpen, setConfirmOpen] = useState(false);
   const [errorOpen, setErrorOpen] = useState(false);
+  const [mailto, setMailto] = useState('');
 
   const handleSubmit = async (data: LeadFormData) => {
     setSubmitting(true);
+    setMailto('');
+    let draft;
     try {
-      await submitLeadRequest(LEAD_WEBHOOK_URL, {
-        ...data,
-        submittedAt: new Date().toISOString(),
-        source: 'aiifyit.com CTA',
+      draft = createContactDraft({
+        name: data.name,
+        company: data.company,
+        email: data.email,
+        message: data.message,
+        phone: data.phone,
+        website: data.website,
+        source: '/',
+        cta: 'Homepage contact form',
       });
+    } catch (err) {
+      setSubmitting(false);
+      throw err;
+    }
+    setMailto(draft.mailto);
+    if (data.website) {
       setConfirmOpen(true);
+      setSubmitting(false);
+      return;
+    }
+    if (!OFFER_LEAD_ENDPOINT) {
+      window.location.href = draft.mailto;
+      setSubmitting(false);
+      return;
+    }
+    try {
+      await submitLeadRequest(OFFER_LEAD_ENDPOINT, draft.payload);
+      setConfirmOpen(true);
+      setMailto('');
     } catch (err) {
       console.error('[LeadForm] submission failed', err);
       setErrorOpen(true);
@@ -88,8 +115,9 @@ export default function CTA() {
       <Modal open={errorOpen} onClose={() => setErrorOpen(false)} title="Something went wrong">
         <div className="flex flex-col gap-4 py-2">
           <p className="text-[var(--color-text-muted)]">
-            We couldn't submit your info. Please try again, or email us directly.
+            We couldn't submit your info. Please try again, or email us directly with the draft below.
           </p>
+          {mailto && <a href={mailto} className="text-[var(--color-accent)] underline underline-offset-4">Email Joshua ↗</a>}
           <Button
             variant="primary"
             size="default"
