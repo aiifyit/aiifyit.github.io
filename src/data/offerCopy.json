@@ -34,12 +34,9 @@
       "label": "Our way",
       "sub": "Let us do it with you.",
       "items": [
-        "We bring the AI team, and we manage it.",
-        "We keep up with AI and test the tools.",
-        "We handle the people side: payroll, insurance, turnover, and training.",
-        "You keep running your company and growing in your industry.",
-        "You reap the rewards.",
-        "We keep you on top, as the AI partner in your business."
+        "Partner with us.",
+        "We build and run the AI with your clients, under your brand.",
+        "You keep the client and the profit."
       ]
     },
     "closing": "Partner with us and we do all of that with you, under your brand. You keep your customer."
@@ -76,7 +73,7 @@
     "heading": "What it looks like when it works",
     "body": "This is a recent engagement we ran directly. It's one engagement, not a guarantee. It shows what your clients could get.",
     "facts": [
-      "Three people, $10,000 a month.",
+      "One account: an executive and their chief of staff.",
       "We connected to their systems, including one with no API. For that one, we sign in and pull the numbers several times during the workday.",
       "We built live dashboards their team uses to run the business.",
       "Within two weeks, the savings covered more than a year of the cost.",
@@ -87,7 +84,7 @@
   "economics": {
     "label": "Partner economics",
     "heading": "One simple price per company account.",
-    "body": "We deliver for $4,000 per month per company account. Each account includes two members, usually an executive and their chief of staff.",
+    "body": "We deliver for $4,000 per month per company account. Each account covers an executive and their chief of staff or assistant. Need more people? Add another account.",
     "points": [
       {
         "title": "You sell it at a premium.",
@@ -103,13 +100,13 @@
       },
       {
         "title": "It scales with your clients.",
-        "body": "When a company wants to expand, each new account is an additional $4,000 a month for us to fulfill. There's no limit to how far it scales."
+        "body": "Need more people? Add another account. Each new account is an additional $4,000 a month for us to fulfill. There's no limit to how far it scales."
       }
     ],
     "accountLabel": "Company account",
     "accountMembers": [
       "Executive",
-      "Chief of staff"
+      "Chief of staff or assistant"
     ],
     "accountFee": "$4,000 / month to AIify",
     "addLabel": "Add an account"
