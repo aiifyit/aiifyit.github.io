@@ -26,7 +26,7 @@ function App() {
   return (
     <>
       {!onOffer && <BackgroundFX />}
-      {!isSowWorkspace && <Header solid={onOffer} />}
+      {!isSowWorkspace && !onOffer && <Header />}
       <Suspense fallback={onOffer ? <div className="min-h-[70vh]" aria-hidden="true" /> : null}>
         <Routes>
           <Route path="/" element={<MarketingPage />} />
@@ -38,7 +38,7 @@ function App() {
           <Route path="*" element={<MarketingPage />} />
         </Routes>
       </Suspense>
-      {!isSowWorkspace && <Footer />}
+      {!isSowWorkspace && !onOffer && <Footer />}
     </>
   );
 }

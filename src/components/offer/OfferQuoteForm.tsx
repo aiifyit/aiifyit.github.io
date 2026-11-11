@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { OFFER_SERVICES, formatDollars, type OfferService } from '../../data/offerEconomics.ts';
+import { OFFER_SERVICES, formatDollars, marginView, type OfferService } from '../../data/offerEconomics.ts';
 import { createOfferQuoteDraft, OFFER_QUOTE_SOURCE } from '../../data/offerQuote.ts';
 
 interface OfferQuoteFormProps {
@@ -7,12 +7,13 @@ interface OfferQuoteFormProps {
   onSeats: (value: string) => void;
   service?: OfferService;
   pricePerSeat?: number;
+  highlighted?: boolean;
 }
 
 const fieldClass =
-  'mt-2 w-full rounded-xl border border-[var(--offer-line)] bg-white px-4 py-3 text-[var(--offer-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--offer-navy)]';
+  'mt-2 w-full border border-[var(--offer-line)] bg-white px-4 py-3 text-[var(--offer-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--offer-navy)]';
 
-export default function OfferQuoteForm({ seats, onSeats, service, pricePerSeat }: OfferQuoteFormProps) {
+export default function OfferQuoteForm({ seats, onSeats, service, pricePerSeat, highlighted = false }: OfferQuoteFormProps) {
   const [name, setName] = useState('');
   const [company, setCompany] = useState('');
   const [email, setEmail] = useState('');
@@ -22,10 +23,13 @@ export default function OfferQuoteForm({ seats, onSeats, service, pricePerSeat }
   const [draftText, setDraftText] = useState('');
   const draftRef = useRef<HTMLTextAreaElement>(null);
   const serviceLabel = service ? OFFER_SERVICES[service].label : undefined;
+  const math = service && typeof pricePerSeat === 'number' && /^\d+$/.test(seats.trim())
+    ? marginView({ seats: seats.trim(), price: String(pricePerSeat), service })
+    : null;
 
   return (
     <form
-      className="rounded-2xl border border-[var(--offer-line)] bg-[var(--offer-card)] p-6 shadow-[0_24px_70px_-48px_rgba(28,25,21,0.5)] md:p-8"
+      className={`offer-panel bg-[var(--offer-card)] p-6 md:p-8 ${highlighted ? 'ring-2 ring-[var(--offer-brass)]' : ''}`}
       onSubmit={(event) => {
         event.preventDefault();
         try {
@@ -66,12 +70,28 @@ export default function OfferQuoteForm({ seats, onSeats, service, pricePerSeat }
         <label htmlFor="quote-seats" className="text-sm font-semibold">Rough number of seats</label>
         <input id="quote-seats" name="seats" type="text" required autoComplete="off" maxLength={40} value={seats} onChange={(event) => onSeats(event.target.value)} className={fieldClass} />
       </div>
-      {serviceLabel ? (
-        <div className="mt-5 rounded-xl bg-[#f7f4ee] px-4 py-3 text-sm leading-relaxed">
+      {service ? (
+        <div className="mt-5 bg-[#f6efe4] px-4 py-3 text-sm leading-relaxed">
           <p className="font-semibold">Service type</p>
           <p className="mt-1">{serviceLabel}</p>
           {typeof pricePerSeat === 'number' && Number.isFinite(pricePerSeat) ? (
             <p className="mt-3"><span className="font-semibold">Your monthly price per seat</span> {formatDollars(pricePerSeat)}</p>
+          ) : null}
+          {math && !math.incomplete ? (
+            <div className="mt-4 space-y-3 border-t border-[var(--offer-line)] pt-4">
+              <p><span className="font-semibold">Estimated monthly amount due to AIify</span> {formatDollars(math.monthlyDue)}</p>
+              {math.showNoSpread ? (
+                <p>At this price there is no spread. Your price per seat needs to be above the fulfillment fee for this offer to make you a profit.</p>
+              ) : null}
+              {math.showProfit ? (
+                <>
+                  <p><span className="font-semibold">Estimated monthly gross profit</span> {formatDollars(math.monthlyProfit)}</p>
+                  <p>(Your price − AIify fulfillment fee) × seats</p>
+                  <p><span className="font-semibold">Estimated annualized gross profit</span> {formatDollars(math.annualProfit)}</p>
+                  <p>Monthly gross profit × 12</p>
+                </>
+              ) : null}
+            </div>
           ) : null}
           <input type="hidden" name="service" value={service} />
         </div>
@@ -81,9 +101,10 @@ export default function OfferQuoteForm({ seats, onSeats, service, pricePerSeat }
           Anything we should know <span className="font-normal text-[var(--offer-muted)]">(optional)</span>
         </label>
         <textarea id="quote-note" name="note" rows={4} maxLength={500} value={note} onChange={(event) => setNote(event.target.value)} className={`${fieldClass} resize-y`} />
+        <p className="mt-2 text-right text-xs tabular-nums text-[var(--offer-muted)]">{note.length}/500</p>
       </div>
       {error ? <p role="alert" className="mt-4 text-sm text-[#8d3b32]">{error}</p> : null}
-      <button type="submit" className="mt-6 inline-flex w-full items-center justify-center rounded-xl bg-[var(--offer-navy)] px-7 py-3.5 text-sm font-semibold text-[#f4f1ea] transition-colors hover:bg-[var(--offer-navy-hover)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--offer-navy)] sm:w-auto">
+      <button type="submit" className="offer-btn mt-6 w-full sm:w-auto">
         Get a quote
       </button>
       <p className="mt-4 text-sm leading-relaxed text-[var(--offer-muted)]">We reply personally. No automated sequence.</p>
