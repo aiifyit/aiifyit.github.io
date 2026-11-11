@@ -81,16 +81,22 @@ assert(!sitemap.includes('/book/'), 'Do not index duplicate booking alias');
 const offer = await readFile('dist/new-offer/index.html', 'utf8');
 const robots = await readFile('dist/robots.txt', 'utf8');
 assert(offer.includes('name="robots" content="noindex, nofollow"'), 'Hidden offer is noindex');
-assert(offer.includes('<title>Get your quarterly goals done without hiring anyone or learning AI | AIify</title>'));
-assert(offer.includes('content="You tell us what has to get done this quarter. A chief of staff, developers, and a project manager use AI on that work every day, and you say OK before anything goes out."'));
-assert(offer.includes('<h1>Get your quarterly goals done without hiring anyone or learning AI.</h1>'));
+assert(offer.includes('<title>Offer AI Co-Management Under Your Name | AIify Partners</title>'));
+assert(offer.includes('content="Offer AI agent swarm co-management to your clients under your own name. AIify sets it up, builds with their people, and runs it in the background. You keep the client and the margin."'));
+assert(offer.includes('<h1>The tool is not the problem.</h1>'));
+assert(offer.includes('Get a quote'));
+assert(offer.includes('We reply personally. No automated sequence.'));
 assert(offer.includes(`rel="canonical" href="${site.url}/new-offer/"`));
-assert(offer.includes('Book a call'));
 assert(offer.includes('mailto:joshua@aiifyit.com'));
-assert(!offer.includes('I need to hit my number'));
-assert(!offer.includes('cannot track'));
+assert(offer.includes('Source%3A%20%2Fnew-offer'), 'Quote draft names the offer page');
+assert(offer.includes('/images/offer/hero.webp'));
+assert(offer.includes(`${site.url}/images/offer/hero.jpg`));
+assert(!offer.includes('Book a call'));
+assert(!offer.includes('Get your quarterly goals done'));
 assert(!offer.includes('calendly.com'), 'Hidden offer must use the mailto handoff');
+assert.notEqual(offer, home, 'Offer entry is its own document, not the homepage shell');
 assert(!sitemap.includes('new-offer'), 'Do not list the hidden offer in the sitemap');
+assert(!sitemap.includes('/partners'), 'Do not publish a partners route');
 assert(!robots.includes('new-offer'), 'Do not list the hidden offer in robots.txt');
 assert.equal(robots, `User-agent: *\nAllow: /\nDisallow: /sow\nDisallow: /client-feedback/\nSitemap: ${site.url}/sitemap.xml\n`);
 assert(!home.includes('new-offer'), 'Homepage shell must not link the hidden offer');
@@ -102,45 +108,7 @@ for (const file of [
   'content/site.json',
 ]) {
   assert(!(await readFile(file, 'utf8')).includes('new-offer'), `${file} must not link the hidden offer`);
-}
-const offerSource = await readFile('src/pages/NewOfferPage.tsx', 'utf8');
-for (const phrase of [
-  'Book a call',
-  'Get your quarterly goals done without hiring anyone or learning AI.',
-  'You tell us what has to get done this quarter.',
-  'The CRM updates itself',
-  'Follow-ups, quotes, and reminders',
-  'company knowledge base',
-  'Someone watching the meeting',
-  'An AI agent that belongs to your company',
-  'until you say OK',
-  'department head',
-  'Chief of staff',
-  'PLACEHOLDER',
-  'P.S.',
-  "You're not short on ideas or ambition. You're short on time.",
-]) {
-  assert(offerSource.includes(phrase), `Offer page missing ${phrase}`);
-}
-for (const banned of [
-  'Dreamlawn', 'Midwest', 'Drobenak', 'Heritage', 'Coalmarch', 'Real Green', 'new-mover', '1995',
-  '$9,500', '$400,000', '400K', '$7,500', '$8,000', 'Lever Audit', 'Lever Map',
-  'Grokbot', 'Hermes', 'RAG', 'Payroll', 'payroll',
-  'I need to hit my number', 'done paying', 'can\'t track', 'can’t track',
-  'my business', 'My data', 'We tried agencies', 'I want to book', 'What I am', 'for me',
-  'short an aim', 'short a goal',
-]) {
-  assert(!offerSource.includes(banned), `Offer page must not mention ${banned}`);
-}
-assert(!/\bmy\b/i.test(offerSource), 'Write to the owner: no prospect "my"');
-assert(!/\bme\b/.test(offerSource), 'Write to the owner: no prospect "me"');
-assert(!/\bI\b/.test(offerSource), 'Write to the owner: no prospect "I"');
-const offerCopy = offerSource.replace(/className="[^"]*"/g, '');
-for (const vague of ['follow-through', 'leverage', 'mechanism', 'outcomes', 'transform', 'bolt-on', 'sign-off', 'We do the digging']) {
-  assert(!offerCopy.toLowerCase().includes(vague), `Offer page must not say ${vague}`);
-}
-for (const vague of [/\bsystems\b/i, /\blever\b/i, /\baim\b/i]) {
-  assert(!vague.test(offerCopy), `Offer page must not say ${vague}`);
+  assert(!(await readFile(file, 'utf8')).includes('/partners'), `${file} must not add a partners route`);
 }
 for (const route of ['book', 'inquire']) {
   const html = await readFile(`dist/${route}/index.html`, 'utf8');

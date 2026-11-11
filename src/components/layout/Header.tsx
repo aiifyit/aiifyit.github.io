@@ -9,7 +9,7 @@ import Logo from '../ui/Logo';
 
 const SECTION_IDS = ['hero', 'process', 'about', 'services', 'results', 'cta'];
 
-export default function Header() {
+export default function Header({ solid = false }: { solid?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const activeSection = useActiveSection(SECTION_IDS);
@@ -35,9 +35,11 @@ export default function Header() {
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-[var(--color-bg)]/80 backdrop-blur-xl border-b border-[var(--color-border-subtle)]'
-          : 'bg-transparent'
+        solid
+          ? 'bg-[var(--color-bg)] border-b border-[var(--color-border-subtle)]'
+          : scrolled
+            ? 'bg-[var(--color-bg)]/80 backdrop-blur-xl border-b border-[var(--color-border-subtle)]'
+            : 'bg-transparent'
       }`}
     >
       <Container className="flex items-center h-22 py-4">
