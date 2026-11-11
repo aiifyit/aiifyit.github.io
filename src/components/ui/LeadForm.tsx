@@ -6,6 +6,8 @@ export interface LeadFormData {
   email: string;
   phone: string;
   company: string;
+  message: string;
+  website: string;
   consent: boolean;
 }
 
@@ -20,6 +22,8 @@ const initialState: LeadFormData = {
   email: '',
   phone: '',
   company: '',
+  message: '',
+  website: '',
   consent: false,
 };
 
@@ -47,7 +51,7 @@ export default function LeadForm({ onSubmit, submitting = false, className = '' 
   };
 
   return (
-    <form onSubmit={handleSubmit} className={`flex flex-col gap-5 ${className}`}>
+    <form onSubmit={handleSubmit} className={`relative flex flex-col gap-5 ${className}`}>
       <div className="grid md:grid-cols-2 gap-5">
         <div>
           <label htmlFor="lead-name" className={labelClasses}>
@@ -88,7 +92,6 @@ export default function LeadForm({ onSubmit, submitting = false, className = '' 
           <input
             id="lead-phone"
             type="tel"
-            required
             autoComplete="tel"
             value={form.phone}
             onChange={(e) => update('phone', e.target.value)}
@@ -113,6 +116,37 @@ export default function LeadForm({ onSubmit, submitting = false, className = '' 
             disabled={submitting}
           />
         </div>
+      </div>
+
+      <div className="absolute w-px h-px overflow-hidden" aria-hidden="true" style={{ clipPath: 'inset(50%)' }}>
+        <label htmlFor="lead-website">Website</label>
+        <input
+          id="lead-website"
+          name="website"
+          tabIndex={-1}
+          autoComplete="off"
+          value={form.website}
+          onChange={(e) => update('website', e.target.value)}
+        />
+      </div>
+
+      <div>
+        <label htmlFor="lead-message" className={labelClasses}>
+          Anything we should know
+        </label>
+        <textarea
+          id="lead-message"
+          name="message"
+          required
+          rows={4}
+          maxLength={500}
+          value={form.message}
+          onChange={(e) => update('message', e.target.value)}
+          className={`${inputClasses} resize-y`}
+          placeholder="Tell us a little about your business and what you need."
+          disabled={submitting}
+        />
+        <p className="text-xs text-[var(--color-text-muted)] mt-2 text-right tabular-nums">{form.message.length}/500</p>
       </div>
 
       <label className="flex items-start gap-3 text-sm text-[var(--color-text-muted)] cursor-pointer select-none">

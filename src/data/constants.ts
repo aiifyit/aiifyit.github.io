@@ -2,7 +2,7 @@ import type { NavItem, TeamMember, ProcessStep, Service, ResultStat, HeroStat, P
 
 export const CALENDLY_URL = "https://calendly.com/jon-aiifyit/30min";
 
-// Webhook endpoint for lead form submissions — n8n production webhook routing to HubSpot.
+// Retired homepage webhook. Public contact forms now post to OFFER_LEAD_ENDPOINT.
 export const LEAD_WEBHOOK_URL = "https://jpronger1.app.n8n.cloud/webhook/7a8c25c7-bb38-450f-8341-9714f0f841a4";
 
 export const NAV_ITEMS: NavItem[] = [
@@ -13,15 +13,15 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Learn More", href: "#cta" },
 ];
 
-export const HERO_EYEBROW = "Want to Use AI in Your Business?";
-export const HERO_HEADLINE = "Do in Hours What Used to Take Months. Custom AI for Your Business.";
+export const HERO_EYEBROW = "Done-for-you AI agent swarms";
+export const HERO_HEADLINE = "Your AI Agents, Built and Run With You";
 export const HERO_SUBHEADLINE =
-  "Automate your company's critical, expensive tasks with an always-on swarm of AI agents, co-managed alongside you by our experts so it runs smoothly, cuts costs, and frees your team to focus on growth.";
+  "We set it up, build with your executive team every week, and keep your agents on top of AI as it changes. The sign-up price is $10,000 per month per company account.";
 
 export const HERO_BULLETS = [
-  "We audit your workflows and fix what's costing you time & money",
-  "We add custom AI agent employees to your specific operations",
-  "We deploy, manage, and optimize them — ongoing, every week",
+  "Agent swarms aimed at your goals",
+  "Co-managed by our expert AI management team",
+  "Monthly group coaching and a members area included",
 ];
 
 export const HERO_STATS: HeroStat[] = [
@@ -48,7 +48,7 @@ export const SOCIAL_PROOF_LOGOS = [
 
 export const ABOUT_SUBHEADING = "Built by Operators, for Operators";
 export const ABOUT_BODY =
-  "We're operators who got tired of tools that don't work. We've spent years inside real businesses — building, breaking, and rebuilding systems until they actually run day-in, day-out. AIify doesn't hand you a deck and walk away. We get inside your operations, build the AI agents ourselves, and stay to make sure they keep working.";
+  "We're operators who got tired of tools that don't work. We've spent years inside real businesses — building, breaking, and rebuilding systems until they actually run day-in, day-out. AIify doesn't hand you a deck and walk away. We set up your AI agents ourselves, build with your team every week, and stay to make sure they keep working.";
 
 export const TEAM_SUBHEADING =
   "We're proud of the people behind AIify — operators, builders, and problem-solvers who make sure your automation actually works.";
@@ -62,67 +62,67 @@ export const TEAM_MEMBERS: TeamMember[] = [
 
 export const PROCESS_HEADING = "Three Steps to a Fully";
 export const PROCESS_SUBHEADING =
-  "Most firms know they need AI. What they don't have is someone who will get inside their operations, build it for them, and make sure it actually works and is never ending. That's what we do.";
+  "We do the setup and the building. You tell us what matters.";
 
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     number: "01",
-    title: "The Workflow Audit",
+    title: "We Learn Your Goals",
     description:
-      "We analyze your existing systems, identify the highest-impact automation opportunities, map out dependencies, and build a prioritized roadmap.",
+      "We meet your executives and their assistants, learn how the business runs, and decide where agents should work first.",
     iconName: "ClipboardCheck",
   },
   {
     number: "02",
-    title: "Custom AI Agent Build",
+    title: "We Build Your Swarm",
     description:
-      "We build your AI agents from scratch, custom to your workflows. Every agent is tested, validated, and tuned before it touches production.",
+      "We set up the agents, connect them to your tools, and aim them at your goals.",
     iconName: "Bot",
   },
   {
     number: "03",
-    title: "Deploy, Manage, Optimize",
+    title: "We Build With You Weekly",
     description:
-      "We deploy to your live environment, monitor performance, and optimize weekly. This isn't a handoff — it's ongoing.",
+      "Every week we build with your team, adjust the agents, and keep them on top of AI as it changes.",
     iconName: "Rocket",
   },
 ];
 
-export const SERVICES_HEADING = "What Happens When Nothing Falls Through the Cracks";
+export const SERVICES_HEADING = "What's Included";
 export const SERVICES_SUBHEADING =
-  "Every document gets processed. Every lead followed up. Every compliance check run on time. We get inside your workflows and make sure nothing slips — from onboarding to financial review.";
+  "Each company account covers your executives and their immediate assistants, like a chief of staff or executive assistant. Want more people covered? Add another account.";
 
 export const SERVICES: Service[] = [
   {
-    title: "Intelligent Process Automation",
+    title: "Done-For-You Setup",
     description:
-      "Automate end-to-end document processing, data validation, client onboarding, and internal approvals. From raw input to fully processed output.",
+      "We set up your agent swarm and connect it to the tools your team already uses.",
     iconName: "Workflow",
   },
   {
-    title: "Revenue & Pipeline Acceleration",
+    title: "Weekly Build Sessions",
     description:
-      "Auto-capture leads, enrich data, sequence outreach, and track conversion — AI that works your pipeline while your team focuses on closing.",
+      "We build with your team every week and point the agents at what matters now.",
     iconName: "TrendingUp",
   },
   {
-    title: "Compliance & Risk Automation",
+    title: "Expert Co-Management",
     description:
-      "Real-time compliance monitoring across documents, communications, and transactions. Automated flagging and audit trails.",
+      "Our AI management team watches the agents, fixes what breaks, and keeps them working.",
     iconName: "ShieldCheck",
   },
   {
-    title: "Custom AI Agent Development",
+    title: "Current With AI",
     description:
-      "Purpose-built AI agents designed for your specific operations, integrated directly into your existing systems.",
+      "AI changes fast. We update your agents as new models and tools come out.",
     iconName: "Bot",
   },
 ];
 
 export const SERVICES_FULL_WIDTH: Service = {
-  title: "Workflow Integration & API Connectivity",
+  title: "Coaching and Members Area",
   description:
-    "We connect everything: APIs, data pipelines, third-party platforms, and internal tools into a unified automated workflow.",
+    "Join a monthly group coaching call. Use the members area to ask questions, learn, and work with our team and other members to get the tools into daily use.",
   iconName: "Plug",
 };
 
@@ -201,4 +201,4 @@ export const PRECISION_CLOSING =
 
 export const CTA_HEADING = "Ready to";
 export const CTA_SUBHEADING =
-  "Book a free strategy call. We'll audit your workflows and show you exactly where AI can save you time and money.";
+  "Tell us about your business. The sign-up price is $10,000 per month per company account. Send us a message and we'll reply personally.";
