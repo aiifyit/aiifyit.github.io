@@ -55,7 +55,7 @@ for (const service of services) {
   assert(html.includes(`rel="canonical" href="${site.url}${route}"`));
   assert(html.includes('action="/inquire/" method="get"'));
   assert(html.includes(`name="service" value="${service.slug}"`));
-  assert(html.includes('Skip this step and contact Joshua'));
+  assert(html.includes('Get started →'));
   assert(!html.includes('type="email"'));
   const jsonld = JSON.parse(html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s)[1]);
   assert.equal(jsonld['@type'], 'Service');
