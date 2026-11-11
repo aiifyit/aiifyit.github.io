@@ -414,12 +414,17 @@ html[data-page="offer"] { background: #09090b; scroll-padding-top: 6rem; }
 .offer-compare-card > p { color:#aabcc1; margin-top:.5rem; }
 .offer-comparison-art { background:none; border:0; box-shadow:none; margin-block:1rem; }
 .offer-compare-card ul { list-style:none; padding:0; }
-.offer-compare-card li { display:flex; gap:.8rem; padding:.7rem 0; border-top:1px solid #ffffff12; line-height:1.5; transition:color .4s; }
-.offer-compare-card li > span:first-child { flex:none; color:#A3D7E2; width:1rem; }
-.offer-compare-card li > span:last-child { text-decoration:line-through transparent; transition:text-decoration-color .4s; transition-delay:inherit; }
-.offer-compare-card.is-complex li.is-handled { color:#82959b; }
-.offer-compare-card.is-complex li.is-handled > span:last-child { text-decoration-color:#82959b; }
-.offer-compare-card.is-clean li.is-handled { color:#A3D7E2; }
+.offer-compare-card li { display:flex; align-items:flex-start; gap:.85rem; padding:.7rem 0; border-top:1px solid #ffffff12; line-height:1.5; color:#e6eef0; font-weight:400; }
+.offer-compare-mark { flex:none; display:grid; place-items:center; width:1.25rem; height:1.25rem; margin-top:.18rem; }
+.offer-compare-mark svg { width:1.25rem; height:1.25rem; display:block; }
+.offer-compare-mark-no circle { fill:#E5736B1a; stroke:#E5736B; stroke-width:1.5; }
+.offer-compare-mark-no path { fill:none; stroke:#E5736B; stroke-width:1.7; stroke-linecap:round; }
+.offer-compare-mark-yes circle { fill:#A3D7E21f; stroke:#A3D7E2; stroke-width:1.5; }
+.offer-compare-mark-yes path { fill:none; stroke:#A3D7E2; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.offer-compare-card.is-complex li { color:#e6eef0; }
+.offer-compare-card.is-clean li { color:#edf4f5; font-size:1.22rem; font-weight:500; padding:1.05rem 0; line-height:1.45; }
+.offer-compare-card.is-clean .offer-compare-mark { width:1.55rem; height:1.55rem; margin-top:.12rem; }
+.offer-compare-card.is-clean .offer-compare-mark svg { width:1.55rem; height:1.55rem; }
 .offer-advantage-close { display:flex; justify-content:space-between; align-items:center; gap:2rem; margin-top:3rem; padding-top:2rem; border-top:1px solid #ffffff20; }
 .offer-advantage-close p { max-width:45rem; font-size:1.4rem; line-height:1.5; }
 .offer-advantage-close .offer-btn { flex:none; }
@@ -449,6 +454,7 @@ html[data-page="offer"] { background: #09090b; scroll-padding-top: 6rem; }
  .offer-advantage-close { flex-direction:column; align-items:flex-start; }
  .offer-compare-toolbar { flex-wrap:wrap; }
  .offer-compare-card { padding:1.4rem; }
+ .offer-compare-card.is-clean li { font-size:1.12rem; padding:.9rem 0; }
  .offer-account-grid { gap:2rem; }
  .offer-account-card { padding:1.2rem; }
 }
