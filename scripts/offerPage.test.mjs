@@ -20,7 +20,7 @@ const phrases = [
   "What your clients get",
   "Set up for them.",
   "Built with them every week.",
-  "Checked daily.",
+  "You bring the client.",
   "Aimed at their goals.",
   "Credit goes to their people.",
   "We currently co-manage in Grok Bot, and our approach doesn't depend on any one platform.",

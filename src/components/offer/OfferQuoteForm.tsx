@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+import { useMagnetic } from './useMagnetic';
 import { useRef, useState } from 'react';
 import { createOfferQuoteDraft, OFFER_QUOTE_SOURCE } from '../../data/offerQuote.ts';
 
@@ -5,6 +7,7 @@ const fieldClass =
   'mt-2 w-full border border-[var(--offer-line)] bg-white px-4 py-3 text-[var(--offer-ink)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--offer-navy)]';
 
 export default function OfferQuoteForm() {
+  const magnetic = useMagnetic();
   const [seats, setSeats] = useState('');
   const [name, setName] = useState('');
   const [company, setCompany] = useState('');
@@ -64,9 +67,9 @@ export default function OfferQuoteForm() {
         <p className="mt-2 text-right text-xs tabular-nums text-[var(--offer-muted)]">{note.length}/500</p>
       </div>
       {error ? <p role="alert" className="mt-4 text-sm text-[#8d3b32]">{error}</p> : null}
-      <button type="submit" className="offer-btn mt-6 w-full sm:w-auto">
+      <motion.button type="submit" className="offer-btn mt-6 w-full sm:w-auto" {...magnetic}>
         Get a quote
-      </button>
+      </motion.button>
       <p className="mt-4 text-sm leading-relaxed text-[var(--offer-muted)]">We reply personally. No automated sequence.</p>
       <p className="mt-2 text-sm leading-relaxed text-[var(--offer-muted)]">Opens a draft in your email app; review and send it there.</p>
       {draftText ? (

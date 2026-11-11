@@ -38,27 +38,27 @@
   "model": {
     "heading": "What your clients get",
     "body": "Many companies buy AI software and nobody uses it. Your clients get people, not just software. We set the swarm up for them, build it with them every week, and check on it every day. That's why it gets used, and why your clients stay happy with you.",
-    "label": "How it works for each client",
+    "label": "How it works",
     "steps": [
+      {
+        "title": "You bring the client.",
+        "body": "You make the offer under your brand and set your price."
+      },
       {
         "title": "Set up for them.",
         "body": "We set up the AI agent swarm around how their business already runs."
       },
       {
         "title": "Built with them every week.",
-        "body": "At the start, each user gets a weekly build session with us of about 30 minutes."
-      },
-      {
-        "title": "Checked daily.",
-        "body": "We log in remotely every day to check on it and keep it working."
+        "body": "At the start, each user gets a weekly build session with us of about 30 minutes. We log in remotely every day to check on it and keep it working."
       },
       {
         "title": "Aimed at their goals.",
-        "body": "Each quarter, we set their goals in the system so the work stays focused."
+        "body": "Each quarter, we set their goals in the system so the work stays focused. Live dashboards show their team how the business is running."
       },
       {
         "title": "Credit goes to their people.",
-        "body": "Their team builds it with us, so their team gets the credit. Your client sees their people get better, and you made it happen."
+        "body": "Their team builds it with us, so their team gets the credit. You keep the client."
       }
     ],
     "platform": "We currently co-manage in Grok Bot, and our approach doesn't depend on any one platform."
