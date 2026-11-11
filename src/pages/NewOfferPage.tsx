@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import CreditChapter from '../components/offer/CreditChapter';
+import BurdenChapter from '../components/offer/BurdenChapter';
 import LeadersChapter from '../components/offer/LeadersChapter';
 import OfferChrome, { OfferBrand } from '../components/offer/OfferChrome';
 import copy from '../data/offerCopy.json';
@@ -80,6 +81,7 @@ export default function NewOfferPage() {
         </section>
 
         <LeadersChapter />
+        <BurdenChapter />
         <StepSequence />
         <CreditChapter />
 

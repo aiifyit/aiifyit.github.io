@@ -15,12 +15,12 @@ const stylesheets = [...shell.matchAll(/<link\b[^>]*rel="stylesheet"[^>]*href="(
 if (!stylesheets.length) throw new Error('Built site stylesheet not found');
 await copyFile('dist/index.html', 'dist/404.html');
 function hiddenOfferShell(shell) {
-  const title = 'Offer AI Agent Swarms Under Your Name | AIify Partner Program';
-  const description = 'Put a premium AI offer in front of your clients under your own brand. You keep the relationship and set the price. AIify sets up and co-manages the swarm behind you for a fixed fee.';
+  const title = 'Offer AI Agent Swarms Under Your Brand | AIify Partner Program';
+  const description = 'Offer your clients done-for-them AI agent swarms under your brand. You keep the client and set the price. We co-manage the work behind you for a fixed fee.';
   const url = `${site.url}/new-offer/`;
   const image = `${site.url}/images/offer/hero.jpg`;
-  const hero = 'Give your clients a premium AI offer under your name.';
-  const subhead = 'AI agent swarm co-management for your clients, members, coaches, or portfolio companies. It goes out under your brand and we fulfill it. You keep the relationship, set the price, and keep the margin.';
+  const hero = 'Give your clients a premium AI offer under your brand.';
+  const subhead = 'Offer your clients a premium offer they really want: done-for-them AI agent swarms, co-managed by our expert AI management team. You keep your clients, and we serve them with you.';
   const mailto = `mailto:${inquiry.recipient}?subject=${encodeURIComponent('AIify partner quote')}&body=${encodeURIComponent(['Hi Joshua,', '', "I'd like a quote for offering AI co-management under our name.", '', 'Source: /new-offer', 'Name: ', 'Company: ', 'Email: ', 'Rough number of seats: ', '', 'Anything we should know:', ''].join('\r\n'))}`;
   return shell
     .replace(/<title>.*?<\/title>/, `<title>${escapeHtml(title)}</title>`)
@@ -34,7 +34,7 @@ function hiddenOfferShell(shell) {
     .replace('name="twitter:image" content="/og-image.png"', `name="twitter:image" content="${escapeHtml(image)}"`)
     .replace(`rel="canonical" href="${site.url}/"`, `rel="canonical" href="${url}"`)
     .replace('</head>', `<script>document.documentElement.dataset.page="offer"</script>\n<meta name="robots" content="noindex, nofollow">\n</head>`)
-    .replace('<div id="root"></div>', `<noscript><main style="max-width:42rem;margin:0 auto;padding:64px 24px;min-height:100vh;font-family:system-ui,sans-serif;background:#f3f0e8;color:#1c1915"><p style="letter-spacing:.14em;text-transform:uppercase;font-size:12px">AIify Partner Program</p><h1>Give your clients a premium AI offer under your name.</h1><p>${escapeHtml(hero)}</p><p>${escapeHtml(subhead)}</p><p><a href="${escapeHtml(mailto)}">Get a quote</a></p><p>We reply personally. No automated sequence.</p></main></noscript>\n<div id="root"></div>`);
+    .replace('<div id="root"></div>', `<noscript><main style="max-width:42rem;margin:0 auto;padding:64px 24px;min-height:100vh;font-family:system-ui,sans-serif;background:#f3f0e8;color:#1c1915"><p style="letter-spacing:.14em;text-transform:uppercase;font-size:12px">AIify Partner Program</p><h1>${escapeHtml(hero)}</h1><p>${escapeHtml(subhead)}</p><p><a href="${escapeHtml(mailto)}">Get a quote</a></p><p>We reply personally. No automated sequence.</p></main></noscript>\n<div id="root"></div>`);
 }
 
 for (const route of ['book', 'inquire', 'sow', 'new-offer']) {

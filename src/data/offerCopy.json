@@ -1,43 +1,43 @@
 {
-  "title": "Offer AI Agent Swarms Under Your Name | AIify Partner Program",
-  "description": "Put a premium AI offer in front of your clients under your own brand. You keep the relationship and set the price. AIify sets up and co-manages the swarm behind you for a fixed fee.",
+  "title": "Offer AI Agent Swarms Under Your Brand | AIify Partner Program",
+  "description": "Offer your clients done-for-them AI agent swarms under your brand. You keep the client and set the price. We co-manage the work behind you for a fixed fee.",
   "program": "AIify Partner Program",
   "cta": "Get a quote",
   "hero": {
-    "heading": "Give your clients a premium AI offer under your name.",
-    "body": "AI agent swarm co-management for your clients, members, coaches, or portfolio companies. It goes out under your brand and we fulfill it. You keep the relationship, set the price, and keep the margin.",
+    "heading": "Give your clients a premium AI offer under your brand.",
+    "body": "Offer your clients a premium offer they really want: done-for-them AI agent swarms, co-managed by our expert AI management team. You keep your clients, and we serve them with you.",
     "secondary": "See the partner economics"
   },
   "intro": {
-    "heading": "You already have the relationships. Now you have the offer.",
+    "heading": "You have the clients. Now you have the offer.",
     "body": [
-      "You already have the relationships and the trust. Your clients want AI that actually changes how their business runs, and they would rather get it from you than from a stranger.",
-      "The hard part is what comes after the sale. Someone has to build the system, train the people, and stay with it every week, and you don't want to staff that. You don't have to. You make the offer and we do the work behind you."
+      "Your clients trust you. They want AI that changes how their business runs, and they would rather get it from you than from someone new.",
+      "The hard part comes after the sale. Someone has to build the system, work with the people, and stay with it every week. You don't have to staff that. You make the offer. We do the work behind you."
     ],
     "label": "What you get to offer",
     "points": [
       {
-        "title": "A premium offer with your name on it.",
-        "body": "AI agent swarm co-management, sold by you, to the people who already trust you."
+        "title": "A premium offer under your brand.",
+        "body": "Done-for-them AI agent swarms, sold by you to clients who already trust you."
       },
       {
-        "title": "The capability without an AI staffing company.",
-        "body": "You don't hire, train, or manage a delivery team."
+        "title": "No AI team to build.",
+        "body": "You don't hire, train, or manage anyone. We do."
       },
       {
         "title": "You stay the face.",
-        "body": "You own the client relationship. We work behind you."
+        "body": "You own the client relationship. We are the backend."
       },
       {
-        "title": "A margin you control.",
-        "body": "You set the price and we charge a fixed fulfillment fee. The spread is yours."
+        "title": "You set the price.",
+        "body": "We charge a fixed wholesale fee. What you charge above it is yours."
       }
     ],
-    "builtFor": "Firms, networks, advisors, and investors in any industry who already serve clients, members, coaches, or portfolio companies."
+    "builtFor": "Business owners, firms, advisors, and networks in any industry who already have clients."
   },
   "model": {
-    "heading": "What your clients actually get",
-    "body": "Plenty of companies have bought AI software and seen nobody use it. Your clients get something different. People set the swarm up for them, build it with them every week, and run it alongside them every day. That is why it gets used, and why your clients come back to you pleased instead of disappointed.",
+    "heading": "What your clients get",
+    "body": "Many companies buy AI software and nobody uses it. Your clients get people, not just software. We set the swarm up for them, build it with them every week, and check on it every day. That's why it gets used, and why your clients stay happy with you.",
     "label": "How it works for each client",
     "steps": [
       {
@@ -46,81 +46,129 @@
       },
       {
         "title": "Built with them every week.",
-        "body": "At the start, each user gets a 30-minute session with us each week, and we build their system with them."
+        "body": "At the start, each user gets a weekly build session with us of about 30 minutes."
       },
       {
-        "title": "Looked after daily.",
-        "body": "We log in remotely every day to check on the swarm and keep it working."
+        "title": "Checked daily.",
+        "body": "We log in remotely every day to check on it and keep it working."
       },
       {
         "title": "Aimed at their goals.",
-        "body": "Every quarter, their goals are set inside the system so the work keeps pointing at what matters."
+        "body": "Each quarter, we set their goals in the system so the work stays focused."
       },
       {
-        "title": "The credit stays with their people.",
-        "body": "Their team builds it with us, so their team gets the credit. Your client sees their own people getting better, and you're the one who made it happen."
+        "title": "Credit goes to their people.",
+        "body": "Their team builds it with us, so their team gets the credit. Your client sees their people get better, and you made it happen."
       }
     ],
     "platform": "We currently co-manage in Grok Bot, and our approach doesn't depend on any one platform."
   },
   "evidence": {
     "heading": "What it looks like when it works",
-    "body": "Here is a recent engagement we ran directly. It's one engagement, not a guarantee, but it shows what your clients could experience.",
+    "body": "This is a recent engagement we ran directly. It's one engagement, not a guarantee. It shows what your clients could get.",
     "facts": [
       "Three people, $10,000 a month.",
       "We connected to their systems, including one with no API. For that one, we sign in and pull the numbers several times during the workday.",
       "We built live dashboards their team uses to run the business.",
-      "Within two weeks, the savings already covered more than a year of the cost.",
+      "Within two weeks, the savings covered more than a year of the cost.",
       "They wanted to continue."
     ],
-    "closing": "That is the outcome you want your name attached to."
+    "closing": "That's the result you want under your brand."
   },
   "economics": {
     "label": "Partner economics",
-    "heading": "You set the price. We charge a fixed fee. The spread is yours.",
-    "body": "We charge a fixed fulfillment fee per seat, and you decide what to charge your client.",
+    "heading": "You set the price. We charge a fixed fee. The difference is yours.",
+    "body": "We charge a fixed wholesale fee per seat each month. You decide what your client pays.",
     "feesLabel": "Fulfillment fees",
-    "marketLabel": "What the market bears",
-    "market": "Partners often charge around $10,000 a month. That's an example, not a requirement. The price is yours to set.",
+    "marketLabel": "What partners charge",
+    "market": "Partners often charge about $10,000 a month. That's an example, not a requirement. You set the price.",
     "priceLabel": "Why the price holds",
-    "price": "Tool-only seats with no co-management run around $500 per seat per month. Those seats are software. You're selling the people who make the software get used, and that's why the offer is premium."
+    "price": "Tool-only seats without co-management run around $500 per seat per month. That's just software. You're offering the people who make it work, and that's why it's premium."
   },
   "ownership": {
     "label": "What you keep",
     "heading": "Your client. Your work. Your long-term position.",
     "points": [
       {
-        "title": "You keep the relationship.",
-        "body": "Your client buys from you and works with you. We stay in the background and fulfill."
+        "title": "You keep the client.",
+        "body": "Your client buys from you and works with you. We serve them with you, behind your brand."
       },
       {
-        "title": "You keep what's built for your clients.",
-        "body": "Everything built specifically for your clients belongs to you: their instructions, their playbooks, their agent setups. AIify keeps its own methods."
+        "title": "You own the client work.",
+        "body": "What we build for each client is yours: their instructions, playbooks, and agent setups. AIify keeps its methods."
       },
       {
-        "title": "You keep the long view.",
-        "body": "This is a long-term engagement. Clients sometimes plan to build an internal team later, and that rarely turns out cheaper. You can offer them a durable arrangement that keeps working."
+        "title": "You keep a long-term offer.",
+        "body": "This is a long-term engagement. Building it in-house later is rarely cheaper. You can offer your clients an arrangement that keeps working."
       }
     ],
     "questionsLabel": "The three questions partners ask",
     "questions": [
       {
         "q": "Will my clients know AIify is involved?",
-        "a": "You are the face of the offer and you own the relationship. We work behind you as your fulfillment team."
+        "a": "You are the face of the offer and you own the relationship. We are your backend."
       },
       {
-        "q": "Shouldn't we just build this team internally?",
-        "a": "We can help you do that later. It's rarely cheaper, because you'd have to hire, train, and manage the people yourself. This model gives you the margin without the headcount."
+        "q": "Shouldn't we just build this team ourselves?",
+        "a": "It's rarely cheaper. You'd have to hire, train, and manage the team yourself. With us, you get the offer without the headcount."
       },
       {
         "q": "Is this just software?",
-        "a": "No. The software is a small part of the offer. What you're offering is setup, weekly sessions where we build with each person, daily hands-on care, and quarterly direction."
+        "a": "No. Software is a small part of it. Your clients get setup, weekly build sessions, daily check-ins, and quarterly goals."
       }
     ]
   },
+  "burden": {
+    "label": "Why partner",
+    "heading": "What you don't have to do",
+    "body": "Offering AI on your own means building an AI company inside your company. Here's what you skip.",
+    "items": [
+      {
+        "task": "Pay for an in-house AI team",
+        "handled": "Our team, not yours"
+      },
+      {
+        "task": "Recruit and vet AI talent",
+        "handled": "We handle hiring"
+      },
+      {
+        "task": "Hire a manager to run them",
+        "handled": "We manage it"
+      },
+      {
+        "task": "Scramble to stay on top of AI",
+        "handled": "We keep up"
+      },
+      {
+        "task": "Test every new tool",
+        "handled": "We test them"
+      },
+      {
+        "task": "Run payroll for them",
+        "handled": "Not on your payroll"
+      },
+      {
+        "task": "Carry insurance for them",
+        "handled": "Not on your books"
+      },
+      {
+        "task": "Replace people when they quit",
+        "handled": "We handle turnover"
+      },
+      {
+        "task": "Train and retrain the team",
+        "handled": "We train them"
+      },
+      {
+        "task": "Do all of this while running your company and handling your own industry expansion",
+        "handled": "You focus on your business"
+      }
+    ],
+    "closing": "Partner with us and we do all of that for you, under your brand. You keep your customer."
+  },
   "quote": {
     "heading": "Tell us who you'd offer this to.",
-    "body": "Give us a rough picture of your clients and how many seats you have in mind. We'll come back with a quote you can build your offer around.",
+    "body": "Tell us roughly who your clients are and how many seats you have in mind. We'll send a quote you can build your offer around.",
     "reply": "We reply personally. No automated sequence."
   }
 }
