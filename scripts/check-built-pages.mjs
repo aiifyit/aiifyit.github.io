@@ -84,7 +84,8 @@ assert(offer.includes('name="robots" content="noindex, nofollow"'), 'Hidden offe
 assert(offer.includes('<title>Offer AI Agent Swarms Under Your Brand | AIify Partner Program</title>'));
 assert(offer.includes('content="Offer your clients done-for-them AI agent swarms under your brand. You keep the client and set the price. We co-manage the work behind you for a fixed fee."'));
 assert(offer.includes('<h1>Give your clients a premium AI offer under your brand.</h1>'));
-assert(offer.includes('Get a quote'));
+assert(offer.includes('Message us'));
+assert(!offer.includes('Get a quote'));
 assert(offer.includes('We reply personally. No automated sequence.'));
 assert(offer.includes(`rel="canonical" href="${site.url}/new-offer/"`));
 assert(offer.includes('mailto:joshua@aiifyit.com'));

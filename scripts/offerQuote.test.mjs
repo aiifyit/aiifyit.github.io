@@ -1,9 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { createOfferQuoteDraft, OFFER_QUOTE_SOURCE } from '../src/data/offerQuote.ts';
+import { createOfferQuoteDraft, OFFER_QUOTE_SOURCE, OFFER_LEAD_ENDPOINT } from '../src/data/offerQuote.ts';
 import { INQUIRY_EMAIL } from '../src/data/inquiry.ts';
 
-const base = { name: 'Ada Cole', company: 'North Line', email: 'ada@northline.example', seats: '10' };
+const base = { name: 'Ada Cole', company: 'North Line', email: 'ada@northline.example', note: 'We serve growing companies.' };
 
 test('quote draft goes to the inquiry address and names the offer page', () => {
   const draft = createOfferQuoteDraft(base);
@@ -11,17 +11,19 @@ test('quote draft goes to the inquiry address and names the offer page', () => {
   assert.equal(draft.recipient, INQUIRY_EMAIL);
   assert.equal(url.pathname, INQUIRY_EMAIL);
   assert.equal(url.searchParams.size, 2);
-  assert.equal(draft.subject, 'AIify partner quote');
+  assert.equal(draft.subject, 'AIify partnership inquiry');
   assert.equal(draft.source, OFFER_QUOTE_SOURCE);
   assert.equal(draft.source, '/new-offer');
   assert.match(draft.body, /Source: \/new-offer/);
   assert.match(draft.body, /Name: Ada Cole/);
-  assert.match(draft.body, /Rough number of seats: 10/);
+  assert.doesNotMatch(draft.body, /seats/i);
+  assert.ok(draft.body.startsWith("I'd like to talk about a partnership."));
+  assert.match(OFFER_LEAD_ENDPOINT, /^https:\/\/aiify-offer-lead\.joshua-509\.workers\.dev\/submit$/);
   assert.doesNotMatch(draft.body, /Service type:/);
-  assert.doesNotMatch(draft.body, /Anything we should know/);
+  assert.match(draft.body, /Anything we should know/);
 });
 
-test('an optional note travels in the body, never as headers', () => {
+test('a required note travels in the body, never as headers', () => {
   const draft = createOfferQuoteDraft({
     ...base,
     note: 'Bcc: nobody@example.invalid\nTwo offices.',
@@ -39,4 +41,8 @@ test('line breaks and a bad address fail before a draft is built', () => {
   assert.throws(() => createOfferQuoteDraft({ ...base, email: 'not-an-email' }), /valid email/);
   assert.throws(() => createOfferQuoteDraft({ ...base, note: 'x'.repeat(501) }), /500/);
   assert.throws(() => createOfferQuoteDraft({ ...base, company: 'North\u0000Line' }), /control/);
+});
+
+test('a message is required', () => {
+  assert.throws(() => createOfferQuoteDraft({ ...base, note: '  ' }), { message: 'Tell us a little about what you need.' });
 });

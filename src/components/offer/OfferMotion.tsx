@@ -1,3 +1,4 @@
+import copy from '../../data/offerCopy.json';
 import { useMagnetic } from './useMagnetic';
 import { useRef, type ReactNode } from 'react';
 import { motion, useInView, useReducedMotion, useMotionValue, useSpring } from 'framer-motion';
@@ -27,5 +28,5 @@ export function OfferHeading({ children, id, tabIndex }: { children: string; id:
 }
 export function QuoteButton({ small = false }: { small?: boolean }) {
   const magnetic = useMagnetic();
-  return <motion.a href="#quote" className={`offer-btn ${small ? 'offer-btn-sm' : ''}`} {...magnetic}>Get a quote</motion.a>;
+  return <motion.a href="#quote" className={`offer-btn ${small ? 'offer-btn-sm' : ''}`} {...magnetic}>{copy.cta}</motion.a>;
 }
