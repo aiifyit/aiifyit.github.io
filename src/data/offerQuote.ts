@@ -1,5 +1,4 @@
 import { INQUIRY_EMAIL, INQUIRY_MESSAGE_LIMIT } from './inquiry.ts';
-import { formatDollars } from './offerEconomics.ts';
 
 export const OFFER_QUOTE_SOURCE = '/new-offer';
 export const OFFER_QUOTE_SUBJECT = 'AIify partner quote';
@@ -10,8 +9,6 @@ export interface OfferQuoteInput {
   email: string;
   seats: string;
   note?: string;
-  serviceLabel?: string;
-  pricePerSeat?: number;
 }
 
 function rejectControlCharacters(value: string, label: string) {
@@ -53,10 +50,6 @@ export function createOfferQuoteDraft(input: OfferQuoteInput) {
     `Email: ${email}`,
     `Rough number of seats: ${seats}`,
   ];
-  if (input.serviceLabel?.trim()) lines.push(`Service type: ${input.serviceLabel.trim()}`);
-  if (typeof input.pricePerSeat === 'number' && Number.isFinite(input.pricePerSeat)) {
-    lines.push(`Monthly price per seat: ${formatDollars(input.pricePerSeat)}`);
-  }
   if (note) lines.push('', 'Anything we should know:', note);
   const body = lines.join('\n').replace(/\r\n|\r|\n/g, '\r\n');
   return {

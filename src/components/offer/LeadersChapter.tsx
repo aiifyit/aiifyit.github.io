@@ -1,5 +1,5 @@
 import copy from '../../data/offerCopy.json';
-import OfferPhoto from './OfferPhoto';
+import { BrandLayers } from './OfferGraphics';
 import Reveal from './Reveal';
 
 export default function LeadersChapter() {
@@ -10,7 +10,7 @@ export default function LeadersChapter() {
         <div className="offer-prose">{copy.intro.body.map((p) => <p key={p}>{p}</p>)}</div>
       </div>
       <div className="offer-relationship">
-        <OfferPhoto name="stay-in-front" alt="A partner and client talking as they walk along a sunlit city sidewalk" />
+        <Reveal><BrandLayers /></Reveal>
         <div className="offer-benefits">
           <p className="offer-eyebrow">{copy.intro.label}</p>
           <ul>{copy.intro.points.map((p, i) => <li key={p.title}><span className="offer-index">0{i + 1}</span><div><h3>{p.title}</h3><p>{p.body}</p></div></li>)}</ul>

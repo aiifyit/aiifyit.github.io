@@ -21,18 +21,14 @@ test('quote draft goes to the inquiry address and names the offer page', () => {
   assert.doesNotMatch(draft.body, /Anything we should know/);
 });
 
-test('calculator context and an optional note travel in the body, never as headers', () => {
+test('an optional note travels in the body, never as headers', () => {
   const draft = createOfferQuoteDraft({
     ...base,
     note: 'Bcc: nobody@example.invalid\nTwo offices.',
-    serviceLabel: 'Executive co-management ($4,000 per seat per month fulfillment)',
-    pricePerSeat: 10000,
   });
   const url = new URL(draft.mailto);
   assert.equal(url.searchParams.size, 2);
   assert.equal(url.searchParams.get('body'), draft.body);
-  assert.match(draft.body, /Service type: Executive co-management \(\$4,000 per seat per month fulfillment\)/);
-  assert.match(draft.body, /Monthly price per seat: \$10,000/);
   assert.match(draft.body, /Anything we should know:\r\nBcc: nobody@example.invalid\r\nTwo offices\./);
   assert.equal(draft.mailto.includes(' '), false);
   assert.equal(draft.mailto.includes('Bcc:'), false);

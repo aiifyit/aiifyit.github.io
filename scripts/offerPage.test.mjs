@@ -4,7 +4,6 @@ import { readdir, readFile } from 'node:fs/promises';
 
 const files = [
   'src/pages/NewOfferPage.tsx',
-  'src/data/offerEconomics.ts',
   'src/data/offerQuote.ts',
   'src/data/offerCopy.json',
   ...(await readdir('src/components/offer')).map((name) => `src/components/offer/${name}`),
@@ -35,9 +34,6 @@ const phrases = [
   '$4,000 per executive per month',
   'Partners often charge around $10,000 a month. That\'s an example, not a requirement. The price is yours to set.',
   'Tool-only seats with no co-management run around $500 per seat per month.',
-  'Run your numbers',
-  'At this price there is no spread. Set your price above the fulfillment fee to see your margin.',
-  'These are estimates, not projections of sales or client results. Your final terms come with your quote.',
   'Your client. Your work. Your long-term position.',
   'Will my clients know AIify is involved?',
   "Shouldn't we just build this team internally?",
@@ -61,15 +57,14 @@ test('locked offer copy is present and the page stays on /new-offer', () => {
   }
 });
 
-test('offer photographs are optimized beside a jpeg fallback', async () => {
-  assert.match(source, /\/images\/offer\/\$\{name\}\.webp/);
-  assert.match(source, /\/images\/offer\/\$\{name\}\.jpg/);
-  for (const name of ['hero', 'stay-in-front', 'built-with-you', 'they-get-the-credit', 'you-keep-the-client']) {
-    const jpeg = await readFile(`public/images/offer/${name}.jpg`);
-    const webp = await readFile(`public/images/offer/${name}.webp`);
-    assert.ok(jpeg.length > 1000, name);
-    assert.ok(webp.length > 1000, name);
-    assert.ok(webp.length < jpeg.length, name);
-    assert.match(source, new RegExp(`name[=:]\\s*["']${name}["']`));
-  }
+test('offer uses graphics and preserves the social image', async () => {
+  assert.doesNotMatch(source, /OfferPhoto|OfferCalculator|copy\.calculator|offerEconomics/);
+  assert.match(source, /<svg/);
+  assert.match(source, /useReducedMotion/);
+  assert.match(source, /aria-selected/);
+  assert.match(source, /ArrowRight/);
+  assert.match(source, /aria-pressed/);
+  assert.match(source, /useInView/);
+  assert.match(source, /https:\/\/aiifyit.com\/images\/offer\/hero.jpg/);
+  assert.ok((await readFile('public/images/offer/hero.jpg')).length > 1000);
 });
