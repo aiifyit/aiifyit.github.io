@@ -124,3 +124,31 @@ h1, h2, h3, h4, h5, h6 {
     color: #18181b !important;
   }
 }
+
+/* Offer page only. Tokens stay local so the rest of the site is unchanged. */
+html[data-page="offer"] {
+  background: #f3f0e8;
+  scroll-padding-top: 6rem;
+}
+
+.offer-page {
+  --offer-bg: #f3f0e8;
+  --offer-ink: #1c1915;
+  --offer-muted: #5c564c;
+  --offer-line: #ddd4c6;
+  --offer-card: #fffcf8;
+  --offer-navy: #1b3144;
+  --offer-navy-hover: #142433;
+  color: var(--offer-ink);
+  background: var(--offer-bg);
+}
+
+.offer-page .offer-numeral {
+  font-family: "Cabinet Grotesk", "General Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .offer-page .offer-progress {
+    transition: none;
+  }
+}
