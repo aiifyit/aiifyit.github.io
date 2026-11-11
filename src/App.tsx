@@ -1,5 +1,5 @@
 import { lazy, Suspense, useLayoutEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import { Navigate, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import BackgroundFX from './components/layout/BackgroundFX';
@@ -10,10 +10,15 @@ const BookPage = lazy(() => import('./pages/BookPage'));
 const SowIntakePage = lazy(() => import('./pages/SowIntakePage'));
 const NewOfferPage = lazy(() => import('./pages/NewOfferPage'));
 
+function OfferLegacyRedirect() {
+  const location = useLocation();
+  return <Navigate to={{ pathname: '/partner-program/', search: location.search, hash: location.hash }} replace />;
+}
+
 function App() {
   const location = useLocation();
   const isSowWorkspace = location.pathname.startsWith('/sow');
-  const onOffer = /^\/new-offer\/?$/.test(location.pathname);
+  const onOffer = /^\/(partner-program|new-offer)\/?$/.test(location.pathname);
 
   useLayoutEffect(() => {
     if (!onOffer) return;
@@ -34,7 +39,8 @@ function App() {
           <Route path="/book" element={<BookPage />} />
           <Route path="/sow/*" element={<SowIntakePage />} />
           {/* Hidden sales page: no nav, footer, home, sitemap, or robots.txt entry. */}
-          <Route path="/new-offer" element={<NewOfferPage />} />
+          <Route path="/partner-program" element={<NewOfferPage />} />
+          <Route path="/new-offer" element={<OfferLegacyRedirect />} />
           <Route path="*" element={<MarketingPage />} />
         </Routes>
       </Suspense>

@@ -17,11 +17,11 @@ await copyFile('dist/index.html', 'dist/404.html');
 function hiddenOfferShell(shell) {
   const title = 'Offer AI Agent Swarms Under Your Brand | AIify Partner Program';
   const description = 'Offer your clients done-for-them AI agent swarms under your brand. You keep the client and set the price. We co-manage the work behind you for a fixed fee.';
-  const url = `${site.url}/new-offer/`;
+  const url = `${site.url}/partner-program/`;
   const image = `${site.url}/images/offer/hero.jpg`;
   const hero = 'Give your clients a premium AI offer under your brand.';
   const subhead = 'Offer your clients a premium offer they really want: done-for-them AI agent swarms, co-managed by our expert AI management team. You keep your clients, and we serve them with you.';
-  const mailto = `mailto:${inquiry.recipient}?subject=${encodeURIComponent('AIify partnership inquiry')}&body=${encodeURIComponent(["I'd like to talk about a partnership.", '', 'Source: /new-offer', 'Name: ', 'Company: ', 'Email: ', '', 'Anything we should know:', ''].join('\r\n'))}`;
+  const mailto = `mailto:${inquiry.recipient}?subject=${encodeURIComponent('AIify partnership inquiry')}&body=${encodeURIComponent(["I'd like to talk about a partnership.", '', 'Source: /partner-program', 'Name: ', 'Company: ', 'Email: ', '', 'Anything we should know:', ''].join('\r\n'))}`;
   return shell
     .replace(/<title>.*?<\/title>/, `<title>${escapeHtml(title)}</title>`)
     .replace(/(<meta name="description" content=")[^"]*("[^>]*>)/, `$1${escapeHtml(description)}$2`)
@@ -37,11 +37,11 @@ function hiddenOfferShell(shell) {
     .replace('<div id="root"></div>', `<noscript><main style="max-width:42rem;margin:0 auto;padding:64px 24px;min-height:100vh;font-family:system-ui,sans-serif;background:#f3f0e8;color:#1c1915"><p style="letter-spacing:.14em;text-transform:uppercase;font-size:12px">AIify Partner Program</p><h1>${escapeHtml(hero)}</h1><p>${escapeHtml(subhead)}</p><p><a href="${escapeHtml(mailto)}">Message us</a></p><p>We reply personally. No automated sequence.</p></main></noscript>\n<div id="root"></div>`);
 }
 
-for (const route of ['book', 'inquire', 'sow', 'new-offer']) {
+for (const route of ['book', 'inquire', 'sow', 'partner-program']) {
   await mkdir(`dist/${route}`, { recursive: true });
   let routeShell;
   if (route === 'sow') routeShell = shell.replace('</head>', '<meta name="robots" content="noindex, nofollow"></head>');
-  else if (route === 'new-offer') routeShell = hiddenOfferShell(shell);
+  else if (route === 'partner-program') routeShell = hiddenOfferShell(shell);
   else {
     routeShell = shell
       .replace(/<title>.*?<\/title>/, `<title>${escapeHtml(inquiry.title)}</title>`)
@@ -54,6 +54,29 @@ for (const route of ['book', 'inquire', 'sow', 'new-offer']) {
   }
   await writeFile(`dist/${route}/index.html`, routeShell);
 }
+const partnerUrl = `${site.url}/partner-program/`;
+await mkdir('dist/new-offer', { recursive: true });
+await writeFile('dist/new-offer/index.html', `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AIify Partner Program</title>
+    <meta http-equiv="refresh" content="0;url=${partnerUrl}">
+    <link rel="canonical" href="${partnerUrl}">
+    <meta name="robots" content="noindex, nofollow">
+    <script>
+      (function () {
+        var dest = ${JSON.stringify(partnerUrl)};
+        location.replace(dest + location.search + location.hash);
+      })();
+    </script>
+  </head>
+  <body>
+    <p>This page has moved to <a href="${partnerUrl}">${partnerUrl}</a>.</p>
+  </body>
+</html>
+`);
 await mkdir('dist/articles', { recursive: true });
 await writeFile('dist/articles/index.html', renderIndex(site, articles, stylesheets));
 for (const article of articles) {

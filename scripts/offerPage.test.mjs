@@ -19,15 +19,16 @@ const phrases = [copy.program, copy.cta, copy.hero.heading, copy.hero.body, copy
   ...copy.economics.points.flatMap(point => [point.title, point.body]),
   ...copy.economics.accountMembers, copy.ownership.heading, copy.quote.heading, copy.quote.body, copy.quote.reply];
 
-test('locked offer copy is present and the page stays on /new-offer', () => {
+test('locked offer copy is present and the page stays on /partner-program', () => {
   for (const phrase of phrases) assert.ok(source.includes(phrase), `missing: ${phrase}`);
   for (const old of ['Get a quote', 'Rough number of seats', 'Standard', '$2,000', 'Three people', 'two members', 'text-decoration:line-through', 'is-handled']) assert.equal(source.includes(old), false, `removed: ${old}`);
   assert.equal(copy.intro.ours.items.length, 3);
   const beforePricing = [copy.description, copy.hero.heading, copy.hero.body, copy.intro.heading, copy.intro.lead, copy.intro.question, ...copy.intro.hard.items, ...copy.intro.ours.items, copy.intro.closing, copy.model.heading, copy.model.body, ...copy.model.steps.flatMap(step => [step.title, step.body]), copy.model.platform, copy.evidence.heading, copy.evidence.body, ...copy.evidence.facts, copy.evidence.closing].join('\n');
   assert.doesNotMatch(beforePricing, /\$[\d]|\d[,.]?\d{3}/);
   assert.doesNotMatch(beforePricing, /three people|seats/i);
-  assert.match(source, /value=\{OFFER_QUOTE_SOURCE\}|OFFER_QUOTE_SOURCE = '\/new-offer'/);
-  assert.equal(source.includes('/partners'), false);
+  assert.match(source, /value=\{OFFER_QUOTE_SOURCE\}|OFFER_QUOTE_SOURCE = '\/partner-program'/);
+  assert.match(source, /https:\/\/aiifyit.com\/partner-program\//);
+  assert.doesNotMatch(source, /\/partners(?!-)/);
   assert.equal(source.includes('Book a call'), false);
   assert.equal(source.includes('calendly.com'), false);
   assert.equal(source.includes('Sign up'), false);

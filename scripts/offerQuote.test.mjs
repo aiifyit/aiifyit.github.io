@@ -13,8 +13,8 @@ test('quote draft goes to the inquiry address and names the offer page', () => {
   assert.equal(url.searchParams.size, 2);
   assert.equal(draft.subject, 'AIify partnership inquiry');
   assert.equal(draft.source, OFFER_QUOTE_SOURCE);
-  assert.equal(draft.source, '/new-offer');
-  assert.match(draft.body, /Source: \/new-offer/);
+  assert.equal(draft.source, '/partner-program');
+  assert.match(draft.body, /Source: \/partner-program/);
   assert.match(draft.body, /Name: Ada Cole/);
   assert.doesNotMatch(draft.body, /seats/i);
   assert.ok(draft.body.startsWith("I'd like to talk about a partnership."));
