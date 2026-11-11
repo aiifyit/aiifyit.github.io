@@ -35,7 +35,7 @@ for (const article of articles) {
     else await stat(disk);
   }
 }
-for (const route of ['book', 'inquire', 'sow', 'new-offer']) {
+for (const route of ['book', 'inquire', 'sow', 'partner-program']) {
   const entry = await readFile(`dist/${route}/index.html`, 'utf8');
   assert(entry.includes(home.match(/<script type="module"[^>]*><\/script>/)[0]), `Preserved ${route} app bundle`);
   assert(entry.includes('<div id="root"></div>'), `Preserved ${route} React root`);
@@ -78,7 +78,8 @@ for (const name of await readdir('dist/assets')) {
 
 assert(!sitemap.includes('/book/'), 'Do not index duplicate booking alias');
 
-const offer = await readFile('dist/new-offer/index.html', 'utf8');
+const offer = await readFile('dist/partner-program/index.html', 'utf8');
+const offerRedirect = await readFile('dist/new-offer/index.html', 'utf8');
 const robots = await readFile('dist/robots.txt', 'utf8');
 assert(offer.includes('name="robots" content="noindex, nofollow"'), 'Hidden offer is noindex');
 assert(offer.includes('<title>Offer AI Agent Swarms Under Your Brand | AIify Partner Program</title>'));
@@ -87,9 +88,10 @@ assert(offer.includes('<h1>Give your clients a premium AI offer under your brand
 assert(offer.includes('Message us'));
 assert(!offer.includes('Get a quote'));
 assert(offer.includes('We reply personally. No automated sequence.'));
-assert(offer.includes(`rel="canonical" href="${site.url}/new-offer/"`));
+assert(offer.includes(`rel="canonical" href="${site.url}/partner-program/"`));
+assert(offer.includes(`property="og:url" content="${site.url}/partner-program/"`));
 assert(offer.includes('mailto:joshua@aiifyit.com'));
-assert(offer.includes('Source%3A%20%2Fnew-offer'), 'Quote draft names the offer page');
+assert(offer.includes('Source%3A%20%2Fpartner-program'), 'Quote draft names the offer page');
 assert(!offer.includes('/images/offer/hero.webp'), 'Graphic hero needs no photo preload');
 assert(offer.includes(`${site.url}/images/offer/hero.jpg`));
 assert(!offer.includes('Book a call'));
@@ -97,11 +99,20 @@ assert(!offer.includes('Get your quarterly goals done'));
 assert(!offer.includes('The tool is not the problem'));
 assert(!offer.includes('calendly.com'), 'Hidden offer must use the mailto handoff');
 assert.notEqual(offer, home, 'Offer entry is its own document, not the homepage shell');
-assert(!sitemap.includes('new-offer'), 'Do not list the hidden offer in the sitemap');
-assert(!sitemap.includes('/partners'), 'Do not publish a partners route');
-assert(!robots.includes('new-offer'), 'Do not list the hidden offer in robots.txt');
+assert(offerRedirect.includes('http-equiv="refresh"'), 'Old URL uses a meta refresh');
+assert(offerRedirect.includes('location.replace'), 'Old URL uses JS location.replace');
+assert(offerRedirect.includes('location.search') && offerRedirect.includes('location.hash'), 'Redirect preserves query and hash');
+assert(offerRedirect.includes(`rel="canonical" href="${site.url}/partner-program/"`), 'Redirect canonical points at the new URL');
+assert(offerRedirect.includes('name="robots" content="noindex, nofollow"'), 'Redirect is noindex');
+assert(!offerRedirect.includes('<div id="root"></div>'), 'Old URL is a static redirect, not the app shell');
+assert(!sitemap.includes('new-offer'), 'Do not list the old offer URL in the sitemap');
+assert(!sitemap.includes('partner-program'), 'Do not list the hidden offer in the sitemap');
+assert(!sitemap.includes('/partners/'), 'Do not publish a partners route');
+assert(!robots.includes('new-offer'), 'Do not list the old offer URL in robots.txt');
+assert(!robots.includes('partner-program'), 'Do not list the hidden offer in robots.txt');
 assert.equal(robots, `User-agent: *\nAllow: /\nDisallow: /sow\nDisallow: /client-feedback/\nSitemap: ${site.url}/sitemap.xml\n`);
-assert(!home.includes('new-offer'), 'Homepage shell must not link the hidden offer');
+assert(!home.includes('new-offer'), 'Homepage shell must not link the old offer URL');
+assert(!home.includes('partner-program'), 'Homepage shell must not link the hidden offer');
 for (const file of [
   'src/components/layout/Header.tsx',
   'src/components/layout/Footer.tsx',
@@ -109,8 +120,10 @@ for (const file of [
   'src/data/constants.ts',
   'content/site.json',
 ]) {
-  assert(!(await readFile(file, 'utf8')).includes('new-offer'), `${file} must not link the hidden offer`);
-  assert(!(await readFile(file, 'utf8')).includes('/partners'), `${file} must not add a partners route`);
+  const text = await readFile(file, 'utf8');
+  assert(!text.includes('new-offer'), `${file} must not link the old offer URL`);
+  assert(!text.includes('partner-program'), `${file} must not link the hidden offer`);
+  assert(!/\/partners(?!-)/.test(text), `${file} must not add a partners route`);
 }
 for (const route of ['book', 'inquire']) {
   const html = await readFile(`dist/${route}/index.html`, 'utf8');

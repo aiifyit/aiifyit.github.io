@@ -1,7 +1,7 @@
 import { INQUIRY_EMAIL, INQUIRY_MESSAGE_LIMIT } from './inquiry.ts';
 
 export const OFFER_LEAD_ENDPOINT = 'https://aiify-offer-lead.joshua-509.workers.dev/submit';
-export const OFFER_QUOTE_SOURCE = '/new-offer';
+export const OFFER_QUOTE_SOURCE = '/partner-program';
 export const OFFER_QUOTE_SUBJECT = 'AIify partnership inquiry';
 
 export interface OfferQuoteInput {

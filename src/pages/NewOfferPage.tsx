@@ -13,7 +13,7 @@ import { OfferHeading, QuoteButton } from '../components/offer/OfferMotion';
 
 const PAGE_TITLE = copy.title;
 const DESCRIPTION = copy.description;
-const CANONICAL = 'https://aiifyit.com/new-offer/';
+const CANONICAL = 'https://aiifyit.com/partner-program/';
 const OG_IMAGE = 'https://aiifyit.com/images/offer/hero.jpg';
 
 function remember(selector: string, attribute: string, value: string) {
