@@ -1,103 +1,64 @@
-import { useEffect, useId, useRef, useState } from 'react';
-import { motion, useInView, useReducedMotion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import { animate, motion, useInView, useReducedMotion } from 'framer-motion';
 import copy from '../../data/offerCopy.json';
+import { GraphicFrame, Packet } from './OfferMotion';
 
-export function AgentSwarm() {
-  const glowId = useId();
-  const ref = useRef<HTMLDivElement>(null);
-  const visible = useInView(ref);
-  const reduced = useReducedMotion();
-  return <div ref={ref} className={`offer-swarm offer-graphic ${visible ? 'is-visible' : ''}`} role="img" aria-label="Your brand in front of a client business and its connected AI agents, with AIify fulfilling behind the scenes">
-    <svg viewBox="0 0 560 480" aria-hidden="true">
-      <defs><radialGradient id={glowId}><stop stopColor="#A3D7E2" stopOpacity=".18"/><stop offset="1" stopColor="#A3D7E2" stopOpacity="0"/></radialGradient></defs>
-      <circle cx="280" cy="250" r="240" fill={`url(#${glowId})`}/>
-      <g className="offer-back-layer"><rect x="106" y="28" width="390" height="350" rx="20"/><text x="130" y="60">AIify</text><text x="474" y="60" textAnchor="end">FULFILLMENT</text></g>
-      <g className="offer-front-layer"><rect x="54" y="86" width="428" height="356" rx="20"/><text x="78" y="120">Your brand</text><circle cx="453" cy="114" r="4" fill="#A3D7E2"/></g>
-      <circle cx="270" cy="265" r="126" className="offer-orbit"/><circle cx="270" cy="265" r="80" className="offer-orbit"/>
-      {Array.from({ length: 6 }, (_, i) => {
-        const a = i * Math.PI / 3;
-        const x = 270 + Math.cos(a) * 146, y = 265 + Math.sin(a) * 116;
-        return <g key={i}><path d={`M270 265 L${x} ${y}`} className="offer-wire"/><path d={`M270 265 L${x} ${y}`} className="offer-pulse" style={{ animationDelay: `${i * -.7}s` }}/><motion.g initial={false} animate={!reduced && visible ? { y: [0, -4, 0] } : { y: 0 }} transition={{ duration: 5, repeat: Infinity, delay: i * .4 }}><rect x={x - 36} y={y - 22} width="72" height="44" rx="10" className="offer-agent"/><text x={x} y={y + 4} textAnchor="middle" className="offer-agent-label">Agent</text></motion.g></g>;
-      })}
-      <rect x="193" y="231" width="154" height="68" rx="14" fill="#A3D7E2"/><text x="270" y="260" textAnchor="middle" fill="#12151a" className="offer-core-label">Client</text><text x="270" y="280" textAnchor="middle" fill="#12151a" className="offer-core-label">business</text>
-    </svg>
-  </div>;
+function Tile({ x, y, label, width = 100 }: { x: number; y: number; label: string; width?: number }) {
+  return <g><rect x={x} y={y} width={width} height="48" rx="10" className="offer-svg-tile"/><text x={x + width / 2} y={y + 29} textAnchor="middle">{label}</text></g>;
 }
-
+function Network({ running, cx = 260, cy = 215 }: { running: boolean; cx?: number; cy?: number }) {
+  const nodes = Array.from({ length: 6 }, (_, i) => ({ x: cx + Math.cos(i * Math.PI / 3) * 164, y: cy + Math.sin(i * Math.PI / 3) * 106 }));
+  return <g><circle cx={cx} cy={cy} r="132" className="offer-orbit"/>{nodes.map((n, i) => {
+    const next = nodes[(i + 1) % nodes.length];
+    const path = `M${cx} ${cy} Q${n.x} ${cy} ${n.x} ${n.y}`;
+    const handoff = `M${n.x} ${n.y} Q${cx} ${cy} ${next.x} ${next.y}`;
+    return <g key={i}><path d={path} className="offer-wire"/><path d={handoff} className="offer-wire offer-handoff"/><Packet path={path} running={running} delay={i * .7}/><Packet path={handoff} running={running} delay={i} duration={7}/><g className="offer-spawn" style={{ animationDelay: `${-i}s` }}><Tile x={n.x - 34} y={n.y - 22} width={68} label="Agent"/></g></g>;
+  })}<rect x={cx - 68} y={cy - 32} width="136" height="64" rx="13" fill="#A3D7E2"/><text x={cx} y={cy - 2} textAnchor="middle" className="offer-dark-text">Client</text><text x={cx} y={cy + 18} textAnchor="middle" className="offer-dark-text">business</text></g>;
+}
+export function AgentSwarm() {
+  return <GraphicFrame className="offer-swarm" label="Your brand in front, AIify behind it, and a network of agents exchanging work around your client business">{running => <svg viewBox="0 0 560 480" aria-hidden="true"><g className="offer-pointer-back"><g className="offer-depth-back"><rect x="94" y="22" width="430" height="378" rx="22" className="offer-svg-tile"/><text x="120" y="56">AIify</text></g></g><g className="offer-depth-front"><rect x="28" y="80" width="488" height="370" rx="22" className="offer-svg-tile"/><text x="54" y="116">Your brand</text><circle cx="486" cy="109" r="4" className="offer-breathe" fill="#A3D7E2"/><Network running={running} cx={270} cy={270}/></g></svg>}</GraphicFrame>;
+}
+export function StepGraphic({ step }: { step: number }) {
+  return <GraphicFrame className="offer-step-art" label={['Your brand protects the client relationship. You set the price.', 'Agents link around the client business.', 'Weekly sessions and daily check-ins.', 'Quarterly goals feed live dashboards. Illustration.', 'Team members receive the credit. You keep the client.'][step]}>{running => <svg viewBox="0 0 520 380" aria-hidden="true">
+    <text x="28" y="35" className="offer-svg-kicker">{step === 3 ? 'Illustration' : 'Your brand × AIify'}</text>
+    {step === 0 && <><path d="M112 204H405" className="offer-wire"/><Packet path="M112 204H405" running={running}/><Tile x={326} y={180} label="Client" width={140}/><g className="offer-shield"><path d="M112 85L286 115V213Q286 274 199 310Q112 274 112 213Z" className="offer-svg-tile"/><path d="m169 199 21 21 43-47" fill="none" stroke="#A3D7E2" strokeWidth="3"/><text x="199" y="154" textAnchor="middle">Your brand</text></g><Tile x={279} y={285} width={188} label="You set the price"/></>}
+    {step === 1 && <Network running={running}/>}
+    {step === 2 && <><circle cx="260" cy="176" r="105" className="offer-orbit"/><circle cx="260" cy="176" r="78" className="offer-orbit"/><Packet path="M260 71A105 105 0 1 1 259.99 71" running={running} duration={12}/><g className="offer-clock"><path d="M260 121V176L292 193" fill="none" stroke="#A3D7E2" strokeWidth="3"/><circle cx="260" cy="176" r="5" fill="#A3D7E2"/></g><text x="260" y="300" textAnchor="middle">~30 min weekly session</text>{['M','T','W','T','F'].map((d,i) => <g key={i} className="offer-day" style={{ animationDelay: `${i * -.8}s` }}><rect x={147 + i * 47} y="325" width="38" height="30" rx="6" className="offer-svg-tile"/><text x={166 + i * 47} y="346" textAnchor="middle">{d}</text></g>)}</>}
+    {step === 3 && <><circle cx="132" cy="176" r="79" className="offer-orbit"/><circle cx="132" cy="176" r="48" className="offer-orbit"/>{['Q1','Q2','Q3','Q4'].map((q,i) => <text key={q} x={[132,226,132,39][i]} y={[80,181,285,181][i]} textAnchor="middle">{q}</text>)}<circle cx="132" cy="176" r="9" fill="#A3D7E2"/><path d="M146 176H305" className="offer-wire"/><Packet path="M146 176H305" running={running}/><rect x="282" y="103" width="213" height="175" rx="12" className="offer-svg-tile"/><text x="300" y="132">Live dashboard</text><path d="M303 248H476M303 154V248" className="offer-wire"/><path d="m312 216 34-20 36 7 36-36 45-14" className="offer-chart"/>{[30,47,65,82].map((h,i) => <rect key={i} x={318 + i * 42} y={246-h} width="17" height={h} rx="3" className="offer-chart-bar" style={{ animationDelay: `${i * -.5}s` }}/>)}</>}
+    {step === 4 && <><Tile x={30} y={154} width={110} label="Shared wins"/>{['Operations lead','Team lead','Client team'].map((role,i) => { const y = 86 + i * 86; const path = `M140 178C220 178 200 ${y+24} 284 ${y+24}`; return <g key={role}><path d={path} className="offer-wire"/><Packet path={path} running={running} delay={i}/><Tile x={284} y={y} width={205} label={`◇  ${role}`}/></g>; })}<text x="260" y="351" textAnchor="middle">You keep the client</text></>}
+  </svg>}</GraphicFrame>;
+}
 export function BrandLayers() {
   const [back, setBack] = useState(false);
-  return <div className={`offer-layer-card offer-graphic ${back ? 'is-back' : ''}`}>
-    <p className="offer-eyebrow">One offer. Two layers.</p>
-    <div className="offer-segment" role="group" aria-label="Explore the white-label layers"><button aria-pressed={!back} onClick={() => setBack(false)}>Your brand</button><button aria-pressed={back} onClick={() => setBack(true)}>AIify</button></div>
-    <svg viewBox="0 0 460 300" role="img" aria-label={back ? 'AIify handles setup, weekly building and daily care behind your brand' : 'Your brand owns the relationship with your client'}>
-      <g className="offer-layer-back"><rect x="80" y="22" width="340" height="158" rx="12"/><text x="106" y="56">AIify</text><path d="M108 86H390M108 105H340M108 124H366"/></g>
-      <g className="offer-layer-front"><rect x="24" y="124" width="340" height="145" rx="12"/><text x="48" y="164">Your brand</text><path d="M157 197H246" className="offer-pulse"/><path d="m237 190 9 7-9 7" fill="none" stroke="currentColor"/><text x="48" y="203">Relationship</text><text x="263" y="203">Client</text></g>
-    </svg>
-    <p className="offer-graphic-note" aria-live="polite">{back ? copy.intro.points[1].body : copy.intro.points[2].body}</p>
-  </div>;
+  return <div className={`offer-layer-card offer-graphic ${back ? 'is-back' : ''}`}><p className="offer-eyebrow">One offer. Two layers.</p><div className="offer-segment" role="group" aria-label="Explore the white-label layers"><button aria-pressed={!back} onClick={() => setBack(false)}>Your brand</button><button aria-pressed={back} onClick={() => setBack(true)}>AIify</button></div><GraphicFrame label="Your brand slides over the AIify engine and its orbiting agents">{running => <svg viewBox="0 0 460 300" aria-hidden="true"><g className="offer-layer-back"><rect x="80" y="22" width="350" height="190" rx="14" className="offer-svg-tile"/><text x="104" y="53">AIify engine</text><circle cx="270" cy="125" r="54" className="offer-orbit"/><g className="offer-gear"><path d="M270 93V157M238 125H302M247 102L293 148M247 148L293 102" stroke="#A3D7E2" strokeWidth="9"/><circle cx="270" cy="125" r="18" className="offer-svg-tile"/></g><Packet path="M270 71A54 54 0 1 1 269.99 71" running={running}/><Tile x={108} y={90} width={70} label="Agent"/></g><g className="offer-layer-front"><rect x="24" y="161" width="340" height="115" rx="14" className="offer-svg-tile"/><text x="48" y="194">Your brand</text><path d="M148 239H268" className="offer-wire"/><Packet path="M148 239H268" running={running}/><text x="48" y="244">Relationship</text><text x="285" y="244">Client</text></g></svg>}</GraphicFrame><p className="offer-graphic-note" aria-live="polite">{back ? copy.intro.points[1].body : copy.intro.points[2].body}</p></div>;
 }
-
-const TASKS = ['Workflow updated', 'Dashboard refreshed', 'Instructions organized', 'Agent check complete'];
 export function LiveDashboard() {
-  const ref = useRef<HTMLDivElement>(null);
-  const visible = useInView(ref);
-  const reduced = useReducedMotion();
-  const [tick, setTick] = useState(0);
-  const [paused, setPaused] = useState(false);
-  useEffect(() => {
-    if (!visible || reduced || paused) return;
-    const timer = window.setInterval(() => setTick(t => (t + 1) % TASKS.length), 2800);
-    return () => window.clearInterval(timer);
-  }, [visible, reduced, paused]);
-  return <div ref={ref} className="offer-dashboard offer-graphic">
-    <div className="offer-dashboard-top"><span><i /> Agent workspace</span><button type="button" aria-pressed={paused} onClick={() => setPaused(p => !p)}>{paused ? 'Resume' : 'Pause'}</button></div>
-    <p className="offer-eyebrow">Illustrative workflow</p>
-    <h3>Work moving forward.</h3>
-    <div className="offer-dashboard-bars">{['Systems', 'Workflows', 'Agent tasks'].map((label, i) => <div key={label}><span>{label}</span><div className="offer-track"><motion.div initial={false} animate={{ width: `${[66, 85, 48, 100][(tick + i) % 4]}%` }} transition={{ duration: reduced ? 0 : .8 }} /></div></div>)}</div>
-    <div className="offer-task-feed" aria-label="Example agent activity">{[0, 1, 2].map((offset) => <motion.div key={`${tick}-${offset}`} initial={reduced ? false : { opacity: 0, y: 5 }} animate={{ opacity: 1, y: 0 }}><span className="offer-check">✓</span><span>{TASKS[(tick + offset) % TASKS.length]}</span><small>Agent</small></motion.div>)}</div>
-    <p className="offer-graphic-note">Illustration of co-management, not client results.</p>
-  </div>;
+  return <GraphicFrame className="offer-legacy" label="Illustration: an agent signs into a locked legacy system without an API and pulls packets into live dashboard tiles">{running => <svg viewBox="0 0 520 390" aria-hidden="true"><text x="28" y="34">Illustration</text><rect x="27" y="65" width="248" height="224" rx="14" className="offer-svg-tile"/><path d="M27 104H275" className="offer-wire"/><text x="45" y="91">Legacy system · No API</text><rect x="124" y="141" width="48" height="37" rx="6" className="offer-svg-tile"/><path d="M134 142V132a14 14 0 0 1 28 0v10" fill="none" stroke="#A3D7E2" strokeWidth="2"/><Tile x={61} y={204} width={178} label="Sign in"/><g className="offer-cursor"><path d="m183 224 4 29 8-10 12-2Z" fill="#A3D7E2"/><text x="195" y="277">Agent</text></g>{['Live tiles','Dashboard'].map((t,i) => { const y = 119 + i * 113; const path = `M275 220C319 220 291 ${y+24} 330 ${y+24}`; return <g key={t}><path d={path} className="offer-wire"/><Packet path={path} running={running} delay={i * 2}/><Tile x={330} y={y} width={164} label={t}/><path d={`M346 ${y+64}h26m8 0h40m8 0h37`} className="offer-wire"/></g>; })}<text x="28" y="354" className="offer-svg-kicker">Sign in → Pull numbers → Live dashboards</text></svg>}</GraphicFrame>;
 }
-
-export function WeeklyRhythm({ active }: { active: number }) {
-  const reduced = useReducedMotion();
-  const labels = ['30-minute session', 'Daily check-ins', 'Quarterly goals'];
-  return <div className="offer-rhythm offer-graphic">
-    <svg viewBox="0 0 480 300" role="img" aria-label={active === 1 ? 'At the start, a 30-minute build-with-you session every week' : active === 2 ? 'Remote check-ins every day to keep the swarm working' : 'Goals set inside the system every quarter'}>
-      <circle cx="240" cy="144" r="99" className="offer-orbit"/><circle cx="240" cy="144" r="73" className="offer-orbit"/>
-      <motion.path d="M240 45A99 99 0 0 1 339 144" fill="none" stroke="#7DC1D0" strokeWidth="5" strokeLinecap="round" initial={reduced ? false : { pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.2 }}/>
-      <path d="M240 86V144L273 164" fill="none" stroke="#12151a" strokeWidth="3" strokeLinecap="round"/>
-      <circle cx="240" cy="144" r="6" fill="#12151a"/>
-      {['M', 'T', 'W', 'T', 'F'].map((d, i) => <g key={i}><rect x={119 + i * 50} y="245" width="42" height="34" rx="6" fill={active === 2 || i === 2 ? '#A3D7E2' : '#e8efed'}/><text x={140 + i * 50} y="267" textAnchor="middle">{d}</text></g>)}
-    </svg><p className="offer-rhythm-label">{labels[active - 1]}</p>
-  </div>;
-}
-
-export function TeamCredit() {
-  const [selected, setSelected] = useState(0);
-  const reduced = useReducedMotion();
-  const roles = ['Operations lead', 'Team lead', 'Client team'];
-  const wins = ['Their playbooks', 'Their agent setups', 'Their dashboards'];
-  return <div className="offer-credit-card offer-graphic"><p className="offer-eyebrow">The credit stays with their people</p><h3>Built together.<br/>Credited to their team.</h3>
-    <div className="offer-role-list" role="group" aria-label="Explore team credit">{roles.map((role, i) => <button key={role} aria-pressed={i === selected} onClick={() => setSelected(i)}><span className="offer-role-icon" aria-hidden="true">{['↗', '✳', '◇'][i]}</span>{role}<span aria-hidden="true">↗</span></button>)}</div>
-    <motion.div key={selected} initial={reduced ? false : { opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="offer-win" aria-live="polite"><span>{wins[selected]}</span><strong>✓ {roles[selected]}</strong></motion.div><p className="offer-graphic-note">Illustrative team roles</p>
-  </div>;
-}
-
 export function OwnershipSplit() {
   const [methods, setMethods] = useState(false);
-  return <div className="offer-ownership-graphic offer-graphic"><div className="offer-segment" role="group" aria-label="Explore ownership"><button aria-pressed={!methods} onClick={() => setMethods(false)}>Your client work</button><button aria-pressed={methods} onClick={() => setMethods(true)}>AIify methods</button></div>
-    <svg viewBox="0 0 460 245" role="img" aria-label={methods ? 'AIify keeps its own methods' : 'You own client-specific instructions, playbooks and agent setups'}><path d="M230 26V222" stroke="#ccd7d6" strokeDasharray="4 6"/>{[false, true].map((right) => <g key={String(right)} opacity={methods === right ? 1 : .3} className="offer-ownership-side"><rect x={right ? 269 : 39} y="58" width="150" height="122" rx="12" fill={right ? '#e0e8e5' : '#A3D7E2'}/><path d={right ? 'M302 100h84m-84 18h68m-68 18h76' : 'M72 100h84m-84 18h68m-68 18h76'} stroke="#12151a" strokeWidth="4"/><text x={right ? 344 : 114} y="213" textAnchor="middle">{right ? 'AIify' : 'Yours'}</text></g>)}</svg>
-    <p className="offer-graphic-note" aria-live="polite">{methods ? 'AIify keeps its own methods.' : 'Their instructions, their playbooks, their agent setups.'}</p></div>;
+  const reduced = useReducedMotion();
+  return <div className="offer-ownership-graphic offer-graphic"><div className="offer-segment" role="group" aria-label="Explore ownership"><button aria-pressed={!methods} onClick={() => setMethods(false)}>Your client work</button><button aria-pressed={methods} onClick={() => setMethods(true)}>AIify methods</button></div><GraphicFrame label="Two separate vaults: your client work and AIify methods">{() => <svg viewBox="0 0 500 285" aria-hidden="true">{[false,true].map((right) => <motion.g key={String(right)} initial={{ x: reduced ? 0 : right ? -25 : 25 }} whileInView={{ x: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} opacity={methods === right ? 1 : .55}><rect x={right ? 274 : 20} y="28" width="206" height="226" rx="16" className="offer-svg-tile"/><circle cx={right ? 377 : 123} cy="82" r="23" className="offer-orbit"/><path d={`M${right ? 365 : 111} 82h24m-12-12v24`} stroke="#A3D7E2"/><text x={right ? 377 : 123} y="134" textAnchor="middle">{right ? 'AIify methods' : 'Your client work'}</text>{(right ? ['Methods','Frameworks'] : ['Instructions','Playbooks','Agent setups']).map((t,i) => <text key={t} x={right ? 377 : 123} y={171+i*27} textAnchor="middle" className="offer-svg-kicker">{t}</text>)}</motion.g>)}</svg>}</GraphicFrame><p className="offer-graphic-note" aria-live="polite">{methods ? 'AIify keeps its own methods.' : 'Their instructions, their playbooks, their agent setups.'}</p></div>;
 }
-
+export function CountUp({ value, money = false }: { value: number; money?: boolean }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const visible = useInView(ref);
+  const current = useRef(0);
+  const reduced = useReducedMotion();
+  useEffect(() => {
+    if (!ref.current) return;
+    const format = (n: number) => `${money ? '$' : ''}${Math.round(n).toLocaleString('en-US')}`;
+    if (!visible || reduced) { ref.current.textContent = format(value); if (reduced) current.current = value; return; }
+    const control = animate(current.current, value, { duration: .8, onUpdate: n => { current.current = n; if (ref.current) ref.current.textContent = format(n); } });
+    return () => control.stop();
+  }, [value, visible, reduced, money]);
+  return <span ref={ref} aria-hidden="true">{money ? '$' : ''}{value.toLocaleString('en-US')}</span>;
+}
 export function FeeIllustration() {
   const [executive, setExecutive] = useState(false);
   const reduced = useReducedMotion();
-  return <div className="offer-fee-illustration">
-    <div className="offer-segment" role="group" aria-label="Compare fixed fulfillment fees"><button aria-pressed={!executive} onClick={() => setExecutive(false)}>Standard</button><button aria-pressed={executive} onClick={() => setExecutive(true)}>Executive</button></div>
-    <div className="offer-fee-caption" aria-live="polite"><span>AIify wholesale fee</span><strong>{executive ? '$4,000 per executive per month' : '$2,000 per seat per month'}</strong></div>
-    <div className="offer-fee-bar" aria-hidden="true"><motion.div initial={false} animate={{ width: executive ? '40%' : '20%' }} transition={{ duration: reduced ? 0 : .6 }} /></div>
-    <p className="offer-graphic-note">{copy.economics.market}</p>
-  </div>;
+  return <div className="offer-fee-illustration offer-glass"><div className="offer-segment" role="group" aria-label="Compare fixed fulfillment fees"><button aria-pressed={!executive} onClick={() => setExecutive(false)}>Standard</button><button aria-pressed={executive} onClick={() => setExecutive(true)}>Executive</button></div><div className="offer-fee-caption"><span>AIify wholesale fee</span><strong aria-label={executive ? '$4,000 per executive per month' : '$2,000 per seat per month'}><CountUp value={executive ? 4000 : 2000} money/> {executive ? 'per executive' : 'per seat'} per month</strong></div><div className="offer-fee-bar" aria-hidden="true"><motion.div initial={false} animate={{ scaleX: executive ? .4 : .2 }} transition={{ duration: reduced ? 0 : .6 }}/></div><div className="offer-fee-caption"><span>Example partner price</span><strong aria-label="$10,000 a month"><CountUp value={10000} money/> a month</strong></div><p className="offer-graphic-note">{copy.economics.market}</p></div>;
+}
+export function QuoteAmbient() {
+  return <GraphicFrame className="offer-quote-ambient" label="Connected agents ready to support your brand">{running => <svg viewBox="0 0 520 160" aria-hidden="true">{[0,1,2].map(i => { const path = `M25 ${35+i*45}C190 ${35+i*45} 280 80 490 80`; return <g key={i}><path d={path} className="offer-wire"/><Packet path={path} running={running} delay={i}/><circle cx="25" cy={35+i*45} r="5" fill="#A3D7E2"/></g>; })}<circle cx="490" cy="80" r="10" className="offer-breathe" fill="#A3D7E2"/></svg>}</GraphicFrame>;
 }

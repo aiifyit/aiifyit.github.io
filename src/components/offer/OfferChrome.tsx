@@ -1,3 +1,4 @@
+import { QuoteButton } from './OfferMotion';
 import { motion, useReducedMotion, useScroll } from 'framer-motion';
 
 export function OfferBrand({ tone = 'mint' }: { tone?: 'mint' | 'ink' }) {
@@ -19,7 +20,7 @@ export default function OfferChrome() {
     <header className="offer-header">
       <div className="offer-header-inner">
         <OfferBrand />
-        <a href="#quote" className="offer-btn offer-btn-sm">Get a quote</a>
+        <QuoteButton small />
       </div>
       {!reduced && <motion.div style={{ scaleX: scrollYProgress }} className="offer-reading-progress" />}
     </header>

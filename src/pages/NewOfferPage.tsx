@@ -4,11 +4,12 @@ import BurdenChapter from '../components/offer/BurdenChapter';
 import LeadersChapter from '../components/offer/LeadersChapter';
 import OfferChrome, { OfferBrand } from '../components/offer/OfferChrome';
 import copy from '../data/offerCopy.json';
-import { AgentSwarm, FeeIllustration } from '../components/offer/OfferGraphics';
+import { AgentSwarm, FeeIllustration, QuoteAmbient } from '../components/offer/OfferGraphics';
 import Reveal from '../components/offer/Reveal';
 import OfferQuoteForm from '../components/offer/OfferQuoteForm';
 import OwnershipChapter from '../components/offer/OwnershipChapter';
 import StepSequence from '../components/offer/StepSequence';
+import { OfferHeading, QuoteButton } from '../components/offer/OfferMotion';
 
 const PAGE_TITLE = copy.title;
 const DESCRIPTION = copy.description;
@@ -76,19 +77,19 @@ export default function NewOfferPage() {
             <p className="offer-eyebrow">{copy.program}</p>
             <h1 id="offer-heading">{copy.hero.heading}</h1>
             <p className="offer-hero-subhead">{copy.hero.body}</p>
-            <div className="offer-hero-actions"><a href="#quote" className="offer-btn">{copy.cta}</a><a href="#partner-economics" className="offer-text-link">{copy.hero.secondary}<span aria-hidden="true"> ↗</span></a></div>
+            <div className="offer-hero-actions"><QuoteButton /><a href="#partner-economics" className="offer-text-link">{copy.hero.secondary}<span aria-hidden="true"> ↗</span></a></div>
           </div><AgentSwarm /></div>
         </section>
 
+        <StepSequence />
         <LeadersChapter />
         <BurdenChapter />
-        <StepSequence />
         <CreditChapter />
 
         <section id="partner-economics" className="offer-economics offer-section" aria-labelledby="economics-heading">
           <Reveal className="offer-wrap">
             <p className="offer-eyebrow">{copy.economics.label}</p>
-            <h2 id="economics-heading">{copy.economics.heading}</h2>
+            <OfferHeading id="economics-heading">{copy.economics.heading}</OfferHeading>
             <p className="offer-prose mt-6">{copy.economics.body}</p>
             <div className="offer-fee-table">
               <table><caption>{copy.economics.feesLabel}</caption><thead><tr><th scope="col">Coverage</th><th scope="col">What it includes</th><th scope="col">Your fee to AIify</th></tr></thead>
@@ -105,7 +106,7 @@ export default function NewOfferPage() {
 
         <section id="quote" className="offer-quote offer-section">
           <Reveal className="offer-wrap offer-quote-grid">
-            <div><p className="offer-eyebrow">{copy.program}</p><h2 id="quote-heading" tabIndex={-1}>{copy.quote.heading}</h2><p className="offer-prose mt-6">{copy.quote.body}</p></div>
+            <div><p className="offer-eyebrow">{copy.program}</p><OfferHeading id="quote-heading" tabIndex={-1}>{copy.quote.heading}</OfferHeading><p className="offer-prose mt-6">{copy.quote.body}</p><QuoteAmbient /></div>
             <OfferQuoteForm />
           </Reveal>
         </section>

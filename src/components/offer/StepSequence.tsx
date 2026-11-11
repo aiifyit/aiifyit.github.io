@@ -1,42 +1,55 @@
-import { useState } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
+import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScroll } from 'framer-motion';
 import copy from '../../data/offerCopy.json';
-import { AgentSwarm, WeeklyRhythm, TeamCredit } from './OfferGraphics';
-import Reveal from './Reveal';
+import { StepGraphic } from './OfferGraphics';
+import { OfferHeading } from './OfferMotion';
 
+function subscribeDesktop(onChange: () => void) {
+  const query = window.matchMedia('(min-width:900px)');
+  query.addEventListener('change', onChange);
+  return () => query.removeEventListener('change', onChange);
+}
 export default function StepSequence() {
+  const desktop = useSyncExternalStore(subscribeDesktop, () => window.matchMedia('(min-width:900px)').matches, () => false);
   const [active, setActive] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const selecting = useRef(false);
+  const selectionTimer = useRef<number | undefined>(undefined);
+  useEffect(() => () => window.clearTimeout(selectionTimer.current), []);
   const reduced = useReducedMotion();
-  const step = copy.model.steps[active];
-  return (
-    <section id="co-management" className="offer-model offer-section" aria-labelledby="co-management-heading">
-      <Reveal className="offer-wrap">
-        <div className="offer-intro"><h2 id="co-management-heading">{copy.model.heading}</h2><p className="offer-prose">{copy.model.body}</p></div>
-        <p className="offer-eyebrow mb-5">{copy.model.label}</p>
-        <div className="offer-beats" role="tablist" aria-label={copy.model.label}>
-          {copy.model.steps.map((item, index) => (
-            <button key={item.title} id={`offer-beat-${index}`} type="button" role="tab" aria-selected={active === index}
-              aria-controls="offer-beat-panel" tabIndex={active === index ? 0 : -1}
-              onClick={() => setActive(index)}
-              onKeyDown={(event) => {
-                let next = index;
-                if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (index + 1) % copy.model.steps.length;
-                else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (index + copy.model.steps.length - 1) % copy.model.steps.length;
-                else if (event.key === 'Home') next = 0;
-                else if (event.key === 'End') next = copy.model.steps.length - 1;
-                else return;
-                event.preventDefault(); setActive(next); document.getElementById(`offer-beat-${next}`)?.focus();
-              }}><span>0{index + 1}</span>{item.title}</button>
-          ))}
-        </div>
-        <div id="offer-beat-panel" role="tabpanel" aria-labelledby={`offer-beat-${active}`} tabIndex={0} className="offer-sequence-panel">
-          <motion.div key={active} initial={reduced ? false : { opacity: 0.65 }} animate={{ opacity: 1 }} transition={{ duration: 0.25 }} className="offer-sequence-graphic">
-            {active === 0 ? <AgentSwarm /> : active === 4 ? <TeamCredit /> : <WeeklyRhythm active={active} />}
-          </motion.div>
-          <div className="offer-beat-copy"><span className="offer-beat-number" aria-hidden="true">0{active + 1}</span><h3>{step.title}</h3><p>{step.body}</p></div>
-        </div>
-        <p className="offer-platform">{copy.model.platform}</p>
-      </Reveal>
-    </section>
-  );
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start center', 'end center'] });
+  useMotionValueEvent(scrollYProgress, 'change', () => {
+    if (!window.matchMedia('(min-width:900px)').matches || selecting.current) return;
+    const steps = ref.current?.querySelectorAll<HTMLElement>('.offer-step-row');
+    if (!steps) return;
+    let closest = 0, distance = Infinity;
+    steps.forEach((step, i) => { const r = step.getBoundingClientRect(); const d = Math.abs(r.top + r.height / 2 - window.innerHeight / 2); if (d < distance) { distance = d; closest = i; } });
+    setActive(closest);
+  });
+  function select(index: number) {
+    selecting.current = true;
+    window.clearTimeout(selectionTimer.current);
+    selectionTimer.current = window.setTimeout(() => { selecting.current = false; }, 1200);
+    setActive(index);
+    document.getElementById(`offer-step-${index}`)?.scrollIntoView({ behavior: reduced ? 'instant' : 'smooth', block: 'center' });
+  }
+  return <section id="co-management" className="offer-model offer-section" aria-labelledby="co-management-heading"><div className="offer-wrap">
+    <p className="offer-eyebrow">{copy.model.label}</p><div className="offer-intro offer-how-intro"><OfferHeading id="co-management-heading">{copy.model.heading}</OfferHeading><p className="offer-prose">{copy.model.body}</p></div>
+    <div className="offer-how-grid" ref={ref}>
+      <svg className="offer-step-connector" viewBox="0 0 20 1000" preserveAspectRatio="none" aria-hidden="true"><path d="M10 0V1000" stroke="#A3D7E233"/><motion.path d="M10 0V1000" stroke="#7DC1D0" strokeWidth="2" style={{ pathLength: reduced ? 1 : scrollYProgress }}/><motion.circle cx="10" r="4" fill="#7DC1D0" animate={{ cy: active * 200 + 100 }} transition={{ duration: reduced ? 0 : .5 }}/></svg>
+      <div className="offer-step-list" role={desktop ? "tablist" : "group"} aria-orientation={desktop ? "vertical" : undefined} aria-label={copy.model.label}>{copy.model.steps.map((step,i) => <article id={`offer-step-${i}`} key={step.title} role={desktop ? "presentation" : undefined} className={`offer-step-row ${active === i ? 'is-active' : ''}`}>
+        <button id={`offer-step-button-${i}`} role={desktop ? "tab" : undefined} aria-selected={desktop ? active === i : undefined} aria-pressed={desktop ? undefined : active === i} tabIndex={desktop && active !== i ? -1 : 0} aria-controls={desktop ? "offer-step-display" : undefined} onClick={() => select(i)} onKeyDown={event => {
+          let next = i;
+          if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (i+1)%5;
+          else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (i+4)%5;
+          else if (event.key === 'Home') next = 0;
+          else if (event.key === 'End') next = 4;
+          else return;
+          event.preventDefault(); select(next); document.getElementById(`offer-step-button-${next}`)?.focus({ preventScroll: true });
+        }}><span className="offer-step-index" aria-hidden="true">0{i+1}</span><span><span className="offer-step-title">{step.title}</span><span className="offer-step-body">{step.body}</span></span></button>
+        <div className="offer-mobile-step"><StepGraphic step={i}/></div>
+      </article>)}</div>
+      <div className="offer-step-sticky" id="offer-step-display" role={desktop ? "tabpanel" : undefined} tabIndex={desktop ? 0 : undefined} aria-labelledby={desktop ? `offer-step-button-${active}` : undefined}><div className="offer-step-stage"><AnimatePresence mode="wait" initial={false}><motion.div key={active} initial={{ opacity: reduced ? 1 : 0, y: reduced ? 0 : 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: reduced ? 1 : 0 }} transition={{ duration: .22 }}><StepGraphic step={active}/></motion.div></AnimatePresence></div><p className="offer-step-caption"><span>0{active+1} / 05</span>{copy.model.steps[active].title}</p></div>
+    </div><p className="offer-platform">{copy.model.platform}</p>
+  </div></section>;
 }

@@ -1,14 +1,16 @@
+import { OfferHeading, QuoteButton } from './OfferMotion';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 import copy from '../../data/offerCopy.json';
 import Reveal from './Reveal';
+import { CountUp } from './OfferGraphics';
 
 const items = copy.burden.items;
 
 export default function BurdenChapter() {
   const reduced = useReducedMotion() === true;
   const listRef = useRef<HTMLUListElement>(null);
-  const inView = useInView(listRef, { once: true, margin: '-120px 0px' });
+  const inView = useInView(listRef, { margin: '-60px 0px' });
   const [handled, setHandled] = useState<boolean[]>(() => items.map(() => false));
   const [touched, setTouched] = useState(false);
   const allHandled = handled.every(Boolean);
@@ -37,11 +39,11 @@ export default function BurdenChapter() {
         <div className="offer-burden-head">
           <div>
             <p className="offer-eyebrow">{copy.burden.label}</p>
-            <Reveal><h2 id="burden-heading">{copy.burden.heading}</h2></Reveal>
+            <Reveal><OfferHeading id="burden-heading">{copy.burden.heading}</OfferHeading></Reveal>
             <p className="offer-burden-body">{copy.burden.body}</p>
           </div>
           <div className="offer-burden-controls">
-            <p className="offer-burden-count" aria-live="polite"><strong>{count}</strong> of {items.length} handled by AIify</p>
+            <p className="offer-burden-count" aria-live="polite"><strong aria-label={String(count)}><CountUp value={count}/></strong> of {items.length} handled by AIify</p>
             <div className="offer-burden-switch" role="group" aria-label="Compare doing it yourself with partnering">
               <button type="button" aria-pressed={!allHandled && count === 0} onClick={() => setAll(false)}>On your own</button>
               <button type="button" aria-pressed={allHandled} onClick={() => setAll(true)}>With AIify</button>
@@ -69,7 +71,7 @@ export default function BurdenChapter() {
         </ul>
         <div className="offer-burden-close">
           <p>{copy.burden.closing}</p>
-          <a href="#quote" className="offer-btn">{copy.cta}</a>
+          <QuoteButton />
         </div>
       </div>
     </section>
