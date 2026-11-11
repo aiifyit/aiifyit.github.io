@@ -81,7 +81,7 @@ export default function Header() {
               to="/inquire"
               className="inline-flex items-center justify-center transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-[var(--color-bg)] font-semibold px-5 py-2.5 text-sm rounded-lg"
             >
-              Email Joshua
+              Get started
             </Link>
           </div>
           <button
@@ -146,7 +146,7 @@ export default function Header() {
                   onClick={() => setMobileOpen(false)}
                   className="inline-flex items-center justify-center transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-[var(--color-bg)] font-semibold px-10 py-5 text-lg rounded-xl"
                 >
-                  Email Joshua
+                  Get started
                 </Link>
               </motion.div>
             </nav>

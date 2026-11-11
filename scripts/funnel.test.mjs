@@ -27,7 +27,7 @@ test('related articles exclude self and prefer relevant service',()=>{
 test('service funnel works as an optional GET form without personal-data fields',()=>{
  const html=renderService(site,service,[],[article]);
  assert(html.includes('action="/inquire/" method="get"'));
- assert(html.includes('Skip this step and contact Joshua'));
+ assert(html.includes('Get started →'));
  assert(html.includes('value=""'));
  assert(!html.includes('type="email"'));assert(!html.includes('type="text"'));
  assert(html.includes(`href="/inquire/?service=${service.slug}"`));

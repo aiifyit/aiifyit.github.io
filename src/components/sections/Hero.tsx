@@ -97,7 +97,7 @@ export default function Hero() {
               variant="primary"
               size="sm"
             >
-              Discuss your workflow
+              Get started
             </Button>
             <Button href="#process" variant="ghost" size="sm">
               See How It Works

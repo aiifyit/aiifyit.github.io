@@ -107,7 +107,7 @@ export default function CTA() {
             onClick={() => setConfirmOpen(false)}
             className="inline-flex items-center justify-center transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] bg-[var(--color-accent)] hover:bg-[var(--color-accent-hover)] text-[var(--color-bg)] font-semibold px-8 py-4 rounded-xl mt-2"
           >
-            Email Joshua
+            Get started
           </Link>
         </div>
       </Modal>

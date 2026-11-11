@@ -14,7 +14,7 @@ export const NAV_ITEMS: NavItem[] = [
 ];
 
 export const HERO_EYEBROW = "Done-for-you AI agent swarms";
-export const HERO_HEADLINE = "Your AI Agents, Built and Run With You";
+export const HERO_HEADLINE = "Do in Hours What Used to Take Months. Custom AI for Your Business.";
 export const HERO_SUBHEADLINE =
   "We set it up, build with your executive team every week, and keep your agents on top of AI as it changes. The sign-up price is $10,000 per month per company account.";
 
