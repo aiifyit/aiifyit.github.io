@@ -1,0 +1,86 @@
+{
+  "slug": "website-switch-forms-crm",
+  "title": "Switching Websites? Make Sure Every Form Still Lands in Your CRM",
+  "description": "Before you point your domain at a new website, make sure every form still sends leads where the old one did, usually your CRM or field-service software.",
+  "category": "Workflow integration",
+  "takeaway": "When you switch websites, the first question isn't design. It's where each form sends what people type into it. Submit a test on the old site, trace it into your CRM or field-service software, and note every field it fills. Build the new site on a temporary subdomain, sort out domain access and API approval early, and keep the old site live until every new form passes an end-to-end test.",
+  "sections": [
+    {
+      "id": "where-does-this-form-go",
+      "title": "Start with one question: where does this form go?",
+      "paragraphs": [
+        "Say you've rebuilt your website. Maybe an AI tool did most of the work in a few days, and the new version looks a lot better than the old one. The pages are cleaner, the photos are current, and the quote form finally fits on a phone screen. The obvious next step is to point your domain at it and move on.",
+        "Before you do, open that quote form and ask one question: when someone fills this out, where does it go? That question matters more than anything about the design. For a lot of businesses, bringing in leads is the website's main job, and the forms are how it does that.",
+        "Your old site already has an answer, even if nobody on your team knows what it is. Its forms send leads somewhere your team works every day, usually your CRM or your field-service software. If the new forms don't send them to the same place, nothing looks broken. The page loads, the form says thank you, and the lead goes nowhere useful. The customer thinks they've asked for a quote, and nobody on your end ever sees it."
+      ]
+    },
+    {
+      "id": "find-out-what-the-old-forms-do",
+      "title": "Find out what your old forms actually do",
+      "paragraphs": [
+        "Your old quote or contact form probably does something nobody remembers setting up. It might do more than send an email. It might create a prospect record in your CRM, marked inactive until someone follows up, with the customer's name, phone, email, and address each in its own field and whatever they typed in the message box saved in a notes field. It's likely been working quietly for years, which is exactly why nobody thinks about it.",
+        "The way to find out is to test it. Fill out each form on the old site with details you'll recognize, like the name \"Website Test\" and your own email address, so you also get any automatic reply a customer would get. Then go looking for the result in your CRM or field-service software, any shared inbox, and anywhere else new leads show up. Note where it landed, what kind of record it created, and what status it was given.",
+        "Next, go through that record field by field. Which box on the form filled which field in your CRM? Did the address land in the address fields or get dumped into the notes? Some forms also fill in things the customer never sees, like a lead source of \"website\" that your reports might depend on. And check whether the submission set anything else off, like a task for someone in the office or an alert to whoever handles quotes. Write all of it down. That list is what your new forms have to match.",
+        "Last, find out who set it up. Often it was your old agency or whichever freelancer built the site, and the connection could live in a plugin, a separate form service, or a setting inside your CRM. Knowing who built it tells you where to look. If you can still reach them, ask. They may be able to explain in one email what would take you a day to work out alone."
+      ]
+    },
+    {
+      "id": "build-next-to-the-old-site",
+      "title": "Build the new site next to the old one, not on top of it",
+      "paragraphs": [
+        "Don't build the replacement where the old site lives. Put it on a temporary subdomain, which is your normal web address with a word like \"new\" or \"preview\" added in front, and leave the old site live at the main address. Add a password if you can, so visitors and search engines don't wander in before it's ready. Meanwhile, customers keep using the old site, and its forms keep sending leads where they always have.",
+        "Keep the old site running, and keep paying for its hosting, until the replacement is fully working and checked. Fully working means every form has passed the end-to-end tests described below, not just that the pages look right. If something goes wrong after the switch, the old site is your fallback. You can point the domain back to it while you fix the problem.",
+        "Don't shut it off the moment you switch, either. When you change where your domain points, the change doesn't reach everyone at the same moment. For a while, some visitors can still land on the old site, because their device or internet provider has the old address saved. If the old forms still work, those leads still come in."
+      ]
+    },
+    {
+      "id": "who-controls-your-domain",
+      "title": "Sort out who controls your domain before launch day",
+      "paragraphs": [
+        "At some point, someone has to point your domain at the new site. That happens in your DNS settings, the records that tell the internet where your website and your email live. Those settings might be at your domain registrar, with your old web host, or with a separate DNS provider. What matters is who can actually log in and change them.",
+        "The answer is often messier than you'd expect. You may own the domain on paper while your old agency still manages the account. The login might belong to someone who left the company years ago, or the renewal might be charged to a card nobody recognizes. Sorting that out can mean a password reset, a few rounds of email with the agency, or moving the domain into an account you control, and that last one can take days.",
+        "So get it sorted before launch day, not on it. Make sure someone at your business has their own login with access to the DNS settings. Before anyone changes anything, take screenshots of the current records so you can put things back if you need to. Those same settings usually control your business email, so whoever makes the switch should change only what the new site needs and leave the email records alone."
+      ]
+    },
+    {
+      "id": "request-api-access-early",
+      "title": "Ask for API access early, because launch waits on it",
+      "paragraphs": [
+        "Sending form submissions into your CRM or field-service software usually means using its API, the official way other software is allowed to send data in. Depending on the software and your plan, you may need to switch that access on, create an API key, or get approval from the vendor before anything can connect.",
+        "That approval can take days, so ask for it as soon as you decide to rebuild the site, not after the design is done. Treat it as a launch requirement. If the new forms can't create records in your CRM the way the old ones did, the new site isn't ready, no matter how good it looks.",
+        "Don't launch with forms that go nowhere, or that just email an inbox nobody checks, as a stopgap while you wait. Stopgaps like that tend to stick around, and every lead that lands there is one your team never sees. If the access isn't ready, move the launch date. Because you built next to the old site, it's still live and still sending leads to the right place, so waiting a few more days won't cost you a single lead.",
+        "When access comes through, make sure the API key and the login sit under an account your business controls, not the personal account of whoever is building the site. Then write down what was connected and how. The next person who works on your website shouldn't have to dig the way you just did."
+      ]
+    },
+    {
+      "id": "test-every-form-end-to-end",
+      "title": "Test every form end to end before you switch",
+      "paragraphs": [
+        "Once the forms are connected, test them the way a customer would. Submit every form on the new site: the quote form, the contact form, the demo request, any little callback form in the footer, and any form that lives on just one landing page. Use details you'll recognize, the same way you did on the old site.",
+        "Then find each submission in your CRM. Seeing that a record exists isn't enough. Check every field against the list you made from the old site: name, phone, email, the full address in the address fields, the message in the notes, any hidden lead source, and the right record type and status. After that, confirm it set off the same follow-up as before, whether that's an automatic reply to the customer, a task for the office, or an alert to whoever handles new quotes.",
+        "Landing pages need their own check. A page built for a new campaign may have its own form with fields the main site doesn't have, like a promo code or a service you just started offering. Those fields need a matching place in your CRM, or the answers can disappear without any error. Make sure each one lands somewhere your team will see it, and that you can tell which campaign a lead came from if you plan to compare campaigns later.",
+        "Some settings, like spam protection, can be tied to a specific web address, so a form that worked on the temporary subdomain can fail on the real one. Once the domain points at the new site, submit each form one more time and check the CRM again. When everything passes, delete the test records or mark them clearly, so they don't sit in your pipeline looking like real leads."
+      ]
+    },
+    {
+      "id": "keep-a-staging-site",
+      "title": "Keep a password-protected staging site after launch",
+      "paragraphs": [
+        "Don't delete the temporary subdomain once the new site is live. Keep it, make sure it's password-protected, and turn it into your staging site: a private copy of the live site where you try every change before customers see it.",
+        "This matters even more if you edit your site with AI. You type something like \"add a preferred date to the quote form\" and the tool makes the change, but it may also rework parts you didn't ask it to touch. A layout edit can rename a form field or drop one, and the connection to your CRM depends on those fields staying put. A brand-new field also needs its own place to land in your CRM, just like the landing page fields.",
+        "So make the change on staging, submit the form there, check the record in your CRM, and only then publish. Keep the list you made of every form and where it sends its data, and update it whenever a form changes. The next time someone asks where a form goes, the answer will be written down instead of buried in a setup nobody remembers."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Make sure your new site's forms reach your CRM",
+    "description": "Explore AIify It's workflow integration service, then send us a list of the forms on your current site and where you think each one sends its leads today.",
+    "label": "Explore workflow integration",
+    "href": "/services/workflow-integration/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-11-11"
+  }
+}
