@@ -85,20 +85,6 @@
     "priceLabel": "Why the price holds",
     "price": "Tool-only seats with no co-management run around $500 per seat per month. Those seats are software. You're selling the people who make the software get used, and that's why the offer is premium."
   },
-  "calculator": {
-    "heading": "Run your numbers",
-    "coverage": "Coverage type",
-    "coverageHelp": "Executive covers the executive and the person who acts as their chief of staff.",
-    "seats": "Number of seats",
-    "seatsHelp": "Count one seat per user, or one per executive on Executive coverage.",
-    "price": "Your monthly price per seat",
-    "priceHelp": "This is what your client pays you. You decide.",
-    "due": "Monthly due to AIify",
-    "monthly": "Your monthly gross profit",
-    "annual": "Annualized gross profit",
-    "noSpread": "At this price there is no spread. Set your price above the fulfillment fee to see your margin.",
-    "footnote": "Monthly due to AIify = fee × seats. Gross profit = (your price − fee) × seats. Annualized = monthly gross profit × 12. These are estimates, not projections of sales or client results. Your final terms come with your quote."
-  },
   "ownership": {
     "label": "What you keep",
     "heading": "Your client. Your work. Your long-term position.",

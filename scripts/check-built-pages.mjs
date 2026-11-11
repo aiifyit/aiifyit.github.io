@@ -89,7 +89,7 @@ assert(offer.includes('We reply personally. No automated sequence.'));
 assert(offer.includes(`rel="canonical" href="${site.url}/new-offer/"`));
 assert(offer.includes('mailto:joshua@aiifyit.com'));
 assert(offer.includes('Source%3A%20%2Fnew-offer'), 'Quote draft names the offer page');
-assert(offer.includes('/images/offer/hero.webp'));
+assert(!offer.includes('/images/offer/hero.webp'), 'Graphic hero needs no photo preload');
 assert(offer.includes(`${site.url}/images/offer/hero.jpg`));
 assert(!offer.includes('Book a call'));
 assert(!offer.includes('Get your quarterly goals done'));

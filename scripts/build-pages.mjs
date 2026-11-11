@@ -33,7 +33,7 @@ function hiddenOfferShell(shell) {
     .replace(/(<meta name="twitter:description" content=")[^"]*("[^>]*>)/, `$1${escapeHtml(description)}$2`)
     .replace('name="twitter:image" content="/og-image.png"', `name="twitter:image" content="${escapeHtml(image)}"`)
     .replace(`rel="canonical" href="${site.url}/"`, `rel="canonical" href="${url}"`)
-    .replace('</head>', `<script>document.documentElement.dataset.page="offer"</script>\n<link rel="preload" as="image" href="/images/offer/hero.webp" type="image/webp" fetchpriority="high">\n<meta name="robots" content="noindex, nofollow">\n</head>`)
+    .replace('</head>', `<script>document.documentElement.dataset.page="offer"</script>\n<meta name="robots" content="noindex, nofollow">\n</head>`)
     .replace('<div id="root"></div>', `<noscript><main style="max-width:42rem;margin:0 auto;padding:64px 24px;min-height:100vh;font-family:system-ui,sans-serif;background:#f3f0e8;color:#1c1915"><p style="letter-spacing:.14em;text-transform:uppercase;font-size:12px">AIify Partner Program</p><h1>Give your clients a premium AI offer under your name.</h1><p>${escapeHtml(hero)}</p><p>${escapeHtml(subhead)}</p><p><a href="${escapeHtml(mailto)}">Get a quote</a></p><p>We reply personally. No automated sequence.</p></main></noscript>\n<div id="root"></div>`);
 }
 
