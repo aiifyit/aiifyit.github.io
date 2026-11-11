@@ -4,11 +4,11 @@ import copy from '../../data/offerCopy.json';
 import OfferPhoto from './OfferPhoto';
 
 const FRAMES = [
-  { name: 'built-with-you', position: '50% 50%', zoom: 1, alt: 'Two colleagues setting up an agent workflow together on a laptop' },
-  { name: 'built-with-you', position: '70% 60%', zoom: 1.3, alt: 'A user building a workflow on her laptop with a colleague beside her' },
-  { name: 'built-with-you', position: '30% 85%', zoom: 1.7, alt: 'A laptop displaying the workflow being built during a working session' },
-  { name: 'they-get-the-credit', position: '65% 25%', zoom: 1.3, alt: 'A team reviewing business metrics on a live dashboard' },
-  { name: 'they-get-the-credit', position: '50% 50%', zoom: 1, alt: 'A team member presenting dashboard results to colleagues' },
+  { name: 'built-with-you', position: '50% 50%', zoom: 1, alt: 'Two colleagues building a workflow together on a laptop at a workshop workbench' },
+  { name: 'built-with-you', position: '62% 58%', zoom: 1.25, alt: 'A close view of two colleagues working on the laptop together' },
+  { name: 'built-with-you', position: '55% 80%', zoom: 1.55, alt: 'The laptop on the workbench during a working session' },
+  { name: 'they-get-the-credit', position: '42% 55%', zoom: 1.25, alt: 'A close view of a live dashboard on a tablet in a plant nursery' },
+  { name: 'they-get-the-credit', position: '50% 50%', zoom: 1, alt: 'A business owner showing a live dashboard on a tablet to a colleague in a plant nursery' },
 ];
 
 export default function StepSequence() {

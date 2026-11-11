@@ -86,7 +86,7 @@ export default function NewOfferPage() {
       <OfferChrome />
       <main>
         <section id="offer" className="offer-hero" aria-labelledby="offer-heading">
-          <OfferPhoto name="hero" alt="A woman working at a live operations screen showing business charts and metrics" priority bleed />
+          <OfferPhoto name="hero" alt="A woman working a live operations dashboard at a standing desk in a sunlit architecture studio" priority bleed />
           <div className="offer-hero-shade" />
           <div className="offer-hero-content offer-wrap">
             <p className="offer-eyebrow">{copy.program}</p>
