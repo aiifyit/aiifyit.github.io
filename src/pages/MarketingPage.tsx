@@ -1,5 +1,12 @@
-import { AgentSwarm, QuoteAmbient } from '../components/offer/OfferGraphics';
-import AccountStack from '../components/offer/AccountStack';
+import {
+  HomeAccountStack,
+  HomeComparisonArt,
+  HomeOwnership,
+  HomeProofGraphic,
+  HomeQuoteAmbient,
+  HomeStepGraphic,
+  HomeSwarm,
+} from '../components/home/HomeGraphics';
 import CreditChapter from '../components/offer/CreditChapter';
 import LeadersChapter from '../components/offer/LeadersChapter';
 import OfferQuoteForm from '../components/offer/OfferQuoteForm';
@@ -57,13 +64,13 @@ export default function MarketingPage() {
                 <a href="#pricing" className="offer-text-link">{copy.hero.secondary}<span aria-hidden="true"> ↗</span></a>
               </div>
             </div>
-            <AgentSwarm variant="direct" />
+            <HomeSwarm />
           </div>
         </section>
 
-        <StepSequence copy={copy} sectionId="how-it-works" variant="direct" />
-        <LeadersChapter copy={copy} cta={copy.cta} />
-        <CreditChapter copy={copy} />
+        <StepSequence copy={copy} sectionId="how-it-works" Graphic={HomeStepGraphic} />
+        <LeadersChapter copy={copy} cta={copy.cta} Art={HomeComparisonArt} />
+        <CreditChapter copy={copy} Graphic={HomeProofGraphic} />
 
         <section id="pricing" className="offer-economics offer-section" aria-labelledby="pricing-heading">
           <Reveal className="offer-wrap">
@@ -76,12 +83,12 @@ export default function MarketingPage() {
                   <li key={point.title}><h3>{point.title}</h3><p>{point.body}</p></li>
                 ))}
               </ul>
-              <AccountStack copy={copy} />
+              <HomeAccountStack copy={copy} />
             </div>
           </Reveal>
         </section>
 
-        <OwnershipChapter copy={copy} variant="direct" />
+        <OwnershipChapter copy={copy} Graphic={HomeOwnership} />
 
         <section id="quote" className="offer-quote offer-section">
           <Reveal className="offer-wrap offer-quote-grid">
@@ -89,7 +96,7 @@ export default function MarketingPage() {
               <p className="offer-eyebrow">{copy.program}</p>
               <OfferHeading id="quote-heading" tabIndex={-1}>{copy.quote.heading}</OfferHeading>
               <p className="offer-prose mt-6">{copy.quote.body}</p>
-              <QuoteAmbient variant="direct" />
+              <HomeQuoteAmbient />
             </div>
             <OfferQuoteForm copy={copy} source="/" createDraft={createHomeDraft} />
           </Reveal>

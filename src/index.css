@@ -471,3 +471,38 @@ html[data-page="offer"] { background: #09090b; scroll-padding-top: 6rem; }
 @media (max-width:599px) {
   .home-hero-lockup { width:min(14.5rem,100%); gap:.6rem; margin-bottom:1.3rem; }
 }
+
+/* Homepage-specific illustrations (partner graphics stay on /partner-program/). */
+.home-orbit-ring { stroke:#A3D7E2; stroke-opacity:.28; stroke-width:1.2; stroke-dasharray:5 8; }
+.home-orbit-ring-0 { animation:home-dash 18s linear infinite; }
+.home-orbit-ring-1 { animation:home-dash 26s linear infinite reverse; }
+.home-orbit-ring-2 { animation:home-dash 34s linear infinite; }
+@keyframes home-dash { to { stroke-dashoffset:-260; } }
+.home-node-pulse { transform-box:fill-box; transform-origin:center; animation:home-pulse 3.6s ease-in-out infinite; }
+@keyframes home-pulse { 0%,100% { transform:scale(1); opacity:1; } 50% { transform:scale(1.08); opacity:.75; } }
+.home-chip-in { transform-box:fill-box; transform-origin:center; animation:home-enter .55s ease-out both; }
+.home-step-stone { transform-box:fill-box; transform-origin:center; animation:home-enter .5s ease-out both; }
+@keyframes home-enter { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
+.home-assemble { transform-box:fill-box; transform-origin:center; animation:home-assemble 5.5s ease-in-out infinite; }
+@keyframes home-assemble { 0%,100% { transform:scale(.92); opacity:.7; } 40%,70% { transform:scale(1); opacity:1; } }
+.home-week-beat { transform-box:fill-box; transform-origin:center; animation:home-week 4.4s ease-in-out infinite; }
+@keyframes home-week { 0%,100% { opacity:.55; } 30%,55% { opacity:1; } }
+.home-week-ring { stroke-dasharray:50; animation:home-dash 3.2s linear infinite; }
+.home-target-ring { stroke:#A3D7E2; stroke-opacity:.35; stroke-width:1.4; animation:home-target 5s ease-in-out infinite; }
+@keyframes home-target { 0%,100% { transform:scale(.94); } 50% { transform:scale(1); } }
+.home-target-ring { transform-box:fill-box; transform-origin:center; }
+.home-refresh { transform-box:fill-box; transform-origin:center; animation:home-refresh 4.8s ease-in-out infinite; }
+@keyframes home-refresh { 0%,100% { opacity:.45; } 40%,65% { opacity:1; } }
+.home-sweep-path { stroke:#A3D7E2; stroke-opacity:.35; stroke-width:1.4; stroke-dasharray:6 8; animation:home-dash 8s linear infinite; }
+.home-cost-stack { transform-box:fill-box; transform-origin:bottom; animation:home-cost 3.8s ease-in-out infinite; }
+@keyframes home-cost { 0%,100% { transform:translateY(4px); opacity:.75; } 50% { transform:none; opacity:1; } }
+.home-accounts { min-width:0; }
+.home-account-ledger { display:grid; gap:.85rem; margin-bottom:1.5rem; position:relative; }
+.home-account-rail { display:none; }
+.home-account-row { padding:1.15rem 1.3rem; }
+.home-account-row .offer-account-members { margin-block:.85rem; }
+.home-swarm.offer-glass { /* keep hero glow treatment from .offer-swarm */ }
+
+@media (prefers-reduced-motion:reduce) {
+  .home-chip-in, .home-step-stone { opacity:1; transform:none; }
+}
