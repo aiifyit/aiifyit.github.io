@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
+import { useEffect, useRef, useState, useSyncExternalStore, type ComponentType } from 'react';
 import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScroll } from 'framer-motion';
 import partnerCopy from '../../data/offerCopy.json';
 
@@ -11,7 +11,7 @@ function subscribeDesktop(onChange: () => void) {
   query.addEventListener('change', onChange);
   return () => query.removeEventListener('change', onChange);
 }
-export default function StepSequence({ copy = partnerCopy, sectionId = 'co-management', variant = 'partner' }: { copy?: Copy; sectionId?: string; variant?: 'partner' | 'direct' }) {
+export default function StepSequence({ copy = partnerCopy, sectionId = 'co-management', variant = 'partner', Graphic = StepGraphic }: { copy?: Copy; sectionId?: string; variant?: 'partner' | 'direct'; Graphic?: ComponentType<{ step: number; variant?: 'partner' | 'direct' }> }) {
   const last = Math.max(copy.model.steps.length - 1, 0);
   const desktop = useSyncExternalStore(subscribeDesktop, () => window.matchMedia('(min-width:900px)').matches, () => false);
   const [active, setActive] = useState(0);
@@ -50,9 +50,9 @@ export default function StepSequence({ copy = partnerCopy, sectionId = 'co-manag
           else return;
           event.preventDefault(); select(next); document.getElementById(`offer-step-button-${next}`)?.focus({ preventScroll: true });
         }}><span className="offer-step-index" aria-hidden="true">0{i+1}</span><span><span className="offer-step-title">{step.title}</span><span className="offer-step-body">{step.body}</span></span></button>
-        <div className="offer-mobile-step"><StepGraphic step={i} variant={variant}/></div>
+        <div className="offer-mobile-step"><Graphic step={i} variant={variant}/></div>
       </article>)}</div>
-      <div className="offer-step-sticky" id="offer-step-display" role={desktop ? "tabpanel" : undefined} tabIndex={desktop ? 0 : undefined} aria-labelledby={desktop ? `offer-step-button-${active}` : undefined}><div className="offer-step-stage"><AnimatePresence mode="wait" initial={false}><motion.div key={active} initial={{ opacity: reduced ? 1 : 0, y: reduced ? 0 : 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: reduced ? 1 : 0 }} transition={{ duration: .22 }}><StepGraphic step={active} variant={variant}/></motion.div></AnimatePresence></div><p className="offer-step-caption"><span>0{active+1} / 0{copy.model.steps.length}</span>{copy.model.steps[active].title}</p></div>
+      <div className="offer-step-sticky" id="offer-step-display" role={desktop ? "tabpanel" : undefined} tabIndex={desktop ? 0 : undefined} aria-labelledby={desktop ? `offer-step-button-${active}` : undefined}><div className="offer-step-stage"><AnimatePresence mode="wait" initial={false}><motion.div key={active} initial={{ opacity: reduced ? 1 : 0, y: reduced ? 0 : 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: reduced ? 1 : 0 }} transition={{ duration: .22 }}><Graphic step={active} variant={variant}/></motion.div></AnimatePresence></div><p className="offer-step-caption"><span>0{active+1} / 0{copy.model.steps.length}</span>{copy.model.steps[active].title}</p></div>
     </div><p className="offer-platform">{copy.model.platform}</p>
   </div></section>;
 }

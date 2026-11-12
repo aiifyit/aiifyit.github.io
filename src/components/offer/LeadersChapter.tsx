@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type ComponentType } from 'react';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { GraphicFrame, OfferHeading, Packet, QuoteButton } from './OfferMotion';
 import partnerCopy from '../../data/offerCopy.json';
@@ -13,7 +13,7 @@ function ComparisonArt({ clean, cleanLabel = 'A coordinated partner network', cl
   })}{clean && <><rect x="176" y="91" width="128" height="38" rx="9" className="offer-svg-tile"/><text x="240" y="115" textAnchor="middle">{cleanCaption}</text></>}</svg>}</GraphicFrame>;
 }
 
-export default function LeadersChapter({ copy = partnerCopy, cta }: { copy?: Copy; cta?: string }) {
+export default function LeadersChapter({ copy = partnerCopy, cta, Art = ComparisonArt }: { copy?: Copy; cta?: string; Art?: ComponentType<{ clean: boolean; cleanLabel?: string; cleanCaption?: string }> }) {
   const ref = useRef<HTMLDivElement>(null);
   const visible = useInView(ref, { amount: .2 });
   const reduced = useReducedMotion();
@@ -31,7 +31,7 @@ export default function LeadersChapter({ copy = partnerCopy, cta }: { copy?: Cop
     <div ref={ref} className="offer-comparison" data-paused={!visible || reduced}>
       <div className="offer-compare-toolbar"><h3>{copy.intro.compareLabel}</h3><div className="offer-segment" role="group" aria-label={copy.intro.compareLabel}>{(['hard','ours'] as const).map(key => <button key={key} type="button" aria-pressed={key === 'ours' ? !!ours : !ours} onClick={() => { played.current = true; setSelected(key); }}>{copy.intro[key].label}</button>)}</div></div>
       <div className="offer-comparison-grid">{(['hard','ours'] as const).map(key => <article key={key} className={`offer-glass offer-compare-card ${key === 'hard' ? 'is-complex' : 'is-clean'} ${(key === 'ours') === !!ours ? 'is-selected' : ''}`}>
-        <h3>{copy.intro[key].label}</h3><p>{copy.intro[key].sub}</p><ComparisonArt clean={key === 'ours'} cleanLabel={copy.intro.cleanArtLabel} cleanCaption={copy.intro.cleanArtCaption}/>
+        <h3>{copy.intro[key].label}</h3><p>{copy.intro[key].sub}</p><Art clean={key === 'ours'} cleanLabel={copy.intro.cleanArtLabel} cleanCaption={copy.intro.cleanArtCaption}/>
         <ul>{copy.intro[key].items.map((item,i) => <motion.li key={item} initial={reduced ? false : { opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: reduced ? 0 : i*.06 }}><span className={`offer-compare-mark offer-compare-mark-${key === 'hard' ? 'no' : 'yes'}`}>{key === 'hard' ? <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.25"/><path d="M7 7l6 6M13 7l-6 6"/></svg> : <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.25"/><path d="M6.2 10.4l2.5 2.5 5.1-5.6"/></svg>}{key === 'hard' && <span className="sr-only">Don't do this</span>}</span><span>{item}</span></motion.li>)}</ul>
       </article>)}</div>
     </div><div className="offer-advantage-close"><p>{copy.intro.closing}</p><QuoteButton cta={cta} /></div>
