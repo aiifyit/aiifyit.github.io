@@ -93,6 +93,22 @@ export default function MarketingPage() {
 
         <OwnershipChapter copy={copy} Graphic={HomeOwnership} />
 
+        <section id="about" className="offer-section" aria-labelledby="about-heading">
+          <Reveal className="offer-wrap">
+            <p className="offer-eyebrow">{copy.about.label}</p>
+            <OfferHeading id="about-heading">{copy.about.heading}</OfferHeading>
+            <div className="home-founder-row">
+              <img src={copy.about.image} alt={copy.about.name} width={copy.about.imageWidth} height={copy.about.imageHeight} loading="lazy" />
+              <div>
+                <h3>{copy.about.name}</h3>
+                <p className="offer-prose">{copy.about.title}</p>
+                <p className="offer-prose mt-6">{copy.about.body}</p>
+                <a href={copy.about.href} className="offer-text-link inline-block mt-6">{copy.about.linkLabel}</a>
+              </div>
+            </div>
+          </Reveal>
+        </section>
+
         <section id="quote" className="offer-quote offer-section">
           <Reveal className="offer-wrap offer-quote-grid">
             <div>

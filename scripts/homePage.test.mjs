@@ -7,6 +7,34 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import ts from 'typescript';
 import copy from '../src/data/homeCopy.json' with { type: 'json' };
 import offerCopy from '../src/data/offerCopy.json' with { type: 'json' };
+import { renderHome } from './home-template.mjs';
+import { escapeHtml } from './article-template.mjs';
+
+test('homepage includes approved FAQs and founder content before the contact section', async () => {
+  assert.equal(copy.ownership.questions.length, 6);
+  assert.deepEqual(copy.ownership.questions.slice(3), [
+    { q: 'How long is the contract?', a: 'The first 90 days are month to month. After that, there is an 18-month commitment.' },
+    { q: 'How do I cancel?', a: "Give us 30 days' notice." },
+    { q: 'How does AIify handle security?', a: 'AIify carries cyber insurance and has an advanced company security protocol covering the business, all team members, and clients, with an utmost focus on safety and innovation.' },
+  ]);
+  const html = renderHome(copy);
+  for (const { q, a } of copy.ownership.questions) {
+    assert.ok(html.includes(escapeHtml(q)));
+    assert.ok(html.includes(escapeHtml(a)));
+  }
+  for (const value of ['Who you work with', 'Joshua Pellicer', 'Founder and CEO', copy.about.body, 'More about AIify']) {
+    assert.ok(html.includes(escapeHtml(value)));
+  }
+  assert.match(html, /src="\/images\/team\/joshua.jpg"[^>]*width="400" height="400"/);
+  assert.match(html, /href="\/about\/">More about AIify<\/a>/);
+  assert.ok(html.indexOf('id="ownership"') < html.indexOf('id="about"'));
+  assert.ok(html.indexOf('id="about"') < html.indexOf('id="quote"'));
+  assert.doesNotMatch(html, /calendly|timewithjosh|href="\/book\/?"/i);
+  const page = await readFile('src/pages/MarketingPage.tsx', 'utf8');
+  assert.match(page, /<section id="about" className="offer-section"/);
+  assert.ok(page.indexOf('<OwnershipChapter') < page.indexOf('id="about"'));
+  assert.ok(page.indexOf('id="about"') < page.indexOf('id="quote"'));
+});
 
 test('homepage anchors and section endings clear the sticky header on desktop and mobile', async () => {
   const css = await readFile('src/index.css', 'utf8');

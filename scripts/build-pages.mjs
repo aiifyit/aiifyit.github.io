@@ -3,7 +3,7 @@ import { renderPage } from './page-template.mjs';
 import { renderHome } from './home-template.mjs';
 import { auditDirectory } from './content-audit.mjs';
 import { renderService } from './service-template.mjs';
-import { renderArticle, renderIndex, escapeHtml } from './article-template.mjs';
+import { renderArticle, renderIndex, escapeHtml, safeJson } from './article-template.mjs';
 const site = JSON.parse(await readFile('content/site.json', 'utf8'));
 const inquiry = JSON.parse(await readFile('content/inquiry.json', 'utf8'));
 if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(inquiry.recipient)) throw new Error('Invalid inquiry recipient');
@@ -16,7 +16,18 @@ const shell = await readFile('dist/index.html', 'utf8');
 const stylesheets = [...shell.matchAll(/<link\b[^>]*rel="stylesheet"[^>]*href="([^"]+)"/g)].map(match => match[1]);
 if (!stylesheets.length) throw new Error('Built site stylesheet not found');
 const homeCopy = JSON.parse(await readFile('src/data/homeCopy.json', 'utf8'));
-const home = shell.replace('<div id="root"></div>', `<div id="root">${renderHome(homeCopy)}</div>`);
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: homeCopy.ownership.questions.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: { '@type': 'Answer', text: a },
+  })),
+};
+const home = shell
+  .replace('</head>', `<script type="application/ld+json">${safeJson(faqSchema)}</script>\n</head>`)
+  .replace('<div id="root"></div>', `<div id="root">${renderHome(homeCopy)}</div>`);
 await writeFile('dist/index.html', home);
 await copyFile('dist/index.html', 'dist/404.html');
 for (const slug of ['about', 'privacy', 'terms']) {
