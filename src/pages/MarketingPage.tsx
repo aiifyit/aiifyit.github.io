@@ -69,7 +69,7 @@ export default function MarketingPage() {
         </section>
 
         <StepSequence copy={copy} sectionId="how-it-works" Graphic={HomeStepGraphic} />
-        <LeadersChapter copy={copy} cta={copy.cta} Art={HomeComparisonArt} />
+        <LeadersChapter copy={copy} cta={copy.cta} Art={HomeComparisonArt} showCompareToggle={false} />
         <CreditChapter copy={copy} Graphic={HomeProofGraphic} />
 
         <section id="pricing" className="offer-economics offer-section" aria-labelledby="pricing-heading">

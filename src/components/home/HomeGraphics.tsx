@@ -4,7 +4,12 @@ import { UserRound } from 'lucide-react';
 import { GraphicFrame } from '../offer/OfferMotion';
 import partnerCopy from '../../data/offerCopy.json';
 
-type Copy = typeof partnerCopy;
+type Copy = typeof partnerCopy & {
+  economics: {
+    additionalAccountFee?: string;
+    additionalAccountFeeAmount?: number;
+  };
+};
 
 function OrbitDot({ path, running, delay = 0, duration = 10, r = 3.5 }: { path: string; running: boolean; delay?: number; duration?: number; r?: number }) {
   return running ? <circle r={r} fill="#A3D7E2" className="offer-data-dot"><animateMotion path={path} dur={`${duration}s`} begin={`${-delay}s`} repeatCount="indefinite" /></circle> : null;
@@ -357,7 +362,8 @@ export function HomeQuoteAmbient() {
 }
 
 export function HomeAccountStack({ copy = partnerCopy }: { copy?: Copy }) {
-  const unitFee = copy.economics.accountFeeAmount ?? 4000;
+  const firstAccountFee = copy.economics.accountFeeAmount;
+  const additionalAccountFee = copy.economics.additionalAccountFeeAmount ?? firstAccountFee;
   const [accounts, setAccounts] = useState(1);
   const ref = useRef<HTMLDivElement>(null);
   const visible = useInView(ref, { amount: 0.5 });
@@ -395,7 +401,7 @@ export function HomeAccountStack({ copy = partnerCopy }: { copy?: Copy }) {
                 <span key={member}><i aria-hidden="true"><UserRound size={16} /></i>{member}</span>
               ))}
             </div>
-            <strong>{copy.economics.accountFee}</strong>
+            <strong>{i === 0 ? copy.economics.accountFee : (copy.economics.additionalAccountFee ?? copy.economics.accountFee)}</strong>
           </motion.div>
         ))}
       </div>
@@ -407,7 +413,7 @@ export function HomeAccountStack({ copy = partnerCopy }: { copy?: Copy }) {
         {accounts === 6 ? 'Reset' : copy.economics.addLabel}
       </button>
       <p className="offer-account-total" role="status">
-        {accounts} {accounts === 1 ? 'account' : 'accounts'} · ${(accounts * unitFee).toLocaleString('en-US')} / month to AIify
+        {accounts} {accounts === 1 ? 'account' : 'accounts'} · ${(firstAccountFee + (accounts - 1) * additionalAccountFee).toLocaleString('en-US')} / month to AIify
       </p>
     </div>
   );
