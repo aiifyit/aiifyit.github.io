@@ -1,6 +1,6 @@
 {
   "title": "AIify It | Custom AI Swarms That Run Your Business",
-  "description": "AIify builds custom co-managed AI swarms for companies. We build them, you own them, and we use them with you every week. The sign-up price is $10,000 per month per company account.",
+  "description": "AIify builds custom co-managed AI swarms for companies. We build them, you own them, and we use them with you every week. The first company account is $10,000 per month, and each additional account is $4,000 per month.",
   "program": "Co-managed AI swarms",
   "cta": "Get started",
   "hero": {
@@ -85,8 +85,8 @@
   },
   "economics": {
     "label": "Pricing",
-    "heading": "One price per company account.",
-    "body": "The sign-up price is $10,000 per month per company account, and we don't discount it. We work with executives and their immediate assistants, like a chief of staff or executive assistant. Want to bring in more of your leadership? Add another account.",
+    "heading": "What it costs as you bring more leaders in.",
+    "body": "Your first company account is $10,000 a month. Each account after that is $4,000 a month. An account covers one executive plus their chief of staff or executive assistant, so the person who already keeps their week on track works with the swarm alongside them. When you want more of your leadership involved, you add another account at the lower rate.",
     "points": [
       {
         "title": "Setup and a weekly build.",
@@ -102,7 +102,7 @@
       },
       {
         "title": "Add accounts as you grow.",
-        "body": "Each added company account is another $10,000 a month, the same as the first."
+        "body": "Each company account after the first is $4,000 a month."
       }
     ],
     "accountLabel": "Company account",
@@ -112,7 +112,9 @@
     ],
     "accountFee": "$10,000 / month",
     "accountFeeAmount": 10000,
-    "addLabel": "Add an account"
+    "addLabel": "Add an account",
+    "additionalAccountFee": "$4,000 / month",
+    "additionalAccountFeeAmount": 4000
   },
   "ownership": {
     "label": "What you own",
@@ -149,7 +151,7 @@
   },
   "quote": {
     "heading": "Get started.",
-    "body": "Tell us what your business does and what you'd want off your executives' plates. The sign-up price is $10,000 per month per company account. Someone on our team will read your message and write back.",
+    "body": "Tell us what your business does and what you'd want off your executives' plates. Your first company account is $10,000 a month, and each one you add after that is $4,000 a month. Someone on our team will read your message and write back.",
     "reply": "A real person replies. You won't be dropped into an automated sequence."
   },
   "explore": {
