@@ -1,0 +1,86 @@
+{
+  "slug": "automate-client-offboarding-first",
+  "title": "Automating the Client Lifecycle? Why Build Offboarding Before Onboarding",
+  "description": "Learn why client offboarding is a smart first automation build: one CRM status change, a clear exit checklist, human checkpoints, and a log your team can trust.",
+  "category": "Workflow automation",
+  "takeaway": "Onboarding gets the attention because it feels like growth. Offboarding is usually the better first build. It has fewer branches, the mistakes are expensive, and once one status change runs it reliably, you can reuse the same pattern for everything else.",
+  "sections": [
+    {
+      "id": "why-start-with-the-exit",
+      "title": "Why start with the exit",
+      "paragraphs": [
+        "In an AIify It planning discussion about client lifecycle automation, the team chose to build offboarding first and onboarding second. The idea was simple: an account manager changes one field in the CRM to churned, and a series of automations handles the exit from there.",
+        "That order sounds backwards until you look at the two processes side by side. Onboarding branches constantly. Different packages, different start dates, questions about pricing, a missing owner, a contract still out for signature. Offboarding is mostly the same list every time. You remove access, stop billing, stop anything scheduled, archive the files, and tell the right people.",
+        "The cost of getting it wrong is also lopsided. A slow onboarding step is annoying. A missed offboarding step means a former client still has access to your shared folders, still gets your automated check-in emails, or still gets billed. Those are the mistakes that turn a quiet exit into an uncomfortable phone call."
+      ]
+    },
+    {
+      "id": "one-field-one-trigger",
+      "title": "Use one field as the trigger",
+      "paragraphs": [
+        "Pick a single field that means this client is leaving, usually a status dropdown in your CRM, and make it the only thing that starts the process. Not an email someone forwards. Not a message in a team channel. One field, changed by the person who owns the account.",
+        "This matters because it gives you one source of truth. Anyone can open the record and see whether offboarding started and when. If a client leaves and the status never changes, you know exactly where the gap is. If the status changes by mistake, you know what to undo.",
+        "Keep the trigger strict. Fire on the change to churned, not on every save of the record, so editing a note on an already-churned account doesn't run the whole sequence again."
+      ]
+    },
+    {
+      "id": "write-the-checklist",
+      "title": "Write the exit checklist before you automate it",
+      "paragraphs": [
+        "Before anyone builds anything, write down what a clean exit looks like at your company. A typical list covers access, money, communication, files, and people.",
+        "Access: remove the client from shared drives, project boards, chat channels, and any portals or tools you gave them logins for. Revoke any keys or connections you set up on their behalf, and remove your team's access to their systems if the engagement included that.",
+        "Money: stop recurring billing, then check for invoices that are still open. This is the step people skip. Cancelling a subscription doesn't close an invoice that was already issued, and a cancelled subscription with an invoice still open is exactly the kind of loose end that surfaces weeks later. Decide in advance whether open invoices get voided, collected, or sent to a person to decide.",
+        "Communication: pause automated follow-ups, newsletters meant for active clients, and recurring meetings on the calendar. Nothing should keep going out as if the account were active.",
+        "Files and records: archive the project folder, record why they left in the CRM, and save a short final handoff note with where things stand, so whoever picks it up later doesn't start from zero.",
+        "People: notify your internal team that the account is closed, so nobody keeps working on it or reaches out by accident."
+      ]
+    },
+    {
+      "id": "decide-what-stays-human",
+      "title": "Decide which steps need a person to confirm",
+      "paragraphs": [
+        "Not every step should run on its own. Removing a client from a project board is easy to reverse. Voiding an invoice, deleting files, or sending a goodbye email to the client is not.",
+        "A practical split: let the automation do the reversible, internal steps right away, and have it prepare the irreversible or client-facing ones for a person to approve. The account manager gets a short summary, such as two open invoices, one recurring meeting, and a draft closing email, and confirms each one.",
+        "This also protects you when the trigger fires by mistake. If someone picks churned from the dropdown when they meant paused, the damage is limited to steps you can undo."
+      ]
+    },
+    {
+      "id": "log-what-ran",
+      "title": "Log what ran and what failed",
+      "paragraphs": [
+        "Every step should write a line somewhere your team already looks, ideally on the CRM record itself: what ran, when, and whether it worked. Access removed. Billing stopped. Invoice left open, waiting on approval. Calendar series cancelled.",
+        "Failures need to be loud. If the billing step fails because a login expired, the account manager should hear about it the same day, not find out next month when the charge goes through. A step that fails quietly is worse than no automation, because everyone assumes it ran.",
+        "After the first few real exits, read the logs. You'll find steps that always need a manual fix and steps nobody missed. Adjust the checklist based on what actually happened, not on what you guessed when you wrote it."
+      ]
+    },
+    {
+      "id": "let-the-team-run-it",
+      "title": "Let your operations team run it, not a developer queue",
+      "paragraphs": [
+        "The same planning discussion made a point worth copying: have the developer build the tool that does the job, not do the job. Once the offboarding steps exist as defined actions, connect them to the AI assistant your team already uses, for example through an MCP connection, so an operations person can run or adjust them by asking in plain language.",
+        "The reasoning was practical. Explaining a task to an assistant takes about as long as explaining it to a person, and the answer comes back much faster. Your operations lead shouldn't need to file a request and wait for a developer every time a step changes or an exit needs special handling.",
+        "Keep guardrails on it. The assistant should only be able to call the steps you defined, not improvise new ones. It should ask for confirmation before anything irreversible, and everything it does should land in the same log as the automated runs."
+      ]
+    },
+    {
+      "id": "reuse-for-onboarding",
+      "title": "Reuse the pattern for onboarding",
+      "paragraphs": [
+        "Once offboarding works, onboarding is the same structure pointed the other way: one status change as the trigger, a written checklist, human checkpoints on sensitive steps, and a log. You've already solved the hard parts, the trigger, the logging, and the approvals, on the simpler process.",
+        "Be deliberate about what stays manual. In the same discussion, the team already knew some onboarding steps, like automatically sending the contract, were things they didn't want automated. That's a normal decision. Some steps carry enough judgment or relationship weight that a person should do them, and the automation should simply remind that person and record when it's done.",
+        "Start with the exit, get one clean run on a real account, and build from there. The checklist you write for offboarding will probably be the most useful document in the whole project."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Plan a client lifecycle workflow your team can run",
+    "description": "Explore AIify It workflow automation for offboarding, onboarding, approvals, and logging built around your existing CRM and process.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-11-12"
+  }
+}
