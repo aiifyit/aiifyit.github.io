@@ -43,6 +43,26 @@ test('homepage copy is the direct offer, not the partner program', () => {
   assert.doesNotMatch(copy.evidence.closing, /^Imagine\b/i);
 });
 
+test('site header and footer link to Partner Program outside NAV_ITEMS', async () => {
+  const header = await readFile('src/components/layout/Header.tsx', 'utf8');
+  const footer = await readFile('src/components/layout/Footer.tsx', 'utf8');
+  const constants = await readFile('src/data/constants.ts', 'utf8');
+  const partnerLink = /<a\b[^\n]*href="\/partner-program\/"[^\n]*>Partner Program<\/a>/g;
+  const links = [...header.matchAll(partnerLink)].map(match => match[0]);
+  assert.equal(links.length, 2, 'Desktop and mobile each include the partner link');
+  assert.match(links[1], /onClick=\{\(\) => setMobileOpen\(false\)\}/);
+  assert.equal([...footer.matchAll(partnerLink)].length, 1);
+  for (const source of [header, footer]) {
+    assert.match(source, />Articles<\/a>\s*<a href="\/partner-program\/"/);
+    const articles = [...source.matchAll(/<a\b[^\n]*href="\/articles\/"[^\n]*>Articles<\/a>/g)];
+    const partners = [...source.matchAll(partnerLink)];
+    for (const [index, partner] of partners.entries()) {
+      assert.equal(partner[0].match(/className="([^"]*)"/)[1], articles[index][0].match(/className="([^"]*)"/)[1]);
+    }
+  }
+  assert.doesNotMatch(constants, /partner-program|Partner Program/);
+});
+
 test('homepage metadata describes first and additional account prices', async () => {
   const html = await readFile('index.html', 'utf8');
   for (const name of ['description', 'og:description', 'twitter:description']) {

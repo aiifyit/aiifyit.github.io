@@ -31,6 +31,7 @@ export default function Footer() {
             </a>
           ))}
           <a href="/articles/" className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)]">Articles</a>
+          <a href="/partner-program/" className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)]">Partner Program</a>
         </nav>
       </Container>
     </footer>

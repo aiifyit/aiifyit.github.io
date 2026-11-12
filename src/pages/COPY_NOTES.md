@@ -1,6 +1,6 @@
 # Copy notes — /partner-program
 
-Hidden page. Not linked from the nav, footer, homepage, or sitemap. `noindex, nofollow` on the page. Not listed in `robots.txt`. The public URL is `https://aiifyit.com/partner-program/`.
+Linked as “Partner Program” from the site navigation (desktop and mobile) and footer, including article and service pages. Homepage copy does not link to it. The page keeps its own OfferChrome without the regular site Header/Footer. It remains `noindex, nofollow`, outside the sitemap, and unlisted in `robots.txt`. The public URL is `https://aiifyit.com/partner-program/`.
 
 The page is the partner co-management offer. Headlines, body, table, calculator labels, questions, and the quote form use the locked copy. The button is “Get a quote”. Do not add a `/partners` route.
 
