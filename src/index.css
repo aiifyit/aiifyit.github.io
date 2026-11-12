@@ -126,7 +126,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Offer page only. Tokens stay local so the rest of the site is unchanged. */
-html[data-page="offer"] { background: #09090b; scroll-padding-top: 6rem; }
+html[data-page="offer"] { background: #09090b; scroll-padding-top: 6.5rem; }
 .offer-page { --offer-ink:#12151a; --offer-muted:#596366; --offer-line:#d5dedb; --offer-card:#fff; --offer-navy:#12151a; --offer-accent:#A3D7E2; --offer-accent-hover:#7DC1D0; background:#f5f7f4; color:var(--offer-ink); min-height:100vh; }
 .offer-page ::selection { background:#A3D7E2; color:#09090b; }
 .offer-page h1,.offer-page h2,.offer-page h3 { font-weight:600; letter-spacing:-.035em; text-wrap:balance; }
@@ -459,6 +459,11 @@ html[data-page="offer"] { background: #09090b; scroll-padding-top: 6rem; }
  .offer-account-card { padding:1.2rem; }
 }
 
+/* Clear the 88px sticky header and keep preceding text below its translucent edge.
+   scroll-margin stays 0 so it does not add to html[data-page="offer"] scroll-padding-top. */
+.home-offer #hero,
+.home-offer .offer-section { scroll-margin-top:0rem; }
+.home-offer .offer-section { padding-bottom:6.5rem; }
 .home-offer .offer-hero-grid { min-height: calc(100svh - 6.5rem); }
 .home-offer .offer-compare-toolbar { display:block; }
 .home-explore-links { display: grid; gap: 1rem; margin-top: 2rem; padding: 0; list-style: none; max-width: 42rem; }
