@@ -109,6 +109,7 @@
       "Chief of staff or assistant"
     ],
     "accountFee": "$4,000 / month to AIify",
+    "accountFeeAmount": 4000,
     "addLabel": "Add an account"
   },
   "ownership": {

@@ -26,7 +26,7 @@ export function OfferHeading({ children, id, tabIndex }: { children: string; id:
   const reduced = useReducedMotion();
   return <motion.h2 id={id} tabIndex={tabIndex} aria-label={children} initial="hidden" whileInView="shown" viewport={{ once: true, amount: .4 }} transition={{ staggerChildren: reduced ? 0 : .035 }}>{children.split(' ').map((word, i) => <motion.span key={i} aria-hidden="true" className="offer-heading-word" variants={{ hidden: { opacity: reduced ? 1 : 0, y: reduced ? 0 : 12 }, shown: { opacity: 1, y: 0 } }} transition={{ duration: .45 }}>{word}{'\u00a0'}</motion.span>)}</motion.h2>;
 }
-export function QuoteButton({ small = false }: { small?: boolean }) {
+export function QuoteButton({ small = false, cta = copy.cta }: { small?: boolean; cta?: string }) {
   const magnetic = useMagnetic();
-  return <motion.a href="#quote" className={`offer-btn ${small ? 'offer-btn-sm' : ''}`} {...magnetic}>{copy.cta}</motion.a>;
+  return <motion.a href="#quote" className={`offer-btn ${small ? 'offer-btn-sm' : ''}`} {...magnetic}>{cta}</motion.a>;
 }

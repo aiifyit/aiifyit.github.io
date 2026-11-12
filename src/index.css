@@ -458,3 +458,16 @@ html[data-page="offer"] { background: #09090b; scroll-padding-top: 6rem; }
  .offer-account-grid { gap:2rem; }
  .offer-account-card { padding:1.2rem; }
 }
+
+.home-offer .offer-hero-grid { min-height: calc(100svh - 6.5rem); }
+.home-explore-links { display: grid; gap: 1rem; margin-top: 2rem; padding: 0; list-style: none; max-width: 42rem; }
+.home-explore-links a { font-weight: 600; text-decoration: underline; text-decoration-color: #7DC1D0; text-underline-offset: 5px; color: var(--offer-ink); }
+@media (min-width: 700px) {
+  .home-explore-links { grid-template-columns: 1fr 1fr; }
+}
+
+.home-hero-lockup { display:flex; flex-direction:column; align-items:flex-start; gap:.75rem; width:min(17.5rem,100%); margin-bottom:1.7rem; }
+.home-hero-lockup img { display:block; width:100%; height:auto; }
+@media (max-width:599px) {
+  .home-hero-lockup { width:min(14.5rem,100%); gap:.6rem; margin-bottom:1.3rem; }
+}

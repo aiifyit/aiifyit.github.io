@@ -7,7 +7,7 @@ import { NAV_ITEMS } from '../../data/constants';
 import Container from '../ui/Container';
 import Logo from '../ui/Logo';
 
-const SECTION_IDS = ['hero', 'process', 'about', 'services', 'results', 'cta'];
+const SECTION_IDS = ['hero', 'how-it-works', 'leaders', 'pricing', 'ownership', 'quote', 'services'];
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);

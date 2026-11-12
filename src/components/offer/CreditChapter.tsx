@@ -1,9 +1,11 @@
 import { OfferHeading } from './OfferMotion';
-import copy from '../../data/offerCopy.json';
+import partnerCopy from '../../data/offerCopy.json';
+
+type Copy = typeof partnerCopy;
 import { LiveDashboard } from './OfferGraphics';
 import Reveal from './Reveal';
 
-export default function CreditChapter() {
+export default function CreditChapter({ copy = partnerCopy }: { copy?: Copy }) {
   return (
     <section id="credit" className="offer-section offer-wrap" aria-labelledby="credit-heading">
       <div className="offer-evidence-heading"><OfferHeading id="credit-heading">{copy.evidence.heading}</OfferHeading><p className="offer-prose">{copy.evidence.body}</p></div>
