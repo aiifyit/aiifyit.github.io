@@ -8,6 +8,19 @@ import ts from 'typescript';
 import copy from '../src/data/homeCopy.json' with { type: 'json' };
 import offerCopy from '../src/data/offerCopy.json' with { type: 'json' };
 
+test('homepage anchors and section endings clear the sticky header on desktop and mobile', async () => {
+  const css = await readFile('src/index.css', 'utf8');
+  const offset = Number(css.match(/html\[data-page="offer"\]\s*\{[^}]*scroll-padding-top:\s*([\d.]+)rem/)?.[1]);
+  assert.ok(offset >= 6.5, 'Scroll padding must clear the 88–89px header with slack');
+  const margin = Number(css.match(/\.home-offer #hero,\s*\.home-offer \.offer-section\s*\{[^}]*scroll-margin-top:\s*([\d.]+)rem/)?.[1]);
+  assert.equal(margin, 0, 'Section scroll margin must stay 0 so it does not add to html scroll padding');
+  const bottom = Number(css.match(/\.home-offer \.offer-section\s*\{[^}]*padding-bottom:\s*([\d.]+)rem/)?.[1]);
+  assert.ok(bottom >= offset, 'Homepage bottom padding must cover the scroll offset');
+  // The homepage rule is more specific than the shared mobile padding-block reset.
+  assert.match(css, /@media \(max-width:899px\)\s*\{[^}]*\}[^}]*\.offer-section\s*\{ padding-block:4rem; \}/);
+  assert.match(css, /(?:^|\n)\.offer-section \{ padding-block:6rem; \}/);
+});
+
 test('homepage copy is the direct offer, not the partner program', () => {
   assert.equal(copy.cta, 'Get started');
   assert.equal(copy.hero.heading, 'Custom AI swarms that run your business.');
