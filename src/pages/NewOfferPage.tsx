@@ -42,21 +42,26 @@ function useOfferMetadata() {
       remember('meta[name="twitter:image"]', 'content', OG_IMAGE),
       remember('link[rel="canonical"]', 'href', CANONICAL),
     ];
-    let robots = document.querySelector<HTMLMetaElement>('meta[name="robots"]');
-    const createdRobots = !robots;
-    if (!robots) {
-      robots = document.createElement('meta');
-      robots.setAttribute('name', 'robots');
-      document.head.appendChild(robots);
-    }
-    const previousRobots = robots.getAttribute('content');
-    robots.setAttribute('content', 'noindex, nofollow');
+    const robotTags = ['robots', 'googlebot', 'bingbot'].map((name) => {
+      let tag = document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`);
+      const created = !tag;
+      if (!tag) {
+        tag = document.createElement('meta');
+        tag.setAttribute('name', name);
+        document.head.appendChild(tag);
+      }
+      const previous = tag.getAttribute('content');
+      tag.setAttribute('content', 'noindex, nofollow');
+      return { tag, created, previous };
+    });
     return () => {
       document.title = previousTitle;
       restore.forEach((undo) => undo());
-      if (createdRobots) robots?.remove();
-      else if (previousRobots) robots?.setAttribute('content', previousRobots);
-      else robots?.removeAttribute('content');
+      for (const { tag, created, previous } of robotTags) {
+        if (created) tag.remove();
+        else if (previous) tag.setAttribute('content', previous);
+        else tag.removeAttribute('content');
+      }
     };
   }, []);
 }

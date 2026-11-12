@@ -27,7 +27,7 @@ export function StepGraphic({ step, variant = 'partner' }: { step: number; varia
   const direct = variant === 'direct';
   const labels = direct
     ? ['We start with your goals.', 'Agents link around your business.', 'Weekly build sessions.', 'Goals feed the agents. Illustration.', 'Your team and the work you own.']
-    : ['The client stays locked inside your brand.', 'Agents link around the client business.', 'Weekly sessions and daily check-ins.', 'Quarterly goals feed live dashboards. Illustration.', 'Client team wins flow into your brand.'];
+    : ['The client stays locked inside your brand.', 'Agents link around the client business.', 'Weekly build sessions.', 'Quarterly goals feed live dashboards. Illustration.', 'Client team wins flow into your brand.'];
   const kicker = step === 3 ? 'Illustration' : (direct ? 'You × AIify' : 'Your brand × AIify');
   const step0Title = direct ? 'Your company' : 'Your brand';
   const step0Tile = direct ? 'Goals' : 'Client';

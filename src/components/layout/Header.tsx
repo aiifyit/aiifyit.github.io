@@ -93,7 +93,6 @@ export default function Header() {
             );
           })}
           <a href="/articles/" className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)]">Articles</a>
-          <a href="/partner-program/" className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)]">Partner Program</a>
         </nav>
 
         {/* Right: Desktop CTA / Mobile Hamburger */}
@@ -158,7 +157,6 @@ export default function Header() {
                 </motion.a>
               ))}
               <a href="/articles/" onClick={() => setMobileOpen(false)} className="text-2xl font-semibold">Articles</a>
-              <a href="/partner-program/" onClick={() => setMobileOpen(false)} className="text-2xl font-semibold">Partner Program</a>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

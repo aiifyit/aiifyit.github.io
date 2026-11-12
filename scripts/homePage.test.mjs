@@ -43,24 +43,19 @@ test('homepage copy is the direct offer, not the partner program', () => {
   assert.doesNotMatch(copy.evidence.closing, /^Imagine\b/i);
 });
 
-test('site header and footer link to Partner Program outside NAV_ITEMS', async () => {
-  const header = await readFile('src/components/layout/Header.tsx', 'utf8');
-  const footer = await readFile('src/components/layout/Footer.tsx', 'utf8');
-  const constants = await readFile('src/data/constants.ts', 'utf8');
-  const partnerLink = /<a\b[^\n]*href="\/partner-program\/"[^\n]*>Partner Program<\/a>/g;
-  const links = [...header.matchAll(partnerLink)].map(match => match[0]);
-  assert.equal(links.length, 2, 'Desktop and mobile each include the partner link');
-  assert.match(links[1], /onClick=\{\(\) => setMobileOpen\(false\)\}/);
-  assert.equal([...footer.matchAll(partnerLink)].length, 1);
-  for (const source of [header, footer]) {
-    assert.match(source, />Articles<\/a>\s*<a href="\/partner-program\/"/);
-    const articles = [...source.matchAll(/<a\b[^\n]*href="\/articles\/"[^\n]*>Articles<\/a>/g)];
-    const partners = [...source.matchAll(partnerLink)];
-    for (const [index, partner] of partners.entries()) {
-      assert.equal(partner[0].match(/className="([^"]*)"/)[1], articles[index][0].match(/className="([^"]*)"/)[1]);
-    }
+test('site header, footer, and article chrome do not link to the partner page', async () => {
+  const files = [
+    'src/components/layout/Header.tsx',
+    'src/components/layout/Footer.tsx',
+    'src/data/constants.ts',
+    'src/pages/MarketingPage.tsx',
+    'scripts/article-template.mjs',
+  ];
+  for (const file of files) {
+    const source = await readFile(file, 'utf8');
+    assert.doesNotMatch(source, /href="\/partner-program\/"/);
+    assert.doesNotMatch(source, />Partner Program</);
   }
-  assert.doesNotMatch(constants, /partner-program|Partner Program/);
 });
 
 test('homepage metadata describes first and additional account prices', async () => {
@@ -118,6 +113,16 @@ test('the homepage page uses the inquiry form and the partner page files stay pa
   assert.match(page, /createContactDraft/);
   assert.match(page, /Homepage contact form/);
   assert.match(page, /source="\/"/);
+  assert.match(page, /<ContactForm\b/);
+  assert.doesNotMatch(page, /OfferQuoteForm/);
+  const inquiry = await readFile('src/pages/InquiryPage.tsx', 'utf8');
+  assert.match(inquiry, /<ContactForm\b/);
+  const contact = await readFile('src/components/ui/ContactForm.tsx', 'utf8');
+  assert.match(contact, /<LeadForm\b/);
+  assert.match(contact, /submitLeadRequest\(OFFER_LEAD_ENDPOINT, draft.payload\)/);
+  const lead = await readFile('src/components/ui/LeadForm.tsx', 'utf8');
+  assert.match(lead, /href="\/privacy\/"/);
+  assert.match(lead, /href="\/terms\/"/);
   assert.doesNotMatch(page, /createOfferQuoteDraft|partner-program|Message us/);
   assert.match(page, /HomeSwarm/);
   assert.match(page, /HomeStepGraphic/);

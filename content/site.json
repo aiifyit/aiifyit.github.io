@@ -1,7 +1,7 @@
 {
-  "name": "AIify It",
+  "name": "AIify",
   "url": "https://aiifyit.com",
-  "description": "AI automation consultancy that deploys custom AI agents and workflow automation into businesses.",
+  "description": "AIify builds custom AI swarms you own, with weekly co-management. The first company account is $10,000 per month; each additional account is $4,000 per month.",
   "founder": {
     "name": "Joshua Pellicer"
   },
@@ -12,10 +12,13 @@
     "/services/workflow-automation/",
     "/services/custom-ai-agents/",
     "/services/workflow-integration/",
-    "/inquire/"
+    "/inquire/",
+    "/about/",
+    "/privacy/",
+    "/terms/"
   ],
   "articleIndex": {
     "title": "Practical AI automation lessons",
-    "description": "Field notes on building, testing, and improving AI agents and business workflows. Practical lessons from AIify It."
+    "description": "Field notes on building, testing, and improving AI agents and business workflows. Practical lessons from AIify."
   }
 }

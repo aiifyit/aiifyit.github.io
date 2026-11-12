@@ -42,7 +42,7 @@ function App() {
           <Route path="/inquire" element={<InquiryPage />} />
           <Route path="/book" element={<BookPage />} />
           <Route path="/sow/*" element={<SowIntakePage />} />
-          {/* Partner page uses OfferChrome; no sitemap or robots.txt entry. */}
+          {/* Partner page uses OfferChrome; noindex, not in sitemap, robots.txt, or llms.txt. */}
           <Route path="/partner-program" element={<NewOfferPage />} />
           <Route path="/new-offer" element={<OfferLegacyRedirect />} />
           <Route path="*" element={<MarketingPage />} />

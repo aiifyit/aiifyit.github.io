@@ -101,3 +101,9 @@
 .service-process li { padding-left:8px; }
 .service-process p { font-size:15px; }
 @media(max-width:760px) { .service-fit-grid, .service-prepare, .service-process ol { grid-template-columns:1fr; gap:26px; } .service-prepare { padding:25px; } .service-page h2 { font-size:28px; } .service-actions { align-items:flex-start; } .article-side-cta { display:none; } }
+
+.info-page { padding-bottom: 64px; min-height: 70vh; }
+.info-page .article-prose { max-width: 900px; }
+.info-founder { display: grid; grid-template-columns: minmax(160px, 260px) 1fr; gap: 36px; align-items: start; }
+.info-founder img { width: 100%; height: auto; border-radius: 16px; }
+@media (max-width: 760px) { .info-founder { grid-template-columns: 1fr; } .info-founder img { max-width: 260px; } }
