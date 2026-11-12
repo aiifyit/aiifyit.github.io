@@ -10,9 +10,17 @@ assert(home.includes('Joshua Pellicer'));
 assert(!home.includes('Joshua Fulkner'));
 assert(!home.includes('Sam Depp'));
 assert(!home.includes('Co-Founder &amp; CTO'));
+function assertPartnerNavigation(html) {
+  for (const label of ['Main navigation', 'Footer navigation']) {
+    const nav = html.match(new RegExp(`<nav aria-label="${label}">(.*?)</nav>`, 's'))?.[1];
+    assert(nav?.includes('<a href="/partner-program/">Partner Program</a>'), `${label} links to Partner Program`);
+  }
+}
+assertPartnerNavigation(index);
 for (const article of articles) {
   const path = `/articles/${article.slug}/`;
   const html = await readFile(`dist${path}index.html`, 'utf8');
+  assertPartnerNavigation(html);
   assert(html.includes(`<h1>${escapeHtml(article.title)}</h1>`), 'Raw HTML headline');
   assert(html.includes(`<link rel="canonical" href="${site.url}${path}">`), 'Canonical');
   assert(html.includes(`<meta name="description" content="${escapeHtml(article.description)}">`));
@@ -51,6 +59,7 @@ const services = JSON.parse(await readFile('content/services.json', 'utf8'));
 for (const service of services) {
   const route = `/services/${service.slug}/`;
   const html = await readFile(`dist${route}index.html`, 'utf8');
+  assertPartnerNavigation(html);
   assert(html.includes(`<h1>${escapeHtml(service.title)}</h1>`));
   assert(html.includes(`rel="canonical" href="${site.url}${route}"`));
   assert(html.includes('action="/inquire/" method="get"'));
@@ -116,14 +125,18 @@ assert(!home.includes('partner-program'), 'Homepage shell must not link the hidd
 for (const file of [
   'src/components/layout/Header.tsx',
   'src/components/layout/Footer.tsx',
+  'scripts/article-template.mjs',
   'src/pages/MarketingPage.tsx',
   'src/data/constants.ts',
   'content/site.json',
 ]) {
   const text = await readFile(file, 'utf8');
   assert(!text.includes('new-offer'), `${file} must not link the old offer URL`);
-  assert(!text.includes('partner-program'), `${file} must not link the hidden offer`);
   assert(!/\/partners(?!-)/.test(text), `${file} must not add a partners route`);
+}
+for (const file of ['src/pages/MarketingPage.tsx', 'src/data/constants.ts', 'content/site.json']) {
+  const text = await readFile(file, 'utf8');
+  assert(!text.includes('partner-program'), `${file} must not link the partner page`);
 }
 for (const route of ['book', 'inquire']) {
   const html = await readFile(`dist/${route}/index.html`, 'utf8');
