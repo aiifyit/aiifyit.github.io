@@ -169,13 +169,29 @@ assert(home.includes('Your first company account is $10,000 a month. Each accoun
 assert(home.includes(escapeHtml(homeCopy.quote.body)));
 assert.equal((home.match(/<h1\b/g) ?? []).length, 1);
 const initialRoot = home.slice(home.indexOf('<div id="root">'));
-for (const section of ['intro', 'model', 'evidence', 'economics', 'ownership', 'quote', 'explore']) {
+for (const section of ['intro', 'model', 'evidence', 'economics', 'ownership', 'about', 'quote', 'explore']) {
   assert(initialRoot.includes(escapeHtml(homeCopy[section].heading)), `${section} heading in initial HTML`);
 }
 for (const faq of homeCopy.ownership.questions) {
   assert(initialRoot.includes(escapeHtml(faq.q)));
   assert(initialRoot.includes(escapeHtml(faq.a)));
 }
+assert.equal(homeCopy.ownership.questions.length, 6);
+for (const value of ['Joshua Pellicer', 'Founder and CEO', homeCopy.about.body]) assert(initialRoot.includes(escapeHtml(value)));
+assert(initialRoot.includes('src="/images/team/joshua.jpg"'));
+assert(initialRoot.includes('href="/about/">More about AIify</a>'));
+assert(initialRoot.indexOf('id="ownership"') < initialRoot.indexOf('id="about"'));
+assert(initialRoot.indexOf('id="about"') < initialRoot.indexOf('id="quote"'));
+assert(!/calendly|timewithjosh|href="\/book\/?"/i.test(home));
+const homeHead = home.slice(0, home.indexOf('</head>'));
+const faqSchemas = [...homeHead.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+  .map(match => JSON.parse(match[1])).filter(schema => schema['@type'] === 'FAQPage');
+assert.equal(faqSchemas.length, 1, 'Homepage has one FAQPage schema in the document head');
+assert.equal(faqSchemas[0]['@context'], 'https://schema.org');
+assert.deepEqual(faqSchemas[0].mainEntity, homeCopy.ownership.questions.map(({ q, a }) => ({
+  '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a },
+})));
+assert(!initialRoot.includes('application/ld+json'), 'FAQ schema stays outside the React root');
 const originalHome = await readFile('index.html', 'utf8');
 assert.equal(home.match(/<title>.*?<\/title>/)[0], originalHome.match(/<title>.*?<\/title>/)[0]);
 for (const meta of ['name="description"', 'property="og:image"', 'name="twitter:image"']) {
@@ -210,6 +226,14 @@ for (const slug of ['about', 'privacy', 'terms']) {
   for (const section of page.sections ?? []) {
     assert(html.includes(`<h2>${escapeHtml(section.title)}</h2>`));
     for (const paragraph of section.paragraphs) assert(html.includes(escapeHtml(paragraph)));
+  }
+  if (slug === 'terms') {
+    const engagement = "An engagement starts with 90 days on a month-to-month basis. After those 90 days, there is an 18-month commitment. Either way, cancelling takes 30 days' notice.";
+    const summary = 'This is a summary, not the agreement itself. A signed engagement, if we work together, is what governs the actual work.';
+    const security = 'AIify carries cyber insurance and has an advanced company security protocol that covers the business, all team members, and our clients, with an utmost focus on safety and innovation.';
+    for (const text of [engagement, summary, security]) assert(html.includes(escapeHtml(text)));
+    assert(html.indexOf('<h2>Engagement length and cancellation</h2>') < html.indexOf('<h2>Security</h2>'));
+    assert(html.indexOf('<h2>Security</h2>') < html.indexOf('<h2>Contact</h2>'));
   }
   for (const href of ['/about/', '/privacy/', '/terms/']) assert(html.includes(`href="${href}"`));
 }

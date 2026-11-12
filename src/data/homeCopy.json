@@ -146,6 +146,18 @@
       {
         "q": "Who does an account cover?",
         "a": "One account is an executive and their immediate assistant, such as a chief of staff or executive assistant. We only serve executives and their assistants. If more of your leadership team wants in, add another account."
+      },
+      {
+        "q": "How long is the contract?",
+        "a": "The first 90 days are month to month. After that, there is an 18-month commitment."
+      },
+      {
+        "q": "How do I cancel?",
+        "a": "Give us 30 days' notice."
+      },
+      {
+        "q": "How does AIify handle security?",
+        "a": "AIify carries cyber insurance and has an advanced company security protocol covering the business, all team members, and clients, with an utmost focus on safety and innovation."
       }
     ]
   },
@@ -158,5 +170,17 @@
     "label": "Learn more",
     "heading": "Notes from the work, and our services.",
     "body": "Read what we've learned building swarms with clients, or look through a service page and reach out from there."
+  },
+  "about": {
+    "label": "About",
+    "heading": "Who you work with",
+    "name": "Joshua Pellicer",
+    "title": "Founder and CEO",
+    "image": "/images/team/joshua.jpg",
+    "imageWidth": 400,
+    "imageHeight": 400,
+    "body": "Joshua Pellicer is the founder and CEO of AIify. AIify is built around a simple way of working: we set the swarm up with you, build with your team every week, and stay with the work instead of handing over a plan and leaving.",
+    "linkLabel": "More about AIify",
+    "href": "/about/"
   }
 }
