@@ -17,7 +17,7 @@
       "Agree on maintenance: distinguish fixes to the agreed workflow from new features, additional systems or changed business rules. Identify who approves each change and how it will be tested.",
       "Make ownership explicit: identify who maintains access, configuration, documentation and the operational instructions your team needs when something goes wrong.",
       "Set support expectations: discuss coverage hours, contact channels, response expectations, escalation and any work excluded from the scope. These need to be agreed for your engagement.",
-      "Start the inquiry with the systems involved, the recurring problem and its business impact. Ask what level of ongoing involvement fits; pricing and responsibilities depend on the agreed scope."
+      "Start the inquiry with the systems involved, the recurring problem and its business impact. For the co-managed executive offer, pricing is on the homepage: $10,000 a month for the first company account, and $4,000 a month for each additional account. Each account covers an executive and their chief of staff or executive assistant."
     ],
     "priority": "manual-work",
     "review": {
@@ -66,7 +66,7 @@
       "Protect existing records: decide which system owns each field, how duplicates are recognized and what to do when an update is blank, repeated or arrives out of order.",
       "Define acceptance: agree on sample cases and expected destination records, including failures and uncertain matches. Decide who reviews the results before production changes are approved.",
       "Plan the handover: discuss documentation, access ownership, recovery steps and who maintains the integration after the initial work. Ongoing support needs its own agreed responsibilities.",
-      "Ask about fit and scope: include the affected workflow, its business impact and the systems involved in your inquiry. Feasibility, timing and price depend on reviewing those details."
+      "Ask about fit and scope: include the affected workflow, its business impact and the systems involved in your inquiry. If you want the co-managed executive offer, the price is on the homepage: $10,000 a month for the first company account, and $4,000 a month for each additional account."
     ],
     "priority": "integrations",
     "review": {

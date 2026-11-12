@@ -15,7 +15,7 @@ export default function Footer() {
         <div className="flex flex-col items-center md:items-start gap-2">
           <Logo className="h-8" />
           <p className="text-sm text-[var(--color-text-muted)]">
-            &copy; {new Date().getFullYear()} AIify It. All rights reserved.
+            &copy; {new Date().getFullYear()} AIify. All rights reserved.
           </p>
         </div>
 
@@ -31,7 +31,9 @@ export default function Footer() {
             </a>
           ))}
           <a href="/articles/" className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)]">Articles</a>
-          <a href="/partner-program/" className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)]">Partner Program</a>
+          {[['/about/', 'About'], ['/privacy/', 'Privacy'], ['/terms/', 'Terms']].map(([href, label]) => (
+            <a key={href} href={href} className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-text)]">{label}</a>
+          ))}
         </nav>
       </Container>
     </footer>

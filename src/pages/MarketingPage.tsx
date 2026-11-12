@@ -9,7 +9,8 @@ import {
 } from '../components/home/HomeGraphics';
 import CreditChapter from '../components/offer/CreditChapter';
 import LeadersChapter from '../components/offer/LeadersChapter';
-import OfferQuoteForm from '../components/offer/OfferQuoteForm';
+import ContactForm from '../components/ui/ContactForm';
+import type { LeadFormData } from '../components/ui/LeadForm';
 import OwnershipChapter from '../components/offer/OwnershipChapter';
 import Reveal from '../components/offer/Reveal';
 import StepSequence from '../components/offer/StepSequence';
@@ -23,12 +24,14 @@ const SERVICES = [
   { href: '/services/workflow-integration/', title: 'Workflow integration' },
 ];
 
-function createHomeDraft(fields: { name: string; company: string; email: string; note: string }) {
+function createHomeDraft(fields: LeadFormData) {
   return createContactDraft({
     name: fields.name,
     company: fields.company,
     email: fields.email,
-    message: fields.note,
+    message: fields.message,
+    phone: fields.phone,
+    website: fields.website,
     source: '/',
     cta: 'Homepage contact form',
   });
@@ -98,7 +101,7 @@ export default function MarketingPage() {
               <p className="offer-prose mt-6">{copy.quote.body}</p>
               <HomeQuoteAmbient />
             </div>
-            <OfferQuoteForm copy={copy} source="/" createDraft={createHomeDraft} />
+            <ContactForm source="/" cta="Homepage contact form" createDraft={createHomeDraft} reply={copy.quote.reply} />
           </Reveal>
         </section>
 

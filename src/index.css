@@ -467,10 +467,10 @@ html[data-page="offer"] { background: #09090b; scroll-padding-top: 6rem; }
   .home-explore-links { grid-template-columns: 1fr 1fr; }
 }
 
-.home-hero-lockup { display:flex; flex-direction:column; align-items:flex-start; gap:.75rem; width:min(17.5rem,100%); margin-bottom:1.7rem; }
+.home-hero-lockup { display:flex; flex-direction:column; align-items:flex-start; gap:.75rem; width:min(24rem,100%); margin-bottom:1.7rem; }
 .home-hero-lockup img { display:block; width:100%; height:auto; }
 @media (max-width:599px) {
-  .home-hero-lockup { width:min(14.5rem,100%); gap:.6rem; margin-bottom:1.3rem; }
+  .home-hero-lockup { width:min(18.5rem,100%); gap:.6rem; margin-bottom:1.3rem; }
 }
 
 /* Homepage-specific illustrations (partner graphics stay on /partner-program/). */

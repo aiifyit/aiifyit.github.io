@@ -1,0 +1,35 @@
+{
+  "slug": "privacy",
+  "title": "Privacy",
+  "description": "How AIify handles information you send through this website.",
+  "heading": "Privacy",
+  "intro": "This page describes how AIify handles information you send through aiifyit.com. It is a plain description of current site practice, not a complete legal policy. Please have it reviewed by counsel before you rely on it.",
+  "sections": [
+    {
+      "title": "Who we are",
+      "paragraphs": [
+        "This website is operated by AIify. If you have a question about this page, email joshua@aiifyit.com."
+      ]
+    },
+    {
+      "title": "Information you give us",
+      "paragraphs": [
+        "The public contact forms on this site ask for your name, company, email address, and a message. The contact page form may also ask for a phone number, and it asks you to agree that we may contact you by phone or text about your inquiry.",
+        "If you use the email fallback instead of the form, we receive whatever you include in that email."
+      ]
+    },
+    {
+      "title": "How we use it",
+      "paragraphs": [
+        "When you submit a form, the information is sent to a Cloudflare Worker, which emails it to our team so we can read your message and reply. We use what you send to respond to the inquiry and to follow up about the work you asked about.",
+        "We do not use this site to run an automated marketing sequence. The forms are set up so a person on our team reads the message."
+      ]
+    },
+    {
+      "title": "What we do not claim here",
+      "paragraphs": [
+        "This page does not try to document every system, cookie, analytics tool, or retention period we may use, because those details have not been written down for the public site. If you need a formal policy for a contract or a compliance review, email us and we will follow up."
+      ]
+    }
+  ]
+}

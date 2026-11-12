@@ -160,7 +160,7 @@ export default function LeadForm({ onSubmit, submitting = false, className = '' 
         />
         <span>
           You may contact me by phone or text about my inquiry. We won't spam
-          you or share your info.
+          you or share your info. Read our <a href="/privacy/" className="underline underline-offset-4">Privacy</a> and <a href="/terms/" className="underline underline-offset-4">Terms</a>.
         </span>
       </label>
 

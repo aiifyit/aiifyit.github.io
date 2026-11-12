@@ -1,0 +1,33 @@
+{
+  "slug": "terms",
+  "title": "Terms",
+  "description": "Terms for using the AIify website and sending an inquiry.",
+  "heading": "Terms",
+  "intro": "These terms cover use of aiifyit.com and messages you send through it. They are a plain starting point, not a complete contract. Please have them reviewed by counsel before you rely on them. A signed engagement, if we work together, is what governs the actual work.",
+  "sections": [
+    {
+      "title": "The website",
+      "paragraphs": [
+        "This site is provided so you can learn about AIify and get in touch. We may change or take down pages at any time. Articles, service pages, and other public writing are for general information. They are not legal, financial, or technical advice, and they are not a promise of a particular result."
+      ]
+    },
+    {
+      "title": "Inquiries",
+      "paragraphs": [
+        "Sending a message through the contact form, or by email, is a request to start a conversation. It does not create an engagement or reserve a price. Pricing for the co-managed executive offer is stated on the homepage. Any work we do together is subject to a separate agreement."
+      ]
+    },
+    {
+      "title": "Your message",
+      "paragraphs": [
+        "Do not include information in a form or email that you are not allowed to share. Keep customer records, passwords, and other sensitive material out of the inquiry."
+      ]
+    },
+    {
+      "title": "Contact",
+      "paragraphs": [
+        "Questions about these terms can be sent to joshua@aiifyit.com."
+      ]
+    }
+  ]
+}
