@@ -22,10 +22,13 @@ function App() {
   const onHome = location.pathname === '/';
 
   useLayoutEffect(() => {
+    if (onHome) document.documentElement.dataset.home = '';
+    else delete document.documentElement.dataset.home;
     if (!onOffer && !onHome) return;
     document.documentElement.dataset.page = 'offer';
     return () => {
       delete document.documentElement.dataset.page;
+      delete document.documentElement.dataset.home;
     };
   }, [onOffer, onHome]);
 

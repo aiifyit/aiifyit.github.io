@@ -506,3 +506,10 @@ html[data-page="offer"] { background: #09090b; scroll-padding-top: 6rem; }
 @media (prefers-reduced-motion:reduce) {
   .home-chip-in, .home-step-stone { opacity:1; transform:none; }
 }
+
+.site-nav-logo { display:flex; align-items:center; opacity:0; pointer-events:none; transition:opacity .35s ease; }
+.site-nav-logo.is-visible { opacity:1; pointer-events:auto; }
+.site-menu-logo { opacity:1 !important; pointer-events:auto !important; }
+@media (prefers-reduced-motion:reduce) {
+  .site-nav-logo { transition:none; }
+}

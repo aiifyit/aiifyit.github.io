@@ -1,108 +1,108 @@
 {
-  "title": "AIify It \u2014 AI Automation Consultancy | Custom AI Agents for Your Business",
-  "description": "AIify builds custom co-managed AI swarms that run your business. We build them, you own them, we use them together. The sign-up price is $10,000 per month per company account.",
+  "title": "AIify It | Custom AI Swarms That Run Your Business",
+  "description": "AIify builds custom co-managed AI swarms for companies. We build them, you own them, and we use them with you every week. The sign-up price is $10,000 per month per company account.",
   "program": "Co-managed AI swarms",
   "cta": "Get started",
   "hero": {
     "heading": "Custom AI swarms that run your business.",
     "body": "We build them. You own them. We use them together. Use a swarm of genius AI agents and do more in a day than most get done in a month.",
-    "secondary": "See how pricing works"
+    "secondary": "See what it costs"
   },
   "intro": {
     "label": "Why now",
-    "heading": "Now you have the AI advantage.",
-    "lead": "You want an AI advantage that actually gets used. New tools ship every week, and most of them sit unused because no one has time to connect them and keep them working.",
-    "question": "How do you do that when all your effort already goes into running the company, and AI is changing like crazy?",
-    "compareLabel": "Two ways to do it",
+    "heading": "We know AI could do more for us. We just don't have time to set it up.",
+    "lead": "Most companies already pay for a few AI tools. They sit half-used because the people who would get the most out of them have the least spare time. And by the time someone learns one, a better one has shipped.",
+    "question": "So who on your team is supposed to set this up and keep it current, on top of running the company?",
+    "compareLabel": "Two ways to get there",
     "hard": {
       "label": "The hard way",
-      "sub": "Expensive and complicated.",
+      "sub": "Costly, and every piece of it lands on you.",
       "items": [
-        "Pay for an in-house AI team",
-        "Recruit and vet AI talent",
-        "Hire a manager to run them",
-        "Keep up with AI as it changes",
-        "Test every new tool",
+        "Budget for an in-house AI team",
+        "Find and vet AI people in a tight market",
+        "Hire someone to manage them",
+        "Track AI as it changes month to month",
+        "Test each new tool before you trust it",
         "Run payroll",
-        "Carry insurance",
-        "Replace people when they quit",
+        "Carry the insurance",
+        "Backfill when someone quits",
         "Train and retrain the team",
-        "Do all of it while running your company"
+        "Do all of it while running the company"
       ]
     },
     "ours": {
       "label": "Our way",
-      "sub": "Let us do it with you.",
+      "sub": "We do the heavy lifting alongside you.",
       "items": [
         "We build your swarm.",
         "We aim it at your goals and use it with you every week.",
         "You own the work, and we keep it current."
       ]
     },
-    "closing": "Work with us and we do that with you. You own the swarms, the data, and the work.",
-    "cleanArtLabel": "A coordinated swarm built and run with you",
+    "closing": "You stay focused on the company while we handle the build and the upkeep with you. The swarms, the data, and the work all belong to you.",
+    "cleanArtLabel": "A coordinated AI swarm built and run with your team",
     "cleanArtCaption": "Your AI swarm"
   },
   "model": {
     "heading": "What you get",
-    "body": "Many companies buy AI software and nobody uses it. You get people, not just software. We set the swarm up for you, build it with you every week, and keep it working. A monthly group coaching call and a members area come with it.",
+    "body": "Plenty of companies pay for AI software that nobody ends up using. The difference here is that our team works in it with you. We set the swarm up, build with you every week, and keep it running. You also get a monthly group coaching call and a members area.",
     "label": "How it works",
     "steps": [
       {
         "title": "We learn your goals.",
-        "body": "We start with how your business runs and what you want done, working with your executives and their immediate assistants."
+        "body": "We start with your executives and their assistants: how the business runs today, and what you want taken off their plates."
       },
       {
-        "title": "We set the swarm up for you.",
-        "body": "We set up custom AI agents around how your business already runs."
+        "title": "We set the swarm up.",
+        "body": "We build custom AI agents around the way your business already works, so your team isn't learning a whole new way of operating on day one."
       },
       {
         "title": "We build with you every week.",
-        "body": "Each week we build with you, add work, and keep the swarm running."
+        "body": "Each week we sit down with you, add new work to the swarm, and fix whatever needs fixing."
       },
       {
         "title": "We aim the agents at your goals.",
-        "body": "We point the agents at what matters so they stay focused as priorities change."
+        "body": "When priorities shift, we point the agents at what matters now so they keep working on the right things."
       },
       {
         "title": "We keep you current on AI.",
-        "body": "As AI changes, we update your swarm so it stays on top. Monthly group coaching and a members area are included."
+        "body": "AI changes fast. We update your swarm as it does, and the monthly group coaching call and members area help you keep up too."
       }
     ],
-    "platform": "We currently co-manage in Grok Bot, and our approach doesn't depend on any one platform."
+    "platform": "Right now we co-manage in Grok Bot. The way we work doesn't depend on any one platform, so you aren't tied to one."
   },
   "evidence": {
-    "heading": "What it looks like when it works",
-    "body": "We keep the account focused on the people who run the company.",
+    "heading": "Who we work with, and what you keep",
+    "body": "We work with the people who run the company and the people closest to them. A small group is what keeps the swarm in daily use.",
     "facts": [
-      "One account: an executive and their chief of staff.",
-      "Each account covers that executive and their immediate assistant.",
+      "One account is an executive and their chief of staff.",
+      "There's no fixed headcount. We serve executives and their immediate assistants.",
       "We set the swarm up around how your business already runs.",
-      "We build with you every week so it keeps getting used.",
+      "We build with you every week, so the swarm actually gets used.",
       "You own the swarms, the data, and the work."
     ],
-    "closing": "That's the offer: built with you, owned by you, used together."
+    "closing": "If you're the one signing off, here's what you're approving: a swarm your company owns, and a team that keeps working on it with you every week."
   },
   "economics": {
     "label": "Pricing",
-    "heading": "One simple price per company account.",
-    "body": "The sign-up price is $10,000 per month per company account. Each account covers an executive and their chief of staff or assistant. Need more people? Add another account.",
+    "heading": "One price per company account.",
+    "body": "The sign-up price is $10,000 per month per company account, and we don't discount it. We work with executives and their immediate assistants, like a chief of staff or executive assistant. Want to bring in more of your leadership? Add another account.",
     "points": [
       {
-        "title": "Setup and weekly build.",
+        "title": "Setup and a weekly build.",
         "body": "We set the swarm up, build with you every week, aim the agents at your goals, and keep them on top of AI."
       },
       {
         "title": "Monthly group coaching.",
-        "body": "A live group call each month with our team."
+        "body": "A live call each month with our team and other members."
       },
       {
         "title": "A members area.",
-        "body": "A place for questions, education, and interaction with our team and each other as you put the tools to work."
+        "body": "Ask questions, learn, and talk with our team and other members as you put the swarm to work."
       },
       {
-        "title": "It scales with another account.",
-        "body": "Need more people? Add another account. Each new company account is an additional $10,000 a month."
+        "title": "Add accounts as you grow.",
+        "body": "Each added company account is another $10,000 a month, the same as the first."
       }
     ],
     "accountLabel": "Company account",
@@ -116,45 +116,45 @@
   },
   "ownership": {
     "label": "What you own",
-    "heading": "Your swarms. Your data. Your work.",
+    "heading": "What we build for you belongs to you.",
     "points": [
       {
         "title": "You own the swarms.",
-        "body": "What we build for you is yours: the agents, their setups, and the playbooks around your business. AIify keeps its methods."
+        "body": "The agents, how they're set up, and the playbooks written around your business are yours. AIify keeps its own methods."
       },
       {
         "title": "You own the data.",
-        "body": "Your data stays yours."
+        "body": "Your data belongs to your company, and it stays that way."
       },
       {
         "title": "You own the work.",
-        "body": "What the swarm produces is yours to keep and use."
+        "body": "Whatever the swarm produces is yours to keep and use however you like."
       }
     ],
-    "questionsLabel": "Questions we hear",
+    "questionsLabel": "Questions people ask us",
     "questions": [
       {
         "q": "Is this just software?",
-        "a": "No. Software is a small part of it. You get setup, weekly build sessions, agents aimed at your goals, and we keep the swarm current."
+        "a": "Software is the smallest part of it. Most of what you're paying for is the work we do with you: setting the swarm up, building with you every week, aiming the agents at your goals, and keeping it current as AI changes."
       },
       {
-        "q": "Should we just build this team ourselves?",
-        "a": "It's rarely simpler. You'd have to hire, train, and manage the team yourself, and keep up with AI as it changes. With us, you get the swarm without that headcount."
+        "q": "Should we build this team ourselves?",
+        "a": "You can. It means recruiting AI people, hiring someone to manage them, covering payroll and turnover, and keeping up with AI on your own. Working with us gets you the swarm and weekly hands-on help without adding that headcount."
       },
       {
         "q": "Who does an account cover?",
-        "a": "An executive and their immediate assistant, like a chief of staff or executive assistant. Need more people? Add another account."
+        "a": "One account is an executive and their immediate assistant, such as a chief of staff or executive assistant. We only serve executives and their assistants. If more of your leadership team wants in, add another account."
       }
     ]
   },
   "quote": {
     "heading": "Get started.",
-    "body": "Tell us about your business. The sign-up price is $10,000 per month per company account. Send us a message and we'll reply personally.",
-    "reply": "We reply personally. No automated sequence."
+    "body": "Tell us what your business does and what you'd want off your executives' plates. The sign-up price is $10,000 per month per company account. Someone on our team will read your message and write back.",
+    "reply": "A real person replies. You won't be dropped into an automated sequence."
   },
   "explore": {
     "label": "Learn more",
-    "heading": "Guides and services.",
-    "body": "Read practical notes from the work, or start with a service page and continue to the contact form."
+    "heading": "Notes from the work, and our services.",
+    "body": "Read what we've learned building swarms with clients, or look through a service page and reach out from there."
   }
 }

@@ -15,6 +15,21 @@ export default function Header() {
   const activeSection = useActiveSection(SECTION_IDS);
   const location = useLocation();
   const onMarketing = location.pathname === '/';
+  const [heroLogoVisible, setHeroLogoVisible] = useState(true);
+
+  useEffect(() => {
+    if (!onMarketing) return;
+    const lockup = document.querySelector('.home-hero-lockup');
+    if (!lockup) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setHeroLogoVisible(entry.isIntersecting),
+      { threshold: 0, rootMargin: '-104px 0px 0px 0px' },
+    );
+    observer.observe(lockup);
+    return () => observer.disconnect();
+  }, [onMarketing, location.pathname]);
+
+  const showNavLogo = !onMarketing || !heroLogoVisible;
 
   // Hash anchors work as-is on the marketing page; off-page they need a leading slash
   const navHref = (hash: string) => (onMarketing ? hash : `/${hash}`);
@@ -43,8 +58,14 @@ export default function Header() {
       <Container className="flex items-center h-22 py-4">
         {/* Left: Logo */}
         <div className="flex-1 flex justify-start">
-          <a href={homeHref} aria-label="AIify home" className="flex items-center">
-            <Logo className="h-14" />
+          <a
+            href={homeHref}
+            aria-label="AIify home"
+            className={`flex items-center site-nav-logo${showNavLogo ? ' is-visible' : ''}`}
+            tabIndex={showNavLogo ? undefined : -1}
+            aria-hidden={showNavLogo ? undefined : true}
+          >
+            <Logo className="h-8" />
           </a>
         </div>
 
@@ -108,10 +129,10 @@ export default function Header() {
               <a
                 href={homeHref}
                 aria-label="AIify home"
-                className="flex items-center"
+                className="flex items-center site-menu-logo"
                 onClick={() => setMobileOpen(false)}
               >
-                <Logo className="h-14" />
+                <Logo className="h-8" />
               </a>
               <button
                 className="p-2 text-[var(--color-text)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent)] rounded-lg"
