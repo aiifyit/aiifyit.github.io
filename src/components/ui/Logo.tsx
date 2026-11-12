@@ -4,15 +4,15 @@ interface LogoProps {
 
 export default function Logo({ className = 'h-10' }: LogoProps) {
   return (
-    <video
-      src="/images/team/hero-video.mp4"
-      autoPlay
-      muted
-      loop
-      playsInline
-      preload="auto"
-      aria-label="AIify"
-      className={`${className} w-auto object-contain`}
-    />
+    <picture>
+      <source srcSet="/images/aiify-logo.webp" type="image/webp" />
+      <img
+        src="/images/aiify-logo.png"
+        alt="AIify"
+        width={631}
+        height={167}
+        className={`${className} w-auto object-contain`}
+      />
+    </picture>
   );
 }

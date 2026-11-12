@@ -7,10 +7,10 @@ test('homepage copy is the direct offer, not the partner program', () => {
   assert.equal(copy.cta, 'Get started');
   assert.equal(copy.hero.heading, 'Custom AI swarms that run your business.');
   assert.match(copy.hero.body, /We build them\. You own them\. We use them together\./);
-  assert.equal(copy.intro.heading, 'Now you have the AI advantage.');
+  assert.match(copy.intro.heading, /don't have time to set it up/);
   assert.equal(copy.intro.ours.items.length, 3);
   assert.equal(copy.model.steps.length, 5);
-  assert.equal(copy.evidence.facts[0], 'One account: an executive and their chief of staff.');
+  assert.match(copy.evidence.facts[0], /One account is an executive and their chief of staff\./);
   assert.equal(copy.economics.accountFeeAmount, 10000);
   assert.match(copy.economics.body, /\$10,000 per month per company account/);
   assert.equal(copy.ownership.label, 'What you own');
@@ -19,6 +19,11 @@ test('homepage copy is the direct offer, not the partner program', () => {
   const all = JSON.stringify(copy);
   assert.doesNotMatch(all, /under your brand|white-label|keep the client|Partner Program|\$4,000/i);
   assert.doesNotMatch(all, /three people|two seats/i);
+  assert.doesNotMatch(all, /That's the offer|That's it\.|Here's the deal|Simple as that|No fluff/i);
+  assert.doesNotMatch(all, /game-changer|supercharge|seamless|\bleverage\b|unlock/i);
+  assert.doesNotMatch(all, /in today's fast-paced world|economic buyer|win-result/i);
+  assert.doesNotMatch(all, /\u2014/);
+  assert.doesNotMatch(copy.evidence.closing, /^Imagine\b/i);
 });
 
 test('the homepage page uses the inquiry form and the partner page files stay partner-only', async () => {
@@ -48,4 +53,18 @@ test('the homepage page uses the inquiry form and the partner page files stay pa
   assert.match(offerPage, /AccountStack/);
   const form = await readFile('src/components/offer/OfferQuoteForm.tsx', 'utf8');
   assert.equal(form.includes('Get started'), false);
+});
+
+test('the site nav uses the AIIFY wordmark and hides it on the homepage until the hero logo is scrolled past', async () => {
+  const logo = await readFile('src/components/ui/Logo.tsx', 'utf8');
+  assert.match(logo, /aiify-logo\.webp/);
+  assert.match(logo, /aiify-logo\.png/);
+  assert.doesNotMatch(logo, /hero-video/);
+  const header = await readFile('src/components/layout/Header.tsx', 'utf8');
+  assert.match(header, /IntersectionObserver/);
+  assert.match(header, /home-hero-lockup/);
+  assert.match(header, /site-nav-logo/);
+  assert.match(header, /rootMargin: '-\d+px 0px 0px 0px'/);
+  const app = await readFile('src/App.tsx', 'utf8');
+  assert.match(app, /dataset\.home/);
 });
