@@ -2,12 +2,16 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import copy from '../src/data/homeCopy.json' with { type: 'json' };
+import offerCopy from '../src/data/offerCopy.json' with { type: 'json' };
 
 test('homepage copy is the direct offer, not the partner program', () => {
   assert.equal(copy.cta, 'Get started');
   assert.equal(copy.hero.heading, 'Custom AI swarms that run your business.');
   assert.match(copy.hero.body, /We build them\. You own them\. We use them together\./);
   assert.match(copy.intro.heading, /don't have time to set it up/);
+  assert.equal(copy.intro.heading, "“We know AI could do more for us. We just don't have time to set it up.”");
+  assert.equal(copy.intro.ours.label, 'Hire us');
+  assert.equal(offerCopy.intro.ours.label, 'Our way');
   assert.equal(copy.intro.ours.items.length, 3);
   assert.equal(copy.model.steps.length, 5);
   assert.match(copy.evidence.facts[0], /One account is an executive and their chief of staff\./);
@@ -17,6 +21,7 @@ test('homepage copy is the direct offer, not the partner program', () => {
   const early = [copy.hero.heading, copy.hero.body, copy.intro.heading, copy.intro.lead, copy.intro.question, ...copy.intro.hard.items, ...copy.intro.ours.items, copy.intro.closing, copy.model.heading, copy.model.body, ...copy.model.steps.flatMap((s) => [s.title, s.body]), copy.evidence.heading, copy.evidence.body, ...copy.evidence.facts, copy.evidence.closing].join('\n');
   assert.doesNotMatch(early, /\$[\d]|\d[,.]?\d{3}/);
   const all = JSON.stringify(copy);
+  assert.doesNotMatch(all, /Our way/i);
   assert.doesNotMatch(all, /under your brand|white-label|keep the client|Partner Program|\$4,000/i);
   assert.doesNotMatch(all, /three people|two seats/i);
   assert.doesNotMatch(all, /That's the offer|That's it\.|Here's the deal|Simple as that|No fluff/i);
@@ -36,6 +41,7 @@ test('the homepage page uses the inquiry form and the partner page files stay pa
   assert.match(page, /HomeSwarm/);
   assert.match(page, /HomeStepGraphic/);
   assert.match(page, /HomeComparisonArt/);
+  assert.match(page, /<LeadersChapter\b[^>]*showCompareToggle=\{false\}[^>]*\/>/);
   assert.match(page, /HomeProofGraphic/);
   assert.match(page, /HomeAccountStack/);
   assert.match(page, /HomeOwnership/);
@@ -51,8 +57,31 @@ test('the homepage page uses the inquiry form and the partner page files stay pa
   assert.doesNotMatch(offerPage, /HomeSwarm|HomeGraphics|HomeStepGraphic|HomeAccountStack/);
   assert.match(offerPage, /AgentSwarm/);
   assert.match(offerPage, /AccountStack/);
+  assert.match(offerPage, /<LeadersChapter\s*\/>/);
+  assert.doesNotMatch(offerPage, /showCompareToggle/);
   const form = await readFile('src/components/offer/OfferQuoteForm.tsx', 'utf8');
   assert.equal(form.includes('Get started'), false);
+});
+
+test('comparison toggle and automatic selection remain enabled by default for the partner page', async () => {
+  const chapter = await readFile('src/components/offer/LeadersChapter.tsx', 'utf8');
+  assert.match(chapter, /showCompareToggle = true/);
+  assert.match(chapter, /showCompareToggle\?: boolean/);
+  assert.match(chapter, /if \(!showCompareToggle \|\| !visible \|\| reduced \|\| played\.current\) return/);
+  assert.match(chapter, /setSelected\('ours'\); \}, 1400\)/);
+  assert.match(chapter, /<h3>\{copy\.intro\.compareLabel\}<\/h3>/);
+  assert.match(chapter, /showCompareToggle && <div className="offer-segment" role="group"/);
+  assert.match(chapter, /<button[^>]*aria-pressed=/);
+  assert.match(chapter, /showCompareToggle && \(key === 'ours'\) === !!ours \? 'is-selected' : ''/);
+
+  const homepageSources = await Promise.all([
+    'src/pages/MarketingPage.tsx',
+    'src/components/home/HomeGraphics.tsx',
+    'src/index.css',
+  ].map(path => readFile(path, 'utf8')));
+  for (const source of homepageSources) assert.doesNotMatch(source, /Our way/i);
+  assert.match(homepageSources[1], /\['Hire', 'Train', 'Tools', 'Payroll'\]/);
+  assert.match(homepageSources[2], /\.home-offer \.offer-compare-toolbar \{ display:block; \}/);
 });
 
 test('the site nav uses the AIIFY wordmark and hides it on the homepage until the hero logo is scrolled past', async () => {

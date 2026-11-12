@@ -460,6 +460,7 @@ html[data-page="offer"] { background: #09090b; scroll-padding-top: 6rem; }
 }
 
 .home-offer .offer-hero-grid { min-height: calc(100svh - 6.5rem); }
+.home-offer .offer-compare-toolbar { display:block; }
 .home-explore-links { display: grid; gap: 1rem; margin-top: 2rem; padding: 0; list-style: none; max-width: 42rem; }
 .home-explore-links a { font-weight: 600; text-decoration: underline; text-decoration-color: #7DC1D0; text-underline-offset: 5px; color: var(--offer-ink); }
 @media (min-width: 700px) {

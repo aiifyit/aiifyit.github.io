@@ -10,7 +10,7 @@
   },
   "intro": {
     "label": "Why now",
-    "heading": "We know AI could do more for us. We just don't have time to set it up.",
+    "heading": "“We know AI could do more for us. We just don't have time to set it up.”",
     "lead": "Most companies already pay for a few AI tools. They sit half-used because the people who would get the most out of them have the least spare time. And by the time someone learns one, a better one has shipped.",
     "question": "So who on your team is supposed to set this up and keep it current, on top of running the company?",
     "compareLabel": "Two ways to get there",
@@ -31,7 +31,7 @@
       ]
     },
     "ours": {
-      "label": "Our way",
+      "label": "Hire us",
       "sub": "We do the heavy lifting alongside you.",
       "items": [
         "We build your swarm.",
