@@ -2,11 +2,24 @@ import { motion } from 'framer-motion';
 import { useMagnetic } from './useMagnetic';
 import { useRef, useState } from 'react';
 import { createOfferQuoteDraft, OFFER_LEAD_ENDPOINT, OFFER_QUOTE_SOURCE } from '../../data/offerQuote.ts';
-import copy from '../../data/offerCopy.json';
+import partnerCopy from '../../data/offerCopy.json';
+
+type Copy = typeof partnerCopy;
+type QuoteFields = { name: string; company: string; email: string; note: string };
+type QuoteDraft = { mailto: string; recipient: string; subject: string; body: string; payload?: Record<string, unknown> };
 
 const fieldClass = 'mt-2 w-full border border-[var(--offer-line)] bg-white px-4 py-3 text-[var(--offer-ink)]';
 type Field = 'name' | 'company' | 'email' | 'note';
-export default function OfferQuoteForm() {
+export default function OfferQuoteForm({
+  copy = partnerCopy,
+  source = OFFER_QUOTE_SOURCE,
+  createDraft,
+}: {
+  copy?: Copy;
+  source?: string;
+  createDraft?: (fields: QuoteFields) => QuoteDraft;
+}) {
+
   const magnetic = useMagnetic();
   const [fields, setFields] = useState({ name: '', company: '', email: '', note: '' });
   const [website, setWebsite] = useState('');
@@ -29,7 +42,7 @@ export default function OfferQuoteForm() {
     setSuccess(false); setError(''); setInvalid(null); setDraftText(''); setMailto('');
     if (website) { setSuccess(true); setFields({ name: '', company: '', email: '', note: '' }); return; }
     let draft;
-    try { draft = createOfferQuoteDraft(fields); }
+    try { draft = (createDraft ?? createOfferQuoteDraft)(fields); }
     catch (cause) {
       const message = cause instanceof Error ? cause.message : 'Check the form and try again.';
       const field: Field = /name/i.test(message) ? 'name' : /company/i.test(message) ? 'company' : /email/i.test(message) ? 'email' : 'note';
@@ -42,13 +55,13 @@ export default function OfferQuoteForm() {
     const controller = new AbortController();
     const timeout = window.setTimeout(() => controller.abort(), 15000);
     try {
-      const response = await fetch(OFFER_LEAD_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: controller.signal, body: JSON.stringify({ name: fields.name.trim(), company: fields.company.trim(), email: fields.email.trim(), message: fields.note.trim(), source: OFFER_QUOTE_SOURCE, website }) });
+      const response = await fetch(OFFER_LEAD_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: controller.signal, body: JSON.stringify('payload' in draft && draft.payload ? { ...draft.payload, website } : { name: fields.name.trim(), company: fields.company.trim(), email: fields.email.trim(), message: fields.note.trim(), source, website }) });
       if (!response.ok) throw new Error('Delivery failed');
       setSuccess(true); setFields({ name: '', company: '', email: '', note: '' }); setWebsite(''); setDraftText(''); setMailto('');
     } catch { showError('Your message could not be delivered. Please try again or use the email draft below.', null); }
     finally { window.clearTimeout(timeout); setSending(false); }
   }}>
-    <input type="hidden" name="source" value={OFFER_QUOTE_SOURCE}/>
+    <input type="hidden" name="source" value={source}/>
     <div className="offer-honeypot" aria-hidden="true"><label htmlFor="quote-website">Website</label><input id="quote-website" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" value={website} onChange={e => setWebsite(e.target.value)}/></div>
     {success && <div role="status" className="offer-form-success">Thanks. Your message is on its way to Joshua. We reply personally.</div>}
     <div className="grid gap-5 md:grid-cols-2">{(['name','company'] as const).map(field => <div key={field}><label htmlFor={`quote-${field}`} className="text-sm font-semibold">{field === 'name' ? 'Name' : 'Company'}</label><input id={`quote-${field}`} name={field} type="text" required autoComplete={field === 'name' ? 'name' : 'organization'} maxLength={field === 'name' ? 120 : 160} value={fields[field]} onChange={e => update(field,e.target.value)} aria-invalid={invalid === field} aria-describedby={invalid === field ? 'quote-error' : undefined} className={fieldClass}/></div>)}</div>

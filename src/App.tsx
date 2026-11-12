@@ -19,18 +19,19 @@ function App() {
   const location = useLocation();
   const isSowWorkspace = location.pathname.startsWith('/sow');
   const onOffer = /^\/(partner-program|new-offer)\/?$/.test(location.pathname);
+  const onHome = location.pathname === '/';
 
   useLayoutEffect(() => {
-    if (!onOffer) return;
+    if (!onOffer && !onHome) return;
     document.documentElement.dataset.page = 'offer';
     return () => {
       delete document.documentElement.dataset.page;
     };
-  }, [onOffer]);
+  }, [onOffer, onHome]);
 
   return (
     <>
-      {!onOffer && <BackgroundFX />}
+      {!onOffer && !onHome && <BackgroundFX />}
       {!isSowWorkspace && !onOffer && <Header />}
       <Suspense fallback={onOffer ? <div className="min-h-[70vh]" aria-hidden="true" /> : null}>
         <Routes>

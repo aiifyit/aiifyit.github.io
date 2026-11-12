@@ -6,11 +6,10 @@ export const CALENDLY_URL = "https://calendly.com/jon-aiifyit/30min";
 export const LEAD_WEBHOOK_URL = "https://jpronger1.app.n8n.cloud/webhook/7a8c25c7-bb38-450f-8341-9714f0f841a4";
 
 export const NAV_ITEMS: NavItem[] = [
-  { label: "How It Works", href: "#process" },
-  { label: "About", href: "#about" },
+  { label: "How It Works", href: "#how-it-works" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "What You Own", href: "#ownership" },
   { label: "Services", href: "#services" },
-  { label: "Results", href: "#results" },
-  { label: "Learn More", href: "#cta" },
 ];
 
 export const HERO_EYEBROW = "Done-for-you AI agent swarms";

@@ -1,0 +1,42 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+import copy from '../src/data/homeCopy.json' with { type: 'json' };
+
+test('homepage copy is the direct offer, not the partner program', () => {
+  assert.equal(copy.cta, 'Get started');
+  assert.equal(copy.hero.heading, 'Custom AI swarms that run your business.');
+  assert.match(copy.hero.body, /We build them\. You own them\. We use them together\./);
+  assert.equal(copy.intro.heading, 'Now you have the AI advantage.');
+  assert.equal(copy.intro.ours.items.length, 3);
+  assert.equal(copy.model.steps.length, 5);
+  assert.equal(copy.evidence.facts[0], 'One account: an executive and their chief of staff.');
+  assert.equal(copy.economics.accountFeeAmount, 10000);
+  assert.match(copy.economics.body, /\$10,000 per month per company account/);
+  assert.equal(copy.ownership.label, 'What you own');
+  const early = [copy.hero.heading, copy.hero.body, copy.intro.heading, copy.intro.lead, copy.intro.question, ...copy.intro.hard.items, ...copy.intro.ours.items, copy.intro.closing, copy.model.heading, copy.model.body, ...copy.model.steps.flatMap((s) => [s.title, s.body]), copy.evidence.heading, copy.evidence.body, ...copy.evidence.facts, copy.evidence.closing].join('\n');
+  assert.doesNotMatch(early, /\$[\d]|\d[,.]?\d{3}/);
+  const all = JSON.stringify(copy);
+  assert.doesNotMatch(all, /under your brand|white-label|keep the client|Partner Program|\$4,000/i);
+  assert.doesNotMatch(all, /three people|two seats/i);
+});
+
+test('the homepage page uses the inquiry form and the partner page files stay partner-only', async () => {
+  const page = await readFile('src/pages/MarketingPage.tsx', 'utf8');
+  assert.match(page, /homeCopy/);
+  assert.match(page, /createContactDraft/);
+  assert.match(page, /Homepage contact form/);
+  assert.match(page, /source="\/"/);
+  assert.doesNotMatch(page, /createOfferQuoteDraft|partner-program|Message us/);
+  assert.match(page, /AgentSwarm variant="direct"/);
+  assert.match(page, /StepSequence copy=\{copy\} sectionId="how-it-works" variant="direct"/);
+  assert.match(page, /OwnershipChapter copy=\{copy\} variant="direct"/);
+  assert.match(page, /QuoteAmbient variant="direct"/);
+  assert.match(page, /aiify-logo\.png/);
+  assert.match(page, /spacexsi-transformation-partner\.svg/);
+  assert.match(page, /home-hero-lockup/);
+  const offerPage = await readFile('src/pages/NewOfferPage.tsx', 'utf8');
+  assert.doesNotMatch(offerPage, /variant="direct"/);
+  const form = await readFile('src/components/offer/OfferQuoteForm.tsx', 'utf8');
+  assert.equal(form.includes('Get started'), false);
+});
