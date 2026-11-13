@@ -43,7 +43,7 @@
   },
   "model": {
     "heading": "What your clients get",
-    "body": "Many companies buy AI software and nobody uses it. Your clients get people, not just software. We set the swarm up for them, build it with them every week, and keep it running. So when a sign-in breaks or a number looks off, someone on our side is already fixing it before your client has to call you about it.",
+    "body": "Many companies buy AI software and nobody uses it. Your clients get people, not just software. We set the swarm up for them, build it with them every day of the week, and keep it running. So when a sign-in breaks or a number looks off, someone on our side is already fixing it before your client has to call you about it.",
     "label": "How it works",
     "steps": [
       {
@@ -55,8 +55,8 @@
         "body": "We set up the AI agent swarm around how their business already runs."
       },
       {
-        "title": "We build with them every week.",
-        "body": "At the start, each user gets a weekly build session with us of about 30 minutes. We build with them on that call and keep the swarm working between sessions."
+        "title": "We build with them every day of the week.",
+        "body": "At the start, each user gets a build session with us of about 30 minutes every day of the week. We build with them on that call and keep the swarm working between sessions."
       },
       {
         "title": "We aim the agents at their goals.",
@@ -141,7 +141,7 @@
       },
       {
         "q": "Is this just software?",
-        "a": "No. Software is a small part of it. Your clients get setup, weekly build sessions, and we keep the work current."
+        "a": "No. Software is a small part of it. Your clients get setup, build sessions every day of the week, and we keep the work current."
       }
     ]
   },

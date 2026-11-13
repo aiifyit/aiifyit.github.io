@@ -68,7 +68,7 @@ export function HomeStepGraphic({ step }: { step: number; variant?: 'partner' | 
   const labels = [
     'We start with your goals.',
     'Agents assemble around your business.',
-    'Weekly build sessions with you.',
+    'Build sessions with you every day of the week.',
     'Agents aim at your goals.',
     'We keep the swarm current.',
   ];
@@ -143,25 +143,25 @@ function AssembleScene({ running }: { running: boolean }) {
 }
 
 function WeeklyScene({ running }: { running: boolean }) {
-  const weeks = ['Week 1', 'Week 2', 'Week 3', 'Week 4'];
+  const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
   return (
     <g>
-      <path d="M70 200H450" className="offer-wire" />
-      {weeks.map((label, i) => {
-        const x = 86 + i * 108;
+      <path d="M40 200H480" className="offer-wire" />
+      {days.map((label, i) => {
+        const x = 28 + i * 96;
         return (
           <g key={label}>
             <g className="home-week-beat" style={{ animationDelay: `${-i * 1.1}s` }}>
-              <rect x={x} y="148" width="88" height="104" rx="14" className="offer-svg-tile" />
-              <circle cx={x + 44} cy="186" r="14" fill="none" stroke="#A3D7E2" strokeWidth="2" className="home-week-ring" />
-              <circle cx={x + 44} cy="186" r="5" fill="#A3D7E2" />
-              <text x={x + 44} y="228" textAnchor="middle">{label}</text>
+              <rect x={x} y="148" width="80" height="104" rx="14" className="offer-svg-tile" />
+              <circle cx={x + 40} cy="186" r="14" fill="none" stroke="#A3D7E2" strokeWidth="2" className="home-week-ring" />
+              <circle cx={x + 40} cy="186" r="5" fill="#A3D7E2" />
+              <text x={x + 40} y="228" textAnchor="middle">{label}</text>
             </g>
-            {i < weeks.length - 1 && <OrbitDot path={`M${x + 88} 200H${x + 108}`} running={running} delay={i} duration={4} />}
+            {i < days.length - 1 && <OrbitDot path={`M${x + 80} 200H${x + 96}`} running={running} delay={i} duration={4} />}
           </g>
         );
       })}
-      <text x="260" y="330" textAnchor="middle">We build with you every week</text>
+      <text x="260" y="330" textAnchor="middle">We build with you every day of the week</text>
     </g>
   );
 }

@@ -3,13 +3,13 @@
   "title": "About",
   "description": "AIify builds custom co-managed AI swarms with companies. We build them, you own them, and we use them together.",
   "heading": "About AIify",
-  "intro": "AIify builds custom co-managed AI swarms for companies. We build them, you own them, and we use them together every week.",
+  "intro": "AIify builds custom co-managed AI swarms for companies. We build them, you own them, and we use them together every day of the week.",
   "founder": {
     "name": "Joshua Pellicer",
     "title": "Founder and CEO",
     "image": "/images/team/joshua.jpg",
     "imageWidth": 400,
     "imageHeight": 400,
-    "bio": "Joshua Pellicer is the founder and CEO of AIify. AIify is built around a simple way of working: we set the swarm up with you, build with your team every week, and stay with the work instead of handing over a plan and leaving."
+    "bio": "Joshua Pellicer is the founder and CEO of AIify. AIify is built around a simple way of working: we set the swarm up with you, build with your team every day of the week, and stay with the work instead of handing over a plan and leaving."
   }
 }
