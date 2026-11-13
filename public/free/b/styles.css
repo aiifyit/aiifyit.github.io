@@ -108,6 +108,7 @@ h1 > span {
   font-size: 1.0625rem;
   line-height: 1.4;
 }
+.benefits strong { color: inherit; font-weight: 650; }
 .benefits li::before {
   content: '';
   position: absolute;
