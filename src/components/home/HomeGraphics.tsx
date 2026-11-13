@@ -68,7 +68,7 @@ export function HomeStepGraphic({ step }: { step: number; variant?: 'partner' | 
   const labels = [
     'We start with your goals.',
     'Agents assemble around your business.',
-    'Build sessions with you every day of the week.',
+    'We go to work for you every day of the week.',
     'Agents aim at your goals.',
     'We keep the swarm current.',
   ];
@@ -161,7 +161,7 @@ function WeeklyScene({ running }: { running: boolean }) {
           </g>
         );
       })}
-      <text x="260" y="330" textAnchor="middle">We build with you every day of the week</text>
+      <text x="260" y="330" textAnchor="middle">We go to work for you every day of the week</text>
     </g>
   );
 }
