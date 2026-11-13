@@ -1,4 +1,5 @@
 'use strict';
+const LI_CONVERSIONS = { page_view: 32321050, step1: 32321058, step2: 32321066, download: 32321042 };
 (() => {
   const apiBase = location.hostname.endsWith('.joshua-509.workers.dev')
     ? location.origin : 'https://aiify-free-file.joshua-509.workers.dev';
@@ -12,6 +13,63 @@
     const input = document.createElement('input');
     input.type = 'hidden'; input.name = name; input.value = value;
     document.querySelector('#attribution').append(input);
+  }
+  // Storage can be unavailable in private/restricted contexts; keep an in-memory fallback.
+  const sessionKey = 'aiify.funnel.session';
+  let sessionId;
+  try { sessionId = sessionStorage.getItem(sessionKey); } catch {}
+  if (!/^[A-Za-z0-9_-]{1,64}$/.test(sessionId || '')) {
+    sessionId = crypto.randomUUID();
+    try { sessionStorage.setItem(sessionKey, sessionId); } catch {}
+  }
+  const sent = new Set();
+  const variant = {}; // Variant is fixed by the page, never by query parameters.
+  function conversion(key) {
+    const id = LI_CONVERSIONS[key];
+    if (id != null && typeof window.lintrk === 'function') {
+      const marker = `conversion.${key}`;
+      const storageKey = `aiify.funnel.${sessionId}.${marker}`;
+      if (sent.has(marker)) return;
+      try { if (sessionStorage.getItem(storageKey)) return; } catch {}
+      sent.add(marker);
+      try { sessionStorage.setItem(storageKey, '1'); } catch {}
+      try { window.lintrk('track', { conversion_id: id }); } catch {}
+    }
+  }
+  function backgroundPost(path, payload) {
+    const body = JSON.stringify(payload);
+    try {
+      // JSON Blob avoids sendBeacon's default text/plain. The API accepts both.
+      if (navigator.sendBeacon?.(`${apiBase}${path}`, new Blob([body], { type: 'application/json' }))) return;
+    } catch {}
+    try {
+      void fetch(`${apiBase}${path}`, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, body,
+        keepalive: true, credentials: 'omit', referrerPolicy: 'no-referrer'
+      }).catch(() => {});
+    } catch {}
+  }
+  function track(event) {
+    const key = `aiify.funnel.${sessionId}.${event}`;
+    if (sent.has(event)) return;
+    try { if (sessionStorage.getItem(key)) return; } catch {}
+    sent.add(event);
+    try { sessionStorage.setItem(key, '1'); } catch {}
+    const payload = { session_id: sessionId, ...variant, event, li_fat_id_present: params.has('li_fat_id') };
+    for (const key of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content']) {
+      if (tracking[key]) payload[key] = tracking[key];
+    }
+    try { if (document.referrer) payload.referrer_host = new URL(document.referrer).hostname; } catch {}
+    backgroundPost('/api/event', payload);
+  }
+  track('page_view');
+  conversion('page_view');
+  document.querySelector('#download').addEventListener('click', () => track('download_clicked'));
+  for (const type of ['input', 'change']) {
+    form.addEventListener(type, event => {
+      if (['name', 'company'].includes(event.target.name) && current === 1) track('step1_started');
+      if (['email', 'phone'].includes(event.target.name) && current === 2) track('step2_started');
+    });
   }
   let current = 1;
   let busy = false;
@@ -79,11 +137,19 @@
   form.addEventListener('submit', async event => {
     event.preventDefault();
     if (busy || transitioning || !validate(current)) return;
-    if (current === 1) { await showStep(2); return; }
+    if (current === 1) {
+      track('step1_completed');
+      conversion('step1');
+      if (!field('website').value.trim()) {
+        backgroundPost('/api/lead', { ...tracking, ...variant, session_id: sessionId, partial: true,
+          name: field('name').value.trim(), company: field('company').value.trim() });
+      }
+      await showStep(2); return;
+    }
     busy = true; form.setAttribute('aria-busy', 'true'); errorBox.hidden = true;
     form.querySelectorAll('button').forEach(button => { button.disabled = true; });
     try {
-      const payload = { ...tracking };
+      const payload = { ...tracking, ...variant, session_id: sessionId };
       for (const key of ['name', 'company', 'email', 'phone', 'website']) payload[key] = field(key).value.trim();
       const response = await fetch(`${apiBase}/api/lead`, {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload),
@@ -94,7 +160,10 @@
       const download = new URL(result.download_url, apiBase);
       if (download.origin !== apiBase || download.pathname !== '/api/download') throw new Error('download');
       document.querySelector('#download').href = download.href;
+      track('step2_completed');
+      conversion('step2');
       await showStep(3);
+      if (current === 3) conversion('download');
     } catch {
       // Operational error only; never include personal data or API details in the UI or console.
       errorBox.textContent = 'Unable to submit. Please try again.';
