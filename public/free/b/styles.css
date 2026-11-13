@@ -89,43 +89,39 @@ h1 > span {
 .subhead { font-size: 1.1rem; color: var(--muted); max-width: 32rem; margin: 28px 0 32px; }
 .how h2 { font-size: 1.25rem; font-weight: 650; margin: 0 0 20px; }
 .benefits {
-  padding: 24px 22px;
-  border: 1px solid #d5e7eb;
-  border-radius: 16px;
-  background: #f4f7f8;
-  color: #09090b;
+  color: #f4f4f5;
 }
 .benefits h2 {
-  margin: 0 0 24px;
-  color: #09090b;
-  font-size: 1.75rem;
+  margin: 0 0 14px;
+  color: #f4f4f5;
+  font-size: 1.25rem;
   font-weight: 650;
   line-height: 1.2;
 }
-.benefits ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 20px; }
+.benefits ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
 .benefits li {
   position: relative;
-  min-height: 30px;
-  padding-left: 44px;
-  color: #09090b;
-  font-size: 1.1875rem;
-  line-height: 1.5;
+  min-width: 0;
+  min-height: 24px;
+  padding-left: 34px;
+  color: #f4f4f5;
+  font-size: 1.0625rem;
+  line-height: 1.4;
 }
 .benefits li::before {
   content: '';
   position: absolute;
   left: 0;
-  top: 0;
-  width: 30px;
-  height: 30px;
+  top: calc((1.4em - 23px) / 2);
+  width: 23px;
+  height: 23px;
   border-radius: 50%;
   background-color: #A3D7E2;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='m5 12 4.5 4.5L19 7' stroke='%2309090b' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-position: center;
-  background-size: 20px 20px;
+  background-size: 16px 16px;
   background-repeat: no-repeat;
 }
-.benefits :focus-visible { outline-color: #09090b; }
 .form-card {
   position: relative;
   padding: 26px 22px;
@@ -219,10 +215,12 @@ footer a { display: inline-flex; align-items: center; min-height: 48px; }
 @media (min-width: 900px) {
   .shell { width: min(100% - 96px, 1200px); }
   header { padding-block: 34px; }
-  .hero { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(48px, 6vw, 96px); align-items: start; padding-block: 60px 72px; }
-  .intro { padding-top: 16px; }
+  .hero { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: clamp(48px, 6vw, 96px); align-items: start; padding-block: 40px 56px; }
+  .intro { padding-top: 8px; }
+  .eyebrow { margin-bottom: 20px; }
+  .subhead { margin-block: 22px 26px; }
   .form-card { padding: 30px; }
-  .benefits { margin-top: 40px; padding: 30px; }
+  .benefits ul { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 16px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
