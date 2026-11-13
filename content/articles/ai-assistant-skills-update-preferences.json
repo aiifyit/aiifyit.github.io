@@ -1,0 +1,81 @@
+{
+  "slug": "ai-assistant-skills-update-preferences",
+  "title": "When a Preference Changes, Update the Skill, Not Just the Chat",
+  "description": "Turn your AI assistant's preferences into skills, and when a preference changes, edit the skill itself so the assistant stops getting conflicting instructions.",
+  "category": "Custom AI agents",
+  "takeaway": "Write your preferences down once, turn them into skills your assistant follows every time, and when something changes, have the assistant edit the skill. Telling it the new preference in chat while the skill still says the old thing leaves it with two instructions, and it will pick one or the other.",
+  "sections": [
+    {
+      "id": "start-with-the-document-you-already-wrote",
+      "title": "Start with the document you already wrote",
+      "paragraphs": [
+        "In an AIify It working session setting up a chief-of-staff AI assistant for an executive, the executive had already done the hard part. They had written a long specification document describing how they like things done: how meetings get scheduled, what a recap should look like, which emails need their attention and which don't.",
+        "If you have a document like that, give it to the assistant. Don't summarize it first or pick out the parts you think matter. Have the assistant use it as its main set of instructions, the thing it checks before it acts on your behalf.",
+        "That gets you a long way. But a long document is hard to follow consistently. The assistant has to find the right paragraph for the task in front of it, every time, and the details that matter most for one task can get lost among everything else. That's where skills come in."
+      ]
+    },
+    {
+      "id": "what-a-skill-is",
+      "title": "What a skill actually is",
+      "paragraphs": [
+        "A skill is a lot like a tool call. When an assistant uses a tool, it calls an API to do something, like create a calendar event. When it uses a skill, it calls a standard operating procedure instead: how do I do this one thing they keep asking me to do, the right way, every time.",
+        "The skill carries your preferences. A skill for scheduling might say which days you keep clear, how much buffer you want between calls, and that external meetings should never land before a certain time. A skill for meeting recaps might say to lead with decisions, list action items with owners, and keep it short enough to read on a phone.",
+        "So the second step with that specification document is to ask the assistant to turn it into a skill or a series of skills. One for how to schedule with you. One for your meeting recap format. One for how to triage your inbox. Each one is small, specific, and easy to check."
+      ]
+    },
+    {
+      "id": "the-conflicting-instructions-problem",
+      "title": "The problem with changing your mind in chat",
+      "paragraphs": [
+        "Preferences change. Maybe you used to want recaps as bullet points and now you want a short paragraph first. The natural thing is to just tell the assistant in the conversation: from now on, start recaps with a summary paragraph.",
+        "Here is what happens next. The skill still says bullet points. Your message says paragraph. The assistant now has conflicting instructions: the skill says this, and then you said that. Sometimes it follows the skill. Sometimes it follows you. You end up wondering why it worked yesterday and not today, and it looks like the assistant is unreliable when really it's been given two answers to the same question.",
+        "It gets worse over time. A preference stated in chat may not carry over to the next conversation at all, while the skill always does. So the old behavior keeps coming back, and you keep correcting it."
+      ]
+    },
+    {
+      "id": "tell-it-to-change-the-skill",
+      "title": "Tell the assistant to change the skill itself",
+      "paragraphs": [
+        "The fix is simple. When a preference changes, don't just state the new preference. Tell the assistant to update the skill. For example: update the meeting recap skill so it opens with a two or three sentence summary, then the action items.",
+        "Then ask it to show you the changed section. You want to see that the old instruction is gone, not that a new line was added underneath it. A skill that says bullet points in one place and paragraph in another has the same conflict as before, just moved into the file.",
+        "If a preference applies to several skills, say so. A change like never schedule anything on Friday afternoons might touch your scheduling skill, your travel skill, and your meeting prep skill. Ask the assistant which skills mention it and update all of them. Over time this keeps the skills as the one place your current preferences live."
+      ]
+    },
+    {
+      "id": "tasks-not-job-titles",
+      "title": "Build around tasks, not job titles",
+      "paragraphs": [
+        "The same executive had specifications for dozens of separate agents, each named after a job: a tech support agent, a presentation agent, a research agent, and so on. It's a natural way to think about it, because that's how you'd staff a team of people.",
+        "Before building all of those, go through the designs and pull out the actual tasks you want done. A presentation agent might really come down to three things: turn notes into a slide outline, apply your formatting rules, and check figures against the source. Those are skills.",
+        "Then route those task-based skills through the one main assistant instead of building a broad agent for each job. You talk to one assistant that knows your preferences, and it reaches for the right skill. That's easier to maintain, and when a preference changes you have one set of skills to update instead of a dozen agents that each have their own copy."
+      ]
+    },
+    {
+      "id": "practical-setup-habits",
+      "title": "Two setup habits that save time",
+      "paragraphs": [
+        "Ask the assistant what it needs access to. Describe what you want it to handle, then ask it to list the connections it needs, such as your calendar, email, a shared drive, or a task tracker. It's usually better at listing the specific access a task requires than you are at guessing up front, and you can decide what to grant from that list.",
+        "When a setup works in one place and not another, let the working assistant write the instructions. Say an assistant in one tool handles your scheduling skill perfectly and another one doesn't. Ask the working one to write a markdown guide explaining how it's set up and how to build it properly, then hand that file to the other assistant. It's faster than reverse engineering the difference yourself."
+      ]
+    },
+    {
+      "id": "where-to-start",
+      "title": "Where to start",
+      "paragraphs": [
+        "Pick the two or three things you ask for most often. Write down how you like them done, or point the assistant to the document where you already did. Have it turn each one into a skill and read them back to you.",
+        "Use them for a week. Every time the result isn't quite right, resist the urge to just correct it in the moment. Ask the assistant to fix the skill, check the change, and move on. That habit is what keeps the assistant doing things your way as your preferences change."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Set up an AI assistant that works the way you do",
+    "description": "Explore AIify It custom AI agents built around your preferences, with task-based skills, the right connections, and instructions you can keep current.",
+    "label": "Explore custom AI agents",
+    "href": "/services/custom-ai-agents/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-11-13"
+  }
+}
