@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09090B">
+  <title>Create Your AI Chief of Staff | AIify</title>
+  <meta name="description" content="A free file that turns ChatGPT, Claude, Gemini, or Grok into your AI chief of staff in minutes.">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="ambient" aria-hidden="true"></div>
+  <div class="shell">
+    <header><a class="wordmark" href="https://aiifyit.com/"><picture><source srcset="/images/aiify-logo.webp" type="image/webp"><img src="/images/aiify-logo.png" alt="AIify" width="631" height="167"></picture></a><span class="header-file" aria-hidden="true">.md <span>↗</span></span></header>
+    <main>
+      <section class="hero" aria-labelledby="headline">
+        <div class="intro">
+          <p class="eyebrow"><span aria-hidden="true"></span>Free file from Joshua Pellicer</p>
+          <h1 id="headline">Create Your <span>AI Chief of Staff</span></h1>
+          <p class="subhead">A free file that turns ChatGPT, Claude, Gemini, or Grok into your AI chief of staff in minutes.</p>
+          <section class="benefits" aria-labelledby="benefits-title">
+            <h2 id="benefits-title">What you get</h2>
+            <ul>
+              <li>A short interview first, so it knows your role, your people, and your priorities</li>
+              <li>A daily brief, meeting prep, inbox drafts, and a weekly review</li>
+              <li>Works in ChatGPT, Claude, Gemini, or Grok</li>
+              <li>Never sends anything without your approval</li>
+            </ul>
+          </section>
+        </div>
+        <div class="form-column">
+          <section class="form-card" aria-label="Download the AI chief of staff file (.md)">
+            <div class="card-top"><span class="file-icon" aria-hidden="true">↗</span><span aria-hidden="true">ai-chief-of-staff<span>.md</span></span><span class="target-mark" aria-hidden="true"></span></div>
+            <ol class="progress" aria-label="How it works">
+              <li aria-current="step"><span>1</span><span class="sr-only">Tell us who you are.</span></li>
+              <li><span>2</span><span class="sr-only">Leave a way to reach you.</span></li>
+              <li><span>3</span><span class="sr-only">Download the file.</span></li>
+            </ol>
+            <form id="lead-form" novalidate>
+              <div class="honeypot" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+              <div id="attribution" hidden></div>
+              <div class="step" id="step-1">
+                <h2 tabindex="-1">Who's it for?</h2>
+                <div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" maxlength="160" required aria-describedby="name-error"><p class="error" id="name-error" hidden></p></div>
+                <div class="field"><label for="company">Company</label><input id="company" name="company" autocomplete="organization" maxlength="200" required aria-describedby="company-error"><p class="error" id="company-error" hidden></p></div>
+                <button class="primary" type="submit"><span>Continue</span><span aria-hidden="true">↗</span></button>
+              </div>
+              <div class="step" id="step-2" hidden>
+                <h2 tabindex="-1">Where can we reach you?</h2>
+                <p class="helper">Email or phone is enough. We need one.</p>
+                <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="254" aria-describedby="email-error"><p class="error" id="email-error" hidden></p></div>
+                <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="64" aria-describedby="phone-error"><p class="error" id="phone-error" hidden></p></div>
+                <div class="actions"><button class="back" id="back" type="button">Back</button><button class="primary" type="submit"><span>Continue</span><span class="submit-icon" aria-hidden="true">↗</span></button></div>
+              </div>
+              <p id="submit-error" class="error" role="alert" hidden></p>
+              <p class="privacy" id="privacy">We use your name, company, and email or phone to send you the file and so we can follow up. <a href="https://aiifyit.com/privacy" target="_blank" rel="noopener noreferrer">Read our privacy policy</a>.</p>
+            </form>
+            <div class="step success" id="step-3" hidden>
+              <div class="success-check" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="29"/><path d="m19 32 9 9 18-20"/></svg></div>
+              <h2 tabindex="-1">Your file is ready.</h2>
+              <p>Thanks. Download it below and keep it somewhere handy.</p>
+              <a class="primary download" id="download" download="ai-chief-of-staff.md">Download the AI chief of staff file (.md)<span aria-hidden="true">↓</span></a>
+              <p class="usage">Upload or paste the file into ChatGPT, Claude, Gemini, or Grok, then answer its questions.</p>
+              <p class="quiet">If you ever want help co-managing your AI as things change, that's what we do at AIify. You can reach us at <a href="mailto:joshua@aiifyit.com">joshua@aiifyit.com</a>.</p>
+            </div>
+            <p class="sr-only" id="step-status" role="status" aria-live="polite"></p>
+          </section>
+          <section class="how" aria-labelledby="how-title"><h2 id="how-title">How it works</h2><ol><li>Tell us who you are.</li><li>Leave a way to reach you.</li><li>Download the file.</li></ol></section>
+        </div>
+      </section>
+    </main>
+    <footer><span class="footer-brand">AIify</span><a href="mailto:joshua@aiifyit.com">joshua@aiifyit.com</a><a href="https://aiifyit.com/privacy">Privacy</a></footer>
+  </div>
+  <!-- LinkedIn Insight Tag placeholder. Replace YOUR_LINKEDIN_PARTNER_ID before enabling tracking. -->
+  <script>
+    _linkedin_partner_id = "YOUR_LINKEDIN_PARTNER_ID";
+    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+    window._linkedin_data_partner_ids.push(_linkedin_partner_id);
+    // Do not load the tracking script until a real partner ID has been configured.
+    if (_linkedin_partner_id !== "YOUR_LINKEDIN_PARTNER_ID") {
+      (function(l) {
+        if (!l) { window.lintrk = function(a,b) { window.lintrk.q.push([a,b]); }; window.lintrk.q = []; }
+        var s = document.getElementsByTagName("script")[0];
+        var b = document.createElement("script"); b.type = "text/javascript"; b.async = true;
+        b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js"; s.parentNode.insertBefore(b,s);
+      })(window.lintrk);
+    }
+  </script>
+  <noscript><img height="1" width="1" style="display:none" alt="" src="https://px.ads.linkedin.com/collect/?pid=YOUR_LINKEDIN_PARTNER_ID&amp;fmt=gif"><p>JavaScript is required to use this form.</p></noscript>
+</body>
+</html>
