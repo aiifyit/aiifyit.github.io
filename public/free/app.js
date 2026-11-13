@@ -39,8 +39,9 @@ const LI_CONVERSIONS = { page_view: 32321050, step1: 32321058, step2: 32321066, 
   function backgroundPost(path, payload) {
     const body = JSON.stringify(payload);
     try {
-      // JSON Blob avoids sendBeacon's default text/plain. The API accepts both.
-      if (navigator.sendBeacon?.(`${apiBase}${path}`, new Blob([body], { type: 'application/json' }))) return;
+      // text/plain is a CORS-simple type, so sendBeacon can finish cross-origin.
+      // application/json beacons return true then fail with net::ERR_FAILED (no preflight).
+      if (navigator.sendBeacon?.(`${apiBase}${path}`, new Blob([body], { type: 'text/plain;charset=UTF-8' }))) return;
     } catch {}
     try {
       void fetch(`${apiBase}${path}`, {
