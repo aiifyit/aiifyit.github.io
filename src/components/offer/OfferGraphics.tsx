@@ -26,13 +26,13 @@ export function AgentSwarm({ variant = 'partner' }: { variant?: 'partner' | 'dir
 export function StepGraphic({ step, variant = 'partner' }: { step: number; variant?: 'partner' | 'direct' }) {
   const direct = variant === 'direct';
   const labels = direct
-    ? ['We start with your goals.', 'Agents link around your business.', 'Weekly build sessions.', 'Goals feed the agents. Illustration.', 'Your team and the work you own.']
-    : ['The client stays locked inside your brand.', 'Agents link around the client business.', 'Weekly build sessions.', 'Quarterly goals feed live dashboards. Illustration.', 'Client team wins flow into your brand.'];
+    ? ['We start with your goals.', 'Agents link around your business.', 'We go to work for you every day of the week.', 'Goals feed the agents. Illustration.', 'Your team and the work you own.']
+    : ['The client stays locked inside your brand.', 'Agents link around the client business.', 'We go to work for your clients every day of the week.', 'Quarterly goals feed live dashboards. Illustration.', 'Client team wins flow into your brand.'];
   const kicker = step === 3 ? 'Illustration' : (direct ? 'You × AIify' : 'Your brand × AIify');
   const step0Title = direct ? 'Your company' : 'Your brand';
   const step0Tile = direct ? 'Goals' : 'Client';
   const step0Caption = direct ? 'We start with your goals' : 'The client stays yours';
-  const weeklyCaption = direct ? 'Weekly build session' : '~30 min weekly session';
+  const weeklyCaption = direct ? 'We go to work for you every day of the week' : 'We go to work for your clients every day of the week';
   const step4Roles = direct ? ['Your team', 'Results', 'The work'] : ['Client team', 'Results', 'Shared wins'];
   const step4Title = direct ? 'You own it' : 'Your brand';
   const step4Sub = direct ? '◇ Yours' : '◇ Credit';

@@ -15,7 +15,7 @@ export const NAV_ITEMS: NavItem[] = [
 export const HERO_EYEBROW = "Done-for-you AI agent swarms";
 export const HERO_HEADLINE = "Do in Hours What Used to Take Months.";
 export const HERO_SUBHEADLINE =
-  "We set it up, build with your executive team every week, and keep your agents on top of AI as it changes. The sign-up price is $10,000 per month per company account.";
+  "We set it up, go to work for your executive team every day of the week, and keep your agents on top of AI as it changes. The sign-up price is $10,000 per month per company account.";
 
 export const HERO_BULLETS = [
   "Agent swarms aimed at your goals",
@@ -47,7 +47,7 @@ export const SOCIAL_PROOF_LOGOS = [
 
 export const ABOUT_SUBHEADING = "Built by Operators, for Operators";
 export const ABOUT_BODY =
-  "We're operators who got tired of tools that don't work. We've spent years inside real businesses — building, breaking, and rebuilding systems until they actually run day-in, day-out. AIify doesn't hand you a deck and walk away. We set up your AI agents ourselves, build with your team every week, and stay to make sure they keep working.";
+  "We're operators who got tired of tools that don't work. We've spent years inside real businesses — building, breaking, and rebuilding systems until they actually run day-in, day-out. AIify doesn't hand you a deck and walk away. We set up your AI agents ourselves, go to work for your team every day of the week, and stay to make sure they keep working.";
 
 export const TEAM_SUBHEADING =
   "We're proud of the people behind AIify — operators, builders, and problem-solvers who make sure your automation actually works.";
@@ -80,9 +80,9 @@ export const PROCESS_STEPS: ProcessStep[] = [
   },
   {
     number: "03",
-    title: "We Build With You Weekly",
+    title: "We Go to Work for You Every Day of the Week",
     description:
-      "Every week we build with your team, adjust the agents, and keep them on top of AI as it changes.",
+      "Every day of the week we go to work for your team, adjust the agents, and keep them on top of AI as it changes.",
     iconName: "Rocket",
   },
 ];
@@ -99,9 +99,9 @@ export const SERVICES: Service[] = [
     iconName: "Workflow",
   },
   {
-    title: "Weekly Build Sessions",
+    title: "We Go to Work for You Every Day of the Week",
     description:
-      "We build with your team every week and point the agents at what matters now.",
+      "We go to work for your team every day of the week and point the agents at what matters now.",
     iconName: "TrendingUp",
   },
   {
