@@ -15,6 +15,7 @@
   }
   let current = 1;
   let busy = false;
+  let conversionTracked = false;
   let transitioning = false;
   const errorBox = document.querySelector('#submit-error');
   const field = name => form.elements.namedItem(name);
@@ -95,6 +96,12 @@
       if (download.origin !== apiBase || download.pathname !== '/api/download') throw new Error('download');
       document.querySelector('#download').href = download.href;
       await showStep(3);
+      if (current === 3 && !conversionTracked) {
+        conversionTracked = true;
+        if (typeof window.lintrk === 'function') {
+          window.lintrk('track', { conversion_id: 32321042 });
+        }
+      }
     } catch {
       // Operational error only; never include personal data or API details in the UI or console.
       errorBox.textContent = 'Unable to submit. Please try again.';
