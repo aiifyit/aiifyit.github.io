@@ -1,0 +1,85 @@
+{
+  "slug": "ai-voice-mystery-shopper-caller-scripts",
+  "title": "Your AI Mystery Shopper Needs a Story, Not Just a Good Voice",
+  "description": "An AI mystery shopper call only tells you something if your staff believe the caller. Give each caller a story, everyday words, and real pacing.",
+  "category": "AI quality assurance",
+  "takeaway": "Placing AI mystery shopper calls is the easy part. If your staff can tell the caller isn't real, they act differently and the results are useless, so write each caller like a character with a life, a reason to call today, and the words and pacing a real person would use. Pick callers that test the behavior you care about, and let the people who know your real callers approve them before any test call goes out.",
+  "sections": [
+    {
+      "id": "the-technology-isnt-the-hard-part",
+      "title": "The technology isn't the hard part",
+      "paragraphs": [
+        "An AI mystery shopper, sometimes called a secret shopper, is a voice agent that calls your front desk posing as a new caller. The point is to hear how the person who answers handles that first call. Do they get the caller's name and phone number? Do they ask whether the person has called before? Do they stay patient when the caller is upset, confused, or difficult?",
+        "In an AIify It working session with a team building these callers, the technology wasn't what held things up. The agent could place the calls, and the voices were close to where they needed to be. The conversation kept coming back to the caller. A voice that sounds human is not the same as a person who sounds like they have a real reason to be on the phone.",
+        "That matters because of what a mystery shopper is for. You want to see how your staff behave with real callers. If the caller is obviously fake, the person answering responds differently. They might switch to their best behavior because they suspect a test, or stop taking the call seriously. Either way, you're no longer seeing how they handle a real new caller, and the data is useless."
+      ]
+    },
+    {
+      "id": "give-every-caller-a-scene-and-a-trigger",
+      "title": "Give every caller a scene and a trigger",
+      "paragraphs": [
+        "Think about it the way a movie director would. Before an actor says a line, the director tells them who they are and what's going on in their life. Your AI caller needs the same setup. Who is this person, and where are they in life? A woman in her 60s or 70s and a 35-year-old with small kids at home don't sound alike, don't call about the same things, and don't run out of patience at the same point.",
+        "Then give them a trigger: what happened that made them call today. People don't call a business out of nowhere. Say the older woman wants to update her will. She could have called five years ago, and she didn't. Something changed. Maybe a close friend died and the friend's kids have been fighting over the house ever since, and now she's worried the same thing could happen in her family. The 35-year-old might have just had a health scare and realized nothing is written down about who would raise their kids.",
+        "The trigger is what makes the call feel real. Because something just happened, the caller wants a specific thing changed, and they're a little impatient about it. They put it off for years, and now they want it handled. That's a very different call from someone politely asking what services you offer, and it's much closer to how real new callers sound.",
+        "Write the scene down before you write any dialogue: age, life situation, what just happened, what they want changed, and how they feel about having to make the call at all. If you can't answer those questions, the AI can't either, and you'll get a generic caller."
+      ]
+    },
+    {
+      "id": "describe-the-situation-not-the-service",
+      "title": "Describe the situation, not the service",
+      "paragraphs": [
+        "Real callers don't use your industry's vocabulary. A test caller who opens with \"I want to set up a trust to avoid probate\" sounds like a bot, or like someone who works in the field. A real person says something like \"I want to make sure my son gets the house.\" They know what they want to happen. They usually don't know what it's called.",
+        "Some phrasing works because of what it implies. In the session, the line \"I have an old will I want to update\" came across as believable. It tells the person answering that the caller has seen someone before, maybe years ago, and that something has changed since. It sounds like a real history, not a request for a product.",
+        "So build the persona around the situation and let the caller describe it in their own words. Keep the industry terms out of the persona instructions, too, so you aren't handing the AI the exact words you don't want it to use. If it still slips, list the terms this caller would never say. The same rule holds at any front desk. People call a heating company to say the house is freezing and something in the basement keeps clicking. They don't ask for a furnace diagnostic."
+      ]
+    },
+    {
+      "id": "small-details-pacing-and-emotion",
+      "title": "Small details, pacing, and emotion give it away",
+      "paragraphs": [
+        "Small details give a fake caller away faster than you'd think. One example from the session: an older caller who, asked for her phone number, says \"you can reach me at the number I'm calling from.\" That doesn't fit a woman in her 70s calling about her will. She'd recite her number. So have the AI say the number out loud, and give each persona a number that actually reaches your team in case the front desk calls back.",
+        "Pacing is the next tell. A caller who launches into \"I want him to pay for what he did\" before the receptionist has finished the greeting isn't believable. Real people wait for the hello. Then they open with the plain situation, something like \"Hi, I think I need a divorce.\" The angry lines come minutes later, once they're into the story and it starts to get to them.",
+        "The emotion has to match the words, too. A voice that sounds cheerful while saying something serious fails right away, and that mismatch is exactly what makes the person answering suspicious. And emotions shift during a real call. Someone who starts out crying can turn angry halfway through, and someone who starts out angry can end up in tears. Write that arc into the persona: how they open, what sets them off, and where it turns."
+      ]
+    },
+    {
+      "id": "pick-callers-that-test-what-you-care-about",
+      "title": "Pick callers that test what you care about",
+      "paragraphs": [
+        "A believable caller still has to test something. An endearing older caller is great for realism, but almost nobody is rude to a sweet older lady. She'll probably get a warm, patient response, which is nice to hear and doesn't tell you much about how your staff handle pressure.",
+        "So build a mix. Include a normal caller who's having a bad day and is short with whoever picks up. Include a confused caller who doesn't know what they need and can't name the service, so the person answering has to work it out with them. And include pushback callers. One answers \"have you called us before?\" with \"how would I know?\" Another keeps saying \"I just want to talk to the lawyer,\" or the owner, or whoever is in charge, no matter what the receptionist asks.",
+        "The difficult callers are where you learn the most. Does the person answering still get a name and number from someone who won't cooperate? Do they stay patient with someone who keeps asking for the person in charge? The team in the session worked with about seven caller behavior types, including difficult ones. You don't need that exact number, but every behavior you want to check should be covered by at least one caller, and you should decide ahead of time what a good response looks like for each."
+      ]
+    },
+    {
+      "id": "let-the-people-who-know-your-callers-judge-first",
+      "title": "Let the people who know your callers judge it first",
+      "paragraphs": [
+        "You're probably not the best judge of whether a caller sounds real. The best judges are the people who know the real callers, like whoever trains your front desk or experienced front-desk staff who won't be part of the test. Before any test call goes out, have them hear the voices and a few sample calls. They'll notice things you won't, like a phrase nobody actually says or a reaction that comes too fast.",
+        "An easy way to do this is a review session where the agent calls your own phone and you put it on speaker, so everyone hears the call the way a receptionist would. Go in expecting that they might reject every voice. That's fine, and much better to hear now than after the test. Then iterate quickly. Instead of saving new versions for the next meeting, share samples in your team chat and ask for a quick yes or no.",
+        "Fix the silly logic in the script before the beta. That's anything where the caller does something that doesn't follow from who they are or what was just said, like answering a question nobody asked or forgetting a detail they gave a minute earlier. Each one is small, but they add up, and any one of them can make the person answering wonder who's really on the line.",
+        "Then run a small beta. Only call people or offices that have agreed to receive test calls, and keep it to a handful of callers. The team in the session planned five. Afterward, go through the results together: what each caller did, how the person answering handled it, and what still sounded off. Fix that before you widen the test."
+      ]
+    },
+    {
+      "id": "where-to-start",
+      "title": "Where to start",
+      "paragraphs": [
+        "Start by writing down what you want to learn. For new-caller intake, that might be: did they get the caller's name and number, did they ask whether the person had called before, and did they stay patient. Then choose personas that test each of those, including a few difficult callers, not just pleasant ones.",
+        "For each persona, write the scene before the script: who they are, where they are in life, what just happened, and what they want changed. Have them describe their situation in everyday words, say their phone number out loud, wait for the greeting, and open with the plain version of their problem. Plan how their emotion moves during the call, and check that the voice matches it.",
+        "Then put it in front of the people who know your real callers. Play calls to your own phone on speaker, share new samples in your team chat for a quick yes or no, and fix the logic that doesn't hold up. Run a small beta with a handful of callers to people who agreed to receive them, review it together, and only then widen the test."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Build AI mystery shopper callers with a story behind them",
+    "description": "Explore how AIify It approaches custom AI agents, including voice agents with caller personas, scripts, and review steps shaped by the people who know your callers.",
+    "label": "Explore custom AI agents",
+    "href": "/services/custom-ai-agents/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-11-16"
+  }
+}
