@@ -1,19 +1,12 @@
 'use strict';
-const LI_CONVERSIONS = { page_view: 32321050, step1: 32321058, step2: 32321066, download: 32321042 };
+const LI_CONVERSIONS = { page_view: 32321050, download: 32321042 };
 (() => {
   const apiBase = location.hostname.endsWith('.joshua-509.workers.dev')
     ? location.origin : 'https://aiify-free-file.joshua-509.workers.dev';
-  const form = document.querySelector('#lead-form');
-  const steps = [1, 2, 3].map(n => document.querySelector(`#step-${n}`));
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const trackingKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'li_fat_id'];
   const params = new URLSearchParams(location.search);
   const tracking = Object.fromEntries(trackingKeys.map(key => [key, (params.get(key) || '').slice(0, 512)]));
-  for (const [name, value] of Object.entries(tracking)) {
-    const input = document.createElement('input');
-    input.type = 'hidden'; input.name = name; input.value = value;
-    document.querySelector('#attribution').append(input);
-  }
   // Storage can be unavailable in private/restricted contexts; keep an in-memory fallback.
   const sessionKey = 'aiify.funnel.session';
   let sessionId;
@@ -65,114 +58,62 @@ const LI_CONVERSIONS = { page_view: 32321050, step1: 32321058, step2: 32321066, 
   }
   track('page_view');
   conversion('page_view');
-  document.querySelector('#download').addEventListener('click', () => track('download_clicked'));
-  for (const type of ['input', 'change']) {
-    form.addEventListener(type, event => {
-      if (['name', 'company'].includes(event.target.name) && current === 1) track('step1_started');
-      if (['email', 'phone'].includes(event.target.name) && current === 2) track('step2_started');
-    });
+  const download = document.querySelector('#download');
+  const again = document.querySelector('#download-again');
+  const file = new URL(`${apiBase}/api/file`);
+  file.searchParams.set('session', sessionId);
+  if (variant.page_variant) file.searchParams.set('v', variant.page_variant);
+  for (const key of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content']) {
+    if (tracking[key]) file.searchParams.set(key, tracking[key]);
   }
-  let current = 1;
-  let busy = false;
-  let transitioning = false;
-  const errorBox = document.querySelector('#submit-error');
-  const field = name => form.elements.namedItem(name);
-  function setError(name, message) {
-    const input = field(name);
-    const error = document.querySelector(`#${name}-error`);
-    input.setAttribute('aria-invalid', String(Boolean(message)));
-    error.textContent = message || ''; error.hidden = !message;
+  if (params.has('li_fat_id')) file.searchParams.set('li', '1');
+  download.href = again.href = file.href;
+
+  const card = document.querySelector('.download-card');
+  let animating = false;
+  function showSuccess() {
+    document.querySelector('#download-ready').hidden = true;
+    document.querySelector('#download-success').hidden = false;
+    document.querySelector('#download-success h2').focus({ preventScroll: true });
   }
-  function validate(step) {
-    const errors = {};
-    if (step === 1) {
-      if (!field('name').value.trim()) errors.name = 'Please enter your name.';
-      if (!field('company').value.trim()) errors.company = 'Please enter your company.';
-    } else {
-      const email = field('email').value.trim();
-      const phone = field('phone').value.trim();
-      if (!email && !phone) errors.email = 'Please enter an email or a phone number.';
-      if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.email = "That email doesn't look right. Please check it.";
-      if (phone && !validPhone(phone)) errors.phone = "That phone number doesn't look right. Please check it.";
+  function confetti() {
+    const burst = document.createElement('div');
+    burst.className = 'confetti'; burst.setAttribute('aria-hidden', 'true');
+    for (let i = 0; i < 40; i++) {
+      const piece = document.createElement('i');
+      const angle = Math.PI * 2 * i / 40;
+      const distance = 70 + Math.random() * 130;
+      piece.style.cssText = `--x:${Math.cos(angle) * distance}px;--y:${Math.sin(angle) * distance}px;--r:${180 + Math.random() * 540}deg;--delay:${Math.random() * 80}ms;--color:var(--burst-${i % 4})`;
+      burst.append(piece);
     }
-    for (const key of step === 1 ? ['name', 'company'] : ['email', 'phone']) setError(key, errors[key]);
-    const first = Object.keys(errors)[0];
-    if (first) field(first).focus();
-    return !first;
+    card.append(burst);
+    setTimeout(() => burst.remove(), 1100);
   }
-  function validPhone(value) {
-    const core = value.replace(/(?:ext\.?|x|#)\s*\d{1,8}$/i, '').trim();
-    const digits = core.replace(/\D/g, '');
-    return /^[+\d\s().\-/]+$/.test(core) && digits.length >= 7 && digits.length <= 15;
+  function clicked() {
+    track('download_clicked');
+    conversion('download');
+    document.querySelector('#download-status').textContent = 'Your file is downloading';
   }
-  async function showStep(next) {
-    if (transitioning) return;
-    transitioning = true;
-    const outgoing = steps[current - 1];
-    if (!reducedMotion.matches && outgoing.animate) {
-      await outgoing.animate([{ opacity: 1, transform: 'translateY(0)' }, { opacity: 0, transform: 'translateY(-8px)' }], { duration: 130, easing: 'ease-in' }).finished;
+  // Keep native attachment navigation: the animation never waits on the network.
+  download.addEventListener('click', () => {
+    clicked();
+    if (animating) return;
+    animating = true;
+    if (reducedMotion.matches) { showSuccess(); return; }
+    const stage = document.querySelector('.download-stage');
+    stage.style.setProperty('--flight-x', `${stage.clientWidth / 2 - 29}px`);
+    card.classList.add('is-downloading');
+    const start = performance.now();
+    function progress(now) {
+      const percent = Math.min(100, Math.round((now - start) / 11));
+      download.style.setProperty('--progress', `${percent}%`);
+      download.querySelector('.percentage').textContent = `${percent}%`;
+      if (percent < 100) requestAnimationFrame(progress);
     }
-    outgoing.hidden = true;
-    current = next;
-    form.hidden = next === 3;
-    document.querySelector('#privacy').hidden = next === 3;
-    const incoming = steps[next - 1]; incoming.hidden = false;
-    document.querySelectorAll('.progress li').forEach((item, index) => {
-      item.classList.toggle('complete', index < next - 1);
-      if (index === next - 1) item.setAttribute('aria-current', 'step'); else item.removeAttribute('aria-current');
-    });
-    if (!reducedMotion.matches && incoming.animate) {
-      incoming.animate([{ opacity: 0, transform: 'translateY(10px)' }, { opacity: 1, transform: 'translateY(0)' }], { duration: 260, easing: 'cubic-bezier(.2,.8,.2,1)' });
-      if (next === 3) document.querySelector('.success-check').animate([{ transform: 'scale(.7)', opacity: 0 }, { transform: 'scale(1)', opacity: 1 }], { duration: 350 });
-    }
-    document.querySelector('#step-status').textContent = `${next} / 3`;
-    if (next < 3) field(next === 1 ? 'name' : 'email').focus({ preventScroll: true });
-    else incoming.querySelector('h2').focus({ preventScroll: true });
-    transitioning = false;
-  }
-  document.querySelector('#back').addEventListener('click', () => { if (!busy) { errorBox.hidden = true; void showStep(1); } });
-  form.addEventListener('input', event => {
-    if (['name', 'company', 'email', 'phone'].includes(event.target.name)) setError(event.target.name, '');
-    errorBox.hidden = true;
+    requestAnimationFrame(progress);
+    setTimeout(() => card.classList.add('is-complete'), 1180);
+    setTimeout(confetti, 1540);
+    setTimeout(showSuccess, 1900);
   });
-  form.addEventListener('submit', async event => {
-    event.preventDefault();
-    if (busy || transitioning || !validate(current)) return;
-    if (current === 1) {
-      track('step1_completed');
-      conversion('step1');
-      if (!field('website').value.trim()) {
-        backgroundPost('/api/lead', { ...tracking, ...variant, session_id: sessionId, partial: true,
-          name: field('name').value.trim(), company: field('company').value.trim() });
-      }
-      await showStep(2); return;
-    }
-    busy = true; form.setAttribute('aria-busy', 'true'); errorBox.hidden = true;
-    form.querySelectorAll('button').forEach(button => { button.disabled = true; });
-    try {
-      const payload = { ...tracking, ...variant, session_id: sessionId };
-      for (const key of ['name', 'company', 'email', 'phone', 'website']) payload[key] = field(key).value.trim();
-      const response = await fetch(`${apiBase}/api/lead`, {
-        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload),
-        signal: AbortSignal.timeout(20000), credentials: 'omit', referrerPolicy: 'no-referrer'
-      });
-      const result = await response.json();
-      if (!response.ok || !result.ok || !result.download_url) throw new Error('submit');
-      const download = new URL(result.download_url, apiBase);
-      if (download.origin !== apiBase || download.pathname !== '/api/download') throw new Error('download');
-      document.querySelector('#download').href = download.href;
-      track('step2_completed');
-      conversion('step2');
-      await showStep(3);
-      if (current === 3) conversion('download');
-    } catch {
-      // Operational error only; never include personal data or API details in the UI or console.
-      errorBox.textContent = 'Unable to submit. Please try again.';
-      errorBox.hidden = false;
-    } finally {
-      busy = false; form.removeAttribute('aria-busy');
-      form.querySelectorAll('button').forEach(button => { button.disabled = false; });
-    }
-  });
-  field('name').focus({ preventScroll: true });
+  again.addEventListener('click', clicked);
 })();
