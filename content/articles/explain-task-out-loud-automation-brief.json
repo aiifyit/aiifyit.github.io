@@ -1,0 +1,90 @@
+{
+  "slug": "explain-task-out-loud-automation-brief",
+  "title": "Explain the Task Out Loud Once: Rubber Ducking for Business Automation",
+  "description": "Record yourself explaining a job start to finish, turn the transcript into a clear brief, and never explain the same task twice. Here's how to do it.",
+  "category": "Automation planning",
+  "takeaway": "Before you automate a task, hit record and explain the whole job out loud, start to finish, including the judgment calls and the weird cases. Turn that transcript into a written brief with the trigger, inputs, steps, decisions, exceptions, and reviewers. Every correction after that goes into the brief, so you never have to explain the same thing twice.",
+  "sections": [
+    {
+      "id": "from-rubber-duck-to-recorder",
+      "title": "From a rubber duck to a recorder",
+      "paragraphs": [
+        "Programmers have an old habit called rubber ducking. When they're stuck, they keep a rubber duck on the desk and explain the problem to it out loud, line by line. Somewhere in the middle of explaining, they usually spot what they missed. The duck never says a word. The value comes from being forced to say every step plainly.",
+        "In an AIify It intro call with a multi-location service business owner, this idea came up as a way to deal with a common feeling: there are too many AI tools, and it's hard to know where to start without something important slipping through the cracks. The answer wasn't another tool. It was a habit. When you want a task handled, hit record and explain the whole job out loud, start to finish.",
+        "The listener doesn't matter. You could explain it to a coworker, your phone, or a doormat. What matters is that the explanation gets captured, because most of how your business actually runs lives in your head, not in any document. A recording gets it out of your head in the time it takes to talk, which is a lot faster than writing a process manual nobody will finish.",
+        "From there, the recording gets transcribed and broken down into what an automation actually needs. Then someone builds it on your side. You talk once, and the rest of the work happens without you having to sit through a long planning process."
+      ]
+    },
+    {
+      "id": "what-to-say-when-you-hit-record",
+      "title": "What to say when you hit record",
+      "paragraphs": [
+        "You don't need a script, but it helps to cover a few things. Start with what kicks the task off. Is it a new booking, a finished job, a certain day of the week, an email from a customer? Then say where the information comes from: which system, which inbox, which spreadsheet, which person you usually have to ask.",
+        "Next, describe what done looks like. Is the task finished when an invoice goes out, when a customer gets a reply, when a field gets updated? People often skip this because it feels obvious to them, but it's the part an automation needs most. If nobody knows what done looks like, nobody knows when to stop.",
+        "Then talk through the judgment calls and how you actually make them. If you sometimes waive a fee, say when and why. If you escalate some customers and not others, say what makes the difference. Also go through the weird cases from the last few months: the job that got rescheduled three times, the customer who paid in two parts, the technician who submitted everything to the wrong place. Finish with who needs to know when the task is done, or when something goes wrong.",
+        "If you can, keep recording while you actually do the task. Talking through it live catches the small steps you forget when describing it from memory, like checking a second screen or glancing at a note before you reply. Those small steps are often exactly where things slip."
+      ]
+    },
+    {
+      "id": "turn-the-transcript-into-a-brief",
+      "title": "Turn the transcript into a brief",
+      "paragraphs": [
+        "A raw transcript is messy. You'll repeat yourself, go off on tangents, and circle back. That's fine. The next step is to have AI read the transcript and pull out a structured brief: the trigger, the inputs, the steps in order, the decisions and the rules behind them, the exceptions, and who reviews what.",
+        "Ask it to also list open questions. A good brief shows the gaps, like \"What happens if the customer doesn't reply within two days?\" or \"Who approves a refund over the usual amount?\" Those questions are useful because they point to the places where the task currently depends on someone remembering what to do.",
+        "Then you read the brief and correct it. This is the one part you can't hand off. AI will sometimes guess wrong about a rule or merge two steps that should stay separate. Fixing a written brief takes a few minutes, and it's much easier than writing one from scratch.",
+        "Once you've corrected it, the brief becomes the source of truth for the task. Whoever builds the automation works from it, and anyone who later wonders why the system does something a certain way can read it."
+      ]
+    },
+    {
+      "id": "the-never-explain-twice-rule",
+      "title": "The rule: never explain something twice",
+      "paragraphs": [
+        "The whole point of this approach is that you should never have to explain the same thing twice. If you find yourself explaining a task again, to a person or to a tool, something went wrong. The knowledge was captured once and then lost.",
+        "The habit that prevents this is simple: every correction goes into the written instructions, not just into a chat. If you tell an assistant \"no, for commercial customers we always copy the property manager,\" that sentence needs to land in the brief. If it only lives in a message thread, it will be forgotten the next time someone new picks up the task.",
+        "This applies to AI tools too. Correcting a chatbot in a single conversation fixes one answer. Updating the instructions it runs from fixes every future answer. That's the difference between a tool you keep babysitting and a process that improves over time.",
+        "In practice, this means keeping one place where the brief lives and making sure the person who builds or maintains the automation updates it whenever a new rule comes up. It's a small discipline, but it's what stops things from slipping through the cracks."
+      ]
+    },
+    {
+      "id": "repeated-jobs-and-one-off-tasks",
+      "title": "Repeated jobs and one-off tasks work differently",
+      "paragraphs": [
+        "For repeated jobs, the path is straightforward. Once the automation is built, the trigger gets set up and the job runs on its own whenever that trigger happens. When a new exception shows up, it gets added to the brief and the automation, so the job handles it the next time. Each exception you add makes it a little smarter.",
+        "One-off tasks are different. These are the requests that don't follow a fixed pattern: a customer question that needs a custom reply, a vendor quote to compare, a scheduling conflict to sort out. You can't fully automate them, but you can prepare most of them.",
+        "Say you handle 20 of these a week. With good briefs behind them, most can be drafted, looked up, or set up for you ahead of time. Only the ones that truly need your judgment come back to you, maybe 8 of them. You go from doing 20 things to reviewing 8, and the ones you review already have the context and a suggested answer attached.",
+        "That shift matters more than it sounds. Reviewing a prepared draft takes a fraction of the attention that starting from a blank page does, and it keeps you in charge of the decisions that actually need you."
+      ]
+    },
+    {
+      "id": "worked-example-missing-job-photos",
+      "title": "A worked example: chasing missing job photos",
+      "paragraphs": [
+        "Here's a generic, made-up example. Imagine a service business where technicians are supposed to upload before and after photos for every job. Someone in the office spends part of each day checking which jobs are missing photos and sending reminders. It's tedious, and when it slips, warranty claims and customer disputes get harder.",
+        "The owner records a few minutes of explanation: \"When a job is marked complete, it should have at least two photos. If it doesn't by end of day, text the technician. If there's still nothing the next morning, tell their manager. Skip jobs that were just estimates. If the customer refused photos, the tech should note that, and then it's fine. Last month we had a tech upload photos to the wrong job, so check the address matches.\"",
+        "From that transcript, the brief looks like this. Trigger: a job is marked complete. Input: the job record and its attached photos. Steps: check photo count, send a reminder at end of day, escalate the next morning. Decisions: skip estimates, accept a customer-refusal note. Exception: photos attached to the wrong job. Reviewer: the technician's manager gets escalations. Open question: should repeat misses get flagged in a weekly summary?",
+        "The owner answers the open question, corrects one detail, and the automation gets built from the brief. When a new case shows up later, like a job split across two visits, it gets added to the brief once and handled from then on."
+      ]
+    },
+    {
+      "id": "better-work-for-assistants-and-locations",
+      "title": "Better work for assistants, and the same process at every location",
+      "paragraphs": [
+        "This approach also changes what your assistants spend their time on. A virtual assistant or office manager who spends hours chasing photos, copying data between systems, and sending the same reminders is doing work that's not worth their time. When those jobs run on their own, they can focus on customers, problems that need a person, and work that actually moves the business forward.",
+        "It helps with training too. A new assistant can read the brief instead of shadowing someone for a week and picking up half the rules along the way.",
+        "For businesses with more than one location, the benefit is consistency. Without a written brief, each location learns the process from whoever trained them, and small differences creep in. It turns into a game of telephone. With one brief and one automation, every location does the task the same way, and when the process changes, it changes everywhere at once.",
+        "You don't need to start big. Pick one task that annoys you or that keeps slipping, hit record, and explain it start to finish. That one recording is enough to get going."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Turn one recording into a working automation",
+    "description": "Explain a task once and we'll help turn it into a clear brief and a workflow that runs on its own, with only the real judgment calls coming back to you.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-11-17"
+  }
+}
