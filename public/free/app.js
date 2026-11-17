@@ -56,6 +56,61 @@ const LI_CONVERSIONS = { page_view: 32321050, download: 32321042 };
     try { if (document.referrer) payload.referrer_host = new URL(document.referrer).hostname; } catch {}
     backgroundPost('/api/event', payload);
   }
+  // Anonymous, session-cumulative active/visible engagement. Storage is optional.
+  const engagementKey = `aiify.engagement.${sessionId}`;
+  let visitorId, visitNumber = 1, state = {};
+  try { state = JSON.parse(sessionStorage.getItem(engagementKey) || '{}') || {}; } catch {}
+  try {
+    visitorId = localStorage.getItem('aiify.visitor');
+    if (!/^[A-Za-z0-9_-]{1,64}$/.test(visitorId || '')) {
+      visitorId = crypto.randomUUID(); localStorage.setItem('aiify.visitor', visitorId);
+    }
+    visitNumber = state.visit_number || Math.min(10000, (Number(localStorage.getItem('aiify.visits')) || 0) + 1);
+    if (!state.visit_number) localStorage.setItem('aiify.visits', String(visitNumber));
+  } catch { visitorId = undefined; }
+  state = { engaged_ms: 0, max_scroll: 0, ...state, visit_number: visitNumber };
+  let lastTick = performance.now(), lastActive = lastTick, wasVisible = document.visibilityState === 'visible', lastPayload = '';
+  function saveEngagement() { try { sessionStorage.setItem(engagementKey, JSON.stringify(state)); } catch {} }
+  function sampleEngagement() {
+    const now = performance.now();
+    if (wasVisible) state.engaged_ms = Math.min(86400000, state.engaged_ms + Math.max(0, Math.min(now, lastActive + 30000) - lastTick));
+    lastTick = now; wasVisible = document.visibilityState === 'visible';
+    const root = document.documentElement;
+    const travel = root.scrollHeight - innerHeight;
+    state.max_scroll = Math.max(state.max_scroll, travel > 0 ? Math.min(100, Math.round(scrollY / travel * 100)) : 0);
+    saveEngagement();
+  }
+  function ping(force = false) {
+    try {
+      sampleEngagement();
+      const payload = { session_id: sessionId, visitor_id: visitorId, ...variant, ...state,
+        engaged_ms: Math.floor(state.engaged_ms), li_fat_id_present: params.has('li_fat_id'), test: params.get('aiify_test') === '1' };
+      for (const key of trackingKeys.slice(0, 5)) if (tracking[key]) payload[key] = tracking[key];
+      try { if (document.referrer) payload.referrer_host = new URL(document.referrer).hostname; } catch {}
+      const serialized = JSON.stringify(payload);
+      if (force || serialized !== lastPayload) { lastPayload = serialized; backgroundPost('/api/ping', payload); }
+    } catch {}
+  }
+  for (const event of ['pointermove', 'pointerdown', 'scroll', 'keydown', 'touchstart']) {
+    addEventListener(event, () => { sampleEngagement(); lastActive = performance.now(); }, { passive: true });
+  }
+  setInterval(sampleEngagement, 1000);
+  setInterval(() => { if (document.visibilityState === 'visible') ping(); }, 15000);
+  document.addEventListener('visibilitychange', () => { sampleEngagement(); if (document.visibilityState === 'hidden') ping(true); });
+  addEventListener('pagehide', () => ping(true));
+  document.addEventListener('click', event => {
+    const link = event.target.closest('a');
+    if (!link) return;
+    if (link.id === 'download' || link.id === 'download-again') state.download_click = true;
+    else if (link.protocol === 'mailto:') state.mailto_click = true;
+    else {
+      const tool = { 'chatgpt.com': 'chatgpt', 'claude.ai': 'claude', 'grok.com': 'grok', 'gemini.google.com': 'gemini' }[link.hostname];
+      if (!tool) return;
+      state.next_step = tool;
+    }
+    ping(true);
+  }, { capture: true });
+  ping(true);
   track('page_view');
   conversion('page_view');
   const download = document.querySelector('#download');
