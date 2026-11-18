@@ -1,7 +1,7 @@
 {
   "slug": "sales-to-delivery-handoff-automation",
-  "title": "Deal Accepted. Now What? Sales-to-Delivery Handoff Automation",
-  "description": "Plan sales-to-delivery handoff automation that carries accepted scope into the right project, folders, tasks, and owner, with clear status written back to sales.",
+  "title": "How to automate the handoff from sales to delivery",
+  "description": "Define the event that means the deal is accepted, then create the project, folders, tasks, and owner, and write that status back to sales. Both teams should see what is ready and what still needs attention.",
   "category": "Workflow integration",
   "takeaway": "A successful sales-to-delivery handoff transfers the accepted scope, creates the right working records, and puts the next action with a named person. Record those outcomes back in the sales system so both teams can see what is ready and what still needs attention.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "define-the-acceptance-event",
       "title": "Agree what allows delivery setup to begin",
       "paragraphs": [
-        "Sales-to-delivery handoff automation turns an accepted deal into organized delivery work. The starting point might be an approved proposal response, a confirmed service selection, or a deal stage backed by the evidence your business requires. Define that condition before connecting the CRM to a project tool.",
+        "On the acceptance event, create the delivery records and owner, and write the status back to the sales system. Sales-to-delivery handoff automation turns an accepted deal into organized delivery work. The starting point might be an approved proposal response, a confirmed service selection, or a deal stage backed by the evidence your business requires. Define that condition before connecting the CRM to a project tool.",
         "A stage change is only useful if the team agrees what it means. Someone may move a deal while correcting a record or reopen it after a scope change. Check the current acceptance evidence and the selected services before creating the delivery package.",
         "For an illustrative consultancy, a customer might accept implementation while leaving optional training undecided. Delivery setup should carry forward the implementation scope and keep training visibly unresolved. Creating every task in a generic template would give the delivery team a misleading picture of what was sold."
       ]

@@ -1,7 +1,7 @@
 {
   "slug": "ai-agent-pilot-tester-readiness",
-  "title": "Your AI Agent Demo Is Over. Can Anyone Start Testing?",
-  "description": "Prepare an AI agent pilot with clear setup instructions, editable business guidance, a supported chat client, and feedback your team can act on.",
+  "title": "How to share an AI agent with staff for testing",
+  "description": "Share setup steps, a supported chat client, and a way to edit the business guidance, or the next person cannot start. Collect feedback your team can act on before you widen the pilot.",
   "category": "AI delivery",
   "takeaway": "The agent answered questions during the demo. People want to try it. Then someone asks where to log in, how to connect, and whether they can change the instructions. What does the pilot still need before useful testing can begin?",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "the-next-user-starts-cold",
       "title": "The next user starts cold",
       "paragraphs": [
-        "In an agent demonstration, a prospective tester asked for an interface to edit instructions and step-by-step help connecting to the system. A video already discussed in the meeting showed results, but did not cover the setup that person needed. The team proposed another walkthrough.",
+        "Staff can start testing only when they can sign in, connect, and change the instructions without another walkthrough. In an agent demonstration, a prospective tester asked for an interface to edit instructions and step-by-step help connecting to the system. A video already discussed in the meeting showed results, but did not cover the setup that person needed. The team proposed another walkthrough.",
         "The conversation also raised a preference for using an existing chat application more familiar to the group. Those were requested or proposed changes. The discussion did not establish that the tutorial had been delivered, the preferred integration completed, or a tester group had accepted the product.",
         "The practical lesson concerns the handoff after a demo. The builder knows which account to use, where the settings live, and what a successful connection looks like. Your next tester may have none of that context."
       ]

@@ -1,7 +1,7 @@
 {
   "slug": "ask-ai-for-finished-work-not-draft",
-  "title": "Give Your AI Assistant the Whole Job, and Ask for the Finished Thing",
-  "description": "Narrow instructions get narrow results. Learn how to hand your AI assistant the full outcome, ask for final work instead of drafts, and keep review in place.",
+  "title": "How to get ChatGPT to give a finished answer instead of a draft",
+  "description": "Describe the finished outcome, ask for the final version rather than a draft, and say which steps still need your approval. Narrow instructions get narrow results, and review stays in place before anything goes out.",
   "category": "Custom AI agents",
   "takeaway": "Your AI assistant matches the size of the job you give it. Describe the finished outcome you want, ask for a final version instead of a draft, and say which steps need your approval. Then test the setup on work you've already done before you trust it with live work.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "bigger-job-better-work",
       "title": "A bigger job gets you better work",
       "paragraphs": [
-        "In a recent AIify It working session, we were setting up a business owner's AI assistant to work live during their meetings. The obvious instruction would have been \"take meeting notes.\" We didn't write that. We wrote \"your goal is to do the work for me on these calls.\"",
+        "Ask for the finished outcome of the whole job, not a draft of the first step, and keep approval before anything is sent. In a recent AIify It working session, we were setting up a business owner's AI assistant to work live during their meetings. The obvious instruction would have been \"take meeting notes.\" We didn't write that. We wrote \"your goal is to do the work for me on these calls.\"",
         "The owner noticed the difference right away and said so: if you give it a bigger job, it does a better job. That matches what we see in almost every setup. The assistant works to the size of the task you describe. Ask for notes and you get notes. Then you still have to read them, work out what was promised, and do all of it yourself.",
         "Notes aren't the goal. The goal is that the follow-up email goes out, the quote gets revised, the next meeting is on the calendar, and the open questions have answers. When you describe that as the job, the assistant pays attention to different things during the call. It listens for commitments, deadlines, and loose ends, because those are what it will need to act on.",
         "So before you write an instruction, ask yourself what you actually want to be true when the task is finished. Hand that over as the job, not the first small step toward it."

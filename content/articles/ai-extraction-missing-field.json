@@ -1,7 +1,7 @@
 {
   "slug": "ai-extraction-missing-field",
-  "title": "Your AI Document Extraction Returned a Blank. What Happens Next?",
-  "description": "A missing field can mean unreadable, absent, or not applicable. Learn how to handle nulls in AI document extraction without hiding work that still needs review.",
+  "title": "What does a blank field mean in AI document extraction",
+  "description": "A blank can mean the value is unreadable, absent, or not applicable, and those need different next steps. Do not treat empty as not applicable if that hides a record someone still needs to review.",
   "category": "Document automation",
   "takeaway": "An AI extraction returns an empty value. The next step has to decide whether to try again, ask a person, or close the task. A small output choice can decide whether anyone ever looks at that record again.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "an-empty-value-made-a-decision",
       "title": "An empty value made a decision",
       "paragraphs": [
-        "In a document-automation build discussion, an empty extracted value was initially considered a way to mark a field as not applicable. That would let the receiving system stop asking people to check it.",
+        "Empty means unreadable, absent, or not applicable, and only the last of those should close the task. In a document-automation build discussion, an empty extracted value was initially considered a way to mark a field as not applicable. That would let the receiving system stop asking people to check it.",
         "The discussion then surfaced a risk: the information could be present in wording that required interpretation. An empty response might mean the extraction missed it. The proposed starting approach changed to keeping those cases visible for another review.",
         "That distinction matters whenever AI reads documents, forms, or messages. “Nothing was returned” tells you about the extraction result. Deciding that no value is required needs separate evidence and a business rule. This article offers a practical way to keep those decisions visible."
       ]

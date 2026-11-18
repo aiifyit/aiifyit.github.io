@@ -1,7 +1,7 @@
 {
   "slug": "ai-dashboard-numbers-source-links",
-  "title": "Can You Trace Every Number on Your Sales Dashboard?",
-  "description": "Link every number on an automated sales dashboard to its source records. Catch duplicate estimates and impossible values before anyone acts on the totals.",
+  "title": "How to find the source of a number on a sales dashboard",
+  "description": "Put a link beside every figure that opens the records behind it, then a link from each record to the source system. Use those links to catch duplicate estimates and impossible values before anyone acts on the totals.",
   "category": "Sales operations",
   "takeaway": "An automated sales dashboard shows a long list of open proposals and a 100% conversion rate. Some of those proposals belong to customers who already accepted a different estimate. Before you act on the numbers, can you click through to the records behind each one?",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "link-every-number",
       "title": "Put a source link next to every number",
       "paragraphs": [
-        "Before you rely on an automated sales dashboard, make every number on it traceable. Next to each figure, add a link that opens the list of records behind it, and give each record in that list a link to the matching record in the source system. The person checking the dashboard should be able to get from a total to a single estimate or job in a couple of clicks.",
+        "Open the list of records behind the figure, then the matching record in the source system, before you treat the total as real. Before you rely on an automated sales dashboard, make every number on it traceable. Next to each figure, add a link that opens the list of records behind it, and give each record in that list a link to the matching record in the source system. The person checking the dashboard should be able to get from a total to a single estimate or job in a couple of clicks.",
         "Without that trail, checking a number means exporting data, rebuilding the filters in a spreadsheet and hoping you applied the same rules the dashboard did. Few managers have time to do that every week. And when automation or AI tools make a polished dashboard quick to build, it can look finished long before anyone has checked the logic behind it.",
         "Links also change what happens when a number looks wrong. Instead of debating whether the report is broken, you open the records and look. Either they support the number, or they show you which records the logic is mishandling."
       ]

@@ -1,7 +1,7 @@
 {
   "slug": "shadow-ai-unmet-workflow-needs",
-  "title": "Shadow AI: What Is the Unapproved Tool Doing Better?",
-  "description": "Respond to unofficial AI use by finding the unmet job, handling exposure through approved channels and testing a supported replacement staff can actually use.",
+  "title": "What is shadow AI and what should a company do about it",
+  "description": "Shadow AI is an unapproved tool doing a job the supported process does not. Find that job, handle the exposure through an approved channel, and test a replacement people will actually use.",
   "category": "Team operations",
   "takeaway": "An employee mentions a personal AI tool that makes a recurring task easier. You need to understand the data risk. You also need to understand why the supported process left that task difficult enough to invite a workaround.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "start-with-the-job",
       "title": "Start with the job the tool is doing",
       "paragraphs": [
-        "Unofficial AI use can reveal a missing service inside an otherwise well-equipped business. A team may have approved software for storing information but no practical way to turn it into the summary, comparison or handoff someone needs. Buying another license will help only if it covers that job under the conditions staff actually face.",
+        "It is unapproved AI use, and the useful response is to find the job the official tools are not doing. Unofficial AI use can reveal a missing service inside an otherwise well-equipped business. A team may have approved software for storing information but no practical way to turn it into the summary, comparison or handoff someone needs. Buying another license will help only if it covers that job under the conditions staff actually face.",
         "Ask the person to describe the task before asking for a demonstration. What arrives, what must leave, who needs it and when? Which part does the outside tool help with? Keep this first account proportionate. A synthetic example or description may explain the need without copying the original business information into another conversation.",
         "Avoid deciding in advance that the cause is impatience, poor training or a deliberate refusal to follow rules. The official route might be inaccessible, slow to change or missing a necessary format. The employee might also have misunderstood an available capability. Establish which explanation fits the evidence."
       ]

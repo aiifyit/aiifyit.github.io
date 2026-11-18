@@ -1,7 +1,7 @@
 {
   "slug": "compare-ai-pilot-process-improvements",
-  "title": "Did AI Save the Time, or Did You Finally Fix the Process?",
-  "description": "Compare an AI pilot with a better non-AI process. Keep cases, quality and support comparable so you can judge what deserves the next investment.",
+  "title": "How to tell if AI saved the time or the process change did",
+  "description": "Compare the AI pilot with the improved process without AI, using the same cases, quality bar, and support. A faster finish during setup can come from cleaner inputs and clearer rules.",
   "category": "Automation strategy",
   "takeaway": "Your pilot finished faster. During setup, someone also cleaned the inputs, clarified the rules and gave the team extra help. The improvement may be valuable, but the next buying decision depends on what AI adds beyond those changes.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "name-the-next-purchase-decision",
       "title": "Name the decision the comparison must answer",
       "paragraphs": [
-        "Before collecting another speed figure, write the decision in one sentence: should we add AI to the improved process, keep the simpler workflow, or investigate a particular exception? Each question needs a different comparison. A demonstration of the complete new process cannot automatically answer which part deserves further spending.",
+        "Run the cleaned-up process with and without the AI on the same cases, or you cannot tell which change saved the time. Before collecting another speed figure, write the decision in one sentence: should we add AI to the improved process, keep the simpler workflow, or investigate a particular exception? Each question needs a different comparison. A demonstration of the complete new process cannot automatically answer which part deserves further spending.",
         "Frederick Winslow Taylor describes a jointly observed baseline and a comparison on similar machine work in The Principles of Scientific Management, Chapter II, pages 98–100. That historical intervention changed several conditions together. Its useful lesson here is to examine the comparison carefully; it does not establish an isolated AI effect or a universal experimental method.",
         "Ask the process owner and the people doing the work to choose permitted examples before seeing the results. Include the case types the proposed deployment will actually receive. Keep excluded work visible: a test of routine requests can answer a routine-request question without establishing performance on the entire queue."
       ]

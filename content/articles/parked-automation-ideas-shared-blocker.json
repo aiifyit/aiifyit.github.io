@@ -1,7 +1,7 @@
 {
   "slug": "parked-automation-ideas-shared-blocker",
-  "title": "Your Parked Automation Ideas Might Share One Fix",
-  "description": "Why automation ideas that all depend on one unconnected system get parked forever, and how to scan your backlog for the one fix that unlocks several at once.",
+  "title": "Why do automation ideas stay parked on the same blocker",
+  "description": "They often all depend on one system nobody has connected, so the easy ideas ship and the shared question never gets an owner. Scan the backlog for that blocker before you start another standalone project.",
   "category": "Automation planning",
   "takeaway": "Here's a pattern that shows up in almost every automation project. You list out everything worth automating. A handful of the best ideas all need the same system, say your accounting software, and nobody is sure yet whether it can be connected. So someone says, \"Let's start with the other ones while we figure that out.\" That's a reasonable call in the moment. The problem is what happens next, which is usually nothing.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "while-we-figure-that-out-becomes-forever",
       "title": "\"While we figure that out\" becomes forever",
       "paragraphs": [
-        "The team gets busy building the ideas that were easy to start. Those go live, people are happy, and new requests come in. Meanwhile the parked ideas sit on a list. Nobody owns the question of whether the accounting system can be connected, so nobody answers it.",
+        "They wait on the same unconnected system, and nobody owns the question of whether that system can be connected. The team gets busy building the ideas that were easy to start. Those go live, people are happy, and new requests come in. Meanwhile the parked ideas sit on a list. Nobody owns the question of whether the accounting system can be connected, so nobody answers it.",
         "Months later you look at that list and realize a whole cluster of valuable work has been waiting on one question that was never asked out loud. Often it's the most valuable cluster, because the system everyone was nervous about connecting is the one the business actually runs on."
       ]
     },

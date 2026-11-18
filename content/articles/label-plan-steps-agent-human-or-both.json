@@ -1,7 +1,7 @@
 {
   "slug": "label-plan-steps-agent-human-or-both",
-  "title": "Before Your AI Runs the Plan, Label Every Step Agent, Human, or Both",
-  "description": "How to split goals from tasks, approve the plan twice, and mark each step Agent, Human, or Both so AI assistants and people stop colliding on shared work.",
+  "title": "Which tasks should an AI agent do and which should a person",
+  "description": "Split the goal into steps and mark each one agent, human, or both before anything runs. Approve the goal and those labels separately so the assistant does not take a step a person still owns.",
   "category": "AI operations",
   "takeaway": "Handing a whole goal to an AI assistant without labeling the steps is how work stalls or crosses a line. Break goals into tasks, approve the goal plan first, then mark every execution step Agent, Human, or Both and approve those labels before anything runs.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "the-just-handle-it-trap",
       "title": "\"Just handle it\" mixes work that should stay separate",
       "paragraphs": [
-        "A common pattern shows up when a team starts using AI assistants on real plans. Someone pastes a big quarterly goal into the chat and asks the assistant to handle it. The assistant invents a long list of steps: research, a judgment call, a send, a wait for another team, a spreadsheet update, another send.",
+        "Mark every step agent, human, or both, and approve those labels before the assistant runs the plan. A common pattern shows up when a team starts using AI assistants on real plans. Someone pastes a big quarterly goal into the chat and asks the assistant to handle it. The assistant invents a long list of steps: research, a judgment call, a send, a wait for another team, a spreadsheet update, another send.",
         "Some of those steps are perfect for an agent. Some need a person. Without labels, the agent either stalls on the human parts or pushes past a boundary it should not cross. You end up with a plan that looks complete and a process that is not safe to run.",
         "The fix is not \"more careful prompting.\" The fix is a short operating rule: separate goals from tasks, approve the direction, then label every execution step before anything starts.",
         "You do not need a fancy project system to start. A spreadsheet with the right columns beats a clever agent with no labels."

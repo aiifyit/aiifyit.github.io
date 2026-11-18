@@ -1,7 +1,7 @@
 {
   "slug": "ai-vendor-proposal-side-by-side-comparison",
-  "title": "Vendor Proposals Come Back in Every Format. Let AI Line Them Up.",
-  "description": "Use AI to turn vendor proposals that arrive as emails, PDFs, and links into one side-by-side comparison, without losing judgment, history, or control.",
+  "title": "How to compare vendor proposals side by side with AI",
+  "description": "Fix the intake, give the model one comparison template, and keep the math in formulas. AI can line up emails, PDFs, and links while you keep judgment, history, and weak proposals in view.",
   "category": "Workflow automation",
   "takeaway": "When you send out a request for proposals, the replies come back as email text, PDFs, and links. AI is good at pulling those into one comparison sheet, but only if you fix the intake first, give it a fixed template, keep the math in formulas, and flag weak proposals instead of deleting them. Start with the comparison step alone and leave decks, contract checks, and vendor history for later.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "the-messy-part-is-the-replies",
       "title": "Sending the request is easy. The replies are the mess.",
       "paragraphs": [
-        "Plenty of teams work like this. You have a discovery call with a client, write up what they need, turn it into a custom request, and send it to a handful of vendors. That part is under control.",
+        "Collect every reply into one fixed comparison sheet, keep the calculations in formulas, and flag weak proposals instead of deleting them. Plenty of teams work like this. You have a discovery call with a client, write up what they need, turn it into a custom request, and send it to a handful of vendors. That part is under control.",
         "Then the answers come back. One vendor replies in the body of an email. Another attaches a PDF. A third sends a link to a portal page. Somebody on your team saves everything into a project folder and then spends hours copying rates, dates, terms, and fine print into a comparison sheet by hand.",
         "On a recent planning call, a team doing exactly this was already using a few saved AI prompts to fill some columns and write pros and cons. It helped, but every project still started from scratch. Here's how to turn that into a workflow you can rely on."
       ]

@@ -1,7 +1,7 @@
 {
   "slug": "cross-team-automation-targets",
-  "title": "Two Green Dashboards, One Bad Order: Fix Conflicting Automation Targets",
-  "description": "Test whether sales and delivery automations reward compatible decisions. Use a worked rush-order scorecard to expose displaced work and hidden costs.",
+  "title": "How to fix conflicting automation goals between teams",
+  "description": "Walk one disputed order through both automations and see whether each team's target rewards a compatible decision. Two green dashboards can still approve a rush job that costs more than it is worth.",
   "category": "Automation strategy",
   "takeaway": "Sales reaches its booking target. Delivery keeps its specialist fully occupied. Both automations run correctly, yet a rush order creates more extra cost than value. Before connecting the workflows, check whether their definitions of success fit together.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "choose-one-disputed-decision",
       "title": "Start with the order that causes the argument",
       "paragraphs": [
-        "Choose a recurring cross-team decision: accepting a rush job, adding a custom feature or moving an existing delivery date. Walk one request through the people and automations that influence it. Ask what would make each participant approve, reject or escalate the same request.",
+        "Run one rush order through both scorecards and see whether sales and delivery are rewarded for opposite decisions. Choose a recurring cross-team decision: accepting a rush job, adding a custom feature or moving an existing delivery date. Walk one request through the people and automations that influence it. Ask what would make each participant approve, reject or escalate the same request.",
         "A quoting assistant might prioritize booked value while a scheduling workflow prioritizes occupied specialist hours. Neither measure tells you whether the proposed work protects existing promises or covers the disruption it creates. The integration can be technically reliable while repeatedly making an unattractive trade-off.",
         "Jamshid Gharajedaghi and Ali Geranmayeh examine incompatible departmental criteria in Chapter 12 of Planning for Human Systems: Essays in Honor of Russell L. Ackoff, edited by Jean-Marc Choukroun and Roberta M. Snow. Their sales-and-production discussion on pages 168–171 motivates this modern workflow exercise. It is an organizational argument, not evidence of measured AI performance."
       ]

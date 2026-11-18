@@ -1,7 +1,7 @@
 {
   "slug": "stale-crm-deals-data-quality",
-  "title": "Are Those CRM Deals Stale, or Is Your Data?",
-  "description": "Spot stale CRM deals with meaningful activity dates, clear owners and separate cleanup queues. Build internal reminders your sales team can actually use.",
+  "title": "How to find stale deals in a CRM",
+  "description": "Flag open deals using activity, stage, and next-step rules the sales team can explain, and put bad records in a separate cleanup queue. Age alone does not mean a prospect was neglected.",
   "category": "Sales operations",
   "takeaway": "A dashboard flags a long list of neglected prospects. Some already became customers. Others were never prospects. Before asking the sales team to work harder, can you trust what the report is calling stale?",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "define-the-stale-signal",
       "title": "Start with a signal the sales team can explain",
       "paragraphs": [
-        "You can automatically identify stale deals by checking eligible open opportunities against agreed activity, stage and next-step rules. The useful output is an internal worklist: who needs to review which deal, why it was flagged and what should happen next. Age alone does not tell you whether a prospect has been neglected.",
+        "Filter open deals by real activity, stage, and a missing next step, and separate records that were never prospects. You can automatically identify stale deals by checking eligible open opportunities against agreed activity, stage and next-step rules. The useful output is an internal worklist: who needs to review which deal, why it was flagged and what should happen next. Age alone does not tell you whether a prospect has been neglected.",
         "In an AIify It reporting review, an aging dashboard was demonstrated using live records. The review exposed people in the prospect list who belonged in other categories, including existing customers. Participants called for cleanup and human checks. The report had successfully surfaced records, but that did not establish that every record represented a real follow-up opportunity.",
         "This is a practical warning for sales managers. Automating a report makes the current data easier to see. It does not establish that the categories, dates or labels mean what your team assumes. Begin by agreeing on the decision a flag is supposed to support."
       ]

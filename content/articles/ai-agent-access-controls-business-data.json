@@ -1,7 +1,7 @@
 {
   "slug": "ai-agent-access-controls-business-data",
-  "title": "What Can an AI Agent Access After an Employee Leaves?",
-  "description": "Plan AI agent access controls around permitted data and actions. Check authorization, role changes, stored copies, and offboarding before wider deployment.",
+  "title": "When an employee leaves do their AI agents keep access",
+  "description": "Disabling the person's login does not, by itself, stop an AI agent from reading data or taking action. Check authorization, role changes, stored copies, and offboarding before wider deployment.",
   "category": "Agent access and security",
   "takeaway": "Protect client data by giving an agent a bounded job, limiting the records and actions it can use, and enforcing those limits outside the model. Then test what happens when a person changes roles or leaves. A successful sign-in does not answer those questions.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "make-access-specific-enough-to-check",
       "title": "Make access specific enough to check",
       "paragraphs": [
-        "“The agent needs access to our systems” is too broad to approve. Ask which records it needs, whose behalf it acts on, what it may do, and how long that permission should last. Reading a project record, changing its status, and sending its contents elsewhere are separate decisions.",
+        "Disabling someone's login does not tell you what their AI agent can still reach. “The agent needs access to our systems” is too broad to approve. Ask which records it needs, whose behalf it acts on, what it may do, and how long that permission should last. Reading a project record, changing its status, and sending its contents elsewhere are separate decisions.",
         "Consider an illustrative support assistant. It might read the current customer’s service history and prepare a response. That job does not automatically require access to every customer’s documents, permission to change commercial terms, or the ability to send messages without an agreed approval step.",
         "Describe the boundaries in terms the business owner can review:"
       ],

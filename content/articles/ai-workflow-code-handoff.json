@@ -1,7 +1,7 @@
 {
   "slug": "ai-workflow-code-handoff",
-  "title": "Your AI Workflow Was Handed Over. Who Can Fix It Now?",
-  "description": "Plan AI workflow handoff with clear code ownership, shared-component consumers, change tests and deployment responsibilities for the next revision.",
+  "title": "How to hand off automation code so someone else can fix it",
+  "description": "Name who owns the code, who uses the shared pieces, which tests a change must pass, and who deploys the next revision. A folder of code does not answer who can change it once it is connected to your systems.",
   "category": "Integration delivery",
   "takeaway": "The code and documentation have arrived. Your team starts connecting the workflow to its systems. Then someone requests a change. Who can make it, who reviews it, and which version should everyone work from?",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "the-next-change-was-still-unclear",
       "title": "The next change was still unclear",
       "paragraphs": [
-        "A code-handoff discussion exposed a gap that a delivery checklist can easily miss. The receiving team was reviewing the code and preparing to integrate it. The original developer explained that, as the code became connected to the team's internal systems, making further changes would become harder without a shared development arrangement.",
+        "Name the owner, the shared components other workflows use, the tests a change must pass, and who deploys it. A code-handoff discussion exposed a gap that a delivery checklist can easily miss. The receiving team was reviewing the code and preparing to integrate it. The original developer explained that, as the code became connected to the team's internal systems, making further changes would become harder without a shared development arrangement.",
         "The participants discussed a shared repository and keeping system-specific connections behind separate functions. Those were proposed ways to continue working together. The discussion did not establish a completed integration, a working shared repository, or a production release.",
         "The useful question for an AI workflow handoff is therefore concrete: how will the next change travel from a request to a deployed version? Answer it while both teams still understand the delivery. Otherwise, a small revision can become an exercise in finding the current files, reconstructing local edits, and discovering who can release them."
       ]

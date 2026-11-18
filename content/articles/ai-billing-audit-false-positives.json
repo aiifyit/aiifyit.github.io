@@ -1,7 +1,7 @@
 {
   "slug": "ai-billing-audit-false-positives",
-  "title": "Your AI Billing Audit Found a Mismatch. What Did It Actually Find?",
-  "description": "An AI billing audit flag can come from the wrong document, missing evidence, or an approved exception. Learn how to separate useful findings from avoidable noise.",
+  "title": "How to review AI invoice audit flags for false positives",
+  "description": "Open the source behind each flag before you treat it as a billing error. A mismatch can be the wrong document, missing evidence, or an approved exception.",
   "category": "Document automation",
   "takeaway": "A highlighted mismatch can look like a billing mistake before anyone opens the source document. To make an AI-assisted audit useful, your team needs to know what each flag actually means and what evidence would resolve it.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "a-flag-is-the-start-of-the-review",
       "title": "Start with the evidence behind the flag",
       "paragraphs": [
-        "In an AIify It billing-audit review, the audit had run and produced an output for people to examine. During review, the team found examples involving the wrong type of document and a scanned agreement whose selected terms had been read incorrectly. Later discussion also surfaced records that were still awaiting required documentation and differences that needed business context.",
+        "A flag is a place to look, not a confirmed error, until someone checks the document, the missing evidence, or the approved exception. In an AIify It billing-audit review, the audit had run and produced an output for people to examine. During review, the team found examples involving the wrong type of document and a scanned agreement whose selected terms had been read incorrectly. Later discussion also surfaced records that were still awaiting required documentation and differences that needed business context.",
         "These observations support a practical lesson about triage. They do not establish an error rate, savings figure, or recovered revenue. The review still depended on people checking the underlying records and deciding what action was appropriate.",
         "For an operations team, the first design question is what a flag represents: a confirmed discrepancy, uncertain extraction, incomplete evidence, or an exception requiring interpretation."
       ]

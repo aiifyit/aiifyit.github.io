@@ -1,7 +1,7 @@
 {
   "slug": "ai-call-quality-assurance-context",
-  "title": "Your AI Call Scores Look Precise. Why Do Managers Disagree?",
-  "description": "Learn how to review AI call quality assurance when scores miss context, call types need different rubrics, and managers cannot trace a rating to the conversation.",
+  "title": "Why do AI call quality scores disagree with managers",
+  "description": "The score often judges a different question than the manager, or it cannot show the part of the conversation it used. Check the rubric, the call type, and the evidence before you change the rating.",
   "category": "AI quality assurance",
   "takeaway": "A call gets a weak rating. The manager who knows the conversation thinks the response was reasonable. Before changing the score, check what the system was asked to judge and what evidence it actually considered.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "when-the-rating-needs-a-second-look",
       "title": "When the rating needs a second look",
       "paragraphs": [
-        "In an AIify It call-review discussion, a manager raised a practical problem: isolated judgments were hard to assess without the surrounding conversation. The report also applied expectations across calls with different purposes. A missing topic could appear to be a weakness even when that topic belonged in another type of call.",
+        "Managers disagree when the score uses a rubric or a call type that does not match the conversation they heard. In an AIify It call-review discussion, a manager raised a practical problem: isolated judgments were hard to assess without the surrounding conversation. The report also applied expectations across calls with different purposes. A missing topic could appear to be a weakness even when that topic belonged in another type of call.",
         "The team discussed broader context, clearer presentation, and call-specific expectations. Those were requested improvements. The discussion did not establish that the changes were complete or that scoring accuracy had improved.",
         "The useful lesson is the review method. When an AI call quality assurance system produces a disputed rating, trace the rating through the call type, the applicable rubric, and the source evidence. That gives the manager and builder a specific disagreement to resolve."
       ]

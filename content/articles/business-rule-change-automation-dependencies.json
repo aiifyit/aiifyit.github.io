@@ -1,7 +1,7 @@
 {
   "slug": "business-rule-change-automation-dependencies",
-  "title": "One Business Rule Changed. Which Automations Need Review?",
-  "description": "Trace a changed business rule through earlier workflow decisions, approval boundaries, messages and tests with a worked synthetic decision-dependency register.",
+  "title": "Which automations to update when a business rule changes",
+  "description": "Trace the rule through earlier decisions, approval boundaries, messages, and tests before you change a field or a prompt. Several automations can keep acting on the old agreement after one meeting changes it.",
   "category": "Automation strategy",
   "takeaway": "A business rule can change in one meeting while several automations keep acting on the old agreement. Before updating a field or prompt, identify which earlier decisions relied on that rule and who must reconsider them.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "start-with-the-changed-agreement",
       "title": "Start with the changed agreement",
       "paragraphs": [
-        "Consider this synthetic example, created to illustrate change planning. A service team previously required a customer reference before accepting a request. It now proposes allowing people to submit without that reference. The goal is to let staff investigate incomplete requests rather than reject them at the form.",
+        "List every workflow, message, and approval that assumed the old rule, and review those before you edit a single field. Consider this synthetic example, created to illustrate change planning. A service team previously required a customer reference before accepting a request. It now proposes allowing people to submit without that reference. The goal is to let staff investigate incomplete requests rather than reject them at the form.",
         "Removing the required-field check seems small. But earlier decisions assumed that every accepted request could be matched by reference. Routing, reminder wording, review instructions and reports may all depend on that assumption. Accepting a request without a reference does not establish which customer owns it.",
         "In Chapter 14 of Brain of the Firm, Stafford Beer examines how decisions constrain one another and how changed choices can reopen a wider problem. The register and tests below are our practical application of that idea. They are a proposed method, not a reported AIify It deployment."
       ]

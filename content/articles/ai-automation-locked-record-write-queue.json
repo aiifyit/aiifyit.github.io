@@ -1,7 +1,7 @@
 {
   "slug": "ai-automation-locked-record-write-queue",
-  "title": "What should your AI automation do when the record it needs to update is locked?",
-  "description": "Your system of record locks records while people edit them, and API writes get no shared lock. Here's how to build a lock-aware write queue that works.",
+  "title": "What to do when a CRM record is locked during an update",
+  "description": "Keep the update and apply it after the lock clears, instead of overwriting the record someone has open. API writes usually do not share the lock a person holds while editing.",
   "category": "Workflow reliability",
   "takeaway": "When a person opens a record, the system locks it. If your automation tries to write while the record is open, the write fails, or it overwrites what the person is doing, or it leaves the record half updated. Respect the lock, keep the update, and apply it once the record is free.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "the-problem-shows-up-at-the-last-step",
       "title": "The problem shows up at the last step",
       "paragraphs": [
-        "You've built an AI automation that reads records, checks them, and produces something useful. Now you want it to write those results back into your system of record, whether that's a CRM, an ERP, or a loan or case management system. That's the step that makes it useful day to day.",
+        "Queue the write and apply it when the record is free, instead of failing the update or overwriting the person who has it open. You've built an AI automation that reads records, checks them, and produces something useful. Now you want it to write those results back into your system of record, whether that's a CRM, an ERP, or a loan or case management system. That's the step that makes it useful day to day.",
         "Then you hit a problem. When a person opens a record, the system locks it. If your automation tries to write while the record is open, the write fails, or it overwrites what the person is doing, or it leaves the record half updated. You ask the vendor about a shared lock that API users can see and respect. They say it's on the roadmap. Maybe it's in beta. It isn't something you can use today.",
         "A recent project review ran into exactly this. The team stopped waiting for the vendor and built a lock-aware write queue. This article explains how it works and why it's the sensible default."
       ]

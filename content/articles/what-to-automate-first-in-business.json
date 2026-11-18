@@ -1,7 +1,7 @@
 {
   "slug": "what-to-automate-first-in-business",
-  "title": "What Should You Automate First When Every Team Has a Different Answer?",
-  "description": "Decide where to start with business process automation. Compare manual effort, business value, existing tools and readiness before choosing your first project.",
+  "title": "What should a small business automate first",
+  "description": "Start with one recurring job you can describe, score, and finish, not with the loudest request. Compare effort, business value, existing tools, and whether the inputs and owner are ready.",
   "category": "Automation planning",
   "takeaway": "Sales wants faster follow-ups. Operations wants fewer spreadsheets. Finance wants less chasing. All three may have a case. How do you choose a first automation project without rewarding the loudest request?",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "follow-one-real-job",
       "title": "Follow one real job before choosing a tool",
       "paragraphs": [
-        "Start with a recurring process whose burden and business value you can describe, then check whether it is ready to automate. The strongest first candidate usually has a clear owner, accessible inputs and a finished result the team can recognize. A task being frustrating is a useful signal, but it is only the beginning of the decision.",
+        "Pick one recurring job with an owner, usable inputs, and a result the team recognizes, after you compare it with the other requests. Start with a recurring process whose burden and business value you can describe, then check whether it is ready to automate. The strongest first candidate usually has a clear owner, accessible inputs and a finished result the team can recognize. A task being frustrating is a useful signal, but it is only the beginning of the decision.",
         "In an automation discovery discussion, AIify It recommended looking for the overlap between work that causes significant operational pain and work that matters commercially. The discussion also emphasized asking the operations team to walk through the small decisions inside a workflow. It was a prioritization approach, not evidence that a particular project had already delivered savings.",
         "That combination matters. A senior leader can identify the business priority; the people doing the work can show where time actually goes. Ask someone to demonstrate a recent case from arrival to completion. Follow the copying, waiting, checking and correction steps that a process diagram might leave out."
       ]

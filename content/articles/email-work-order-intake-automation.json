@@ -1,7 +1,7 @@
 {
   "slug": "email-work-order-intake-automation",
-  "title": "Email Work Order Intake Automation: Capture More Than the PDF",
-  "description": "Design email work order intake automation that accounts for message bodies, attachments, and permitted links, with visible gaps before a job is created.",
+  "title": "How to automate work orders that come in by email",
+  "description": "Read the message body, the attachments, and any permitted links before you create the job. Show what could not be retrieved so a parser does not turn an incomplete request into a work order.",
   "category": "Email automation",
   "takeaway": "A work order can arrive as a PDF, a paragraph in an email, or a link to a document. Reliable intake starts by accounting for those sources and showing what could not be retrieved. Otherwise, a well-built parser can process an incomplete request without anyone noticing.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "start-with-the-whole-request",
       "title": "Start with the whole request",
       "paragraphs": [
-        "Email work order intake automation connects an incoming request to a usable job record. Before extracting a job number or assigning work, it needs to establish what arrived: the message body, attached files, relevant links, and any earlier context required to understand the request.",
+        "Read the body, the attachments, and permitted links, and show any gap before a job record is created. Email work order intake automation connects an incoming request to a usable job record. Before extracting a job number or assigning work, it needs to establish what arrived: the message body, attached files, relevant links, and any earlier context required to understand the request.",
         "Consider an illustrative maintenance request. The attachment describes the repair, while the email says the site entrance has changed. An automation that reads only the PDF may create a convincing job with incomplete instructions. The intake check should preserve both sources and make their relationship visible.",
         "Define the monitored inboxes, labels, and message types first. Account for every message within that agreed scope, including those that cannot become a work order yet. This gives the team a way to find missing work without turning the integration into an archive of unrelated email."
       ]

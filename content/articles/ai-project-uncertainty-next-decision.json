@@ -1,7 +1,7 @@
 {
   "slug": "ai-project-uncertainty-next-decision",
-  "title": "Before You Buy More AI Work, Name the Decision That’s Stuck",
-  "description": "Separate missing facts, unsettled business policy and dependencies on other decisions so your next AI project expense addresses the actual blocker.",
+  "title": "What to do when an AI project is stuck before spending more",
+  "description": "Name the decision you cannot make, and whether you lack a fact, a business policy, or another team's choice. The next expense should address that blocker rather than a vague request for more certainty.",
   "category": "Planning and strategy",
   "takeaway": "A stalled AI project can produce an expensive request for more examples, more analysis or another prototype. Before agreeing, write down the decision you cannot make and what would actually allow someone to make it.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "replace-vague-uncertainty-with-a-decision",
       "title": "Replace “we need more certainty” with a decision",
       "paragraphs": [
-        "Uncertainty has different sources. You may lack evidence about what a system can do. The business may not have agreed what it should do. Or your choice may depend on another team’s unresolved plan. These situations can look alike in a status report, yet call for different next steps.",
+        "Write down the decision that is stuck and what would let someone make it, before you buy more examples or another prototype. Uncertainty has different sources. You may lack evidence about what a system can do. The business may not have agreed what it should do. Or your choice may depend on another team’s unresolved plan. These situations can look alike in a status report, yet call for different next steps.",
         "Begin with one decision that matters now: approve a bounded implementation, choose a routing rule or allow a particular action. Include the scope and the person authorized to decide. “Are we ready for AI?” is too broad to diagnose; “Can we approve automatic routing for these request types?” is a useful starting point.",
         "Then ask what answer would change that decision. A general wish for better data can absorb unlimited work. A specific question, such as whether two similar request types can be distinguished from their permitted inputs, gives a test a purpose and an end."
       ]

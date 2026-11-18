@@ -1,7 +1,7 @@
 {
   "slug": "prepare-ai-automation-discovery",
-  "title": "Before You Hire an AI Automation Firm, Gather These Six Things",
-  "description": "Prepare for AI automation discovery with real examples, a source-to-step map, named owners and clear acceptance criteria. Use this practical readiness checklist.",
+  "title": "What to prepare before an AI automation discovery call",
+  "description": "Bring one real case from start to finish, a map from source to step, named owners, and the result you would accept. You do not need a finished documentation project to have a useful conversation.",
   "category": "Automation planning",
   "takeaway": "You can describe the problem in a sentence. The team doing the work knows a hundred details behind it. What should you bring to discovery so an automation firm can understand the real job?",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "bring-a-real-case",
       "title": "1. A real case from start to finish",
       "paragraphs": [
-        "Prepare one representative process, its inputs, its current output and the people who understand its exceptions. A compact evidence packet gives a builder something concrete to inspect. You do not need to finish a company-wide documentation project before having a useful conversation.",
+        "Bring one real case, the steps and sources, the owners, and what you would accept as done. Prepare one representative process, its inputs, its current output and the people who understand its exceptions. A compact evidence packet gives a builder something concrete to inspect. You do not need to finish a company-wide documentation project before having a useful conversation.",
         "Choose a recent normal case and show how it moved through the business. Identify what started it, what each person did, where information was copied and what made the work complete. Screenshots, redacted documents and a simple walkthrough can be more informative than a polished process diagram alone.",
         "Include the work between the official steps. Someone may compare two records, interpret an informal request or wait for a colleague’s confirmation. These small decisions help explain what the proposed automation must actually handle. Label any part of the walkthrough that you are unsure about.",
         "For an illustrative walkthrough, imagine a coordinator opening an incoming request, checking an attachment, looking up an existing record and preparing a handoff. Before handing it over, they message a colleague about an unusual delivery constraint. Ask the receiving colleague what that message changes. It may contain essential information that never appears in the official process fields.",

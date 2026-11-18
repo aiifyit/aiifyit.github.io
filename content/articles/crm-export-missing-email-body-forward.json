@@ -1,7 +1,7 @@
 {
   "slug": "crm-export-missing-email-body-forward",
-  "title": "Your CRM Export Shows Who Replied, Not What They Said",
-  "description": "If your CRM export has subject lines but no email bodies, a read-only forwarding mailbox lets an AI assistant update deal next steps while you wait on IT.",
+  "title": "Why does my CRM export show the subject but not the email",
+  "description": "Many exports include names, subjects, and reply flags, and leave out the message body. A read-only forwarding mailbox lets an assistant read new mail and update next steps while you wait on fuller access.",
   "category": "Workflow integration",
   "takeaway": "An AI assistant can only keep deal follow-ups current if it can read the emails, not just a list of them. The CRM export you get often has contact names, subject lines, and reply flags, but no message bodies, attachments, or meeting transcripts. Rather than wait weeks for full access, forward a sales lead's new mail into a separate mailbox the AI can only read, and let it update the next-step sheet and draft reminders for a person to send. Keep asking for proper read-only access in parallel, because the forward is how you start this week, not the permanent setup.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "a-list-of-emails-isnt-the-emails",
       "title": "A list of emails isn't the emails",
       "paragraphs": [
-        "Say you want an AI assistant to keep a sales lead's next-step sheet current: what each customer asked for, what's due, and who owes whom a reply. Someone pulls an export from your CRM to get you started. It has contact names, subject lines, and a flag showing whether each email got a reply. It usually doesn't have the text of the emails, the attachments, or transcripts from calls.",
+        "The export is a list of messages, not the messages: subjects and reply flags are there, and the body usually is not. Say you want an AI assistant to keep a sales lead's next-step sheet current: what each customer asked for, what's due, and who owes whom a reply. Someone pulls an export from your CRM to get you started. It has contact names, subject lines, and a flag showing whether each email got a reply. It usually doesn't have the text of the emails, the attachments, or transcripts from calls.",
         "The next steps live in that missing text. Picture a row with the subject \"Re: Re: pricing\" and the reply flag set. The email behind it asks for a second pricing option on the quote and an updated timeline before the customer's review meeting on Friday. That's two tasks and a deadline, and none of it is in the export.",
         "With only the export, the most the AI can tell you is that someone replied to a thread called \"pricing,\" which your CRM already shows. Attachments matter just as much, since that's usually where the quote, the spec, or the signed form lives. The AI can't work out what an email said from its subject line, and you don't want it guessing."
       ]

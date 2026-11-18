@@ -1,7 +1,7 @@
 {
   "slug": "email-to-task-automation-ownership",
-  "title": "From Email to Owned Work: What an AI Task Workflow Must Capture",
-  "description": "Turn incoming email into useful assigned work with clear task ownership, evidence, updates, and completion rules that prevent a growing pile of duplicate tasks.",
+  "title": "How to turn emails into tasks automatically",
+  "description": "Create a task only for messages that need a next action, and record the owner, the evidence, and what done means. Without that, the integration grows a second inbox of duplicate tasks.",
   "category": "Email automation",
   "takeaway": "Useful email-to-task automation captures the work, who must act next, and who is waiting. It also remembers what happened afterward. Without that lifecycle, an inbox integration can create another list that someone has to clean up.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "decide-what-deserves-a-task",
       "title": "Decide which messages deserve a task",
       "paragraphs": [
-        "An incoming message is an event. It may contain a new request, an update, a completed commitment, or information that requires no action. Before choosing an AI tool, define which of those events should create work in your team's task system.",
+        "Create a task only when the message needs a next action, and put an owner and a definition of done on it. An incoming message is an event. It may contain a new request, an update, a completed commitment, or information that requires no action. Before choosing an AI tool, define which of those events should create work in your team's task system.",
         "In an email-automation review, a user reported that the system created unnecessary tasks and repeatedly assigned work to the inbox owner. The user wanted a different structure that separated the person doing the work from the person waiting for it. The discussion described reported problems and a proposed redesign; it did not establish a measured improvement in accuracy or time saved.",
         "Start your own requirements with examples: a direct request, a commitment someone has made, a routine notification, and a conversation you are copied on. Agree which examples create a task, update one, or leave the task list unchanged."
       ]

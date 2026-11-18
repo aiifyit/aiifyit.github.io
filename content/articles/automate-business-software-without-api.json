@@ -1,7 +1,7 @@
 {
   "slug": "automate-business-software-without-api",
-  "title": "No API? Start With What the Software Actually Allows",
-  "description": "Compare approved exports, scheduled reports, browser assistance, and manual checkpoints when business software lacks an API your team can use.",
+  "title": "How to automate software that has no API",
+  "description": "Confirm what the vendor allows, then compare approved exports, scheduled reports, browser assistance, and a bounded manual step. The right route depends on freshness, reliability, and ongoing effort.",
   "category": "Integration planning",
   "takeaway": "You may be able to automate useful work around software without an available API. First confirm the vendor’s permitted routes, then compare exports, scheduled reports, approved browser assistance, and a bounded manual step. The right choice depends on freshness, reliability, and ongoing effort.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "find-out-what-no-api-means",
       "title": "Find out what “no API” means",
       "paragraphs": [
-        "Before pricing a workaround, clarify the constraint. The product may have no public API, your subscription may exclude it, a partner may provide an approved connector, or the vendor may restrict the requested use. These situations lead to different decisions.",
+        "Ask what \"no API\" means, then use an approved export, report, browser step, or manual checkpoint the vendor permits. Before pricing a workaround, clarify the constraint. The product may have no public API, your subscription may exclude it, a partner may provide an approved connector, or the vendor may restrict the requested use. These situations lead to different decisions.",
         "Ask the vendor which options are supported for your account and purpose. Be precise about whether you need to read data, update records, or both. A permitted download route does not automatically authorize automated sign-in, a write operation, or access to additional information.",
         "If access has been denied, do not treat a different technical route as permission to do the same prohibited thing. Ask what alternatives are allowed. A legitimate integration plan needs a permitted path as well as a working one."
       ]

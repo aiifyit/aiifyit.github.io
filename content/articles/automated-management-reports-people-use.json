@@ -1,7 +1,7 @@
 {
   "slug": "automated-management-reports-people-use",
-  "title": "The Report Arrived. Why Is Everyone Rebuilding It?",
-  "description": "Build automated reports around real decisions, reliable totals, visible high-impact exceptions and independent checks against the underlying work.",
+  "title": "Why do people rebuild an automated report in a spreadsheet",
+  "description": "They rebuild it because the report left out the decision, the reliable totals, or the exceptions they have to act on. Watch what people add after delivery, and put that into the report.",
   "category": "Reporting and decisions",
   "takeaway": "AI can help turn data from existing systems into a useful report, provided you define the decision, the underlying calculations, and the output people actually need. A polished summary adds little if its recipient must rebuild a spreadsheet before taking action.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "watch-what-happens-after-delivery",
       "title": "Watch what happens after delivery",
       "paragraphs": [
-        "A report can arrive on time, contain accurate information, and still miss its purpose. The operations lead copies its rows into a worksheet. A manager adds owners and due dates. A client asks which items require a response. Those extra steps show what the report should have included.",
+        "They copy it into a spreadsheet because owners, due dates, or the items that need a response were never in the report. A report can arrive on time, contain accurate information, and still miss its purpose. The operations lead copies its rows into a worksheet. A manager adds owners and due dates. A client asks which items require a response. Those extra steps show what the report should have included.",
         "In an AIify It reporting discussion, a recipient said the organization of an existing email output was helpful. They had then assembled a spreadsheet with additional information from the same underlying source and requested that format as part of the recurring output.",
         "The requested enhancement was still a request in that discussion. The recipient also said business results were not yet known. The lesson is about discovering a useful format from actual use, rather than assuming that successful delivery proves the report is doing its job."
       ]

@@ -1,7 +1,7 @@
 {
   "slug": "automation-api-app-approval",
-  "title": "Logging In Is Not the Same as Letting an Automation Read Your Books",
-  "description": "Why an automation that pulls data from your accounting software needs its own registered app and API keys, and how to plan the approval steps so they don't hold up your project.",
+  "title": "Why does QuickBooks need its own app for API access",
+  "description": "A user login is built for a person clicking through screens. An automation that pulls the books on a schedule needs its own registered app and API keys, and that approval can delay the project if you start it late.",
   "category": "Integration planning",
   "takeaway": "You probably already have a way to let outside people into your accounting software. You add them as a user, or they invite you, and they can see the books. Some platforms go further. An accounting firm might have a console where clients add the firm, and the firm can then add as many staff as it wants to view each client's books.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "it-is-built-for-a-human-who-logs-in",
       "title": "It is built for a human who logs in",
       "paragraphs": [
-        "That works well for people. It is built for a human who logs in, clicks through screens, and reads what's there. An automation doesn't work that way. It needs to request data directly, often across many companies, on a schedule, without anyone sitting at a keyboard. For that, most platforms want a registered developer app with its own API keys. QuickBooks Online is a common example, and in our experience many other business platforms work the same way.",
+        "A user login lets a person click through the books; an unattended automation needs a registered app and its own API keys. That works well for people. It is built for a human who logs in, clicks through screens, and reads what's there. An automation doesn't work that way. It needs to request data directly, often across many companies, on a schedule, without anyone sitting at a keyboard. For that, most platforms want a registered developer app with its own API keys. QuickBooks Online is a common example, and in our experience many other business platforms work the same way.",
         "This catches a lot of projects off guard. People assume that because the consultant already has a login, the automation can use it. It can't. Here is what to expect and how to keep it from becoming the thing that stalls you."
       ]
     },

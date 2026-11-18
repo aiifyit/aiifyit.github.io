@@ -1,7 +1,7 @@
 {
   "slug": "ai-voice-mystery-shopper-caller-scripts",
-  "title": "Your AI Mystery Shopper Needs a Story, Not Just a Good Voice",
-  "description": "An AI mystery shopper call only tells you something if your staff believe the caller. Give each caller a story, everyday words, and real pacing.",
+  "title": "How to write AI mystery shopper call scripts",
+  "description": "Give each caller a believable story, everyday words, and real pacing, or staff will treat the call differently and the result will not mean anything. Let people who know your real callers approve the scripts before a test goes out.",
   "category": "AI quality assurance",
   "takeaway": "Placing AI mystery shopper calls is the easy part. If your staff can tell the caller isn't real, they act differently and the results are useless, so write each caller like a character with a life, a reason to call today, and the words and pacing a real person would use. Pick callers that test the behavior you care about, and let the people who know your real callers approve them before any test call goes out.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "the-technology-isnt-the-hard-part",
       "title": "The technology isn't the hard part",
       "paragraphs": [
-        "An AI mystery shopper, sometimes called a secret shopper, is a voice agent that calls your front desk posing as a new caller. The point is to hear how the person who answers handles that first call. Do they get the caller's name and phone number? Do they ask whether the person has called before? Do they stay patient when the caller is upset, confused, or difficult?",
+        "Write each caller as a person with a reason to call today, in ordinary words and at a human pace, or staff can tell and the test is useless. An AI mystery shopper, sometimes called a secret shopper, is a voice agent that calls your front desk posing as a new caller. The point is to hear how the person who answers handles that first call. Do they get the caller's name and phone number? Do they ask whether the person has called before? Do they stay patient when the caller is upset, confused, or difficult?",
         "In an AIify It working session with a team building these callers, the technology wasn't what held things up. The agent could place the calls, and the voices were close to where they needed to be. The conversation kept coming back to the caller. A voice that sounds human is not the same as a person who sounds like they have a real reason to be on the phone.",
         "That matters because of what a mystery shopper is for. You want to see how your staff behave with real callers. If the caller is obviously fake, the person answering responds differently. They might switch to their best behavior because they suspect a test, or stop taking the call seriously. Either way, you're no longer seeing how they handle a real new caller, and the data is useless."
       ]

@@ -1,7 +1,7 @@
 {
   "slug": "ai-workflow-wrong-route",
-  "title": "Your AI Workflow Had the Right Data. Why Did It Choose Wrong?",
-  "description": "A real workflow review shows how a valid match can lose to a fallback. Learn what to inspect, which routing rules to make explicit, and how to test the fix.",
+  "title": "Why did my workflow route to the wrong place",
+  "description": "A valid match can lose to a fallback even when the data was right and no error appeared. Inspect the routing rules, make the intended match explicit, and test that the next case takes it.",
   "category": "Workflow reliability",
   "takeaway": "A request arrives with enough information to reach the right destination. The workflow completes without an obvious error. Someone still has to move the work to the correct place. Where do you start looking?",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "the-match-was-there",
       "title": "The match was there",
       "paragraphs": [
-        "In one workflow review, a valid match was available but the process still selected a fallback. After the matching logic was corrected, the customer reported improved routing in the next review.",
+        "The data can be right and the run can succeed while a fallback still wins over a valid match. In one workflow review, a valid match was available but the process still selected a fallback. After the matching logic was corrected, the customer reported improved routing in the next review.",
         "The customer’s feedback was encouraging. To know how much reliability improved, we would need to measure the routing outcomes.",
         "The lesson starts at the point where the workflow chose a destination. Finding the right information and using it correctly are separate steps. When several checks can influence the same decision, a valid match can be overlooked or overridden.",
         "Before rewriting a prompt, trace one misrouted request. Which information reached the decision step? Which rule won? What specifically allowed the fallback to run? Those questions help locate the failure before you change the wrong part of the system."

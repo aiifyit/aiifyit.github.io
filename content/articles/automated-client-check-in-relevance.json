@@ -1,7 +1,7 @@
 {
   "slug": "automated-client-check-in-relevance",
-  "title": "When Should an Automated Client Check-In Stay Quiet?",
-  "description": "Automate client check-ins with relevant timing, clear relationship status and practical suppression rules. Decide which conversations should reset the clock.",
+  "title": "When should an automated client check-in email stay quiet",
+  "description": "Stay quiet when a recent conversation already covered the reason for the check-in. Define which interactions reset the clock, then send, defer, or hand the message to the relationship owner.",
   "category": "Client relationships",
   "takeaway": "A client spoke to your team yesterday. An automated check-in is due today. Sending it might feel careless, but canceling it could mean nobody asks how the relationship is going. Which conversation actually counts?",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "define-the-purpose",
       "title": "Give the check-in a specific purpose",
       "paragraphs": [
-        "Automated client check-ins become more relevant when the trigger reflects the purpose of the message. Define who should receive the check-in, what it asks and which earlier interactions already satisfied that purpose. Then use those rules to decide whether to send, defer or ask the relationship owner to review.",
+        "Stay quiet when a recent conversation already did the job the check-in was going to do. Automated client check-ins become more relevant when the trigger reflects the purpose of the message. Define who should receive the check-in, what it asks and which earlier interactions already satisfied that purpose. Then use those rules to decide whether to send, defer or ask the relationship owner to review.",
         "A service update, a feedback request and a relationship review do different jobs. A call about a delivery detail may resolve the immediate task without giving the client a chance to discuss the broader relationship. If every logged conversation resets every check-in clock, frequent operational contact can prevent useful feedback.",
         "Write the purpose in one sentence before configuring the workflow. For example: invite active clients to raise relationship concerns that have not been covered in ordinary service conversations. This is an illustrative purpose, not a universal template. Your team may need a different kind of check-in."
       ]

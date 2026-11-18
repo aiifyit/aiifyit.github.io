@@ -1,7 +1,7 @@
 {
   "slug": "custom-ai-automation-cost-and-maintenance",
-  "title": "What Does Custom AI Automation Really Cost After the Build?",
-  "description": "Understand custom AI automation costs: implementation, software, usage, maintenance and staff time. Compare proposals on the full cost of operating the workflow.",
+  "title": "How much does custom AI automation cost after the build",
+  "description": "Add software, usage, maintenance, and staff time to the build quote, and compare proposals on the cost of operating the workflow. There is no useful single price until the job, volume, and support are defined.",
   "category": "Buying AI automation",
   "takeaway": "The build quote is clear. The monthly cost is a guess. Before you approve a custom AI automation project, find out which parts of the bill grow with usage and who handles the work after launch.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "ask-for-an-operating-cost",
       "title": "Ask for the cost of running the finished process",
       "paragraphs": [
-        "Custom AI automation has no useful universal price without a defined scope. A workflow that moves approved information between two systems needs a different budget from an agent that interprets documents, handles exceptions and takes actions across several tools. Compare quotes only after the job, operating volume and support responsibilities are clear.",
+        "Budget the monthly cost of running it, including usage, maintenance, and staff time, on top of the build quote. Custom AI automation has no useful universal price without a defined scope. A workflow that moves approved information between two systems needs a different budget from an agent that interprets documents, handles exceptions and takes actions across several tools. Compare quotes only after the job, operating volume and support responsibilities are clear.",
         "Ask for three views of the cost: implementation, a typical operating month and a higher-volume month. Include your own team’s time in each relevant stage. This gives you a basis for a decision even when some usage assumptions still need a pilot.",
         "For first-year planning, combine the implementation estimate with twelve months of expected operating costs, the transition effort and a clearly labeled contingency. Avoid presenting that total as a fixed commitment until the supplier has explained what is included, what varies and what triggers additional work."
       ]
