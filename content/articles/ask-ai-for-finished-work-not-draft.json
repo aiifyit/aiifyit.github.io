@@ -1,0 +1,89 @@
+{
+  "slug": "ask-ai-for-finished-work-not-draft",
+  "title": "Give Your AI Assistant the Whole Job, and Ask for the Finished Thing",
+  "description": "Narrow instructions get narrow results. Learn how to hand your AI assistant the full outcome, ask for final work instead of drafts, and keep review in place.",
+  "category": "Custom AI agents",
+  "takeaway": "Your AI assistant matches the size of the job you give it. Describe the finished outcome you want, ask for a final version instead of a draft, and say which steps need your approval. Then test the setup on work you've already done before you trust it with live work.",
+  "sections": [
+    {
+      "id": "bigger-job-better-work",
+      "title": "A bigger job gets you better work",
+      "paragraphs": [
+        "In a recent AIify It working session, we were setting up a business owner's AI assistant to work live during their meetings. The obvious instruction would have been \"take meeting notes.\" We didn't write that. We wrote \"your goal is to do the work for me on these calls.\"",
+        "The owner noticed the difference right away and said so: if you give it a bigger job, it does a better job. That matches what we see in almost every setup. The assistant works to the size of the task you describe. Ask for notes and you get notes. Then you still have to read them, work out what was promised, and do all of it yourself.",
+        "Notes aren't the goal. The goal is that the follow-up email goes out, the quote gets revised, the next meeting is on the calendar, and the open questions have answers. When you describe that as the job, the assistant pays attention to different things during the call. It listens for commitments, deadlines, and loose ends, because those are what it will need to act on.",
+        "So before you write an instruction, ask yourself what you actually want to be true when the task is finished. Hand that over as the job, not the first small step toward it."
+      ]
+    },
+    {
+      "id": "stop-asking-for-drafts",
+      "title": "Stop asking for drafts",
+      "paragraphs": [
+        "Try to drop the word \"draft\" from your requests. When you ask for \"a draft of the client update,\" you're quietly telling the model that rough is fine. It will give you something rough: placeholder phrasing, vague sections, and gaps it expects you to fill.",
+        "Ask for \"the final, polished version of the client update\" and you get something you could actually send. The model aims for done, so it makes the choices it would otherwise leave to you.",
+        "The output is still a draft to you, and that's the point. Nothing goes out until you've read it. You're not giving up your review by asking for final work. You just start your review from a much better place, so you spend your time on judgment calls and not on rewriting clumsy sentences.",
+        "This change costs nothing. It's one word in your instruction, and in our experience it makes a noticeable difference in what comes back."
+      ]
+    },
+    {
+      "id": "rewrite-small-asks",
+      "title": "How to rewrite small asks as outcome asks",
+      "paragraphs": [
+        "The easiest way to learn this is to compare before and after. Meeting notes: instead of \"take notes on this call,\" try \"handle the follow-up work from this call. List every commitment I made, write the follow-up email I'd send, propose calendar holds for anything we scheduled, and flag anything you couldn't resolve.\"",
+        "Email: instead of \"draft an email to the client,\" try \"write the final version of the email I'd send, in my voice, including the list of attachments I need to include and the delivery date I promised on the call.\" Contract: instead of \"summarize this contract,\" try \"review this contract the way I would before signing. Tell me the payment terms, renewal and cancellation terms, anything unusual compared with a standard agreement, and the three questions I should ask before I sign.\"",
+        "A proposal: instead of \"give me some ideas for the proposal,\" try \"write the complete proposal for this prospect based on our call, with scope, timeline, and pricing structure, ready for me to review and send.\" An inbox: instead of \"sort my email,\" try \"go through today's inbox, write replies to anything routine for my approval, and give me a short list of the messages only I can answer.\"",
+        "The pattern is the same each time. The weak version names an activity. The strong version names a finished result and what has to be in it."
+      ]
+    },
+    {
+      "id": "what-the-whole-job-includes",
+      "title": "What \"the whole job\" should include",
+      "paragraphs": [
+        "A bigger instruction doesn't need to be longer than a paragraph or two, but it should cover four things. First, what done looks like: the specific output and the state things should be in when the assistant is finished. Second, who it's for: a client, your team, a supplier, or just you. That changes tone, detail, and what's safe to include.",
+        "Third, constraints: your voice, length, deadlines, prices or policies it has to respect, and sources it should rely on. Fourth, and this one matters most, what it must not do without asking. Spell it out: don't send anything externally, don't change prices, don't commit to dates I haven't confirmed, don't delete anything.",
+        "Describe where you want to end up several steps ahead, not one small step at a time. It used to be that you had to walk these models through a task piece by piece. That's less true now, and it keeps getting less true. You'll usually get better results by describing the destination and letting the assistant plan the route.",
+        "Don't worry about polish in your instructions, either. Typos, run-on sentences, and casual phrasing don't really matter. The model understands what you mean. Clear intent matters far more than clean grammar."
+      ]
+    },
+    {
+      "id": "keep-guardrails",
+      "title": "A bigger job doesn't mean no review",
+      "paragraphs": [
+        "Handing over the whole outcome is not the same as handing over control. The trick is to put guardrails at the points where a mistake would actually cost you, not on every small step.",
+        "A simple rule that works for most owners: the assistant can prepare anything, but nothing leaves the building or changes a record without your approval. Emails are written and queued, not sent. Calendar invites are proposed, not issued. Changes to customer records are listed for you to confirm.",
+        "Write these approval points directly into the instruction, in plain language. For example: \"Prepare everything, then show me a single summary of what you'd send and what you'd change, and wait for my OK.\" That gives you one place to review instead of a dozen loose pieces.",
+        "As you build trust, you can loosen specific guardrails on purpose. Maybe routine meeting confirmations can go out on their own after a few weeks of clean results. That should be a decision you make, not something that happens by accident."
+      ]
+    },
+    {
+      "id": "try-it-on-last-week",
+      "title": "Test it on work you've already done",
+      "paragraphs": [
+        "Before you trust the assistant on a live call, run it on your most recent one. Give it the recording or transcript from a meeting you've already finished and handled, along with your new whole-job instruction, and let it do the after-call work.",
+        "Then compare what it produced with what you actually did. Did it catch the same commitments? Did it notice something you missed? Is the follow-up email close to what you sent, or better? Where it fell short, the gap usually points to something missing from your instruction, like a constraint you never stated or context it didn't have.",
+        "Fix the instruction and run the same example again. Because you already know the right answer, you can judge the output quickly and honestly. One or two rounds of this usually tells you more than weeks of cautious live use.",
+        "This works for any task, not just meetings: last month's proposal, last week's inbox, the contract you reviewed in the spring. Your own recent work is the best test set you have."
+      ]
+    },
+    {
+      "id": "letting-go",
+      "title": "The hard part is letting go",
+      "paragraphs": [
+        "None of this is technically difficult. The hard part is mental. Most people instinctively give an AI assistant small, safe tasks because they don't yet trust it with the outcome. Then they judge it on those small tasks and conclude it isn't much help.",
+        "Turn that around. Give it the whole job, ask for the finished thing, keep your approval at the points that matter, and check it against work you've already done. That's how you find out what it can really handle.",
+        "Start with one recurring task this week. Rewrite the instruction as an outcome, test it on your last example, and see what comes back. Your review step stays exactly where it was. You just stop doing the work that comes before it."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Want an assistant that does the work, not just the notes?",
+    "description": "AIify It builds custom AI agents around the outcomes your business needs, with clear approval points so nothing goes out without your OK.",
+    "label": "Explore custom AI agents",
+    "href": "/services/custom-ai-agents/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-11-18"
+  }
+}
