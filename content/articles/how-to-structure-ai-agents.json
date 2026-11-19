@@ -1,0 +1,98 @@
+{
+  "slug": "how-to-structure-ai-agents",
+  "title": "How to structure AI agents",
+  "description": "Structure AI agents with one main agent you talk to, then split the work under it by task, not by job title. Here's why it works and how to set it up.",
+  "category": "Custom AI agents",
+  "takeaway": "Give yourself one main agent that you talk to and that fields everything. Under it, organize work by task, like meeting follow-up or keeping the knowledge base current, not by job titles like legal or tech support. Turn your existing job descriptions into skills the main agent can call, and only split a task into its own agent when it truly needs different access, data, or timing.",
+  "sections": [
+    {
+      "id": "the-short-answer",
+      "title": "The short answer: one front door, then tasks",
+      "paragraphs": [
+        "If you're asking how to structure AI agents, here's the setup that works best for most businesses. You have one main agent. That's the one you talk to, the one that knows your preferences, and the one that routes work. Under it, you organize by task or area of task. Meeting follow-up. Building the knowledge base. Quote follow-up. Cleaning up the CRM.",
+        "What you generally don't want is a set of agents modeled on job titles. A legal agent, a marketing agent, a tech support agent, an operations agent. It looks tidy on paper, like an org chart. In practice it makes each agent worse at its work.",
+        "The one exception is the main agent. It's fine for that one to have a job-like identity, like a chief of staff, because its job really is to field everything for you and hand it to the right place."
+      ]
+    },
+    {
+      "id": "why-job-titles-hold-agents-back",
+      "title": "Why job titles hold AI agents back",
+      "paragraphs": [
+        "Think about why jobs exist in the first place. We design jobs for people, and people have limits. One person is great with customers but hates numbers. Another understands contracts but not computers. So we bundle tasks into a job that one person can actually do.",
+        "That bundling solves a human problem. An AI system doesn't have that problem. The same model can read a contract, fix a spreadsheet formula, and write a follow-up email. When you tell it \"you are the legal agent,\" you add a limit it didn't have. It starts looking at every request through that one lens, when it could have looked at it from every angle.",
+        "Job-based agents also create gray areas. A customer email about a late invoice that mentions a contract clause: is that the billing agent, the legal agent, or customer service? Somebody has to decide, and every handoff is a chance for something to get dropped. A task like \"answer billing questions from customers\" doesn't have that problem. The input is clear, and so is what done looks like."
+      ]
+    },
+    {
+      "id": "a-real-example",
+      "title": "What this looked like in a real setup",
+      "paragraphs": [
+        "In a recent AIify It working session, a business owner showed us the agent plans he'd built after taking a course. He had specs for somewhere between 30 and 50 agents, each one a job. His chief of staff spec alone came from answering about 80 questions on his preferences. He also had a legal agent and a tech support agent with 10 to 20 sub-agents under it.",
+        "Our advice was to keep the chief of staff as the main agent and stop building the rest as jobs. Under the main agent, split the work by task. When we explained why, he said his course instructor had told him the same thing about the tech support agent: go to very specific subtasks. He just hadn't gone granular enough.",
+        "That's common. It's a mindset shift, not a technical one. Most of us have spent our careers thinking in org charts, so that's the first shape we reach for."
+      ]
+    },
+    {
+      "id": "role-based-vs-task-based",
+      "title": "Role-based vs. task-based: a side-by-side",
+      "paragraphs": [
+        "Here's how a typical \"sales agent\" looks when you rewrite it as tasks. Each of these has a clear starting point and a clear finished result, so you can test it and see exactly where it went wrong when it does."
+      ],
+      "bullets": [
+        "Lead intake: when a web form or email comes in, create the contact, tag the source, and send the first reply.",
+        "Quote follow-up: three days after a quote goes out with no response, draft a follow-up for approval.",
+        "Call prep: before a sales call, pull the contact's history and open items into one short brief.",
+        "Meeting follow-up: after the call, list what was promised, by whom, and by when, and draft the recap.",
+        "CRM cleanup: once a week, flag deals with no activity in 30 days and missing fields."
+      ]
+    },
+    {
+      "id": "reuse-your-job-specs",
+      "title": "Don't throw away the job specs you already wrote",
+      "paragraphs": [
+        "If you've already written long job descriptions for agents, none of that work is wasted. Those documents are full of your preferences, and that's the valuable part.",
+        "In the session above, we gave the long chief of staff spec to the main agent with a short instruction: use this as your main system prompt and my preferences, and create a skill or a series of skills based on it. A skill is basically a saved standard operating procedure. It answers the question \"how do I do this one thing they keep asking me to do, the right way every time.\"",
+        "One thing to watch after that. When your preferences change, tell the agent to update the skill itself. If you only say it in chat, the skill says one thing and your instruction says another. The agent will follow one sometimes and the other other times, and you'll wonder why it's inconsistent."
+      ],
+      "bullets": [
+        "Give the main agent your existing job specs as files.",
+        "Ask it to keep your general preferences in its main instructions.",
+        "Ask it to turn each repeated task in those specs into its own skill.",
+        "Review the list of skills it creates and cut the ones you don't actually do.",
+        "When something changes, have it edit the skill, not just remember the change."
+      ]
+    },
+    {
+      "id": "when-a-task-gets-its-own-agent",
+      "title": "When a task deserves its own agent",
+      "paragraphs": [
+        "Most tasks should just be skills the main agent calls. Splitting a task into a separate agent adds setup and coordination, so only do it when there's a real reason. A few good reasons:"
+      ],
+      "bullets": [
+        "It needs different access. For example, it touches payroll or client records that the main agent shouldn't see.",
+        "It works from a different body of data, like a large document library that would clutter everything else.",
+        "It runs on its own schedule or trigger, such as every new form submission or every Monday morning.",
+        "Its output can be checked on its own, so you can test and fix it without touching anything else."
+      ]
+    },
+    {
+      "id": "where-to-start",
+      "title": "Where to start",
+      "paragraphs": [
+        "Build the main agent first and get it fully set up before you build anything else. Connect the calendars, email inboxes, and systems it needs to that agent's account. You can even ask it directly: \"What do you need access to?\" It will tell you which connections are missing.",
+        "Then add task skills as real, repeated tasks come up, not all at once. You'll end up with fewer moving parts than a 40-agent org chart, and each part does one thing you can see and check."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Want AI agents structured around the work you actually do?",
+    "description": "AIify It builds a main agent for your business and the task skills under it, connected to the tools you already use.",
+    "label": "Explore custom AI agents",
+    "href": "/services/custom-ai-agents/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-11-19"
+  }
+}
