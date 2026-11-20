@@ -1,0 +1,108 @@
+{
+  "slug": "how-to-automate-document-review-with-ai",
+  "title": "How to automate document review with AI",
+  "description": "To automate document review with AI, have it check each document against a checklist, return green, red, or review, and draft the next email for your approval.",
+  "category": "Workflow automation",
+  "takeaway": "Write an explicit checklist of what makes a document complete, have the AI check each one against it, and limit its answer to three verdicts: green light, red light with an exact list of what's missing or wrong, or review when a person needs to look. For each verdict, it drafts the next step, like the handoff to the next party or the correction request to the submitter. A person approves every draft before it's sent, and you scale that back only after measuring how often drafts go out unchanged.",
+  "sections": [
+    {
+      "id": "the-short-answer",
+      "title": "The short answer: a checklist, three verdicts, and drafts you approve",
+      "paragraphs": [
+        "To automate document review with AI, write down exactly what makes a document complete and correct, have the AI check each incoming document against that checklist, and let it return only one of three verdicts: green light (complete and ready to go), red light (incomplete or invalid, with an exact list of what's missing or wrong), or review (unclear, so a person needs to look). For each verdict, the AI drafts the next step, and a person approves the drafts before anything is sent.",
+        "Notice what the AI doesn't do: it doesn't give opinions, and it doesn't send anything on its own. The person who used to do the review now checks its work instead, which is a much smaller job."
+      ]
+    },
+    {
+      "id": "a-real-example",
+      "title": "What this looks like in a real process",
+      "paragraphs": [
+        "In a recent AIify It working session, we walked through this setup with an organization that receives applications submitted by outside professionals on behalf of their clients. Right now, a staff member reads each one by hand, checks every required field, and copies the details into a separate document. Then they email the partner who handles the next step if it's complete, or email the submitter back if something is missing.",
+        "None of those steps is hard, and that's the problem. Slow, repetitive work is where mistakes creep in: a missed signature, a typo copied into the handoff, a correction email that says \"some information is missing\" without saying what, which means another round trip.",
+        "The automated version keeps the same steps but changes who does them. The AI reads the application, checks it, pulls out the details, and drafts the right email. The staff member approves the draft. Any process where a document has to be complete before it can move on fits this pattern."
+      ]
+    },
+    {
+      "id": "three-verdicts-not-opinions",
+      "title": "Limit the AI to three verdicts, not opinions",
+      "paragraphs": [
+        "The design choice that matters most is limiting what the AI can say. An answer like \"this looks mostly fine, though page two might need another look\" sounds helpful, but you can't route it, count it, or act on it without rereading the document yourself.",
+        "The review verdict gives the AI an honest way to say \"I'm not sure\" instead of guessing, so tell it plainly: when in doubt, choose review, never green. A wrong green sends an incomplete file to your partner. A wrong review costs someone a few minutes. Here's what each verdict triggers:"
+      ],
+      "bullets": [
+        "Green light: every required item is there and passes every rule. The AI drafts the handoff to the next party with the details already filled in.",
+        "Red light: something is missing or breaks a rule. The AI lists each problem, like \"page 4 is not signed\" or \"the client's last name is spelled differently on pages 1 and 3,\" and drafts a correction request telling the submitter exactly what to fix.",
+        "Review: a page is unreadable, two documents contradict each other, or your rules don't cover the situation. It goes to a person with the AI's reason for flagging it."
+      ]
+    },
+    {
+      "id": "build-the-checklist",
+      "title": "Build the checklist from the reasons submissions get sent back",
+      "paragraphs": [
+        "The checklist is where most of the real work is. Don't start from the instructions on your form. Start from the reasons submissions currently get sent back. Pull a few months of correction emails and list every problem in them. Those are the rules your team actually enforces, including the ones nobody wrote down.",
+        "A simple test for each rule: if two people on your team could read it and disagree about whether a document passes, the AI will struggle with it too. Fix the wording before you blame the AI. A few habits help:"
+      ],
+      "bullets": [
+        "Name every required field and attachment. \"Signed and dated on the last page\" is checkable. \"Paperwork in order\" is not.",
+        "Phrase each rule as a yes-or-no question, like \"Does the name on the form match the name on the supporting document?\"",
+        "Spell out formats and limits, such as accepted date formats or how recent a supporting document must be.",
+        "List acceptable alternatives, so a valid substitute doesn't get flagged as missing.",
+        "Say when to choose review: unreadable scans, conflicting information, anything the rules don't cover.",
+        "Have the AI note the page where it found each item, so the approver can check quickly."
+      ]
+    },
+    {
+      "id": "test-on-past-submissions",
+      "title": "Test it on past submissions before going live",
+      "paragraphs": [
+        "Before the AI touches a live submission, run it on past ones where you already know the right answer: some that went straight through, some that were sent back, and some that needed a judgment call.",
+        "Add a few deliberately incomplete ones too. Take a good submission and remove a page, blank out a required field, or change a date so it breaks a rule. You made the problem, so you know exactly what the AI should catch.",
+        "Compare the AI's verdicts and problem lists to what actually happened, and look hardest at anything marked green that should have been red. Each miss tells you something, usually a rule that's unclear or missing. Fix the checklist, rerun the same set, and repeat until the results hold steady."
+      ]
+    },
+    {
+      "id": "sensitive-documents",
+      "title": "Keep sensitive documents somewhere you control",
+      "paragraphs": [
+        "Many submissions carry sensitive personal information, like health, financial, or identity details. The three-verdict setup helps here, because most of your workflow never needs the document. It only needs the verdict.",
+        "Keep the documents, and the AI step that reads them, in an isolated, encrypted environment your organization controls. That might be a separate cloud account set up just for this, with access limited to the people who need it. Let only the status and the minimum needed details flow out to email or other tools: for a red light, a reference number and the list of fixes, and for a green light, just the fields the next party needs.",
+        "Before AI touches regulated data, check your vendor agreements and compliance obligations. Find out where the AI provider stores your data, how long it keeps it, and whether it's used for training. And confirm whether the rules you operate under require a signed agreement with any vendor that processes that data. Settle this before you build, not after."
+      ]
+    },
+    {
+      "id": "keep-a-person-approving",
+      "title": "Keep a person approving drafts, and measure before you change that",
+      "paragraphs": [
+        "At first, one person approves every draft before it goes out. They read the verdict, check the draft, fix anything that's off, and send it. That's the shift you're after: the human role shrinks from doing the review to approving the drafts.",
+        "It's tempting to promise a date when the human reviewer won't be needed anymore. Don't. Whether and when you can phase out manual review depends on how the process behaves once it's running: how messy real submissions are, how many exceptions come up, and how often the drafts are right.",
+        "If green-light handoffs are approved unchanged week after week, that's real evidence for sending those automatically, with spot checks. If lots of submissions land in review, the checklist needs work or the process is messier than it looked. Track these from day one:"
+      ],
+      "bullets": [
+        "How often drafts are approved without changes, counted separately for green and red.",
+        "How many submissions land in review, and why.",
+        "What the approver changes. The same edit over and over usually means a rule needs rewriting.",
+        "How many red-light submissions come back fixed on the first try."
+      ]
+    },
+    {
+      "id": "do-the-cost-math",
+      "title": "Do the cost math before you build",
+      "paragraphs": [
+        "Before you build anything, figure out what the manual review actually costs: how many submissions you get, how long each takes from start to finish (reading, checking, copying, emailing, chasing corrections), and what a mistake costs when one slips through.",
+        "Say you get 20 submissions a week at 30 minutes each. That's 10 hours a week of someone's time, plus the delay from every back-and-forth, so an automated first pass is worth pricing out. If you get a handful a month at ten minutes each, a written checklist and two email templates may be all you need.",
+        "If the manual review costs little, keep the build small. Don't build a big system for a small process. A small build can be the checklist, the AI check, and drafts that land in one person's inbox for approval. No custom portal, no dashboard. Add more when the volume or your numbers give you a reason."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Still checking every submission by hand?",
+    "description": "AIify It builds review workflows that check each document against your checklist, sort it into green, red, or review, and draft the follow-up for your team to approve.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-11-20"
+  }
+}
