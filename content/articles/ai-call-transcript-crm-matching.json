@@ -1,7 +1,7 @@
 {
   "slug": "ai-call-transcript-crm-matching",
-  "title": "Automate Call Notes to CRM Without Mixing Up Contacts",
-  "description": "Automate call notes to CRM with clear intake fields, verified contact matching, an unmatched-call review queue and checks on the saved note.",
+  "title": "How to log call notes to the right CRM contact",
+  "description": "Match the call to a verified contact and account before you save the note, and hold uncertain matches in a review queue. A useful summary still needs evidence that it belongs on this record.",
   "category": "Workflow integration",
   "takeaway": "To automate call notes to a CRM, capture the source call, establish the right contact and account, then save only the agreed note fields. Keep uncertain matches in a visible review queue. A useful summary still needs evidence that it belongs on this record.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "define-the-crm-note",
       "title": "Define what the CRM should receive",
       "paragraphs": [
-        "Start by deciding whether the destination is a contact note, an account activity or another record your team already uses. Also decide whether the automation may only append a note or may update existing fields. Those are separate permissions and should have separate rules.",
+        "Look up the contact and account first, save the note only on a verified match, and queue the calls you cannot match. Start by deciding whether the destination is a contact note, an account activity or another record your team already uses. Also decide whether the automation may only append a note or may update existing fields. Those are separate permissions and should have separate rules.",
         "Before generating a summary, prepare a small intake record. Use metadata supplied by the source system where available, and mark missing information explicitly. A name inferred from transcript text should not quietly replace a missing participant identifier.",
         "The following is a planning checklist, not a universal CRM schema. Confirm what your call platform provides and what your CRM permits. Limit recording and transcript access to the people who need it, using your approved recording, retention and access policies."
       ],

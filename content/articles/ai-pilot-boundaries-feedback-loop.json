@@ -1,7 +1,7 @@
 {
   "slug": "ai-pilot-boundaries-feedback-loop",
-  "title": "Your AI Pilot Worked. What Did You Leave Out?",
-  "description": "Compare two bounded AI pilot designs to see how isolating each case can remove the waiting, repeat requests and feedback the trial needs to examine.",
+  "title": "What should an AI pilot include so it tests the real workflow",
+  "description": "Include the waiting, shared queues, and repeat requests you intend to learn from. A pilot that gives every case an empty queue and a free reviewer can pass while missing the interaction that creates more work.",
   "category": "AI delivery",
   "takeaway": "A pilot can follow every step from input to finished record and still miss an important interaction. If each case gets an empty queue and an available reviewer, what happens when waiting causes more work to arrive?",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "a-smaller-test-can-change-the-question",
       "title": "A smaller test can change the question",
       "paragraphs": [
-        "Keeping a pilot small is sensible when data, spending and consequential actions need tight limits. But different ways of making it small teach different things. Removing customers, shared queues or return messages can remove the mechanism you intended to examine.",
+        "Include the waits, shared queues, and return messages, or the pilot never sees the work those delays create. Keeping a pilot small is sensible when data, spending and consequential actions need tight limits. But different ways of making it small teach different things. Removing customers, shared queues or return messages can remove the mechanism you intended to examine.",
         "For example, a request-intake workflow prepares a draft, passes it to a reviewer and creates an accepted work item. Testing each request separately may verify that complete path. It cannot show what happens when several requests wait for the same reviewer and some requesters contact the team again before receiving a result.",
         "The design question is therefore more specific than “Did we test end to end?” Ask which interactions must remain inside the boundary for the pilot’s intended conclusion to be meaningful. Reduce exposure while preserving those interactions, using synthetic records and non-acting simulations where appropriate."
       ]

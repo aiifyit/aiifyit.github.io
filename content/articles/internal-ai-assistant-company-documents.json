@@ -1,7 +1,7 @@
 {
   "slug": "internal-ai-assistant-company-documents",
-  "title": "Can an Internal AI Assistant Find the Answers Your Team Needs?",
-  "description": "Plan an internal AI knowledge assistant around real employee questions, approved SOPs, useful source references and clear limits on what it should answer.",
+  "title": "How to build an internal AI assistant for company documents",
+  "description": "Start from real employee questions and a small set of approved documents, and show the source behind each answer. Decide which questions it should refuse before you upload the whole drive.",
   "category": "Company knowledge",
   "takeaway": "The answer is somewhere in your documents. A colleague probably knows which folder. Before building an internal AI assistant, decide which questions it should answer and what would make those answers trustworthy enough to use.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "choose-the-questions-first",
       "title": "Choose the questions before uploading the documents",
       "paragraphs": [
-        "Start an internal AI knowledge assistant with one defined business problem, a small approved source collection and questions your team can verify. Then specify how it should retrieve evidence, explain an answer and respond when the information is missing. A chat interface is only one part of that work.",
+        "Start with the questions employees already ask and a small set of approved documents that can answer them, with a source on every reply. Start an internal AI knowledge assistant with one defined business problem, a small approved source collection and questions your team can verify. Then specify how it should retrieve evidence, explain an answer and respond when the information is missing. A chat interface is only one part of that work.",
         "Ask employees for questions they repeatedly interrupt someone to answer. Look for a coherent group: how to complete a process, where to find an approved template or who handles an exception. Select questions whose answers exist in material the team is allowed to use and whose usefulness you can judge.",
         "Avoid beginning with every document the company has ever produced. A focused collection makes it easier to identify contradictions, missing procedures and unclear ownership. It also lets the process owner distinguish an assistant problem from a documentation problem before the project grows."
       ]

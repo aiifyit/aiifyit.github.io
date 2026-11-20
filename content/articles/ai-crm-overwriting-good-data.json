@@ -1,7 +1,7 @@
 {
   "slug": "ai-crm-overwriting-good-data",
-  "title": "Why Does Your CRM Keep Losing Good Data After an AI Update?",
-  "description": "Learn how to prevent AI CRM automation from overwriting trusted fields, handle conflicting updates, and test whether existing records stay intact.",
+  "title": "How to stop automation from overwriting CRM data",
+  "description": "Decide, for each field, which sources may replace a trusted value, and test that existing records stay intact. A valid-looking incoming value is not permission to overwrite a field it does not belong in.",
   "category": "Workflow reliability",
   "takeaway": "A document arrives, an automation runs, and a field your team already checked changes again. The incoming value may look perfectly reasonable. What gave it permission to replace the one you trusted?",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "the-value-looked-valid",
       "title": "The value looked valid",
       "paragraphs": [
-        "A workflow review exposed a subtle problem: incoming documents were causing existing dates to be overwritten with dates that meant something different. The automation found a real value. The mistake was allowing that value to replace a field it did not belong in.",
+        "Block the write unless that source is allowed to replace the field, even when the incoming value looks valid. A workflow review exposed a subtle problem: incoming documents were causing existing dates to be overwritten with dates that meant something different. The automation found a real value. The mistake was allowing that value to replace a field it did not belong in.",
         "The team proposed preserving populated fields and leaving judgments about conflicting information to people. That was a requested change, rather than a demonstrated outcome from a completed rollout. It provides a useful starting point for any business using AI to update a CRM or another operational system.",
         "Before changing the extraction prompt, inspect the write policy. A correctly read date, name, or address can still be the wrong update. Ask which source may change which field, under what conditions, and who decides when sources disagree."
       ]

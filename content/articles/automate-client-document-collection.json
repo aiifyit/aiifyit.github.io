@@ -1,7 +1,7 @@
 {
   "slug": "automate-client-document-collection",
-  "title": "Still Chasing Client Documents? Fix the Request List First",
-  "description": "Automate client document collection with clear requirements, targeted reminders, separate receipt and acceptance states, and a defined escalation owner.",
+  "title": "How to automate collecting documents from clients",
+  "description": "Start with a current request list, tie each upload to one requirement, and remind people only about what is still missing. Separate receipt from acceptance, and name who handles a blocking question.",
   "category": "Client operations",
   "takeaway": "You can automate much of the chasing when the system knows exactly what each client still owes you. Start with a current request list, connect each upload to a requirement, and make reminders respond to what has actually changed.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "start-with-the-outstanding-item",
       "title": "Start with the outstanding item",
       "paragraphs": [
-        "A client has uploaded a file, but the reminder still says their documents are missing. Another client has sent everything except one attachment and receives the original checklist again. A third is waiting for someone on your team to answer a question. Sending all three the same reminder creates more work for everyone.",
+        "Send a specific list, match each upload to one item, and remind the client only about what is still outstanding. A client has uploaded a file, but the reminder still says their documents are missing. Another client has sent everything except one attachment and receives the original checklist again. A third is waiting for someone on your team to answer a question. Sending all three the same reminder creates more work for everyone.",
         "The useful unit of a collection workflow is the individual requirement. Track what is required, who should provide it, its deadline, and its current state. Then a reminder can describe a specific next action instead of asking the client to reconstruct the entire request.",
         "For an illustrative example, consider an agency collecting a logo file, product photographs, and approved copy before starting a project. A completed logo upload should remove that item from the next request, while photographs awaiting review should be shown as received."
       ]

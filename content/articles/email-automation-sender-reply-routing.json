@@ -1,7 +1,7 @@
 {
   "slug": "email-automation-sender-reply-routing",
-  "title": "Your Automated Email Has the Right Name. Who Actually Sent It?",
-  "description": "Check email automation sender identity, authorized mailboxes, Reply-To routing, and failure ownership before moving from test messages to production.",
+  "title": "Who actually sends an automated email and where replies go",
+  "description": "Check the mailbox that sends, the name customers see, and the inbox that receives replies before you leave test mode. A message can show the right employee name while still leaving from the builder's mailbox.",
   "category": "Workflow integration",
   "takeaway": "The test email arrives with the right employee’s name and a polished signature. It looks ready. But the account behind the message and the inbox receiving the reply may still belong to someone else.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "a-test-name-can-hide-a-test-mailbox",
       "title": "A test name can hide a test mailbox",
       "paragraphs": [
-        "In one workflow demonstration, test messages used the intended employees’ display names while being sent from the builder’s mailbox. The reviewer checked wording and signature details. The production sending account and permitted sender addresses still needed to be configured.",
+        "The visible name can be right while the sending mailbox and the Reply-To address still belong to someone else. In one workflow demonstration, test messages used the intended employees’ display names while being sent from the builder’s mailbox. The reviewer checked wording and signature details. The production sending account and permitted sender addresses still needed to be configured.",
         "The distinction was explicit in the discussion: changing the visible name was easy, while changing the sending setup required additional work. Replies needed to reach the appropriate employee. Failure notifications were also discussed, but had not yet been added.",
         "The demonstration established a useful content-review step. It did not establish that the production mailbox, reply route, or failure handling was ready. For customer-facing email automation, those details deserve their own review before a test becomes a live process."
       ]

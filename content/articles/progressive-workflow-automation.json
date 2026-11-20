@@ -1,7 +1,7 @@
 {
   "slug": "progressive-workflow-automation",
-  "title": "Why Does Your Automation Project Keep Waiting on One Last Step?",
-  "description": "Explore a practical approach to progressive workflow automation: coordinate the full process, preserve human actions, and automate individual steps as they are ready.",
+  "title": "How to automate a workflow when one step is not ready",
+  "description": "Coordinate the whole process and leave the blocked step with a person, then automate that step once access, rules, and tests are in place. Waiting on one write-back does not have to stop the rest.",
   "category": "Automation strategy",
   "takeaway": "The intake works. The documents can be read. One approval, integration, or write-back keeps the whole project from feeling finished. How do you make progress without pretending that unresolved step has disappeared?",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "when-one-step-holds-the-project",
       "title": "When one step holds the project",
       "paragraphs": [
-        "In an internal AIify It planning discussion, the team proposed delivering a managed version of an entire workflow while some actions remained manual. The system would organize the work, send the next task to the responsible person, and monitor progress. Individual actions could then be automated as the required access, rules, and testing became available.",
+        "Run the workflow with the unfinished step assigned to a person, and automate that step later when access and tests exist. In an internal AIify It planning discussion, the team proposed delivering a managed version of an entire workflow while some actions remained manual. The system would organize the work, send the next task to the responsible person, and monitor progress. Individual actions could then be automated as the required access, rules, and testing became available.",
         "This was a proposed delivery approach. The discussion did not validate a delivery-speed promise or establish measured customer results. Its value as a design idea is that an unresolved integration does not have to remain invisible inside an unfinished process.",
         "The approach is worth considering when a workflow has useful, well-understood steps alongside actions that still require judgment, authorization, or better technical access."
       ]

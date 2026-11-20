@@ -1,7 +1,7 @@
 {
   "slug": "staged-email-automation-rollout",
-  "title": "Launch an Automated Email Campaign in Small Batches You Can Pause",
-  "description": "Roll out email automation in small batches: size each round, watch the first one, own the pause, use unique links and feed bounces back into the next send.",
+  "title": "How to test an automated email before sending it to everyone",
+  "description": "Send a small batch, watch what happens, and keep a person who can pause the next round. Use distinct links and feed bounces into the following send before you widen the list.",
   "category": "Email automation",
   "takeaway": "When an automated email goes to your whole client list at once, any mistake in it reaches everyone before you notice. Send to a small group first, watch what happens, and keep a person ready to stop it. A broken link then annoys 25 people instead of 400.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "send-in-rings",
       "title": "Send to a small group first, then widen",
       "paragraphs": [
-        "The safest way to launch an automated email campaign to your clients is in rounds that get bigger as you gain confidence. You send the first round, check that everything downstream worked, and only then let the next round go.",
+        "Send the first batch to a small group, check the result, and pause before the next group goes out. The safest way to launch an automated email campaign to your clients is in rounds that get bigger as you gain confidence. You send the first round, check that everything downstream worked, and only then let the next round go.",
         "In a planning discussion for an annual outreach at a professional services firm, the team needed to email a few hundred clients and ask each one to choose a service option through a form before a fixed deadline. They split the list into rounds: the first 25 clients on day one, the next 50 the following day, then 100, then everyone remaining. Each email went out from the client's own account manager's mailbox, and a shared tracking spreadsheet recorded whether the email arrived, whether it was opened, whether the form link was clicked and what the client answered.",
         "The deadline could not move, so launch day could not slip. Batching let them start on time without betting the whole list on the first send. If the first round revealed a problem, they could fix it while most clients had not yet received anything.",
         "You can size your own rounds the same way. Make the first one small enough that you could personally apologize to every recipient if something went wrong, and large enough to show real behavior, such as opens, clicks and replies. Then grow each round by roughly doubling, as long as the previous one looked clean."

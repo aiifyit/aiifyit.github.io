@@ -1,7 +1,7 @@
 {
   "slug": "automation-inventory-retirement",
-  "title": "Your Automation Still Runs. Should You Retire It?",
-  "description": "Build an automation inventory that tracks purpose, owners and dependencies. Decide what to keep, adapt or retire as business needs and software change.",
+  "title": "How to decide which automations to retire",
+  "description": "Retire a workflow when nobody still uses its output for a decision, even if every run succeeds. Inventory purpose, owners, and dependencies, then keep, adapt, or switch it off without breaking work that still matters.",
   "category": "Automation strategy",
   "takeaway": "A workflow can finish every run while the business quietly stops needing its output. How do you find those automations, decide what should replace them and switch them off without breaking useful work?",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "give-each-workflow-a-current-purpose",
       "title": "Give each workflow a current purpose",
       "paragraphs": [
-        "Begin with the result someone still needs. For each live automation, name the person or process that uses its output and the decision or next action it supports. “Sends a spreadsheet every Friday” describes activity. “Gives the service manager the unresolved requests needed to assign next week’s work” gives you something to review.",
+        "Turn it off when no person or process still uses the output for a decision, even if the runs themselves succeed. Begin with the result someone still needs. For each live automation, name the person or process that uses its output and the decision or next action it supports. “Sends a spreadsheet every Friday” describes activity. “Gives the service manager the unresolved requests needed to assign next week’s work” gives you something to review.",
         "Ask the business owner to show a recent useful result. Check the destination as well as the run history: another workflow may consume a file that nobody opens manually. Low visible usage is a reason to investigate, especially for seasonal work or a rarely needed control.",
         "Start with a bounded area, such as the workflows connected to a system due for replacement. Include scheduled scripts, built-in rules and small personal automations that affect shared work. Mark what you have not yet inspected so the register does not imply complete coverage."
       ]

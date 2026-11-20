@@ -1,7 +1,7 @@
 {
   "slug": "ai-automation-team-adoption",
-  "title": "The Automation Is Ready. How Does the Team’s Work Change?",
-  "description": "Plan AI automation adoption around real roles. Define changed responsibilities, practice useful decisions and check whether the new workflow works in daily use.",
+  "title": "How to get employees to use a new automation",
+  "description": "Spell out, for each role, what people stop doing, what they still check, and where an unusual case goes. Practice those decisions and confirm the new workflow holds up in daily use.",
   "category": "Team operations",
   "takeaway": "The demonstration went well, but the team still has to decide what to stop doing, what to check and where to take an unusual case. A useful adoption plan makes those changes clear for each role.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "ask-about-the-work-people-want-changed",
       "title": "Ask which work people want changed",
       "paragraphs": [
-        "Invite the people doing the work to nominate recurring frustrations before the rollout plan is fixed. Ask for a recent example, how often it happens, what makes it difficult and what they would do with the capacity released. A task can be unpleasant because the policy is unclear or the source data is poor; installing another tool may leave that burden untouched.",
+        "People use it when each role knows what to stop doing, what to check, and where an unusual case goes. Invite the people doing the work to nominate recurring frustrations before the rollout plan is fixed. Ask for a recent example, how often it happens, what makes it difficult and what they would do with the capacity released. A task can be unpleasant because the policy is unclear or the source data is poor; installing another tool may leave that burden untouched.",
         "Include people who receive the output, handle exceptions and cover absences. The person who saves a copying step may pass extra checking to someone else. Capture those effects together, rather than treating the first role’s experience as the whole result.",
         "Explain the actual intention for the change and which decisions remain open. Do not promise job security, promotion or more interesting work unless the organization has made that commitment. Staff need a credible account of the proposed working day and somewhere to raise concerns."
       ]

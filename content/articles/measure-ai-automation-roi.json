@@ -1,7 +1,7 @@
 {
   "slug": "measure-ai-automation-roi",
-  "title": "Will AI Automation Pay for Itself? Measure the Work That Remains",
-  "description": "Measure AI automation ROI with retained human work, original and operating baselines, tested capacity and resilience checks before claiming savings.",
+  "title": "How to measure the ROI of AI automation",
+  "description": "Compare the work people still do, before and after, including review and exceptions, with the cost of running the automation. A faster finish does not pay for itself if the workload barely changes.",
   "category": "Automation strategy",
   "takeaway": "An automation project can finish faster while leaving your team with almost as much work. To judge whether it will pay for itself, measure the effort it removes, the effort it adds, and how the resulting capacity will become business value.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "start-with-the-existing-workload",
       "title": "Start with a workload you can count",
       "paragraphs": [
-        "Before approving a build, select a clearly bounded process and record what completing it currently requires. Count incoming cases, hands-on minutes, corrections, and elapsed time. Include work performed by everyone involved, rather than measuring only the person who starts the process.",
+        "Measure the human work that remains, including review and exceptions, against the cost of running the automation. Before approving a build, select a clearly bounded process and record what completing it currently requires. Count incoming cases, hands-on minutes, corrections, and elapsed time. Include work performed by everyone involved, rather than measuring only the person who starts the process.",
         "In a workflow discovery discussion, a process owner described a time-consuming operation that still required human participation at several points. The team proposed mapping those steps and identifying which remaining work could be automated. The discussion established an opportunity to investigate; it did not establish measured savings or a completed return on investment.",
         "That distinction matters when a proposal promises to automate a large share of a process. A count of automated steps tells you little about the effort removed. One difficult exception can require more attention than several routine steps combined."
       ]

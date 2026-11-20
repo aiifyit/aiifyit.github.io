@@ -1,7 +1,7 @@
 {
   "slug": "three-part-workflow-simplification",
-  "title": "Your Automation Has 60 Steps. Does It Actually Need Them?",
-  "description": "Simplify a bloated automation by sorting every step into collect, decide, or deliver. Cut empty checks, batch lookups, and build something your team can fix.",
+  "title": "How to simplify an automation that has too many steps",
+  "description": "Sort every step into collect, decide, or deliver, and cut the checks that do nothing when you open them. What remains should be something your team can fix.",
   "category": "Workflow automation",
   "takeaway": "Most business workflows come down to three parts: get the information, apply your rules to it, and put the result where people use it. If your automation has 60 steps, sort each one into those three buckets. The steps that don't fit, or don't do anything when you open them, are usually the ones to cut.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "big-workflows-look-impressive",
       "title": "A big workflow looks impressive until it breaks",
       "paragraphs": [
-        "On a recent review, an automation that had been generated from a planning call came out at around 60 steps in a visual workflow builder. It mostly worked. It also looked like a lot of serious work, and that's part of the problem.",
+        "Sort each step into collect, decide, or deliver, and remove the steps that do not change the result. On a recent review, an automation that had been generated from a planning call came out at around 60 steps in a visual workflow builder. It mostly worked. It also looked like a lot of serious work, and that's part of the problem.",
         "Picture handing that to the team who has to live with it. Six weeks later it fails on step 37. Can anyone on their side look at it and figure out why? With 60 steps, probably not. With 10 steps that each do one clear thing, there's a good chance they can.",
         "The builder tool wasn't the issue. The same logic fit in about 10 steps in the same tool once someone took the time to untangle it."
       ]

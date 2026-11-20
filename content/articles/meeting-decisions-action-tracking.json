@@ -1,7 +1,7 @@
 {
   "slug": "meeting-decisions-action-tracking",
-  "title": "The Meeting Ended. Who Owns What Happens Next?",
-  "description": "Turn AI meeting action items into accountable work with confirmed owners, agreed due dates, one shared task record and meaningful completion evidence.",
+  "title": "How to track action items from meetings",
+  "description": "Confirm an owner, a result, and a due date before you treat an extracted line as a commitment, and store it in the task system the team already uses. A thorough summary does not mean anyone agreed to do the work.",
   "category": "Team operations",
   "takeaway": "The summary arrives quickly and the action list looks thorough. At the next meeting, the same work is still open. Did the automation miss the task, or did nobody agree who would do it?",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "capture-is-the-first-step",
       "title": "Start with proposed actions, then confirm the commitment",
       "paragraphs": [
-        "Use AI to identify candidate actions from a meeting, then confirm the owner, expected result and due date before treating them as commitments. Store confirmed work in the task system the team already uses. Follow-up automation can make missing updates visible, but extracting an action does not complete it.",
+        "Confirm the owner, the result, and the due date in the meeting, then put that commitment in the task system you already use. Use AI to identify candidate actions from a meeting, then confirm the owner, expected result and due date before treating them as commitments. Store confirmed work in the task system the team already uses. Follow-up automation can make missing updates visible, but extracting an action does not complete it.",
         "In an AIify It team discussion, a participant reported using automation to capture new work from calls and cross-check their own notes. The same discussion described automated reminders for progress updates, while emphasizing that people still had to supply those updates. It was evidence of reported capture and reminder processes, not evidence of improved completion rates.",
         "That is the gap to design around. A meeting summary records what was discussed. An accountability process establishes what somebody has agreed to deliver and how the rest of the team will know where it stands."
       ]

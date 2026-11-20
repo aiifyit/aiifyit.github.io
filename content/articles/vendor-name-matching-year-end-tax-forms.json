@@ -1,7 +1,7 @@
 {
   "slug": "vendor-name-matching-year-end-tax-forms",
-  "title": "Your Books Say \"Acme Plumbing.\" The W-9 Says Something Else.",
-  "description": "Automate year-end contractor tax-form prep without losing vendors to name mismatches. Normalize names, use review buckets, and test against last year.",
+  "title": "How to match vendor names to W-9s for 1099s",
+  "description": "Normalize names, sort uncertain pairs into review buckets, and test the match against last year's forms. The books and the W-9 rarely use the same legal name.",
   "category": "Workflow automation",
   "takeaway": "Say you want an agent to handle the first pass of year-end contractor tax forms. It reads the year's payables by vendor, checks each vendor's W-9, and tells you who needs a form. Sounds simple. Then you notice your books say \"Acme Plumbing\" and the W-9 says \"Acme Plumbing, LLC,\" and the whole thing hinges on whether the agent knows those are the same business.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "exact-matches-are-rare",
       "title": "Exact matches are rare",
       "paragraphs": [
-        "Nobody types a vendor's full legal name into the books. People type what's on the invoice, or what they call the vendor out loud. So you get \"Acme Plumbing\" in the books, \"Acme Plumbing, LLC\" on the W-9, an extra space here, a missing comma there, and \"Inc\" dropped half the time.",
+        "Normalize the name, review the pairs that are not obvious, and check the result against last year's forms. Nobody types a vendor's full legal name into the books. People type what's on the invoice, or what they call the vendor out loud. So you get \"Acme Plumbing\" in the books, \"Acme Plumbing, LLC\" on the W-9, an extra space here, a missing comma there, and \"Inc\" dropped half the time.",
         "Then there are trade names. The W-9 might list \"Smith Holdings LLC\" as the legal name and \"Acme Plumbing\" on the business name line, because that's the name the business works under.",
         "If your agent only accepts exact matches, one of two things happens. It quietly skips real vendors who should get a form, or it flags almost everyone and your staff ends up checking every row by hand. Either way, you haven't saved anything.",
         "In one recent project, this was the first question the bookkeeping team asked when they saw the workflow: does it know the match doesn't have to be exact? It's the right question to ask before anything else."

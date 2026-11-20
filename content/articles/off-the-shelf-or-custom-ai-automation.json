@@ -1,7 +1,7 @@
 {
   "slug": "off-the-shelf-or-custom-ai-automation",
-  "title": "Before You Build Custom AI, Check What Your Software Already Does",
-  "description": "Choose between existing features, packaged AI, integrations, and a custom build by checking the real workflow gap, software roadmap, and ongoing ownership.",
+  "title": "Should I buy software or build custom automation",
+  "description": "Check whether existing features, a packaged tool, or an integration already closes the gap before you build. Custom work is for the requirement that remains, with a named owner after launch.",
   "category": "Automation strategy",
   "takeaway": "The right starting point is a requirement your business cannot currently meet. Check whether your existing software can satisfy it, whether an integration closes the gap, and whether the remaining custom work will still matter after planned system changes.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "name-the-gap",
       "title": "Describe the missing capability in business terms",
       "paragraphs": [
-        "A request for an AI agent can hide several different needs: less copying, better document search, faster approvals, or help interpreting variable requests. Write down the outcome first, including where the input comes from and where the finished result must appear.",
+        "Buy or configure what already covers the job, and build only the gap that remains after you have checked. A request for an AI agent can hide several different needs: less copying, better document search, faster approvals, or help interpreting variable requests. Write down the outcome first, including where the input comes from and where the finished result must appear.",
         "Make the requirement specific enough to demonstrate. For example, a team might need incoming requests to become complete records with supporting documents and a visible exception status. That description lets you compare approaches against the same job.",
         "Separate essential requirements from preferences. Which actions must happen automatically? Which decisions need approval? Which systems must remain in use? Where is a manual step acceptable? Without those boundaries, a feature-rich product and an open-ended custom proposal are difficult to compare."
       ]

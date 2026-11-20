@@ -1,7 +1,7 @@
 {
   "slug": "ai-archive-processing-cost-estimate",
-  "title": "Your AI Archive Estimate Looked Fine. What Will the First Batch Reveal?",
-  "description": "Estimate AI archive processing costs with a representative canary batch, actual usage records, retry allowance, and clear budget approval checkpoints.",
+  "title": "How to estimate the cost of processing documents with AI",
+  "description": "Run a representative batch and use the API usage it actually records, including retries, before you approve the rest of the archive. Keep budget checkpoints so a changed estimate stops the next batch.",
   "category": "AI delivery",
   "takeaway": "A large archive looks affordable on paper. Then a small processing run changes the estimate. Before you approve the rest, which number should you trust, and what still needs to be measured?",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "the-estimate-changed",
       "title": "The estimate changed after a small run",
       "paragraphs": [
-        "In an archive-processing discussion, a builder reported revising the projected cost upward after sending a small portion of the archive through the workflow. The earlier calculation used token counts visible in the orchestration tool, which the builder said did not match the API usage.",
+        "Trust a small real batch, including retries, over a token estimate that has not been checked against the API bill. In an archive-processing discussion, a builder reported revising the projected cost upward after sending a small portion of the archive through the workflow. The earlier calculation used token counts visible in the orchestration tool, which the builder said did not match the API usage.",
         "That was a reported estimate correction. The discussion did not provide an independently reconciled final invoice or demonstrate the completed cost of the full archive. It does illustrate a useful question: has your estimate been checked against the same processing path you intend to run?",
         "A canary batch is a deliberately limited run before a larger release. For AI archive processing, it can help test the assumptions behind the budget while the amount of work and spending remain bounded. Its usefulness depends on what you include and measure."
       ]

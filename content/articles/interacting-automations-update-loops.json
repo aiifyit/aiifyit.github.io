@@ -1,7 +1,7 @@
 {
   "slug": "interacting-automations-update-loops",
-  "title": "Your Automations Work Alone. Why Do They Fail Together?",
-  "description": "Find conflicting workflows that update the same records. Set shared state ownership, test delayed events, and prevent repeated actions during recovery.",
+  "title": "How to stop workflows from triggering each other",
+  "description": "List every automation that writes the same record, give one owner to each field, and test delayed events. Separate healthy run histories can still bounce a request between states.",
   "category": "Workflow reliability",
   "takeaway": "One automation marks a request ready. Another returns it to pending. Each update wakes the other, and the team receives the same notification again. The individual rules may be executing as written while their combined behavior keeps the job from settling.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "follow-the-shared-record",
       "title": "Follow one record through every workflow that touches it",
       "paragraphs": [
-        "Begin with the record that keeps changing. List every workflow, scheduled job, integration, and manual action that can read or write its important fields. Include notifications and downstream work triggered by those changes. Separate teams may each see a healthy run history without seeing the repeated work they create together.",
+        "Find every workflow that writes the same record and stop a write from being the trigger for the other workflow. Begin with the record that keeps changing. List every workflow, scheduled job, integration, and manual action that can read or write its important fields. Include notifications and downstream work triggered by those changes. Separate teams may each see a healthy run history without seeing the repeated work they create together.",
         "For each participant, record the trigger, fields read, fields written, rule owner, expected next state, and external side effects. Trace a concrete sequence until no further action is expected. If the path comes back to an earlier state, ask whether a genuine new business event explains the reversal.",
         "Stafford Beer examines coordination between interdependent operations in Chapters 8 and 12 of Brain of the Firm. His discussion of oscillation provides a useful question: are separate responses making the shared situation worse? The workflow controls and synthetic exercise here are our modern adaptation, not a software recipe or measured AIify outcome from the book."
       ]

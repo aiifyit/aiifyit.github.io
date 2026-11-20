@@ -1,7 +1,7 @@
 {
   "slug": "client-onboarding-automation-exceptions",
-  "title": "Your Onboarding Automation Passed. What Happens Off the Happy Path?",
-  "description": "Learn how to test client onboarding automation beyond form submission, from pricing questions and missing owners to duplicate events and staged folder creation.",
+  "title": "How to test client onboarding automation off the happy path",
+  "description": "Test the pricing question, the missing owner, the duplicate event, and the step that should wait. A completed intake form only proves the path you already expected.",
   "category": "Workflow reliability",
   "takeaway": "A completed intake form is easy to demonstrate. The harder test starts when someone asks a question, an owner is missing, or the next action should wait. Those paths determine whether your team can operate the workflow comfortably.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "what-a-passing-test-proves",
       "title": "What a passing onboarding test proves",
       "paragraphs": [
-        "In an AIify It onboarding test, a pricing-question path generated an email, and the intended test recipients confirmed receiving it. The team also inspected a folder-creation demonstration using test folders. Those were useful, bounded results.",
+        "Run the pricing question, the missing owner, the duplicate event, and the folder that should not be created yet. In an AIify It onboarding test, a pricing-question path generated an email, and the intended test recipients confirmed receiving it. The team also inspected a folder-creation demonstration using test folders. Those were useful, bounded results.",
         "The folder workflow was still unpublished, and the team wanted staff informed before it began creating folders in the operational environment. Passing a test did not settle whether that part of the rollout should begin.",
         "This distinction matters when you buy or manage onboarding automation. Ask which path was tested, what the test actually changed, who verified the result, and which actions remain disabled. A broad statement that onboarding works can hide several different readiness states."
       ]

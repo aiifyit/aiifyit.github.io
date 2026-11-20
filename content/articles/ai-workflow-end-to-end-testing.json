@@ -1,7 +1,7 @@
 {
   "slug": "ai-workflow-end-to-end-testing",
-  "title": "Your AI Workflow Passed. Why Is the Job Still Unfinished?",
-  "description": "Build end-to-end tests for AI workflows that verify saved records, downstream actions, retries, and regressions beyond a successful API response.",
+  "title": "How to test an AI workflow end to end",
+  "description": "Check the saved record, the downstream action, retries, and a later regression, not only a successful API response. A green run can still leave the job unfinished.",
   "category": "Workflow reliability",
   "takeaway": "The dashboard is green. The receiving system accepted the request. Yet someone opens the application and finds work still waiting, a value missing, or the wrong update. What did the test actually prove?",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "the-connection-worked",
       "title": "The connection worked",
       "paragraphs": [
-        "In one integration build session, the receiving side confirmed that requests had arrived. That established a useful connection milestone. The discussion then moved to payload structure, extraction rules, exceptions, and test cases that still needed attention.",
+        "Prove the record was saved and the next action happened, including after a retry, rather than stopping at an accepted request. In one integration build session, the receiving side confirmed that requests had arrived. That established a useful connection milestone. The discussion then moved to payload structure, extraction rules, exceptions, and test cases that still needed attention.",
         "It would have been premature to treat receipt of those requests as proof of correct business outcomes. The workflow had several different jobs: interpret a source, prepare the required data, transmit it, and produce the intended result in another system.",
         "End-to-end AI workflow testing follows that entire chain. It starts with a realistic input and finishes with evidence that the resulting record and next operational step match an agreed expectation."
       ]

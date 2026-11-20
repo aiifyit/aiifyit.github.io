@@ -1,7 +1,7 @@
 {
   "slug": "business-automation-monitoring-alerts",
-  "title": "Who Notices When an Automation Stops Running?",
-  "description": "Monitor business automations for failed runs, missing activity, and stale results. Give each alert an owner and a recovery plan that avoids duplicate actions.",
+  "title": "How to know when an automation stops running",
+  "description": "Compare what should happen on a healthy day with failed runs, missing activity, and stale results. Give each alert an owner and a recovery plan that does not repeat an action already taken.",
   "category": "Automation reliability",
   "takeaway": "A lack of error messages does not establish that work is getting done. Business automation needs a clear expectation of what should happen, a way to detect when it does not, and someone responsible for restoring the process.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "define-normal-operation",
       "title": "Write down what should happen when the system is healthy",
       "paragraphs": [
-        "For each important automation, describe the business result, expected schedule or incoming event, and acceptable completion window. A daily report and an event-driven intake process need different checks. A quiet intake period can be normal; a missing scheduled report requires an explanation.",
+        "Watch for a missing result, not only an error message, and name who responds when the expected run does not happen. For each important automation, describe the business result, expected schedule or incoming event, and acceptable completion window. A daily report and an event-driven intake process need different checks. A quiet intake period can be normal; a missing scheduled report requires an explanation.",
         "In a discovery discussion, the provider described error notifications, scheduled checks of system connections, and the need for a person on the client's team to receive alerts. These were descriptions of an operating approach, not independently verified uptime results.",
         "Use that conversation as a procurement question: who will notice if this particular workflow stops producing useful work? Ask for an answer that names the signal and the responder. A general promise to monitor the system leaves too much undefined."
       ]

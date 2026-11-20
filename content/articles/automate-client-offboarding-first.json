@@ -1,7 +1,7 @@
 {
   "slug": "automate-client-offboarding-first",
-  "title": "Automating the Client Lifecycle? Why Build Offboarding Before Onboarding",
-  "description": "Learn why client offboarding is a smart first automation build: one CRM status change, a clear exit checklist, human checkpoints, and a log your team can trust.",
+  "title": "Should I automate client offboarding or onboarding first",
+  "description": "Start with offboarding. It usually has fewer branches, a missed exit is expensive, and one reliable status change becomes the pattern you reuse for onboarding later.",
   "category": "Workflow automation",
   "takeaway": "Onboarding gets the attention because it feels like growth. Offboarding is usually the better first build. It has fewer branches, the mistakes are expensive, and once one status change runs it reliably, you can reuse the same pattern for everything else.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "why-start-with-the-exit",
       "title": "Why start with the exit",
       "paragraphs": [
-        "In an AIify It planning discussion about client lifecycle automation, the team chose to build offboarding first and onboarding second. The idea was simple: an account manager changes one field in the CRM to churned, and a series of automations handles the exit from there.",
+        "Start with offboarding: fewer branches, costly mistakes when it is skipped, and a status-change pattern you can reuse. In an AIify It planning discussion about client lifecycle automation, the team chose to build offboarding first and onboarding second. The idea was simple: an account manager changes one field in the CRM to churned, and a series of automations handles the exit from there.",
         "That order sounds backwards until you look at the two processes side by side. Onboarding branches constantly. Different packages, different start dates, questions about pricing, a missing owner, a contract still out for signature. Offboarding is mostly the same list every time. You remove access, stop billing, stop anything scheduled, archive the files, and tell the right people.",
         "The cost of getting it wrong is also lopsided. A slow onboarding step is annoying. A missed offboarding step means a former client still has access to your shared folders, still gets your automated check-in emails, or still gets billed. Those are the mistakes that turn a quiet exit into an uncomfortable phone call."
       ]

@@ -1,7 +1,7 @@
 {
   "slug": "automation-existing-business-rules",
-  "title": "Why Is Your AI Workflow Rebuilding Rules Your System Already Knows?",
-  "description": "Avoid duplicate business rules in AI automation. Identify the authoritative rule source, map its schema, handle versions, and check changes before integration.",
+  "title": "Why is my automation rebuilding rules the system already has",
+  "description": "The workflow brought its own copy of decisions your system already stores as data. Use that authoritative source, map its schema, and check what happens when those rules change.",
   "category": "Integration design",
   "takeaway": "A new automation comes with a tidy set of rules. Then your internal team points to a database where those same decisions are already maintained. Which version will the workflow follow when the business changes?",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "the-rules-already-existed-as-data",
       "title": "The rules already existed as data",
       "paragraphs": [
-        "During an integration review, the receiving team noticed that some definitions represented as rules in the delivered code already existed as data in its own systems. The developer proposed reviewing the existing schema and adapting the implementation to that structure. The mapping work and testing were still ahead.",
+        "The rules were already data in your system, so a second copy in the automation will drift the moment the business changes them. During an integration review, the receiving team noticed that some definitions represented as rules in the delivered code already existed as data in its own systems. The developer proposed reviewing the existing schema and adapting the implementation to that structure. The mapping work and testing were still ahead.",
         "That discovery changes the integration question. Before improving the new rules, the teams need to decide where each rule belongs and how the automation should obtain it. A second copy can behave correctly today while creating a maintenance problem the next time a policy changes.",
         "For an AI-assisted workflow, look beyond the prompt. Decision logic may live in application code, configuration, lookup tables, or a dedicated service. The goal is to identify the maintained source for each decision and make the workflow's relationship to that source explicit."
       ]

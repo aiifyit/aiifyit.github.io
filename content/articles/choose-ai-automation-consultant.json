@@ -1,7 +1,7 @@
 {
   "slug": "choose-ai-automation-consultant",
-  "title": "Choosing an AI Automation Consultant: Ask to See the Work",
-  "description": "Evaluate an AI automation consultant through scoped outcomes, relevant delivery evidence, integration assumptions, ownership, and support responsibilities.",
+  "title": "How to choose an AI automation consultant",
+  "description": "Ask them to explain your process back to you, then look at scoped outcomes, delivery evidence, integration assumptions, and who owns the work after launch. A convincing demo is not the decision.",
   "category": "Automation strategy",
   "takeaway": "Choose an AI automation consultant by examining what they will deliver and how you will know it works. A convincing demo is useful, but your decision also needs evidence of process understanding, a realistic scope, and clear responsibility after launch.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "check-process-understanding",
       "title": "Can they explain your process back to you?",
       "paragraphs": [
-        "Give each shortlisted provider the same bounded process to discuss. Ask them to describe the starting event, required inputs, decisions, exceptions, and finished business result. They should be able to identify where information is missing before presenting a detailed solution.",
+        "Have each firm explain your process, the outcome, and who owns it after launch, using the same bounded example. Give each shortlisted provider the same bounded process to discuss. Ask them to describe the starting event, required inputs, decisions, exceptions, and finished business result. They should be able to identify where information is missing before presenting a detailed solution.",
         "Listen for questions about what people actually do. Who resolves conflicting records? Which approvals are mandatory? What happens when the expected document never arrives? A proposal based only on the smoothest version of the process can underestimate the work your team will still need to perform.",
         "You do not need to expect a complete design during an introductory conversation. You do need a clear explanation of what discovery must establish and how those findings will shape the scope, estimate, and decision to proceed."
       ]

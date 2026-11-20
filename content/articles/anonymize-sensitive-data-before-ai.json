@@ -1,7 +1,7 @@
 {
   "slug": "anonymize-sensitive-data-before-ai",
-  "title": "Want AI on Sensitive Documents? Take the Sensitive Part Out First.",
-  "description": "Before your team points AI chat tools at client or patient records, swap names, birth dates, and ID numbers for tokens so the AI never sees who anyone is.",
+  "title": "How to anonymize data before sending it to ChatGPT",
+  "description": "Replace names, birth dates, and ID numbers with placeholders in a step on your own machine before the text reaches the model. Keep the real values in a locked store your people control.",
   "category": "Agent access and security",
   "takeaway": "If your documents are full of names, birth dates, Social Security numbers, and client details, don't ask the AI to be careful with them. Put a local scrubbing step in front of it, so the AI only ever works with placeholders and the real values stay in a locked store your own people control.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "dont-trust-the-ai-to-look-away",
       "title": "Don't trust the AI to look away",
       "paragraphs": [
-        "Your team wants to use AI chat tools on real work. The real work is full of personal details: names, dates of birth, Social Security numbers, phone numbers, patient or client histories.",
+        "Swap names, dates of birth, and ID numbers for placeholders locally, before anyone pastes the text into a chat tool. Your team wants to use AI chat tools on real work. The real work is full of personal details: names, dates of birth, Social Security numbers, phone numbers, patient or client histories.",
         "The usual answer is a policy and a prompt. Tell people what not to paste, tell the AI not to repeat anything sensitive, and hope both hold. That is a lot of trust to place in instructions.",
         "On a recent AIify It call, we talked through a different approach. Instead of trusting the AI not to look, you make sure there is nothing identifying for it to see. A plain, local step strips the sensitive values out before any document reaches the AI."
       ]

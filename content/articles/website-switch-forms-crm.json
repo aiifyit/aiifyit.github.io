@@ -1,7 +1,7 @@
 {
   "slug": "website-switch-forms-crm",
-  "title": "Switching Websites? Make Sure Every Form Still Lands in Your CRM",
-  "description": "Before you point your domain at a new website, make sure every form still sends leads where the old one did, usually your CRM or field-service software.",
+  "title": "Why aren't form submissions reaching the CRM after a redesign",
+  "description": "The new form can show a thank-you while the lead never lands where the old form sent it. Trace a test from the old site into the CRM, and keep that site live until every new form passes the same test.",
   "category": "Workflow integration",
   "takeaway": "When you switch websites, the first question isn't design. It's where each form sends what people type into it. Submit a test on the old site, trace it into your CRM or field-service software, and note every field it fills. Build the new site on a temporary subdomain, sort out domain access and API approval early, and keep the old site live until every new form passes an end-to-end test.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "where-does-this-form-go",
       "title": "Start with one question: where does this form go?",
       "paragraphs": [
-        "Say you've rebuilt your website. Maybe an AI tool did most of the work in a few days, and the new version looks a lot better than the old one. The pages are cleaner, the photos are current, and the quote form finally fits on a phone screen. The obvious next step is to point your domain at it and move on.",
+        "The form can succeed on the page while the connection that used to create the CRM record is gone. Say you've rebuilt your website. Maybe an AI tool did most of the work in a few days, and the new version looks a lot better than the old one. The pages are cleaner, the photos are current, and the quote form finally fits on a phone screen. The obvious next step is to point your domain at it and move on.",
         "Before you do, open that quote form and ask one question: when someone fills this out, where does it go? That question matters more than anything about the design. For a lot of businesses, bringing in leads is the website's main job, and the forms are how it does that.",
         "Your old site already has an answer, even if nobody on your team knows what it is. Its forms send leads somewhere your team works every day, usually your CRM or your field-service software. If the new forms don't send them to the same place, nothing looks broken. The page loads, the form says thank you, and the lead goes nowhere useful. The customer thinks they've asked for a quote, and nobody on your end ever sees it."
       ]

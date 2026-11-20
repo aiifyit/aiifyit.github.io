@@ -1,7 +1,7 @@
 {
   "slug": "ai-assistant-classifier-model-tiering",
-  "title": "Your AI Assistant Doesn't Need Its Best Model for Every Sentence",
-  "description": "Put a small, fast model in front of your most capable one. Learn how to define the gate, test it with tricky cases, and decide which way it should fail.",
+  "title": "When to use a smaller AI model instead of the best model",
+  "description": "Use a smaller, faster model to decide whether something needs action, and call your most capable model only when the answer is yes. Define that gate, test the tricky cases, and decide which way it should fail.",
   "category": "Agent design",
   "takeaway": "Picture an AI assistant that listens to your meetings. Every few seconds it gets a fresh chunk of transcript and has to decide: is any of this for me? Most of the time the answer is no. People are talking to each other, someone's coughing, the transcription picked up half a word.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "two-jobs-two-models",
       "title": "Two jobs, two models",
       "paragraphs": [
-        "If you send every one of those chunks to your most capable model, you pay for a lot of careful thinking about nothing. You also wait longer, because bigger models are usually slower. The fix is to split the job in two: a smaller, faster model that only decides whether something needs action, and your most capable model that only runs when the answer is yes.",
+        "Use the smaller model when the only question is whether a chunk needs action, and save the best model for the chunks that do. If you send every one of those chunks to your most capable model, you pay for a lot of careful thinking about nothing. You also wait longer, because bigger models are usually slower. The fix is to split the job in two: a smaller, faster model that only decides whether something needs action, and your most capable model that only runs when the answer is yes.",
         "The first model is the gate. Its whole job is a narrow question with a short answer. Is this remark addressed to the assistant? Is this an action item? Should it go to the planner, the answer step, or nowhere? It returns a decision and a one-line reason.",
         "The second model does the real work: answering the question, writing the plan, drafting the follow-up. It sees far fewer inputs, but each one actually matters, so it's worth the cost and the wait.",
         "In one internal test of a meeting assistant built this way, the gate ran on a mid-tier model and the conversation ran on a top-tier one. That split is a reasonable starting point. You don't need the smartest model to answer \"was that sentence for me?\" You do need it to answer the question that sentence asked."

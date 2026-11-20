@@ -1,7 +1,7 @@
 {
   "slug": "human-review-ai-workflow",
-  "title": "Your AI Is Ready to Act. Who Gets the Last Look?",
-  "description": "Plan human review for AI workflows with clear decision authority, useful evidence, reviewer capacity, backup coverage and visible exception queues.",
+  "title": "When should a human review AI before it takes action",
+  "description": "Require a person before a change on someone's behalf that the workflow is not already authorized to make. Give that reviewer the evidence, the authority, the time, and a queue for exceptions.",
   "category": "AI operations",
   "takeaway": "An AI workflow can prepare a useful answer before it is ready to make a change on someone’s behalf. Deciding where a person should step in is part of the design. How do you choose that point without turning every run into a manual task?",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "the-boundary-was-a-business-decision",
       "title": "The boundary was a business decision",
       "paragraphs": [
-        "A workflow discussion drew a deliberate boundary: automation could help populate information, while people would decide whether conflicting existing values should be replaced. In another build discussion, the proposed approach kept unresolved extraction results available for another set of eyes rather than treating them as settled.",
+        "Require review before the workflow changes a record, sends a message, or replaces a value a person still owns. A workflow discussion drew a deliberate boundary: automation could help populate information, while people would decide whether conflicting existing values should be replaced. In another build discussion, the proposed approach kept unresolved extraction results available for another set of eyes rather than treating them as settled.",
         "These were choices about a proposed operating process. They were not evidence that full autonomy had been achieved. Both show why “human in the loop” needs a more specific meaning than adding an approval button somewhere.",
         "Start by identifying the decision that requires judgment or authority. Then place review before the action that depends on it. The person should be able to understand the proposed change and meaningfully accept, correct, or reject it."
       ]

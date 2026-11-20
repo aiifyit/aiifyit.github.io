@@ -1,7 +1,7 @@
 {
   "slug": "automated-follow-up-stop-after-reply",
-  "title": "Your Lead Replied. Why Is the Follow-Up Still Sending?",
-  "description": "Learn how to automate follow-up emails that stop after a reply: shared status, send-time checks, suppression rules and a clear handoff to the sales team.",
+  "title": "How to stop follow-up emails after a lead replies",
+  "description": "Detect the reply, update a shared follow-up status, and check that status again before every send. Then hand the conversation to a person and cancel the remaining automated messages.",
   "category": "Sales follow-up",
   "takeaway": "A prospect answers your email, then receives another message asking whether they saw it. The schedule worked. Somewhere between the reply and the next send, the conversation’s status failed to change.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "make-every-send-conditional",
       "title": "Make every follow-up depend on the current status",
       "paragraphs": [
-        "To automate follow-up emails that stop after a reply, connect three things: reply detection, a shared record of follow-up status and a check before each send. A reply should change the conversation’s status and hand responsibility to a person. Future automated messages should be cancelled or blocked according to that updated status.",
+        "Mark the lead as replied in a status every send checks, then stop the sequence and hand the thread to a person. To automate follow-up emails that stop after a reply, connect three things: reply detection, a shared record of follow-up status and a check before each send. A reply should change the conversation’s status and hand responsibility to a person. Future automated messages should be cancelled or blocked according to that updated status.",
         "In a sales-workflow planning discussion, the team explicitly connected reply detection with a human queue. They also discussed sending a later round only to people who had not responded. The workflow was not yet activated because the information required to identify eligible records was missing. The discussion established the planned behavior, without demonstrating a live sequence.",
         "That matters because the problem begins before the first email. The workflow needs reliable eligibility data, a reliable way to learn that circumstances changed and an agreed owner for what happens next."
       ]

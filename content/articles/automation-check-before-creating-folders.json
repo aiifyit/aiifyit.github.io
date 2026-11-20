@@ -1,7 +1,7 @@
 {
   "slug": "automation-check-before-creating-folders",
-  "title": "Before Your Automation Creates a Folder, It Should Look for One",
-  "description": "When an automation takes over a setup task people used to do by hand, it has to check what already exists first. Here's how to handle folders and records your team already created.",
+  "title": "How to stop an automation from creating duplicate folders",
+  "description": "Search for what already exists before you create anything. Match on a dependable pattern, decide what zero, one, or several hits mean, and do not rename folders people already made.",
   "category": "Workflow automation",
   "takeaway": "An automation that takes over a manual setup task has to search before it creates. If it expects one exact name, it will either fail or make duplicates next to the folders your staff already made. Search on a dependable pattern, decide what happens when it finds zero, one or several matches, and never rename or move what people made without the owner's say.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "the-problem-with-taking-over-a-manual-job",
       "title": "The problem with taking over a job people used to do",
       "paragraphs": [
-        "Say your team creates a yearly folder structure for every client in a shared drive. Someone opens each client folder, adds a folder for the new tax year, and builds out the subfolders inside it. It's repetitive, so it's a good candidate for automation.",
+        "Search first, and decide what to do when you find nothing, one match, or several, before the automation creates a new folder. Say your team creates a yearly folder structure for every client in a shared drive. Someone opens each client folder, adds a folder for the new tax year, and builds out the subfolders inside it. It's repetitive, so it's a good candidate for automation.",
         "The catch is that people have been doing this by hand for a while, and they didn't all do it the same way. One client has a folder called \"Tax\". Another has \"2026 Taxes\". A third has \"Client Name - Tax\". Some clients have nothing yet.",
         "If you build the automation to expect one exact name, two things can go wrong. It can fail because it can't find what it expected, or it can quietly create a second folder next to the one a person already made. Now staff have two places to save documents, and someone has to clean up the mess later. Neither outcome is what you wanted from automating the task."
       ]

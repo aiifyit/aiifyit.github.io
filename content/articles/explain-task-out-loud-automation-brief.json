@@ -1,7 +1,7 @@
 {
   "slug": "explain-task-out-loud-automation-brief",
-  "title": "Explain the Task Out Loud Once: Rubber Ducking for Business Automation",
-  "description": "Record yourself explaining a job start to finish, turn the transcript into a clear brief, and never explain the same task twice. Here's how to do it.",
+  "title": "How to document a process for automation",
+  "description": "Record yourself explaining the job from start to finish, including judgment calls and odd cases, then turn the transcript into a brief. Put later corrections in that brief so you do not explain the task again.",
   "category": "Automation planning",
   "takeaway": "Before you automate a task, hit record and explain the whole job out loud, start to finish, including the judgment calls and the weird cases. Turn that transcript into a written brief with the trigger, inputs, steps, decisions, exceptions, and reviewers. Every correction after that goes into the brief, so you never have to explain the same thing twice.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "from-rubber-duck-to-recorder",
       "title": "From a rubber duck to a recorder",
       "paragraphs": [
-        "Programmers have an old habit called rubber ducking. When they're stuck, they keep a rubber duck on the desk and explain the problem to it out loud, line by line. Somewhere in the middle of explaining, they usually spot what they missed. The duck never says a word. The value comes from being forced to say every step plainly.",
+        "Explain the job out loud from trigger to finished result, then turn that recording into the brief the automation is built from. Programmers have an old habit called rubber ducking. When they're stuck, they keep a rubber duck on the desk and explain the problem to it out loud, line by line. Somewhere in the middle of explaining, they usually spot what they missed. The duck never says a word. The value comes from being forced to say every step plainly.",
         "In an AIify It intro call with a multi-location service business owner, this idea came up as a way to deal with a common feeling: there are too many AI tools, and it's hard to know where to start without something important slipping through the cracks. The answer wasn't another tool. It was a habit. When you want a task handled, hit record and explain the whole job out loud, start to finish.",
         "The listener doesn't matter. You could explain it to a coworker, your phone, or a doormat. What matters is that the explanation gets captured, because most of how your business actually runs lives in your head, not in any document. A recording gets it out of your head in the time it takes to talk, which is a lot faster than writing a process manual nobody will finish.",
         "From there, the recording gets transcribed and broken down into what an automation actually needs. Then someone builds it on your side. You talk once, and the rest of the work happens without you having to sit through a long planning process."

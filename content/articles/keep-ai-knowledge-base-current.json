@@ -1,7 +1,7 @@
 {
   "slug": "keep-ai-knowledge-base-current",
-  "title": "Who Updates Your AI When the Process Changes?",
-  "description": "Keep an AI knowledge base current with source ownership, version tracking, failed-update handling and checks that revised answers are actually available.",
+  "title": "How to keep an AI knowledge base up to date",
+  "description": "Name who updates each source, track whether the new version processed, and ask a real question to confirm the revised answer is what people get. Uploading the corrected file is only one step.",
   "category": "Knowledge assistants",
   "takeaway": "The procedure changed. The source document is correct. Yet the assistant still gives the old answer. Somewhere between editing the file and answering the question, an update was missed. Who notices, and who fixes it?",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "own-the-update-process",
       "title": "Make freshness someone’s responsibility",
       "paragraphs": [
-        "Keeping an AI knowledge assistant current requires an update process that follows source changes through to usable answers. Assign an owner, define when updates should arrive, track processing failures and verify the changed information with a real question. Uploading a document is only one step.",
+        "Assign an owner, confirm the new version actually processed, and ask a real question to prove the answer changed. Keeping an AI knowledge assistant current requires an update process that follows source changes through to usable answers. Assign an owner, define when updates should arrive, track processing failures and verify the changed information with a real question. Uploading a document is only one step.",
         "In an AIify It planning discussion, the team considered ongoing ingestion from automatically collected material and manually supplied files. An existing pipeline was described as partially built and still needing review. The discussion established the need for continued updates; it did not establish a completed, continuously synchronized knowledge system.",
         "That distinction matters after launch. The person who approves a revised procedure may not be the person who maintains the assistant. Give both roles a clear responsibility: the source owner confirms what is authoritative, while the technical owner makes sure the approved change reaches the system that answers questions."
       ]

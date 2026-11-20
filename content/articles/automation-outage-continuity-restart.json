@@ -1,7 +1,7 @@
 {
   "slug": "automation-outage-continuity-restart",
-  "title": "When an Automation Goes Down, How Does the Work Keep Moving?",
-  "description": "Plan permitted fallback work, visible queues, and restart reconciliation so an automation outage does not turn into missing jobs or duplicate actions.",
+  "title": "What to do when an automation goes down",
+  "description": "Keep the business job moving through a permitted fallback and a visible queue, then reconcile manual work before you restart. A retry after the connection returns can duplicate an action someone already finished.",
   "category": "Automation reliability",
   "takeaway": "The connection comes back, but the business has kept moving. Someone completed an urgent item manually. Another request may have succeeded before its acknowledgment was lost. Restarting safely means reconciling that work before releasing the queue.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "plan-the-business-job",
       "title": "Start with the work that must continue",
       "paragraphs": [
-        "Choose one important business job, such as accepting service requests and creating draft work items. Name the point at which delay becomes costly, which cases deserve priority, and who can choose the fallback. An outage plan needs to describe what staff should do while the builder diagnoses the fault.",
+        "Switch the job to a permitted manual fallback, keep a visible queue, and reconcile what people already did before you restart. Choose one important business job, such as accepting service requests and creating draft work items. Name the point at which delay becomes costly, which cases deserve priority, and who can choose the fallback. An outage plan needs to describe what staff should do while the builder diagnoses the fault.",
         "Separate steps that remain useful from steps that depend on missing information. Intake might continue while scheduling pauses. Drafting might continue while sending stays blocked. If the destination itself is unavailable, recording a request in an approved holding place may be the only permitted action. Do not describe all manual work as a safe substitute.",
         "In The Automation Advantage, Bhaskar Ghosh, Rajendra Prasad, and Gayathri Pallail discuss resilience in Chapter 9. Stafford Beer’s Brain of the Firm, Chapter 10, asks how an organization changes its operating mode during disruption. The operating states and reconciliation exercise below are our practical adaptation, not a recovery method demonstrated by either book."
       ]

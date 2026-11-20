@@ -1,7 +1,7 @@
 {
   "slug": "ship-working-automation-before-write-apis",
-  "title": "Don't Wait for Write Access to Ship a Working Automation",
-  "description": "Don't stall your automation waiting on write access. Automate the reads, hand blocked writes to a named person, and switch each one on after it passes a test.",
+  "title": "Can I ship an automation before I have write access",
+  "description": "Yes. Automate the reads and anything you have already tested, and turn each blocked write into a task for a named person until that write passes a test.",
   "category": "Automation strategy",
   "takeaway": "You don't need write access to every system before your automation can do real work. Automate the steps that read data, plus anything else you've already tested. Turn each step that changes data into a clear task for a named person inside the same workflow. Then automate those writes one at a time, switching each one on only after it passes a test.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "reads-are-ready-writes-are-not",
       "title": "The reads are ready. The writes aren't.",
       "paragraphs": [
-        "Most business automations do two kinds of work. They read: look up a customer, pull an order, check a balance. And they write: create an invoice, change a status, add a note to a record. In API terms, reads are mostly GET requests, and writes are mostly POST, PUT, or PATCH requests.",
+        "Yes. Ship the reads now, and turn each write you cannot make yet into a task for a named person. Most business automations do two kinds of work. They read: look up a customer, pull an order, check a balance. And they write: create an invoice, change a status, add a note to a record. In API terms, reads are mostly GET requests, and writes are mostly POST, PUT, or PATCH requests.",
         "Read access often shows up first. Letting software look at your records is a smaller decision than letting it change them, so write access tends to need extra approval, a higher permission level, or an admin who's hard to pin down. Even once you have the credentials, some of the API calls that change data turn out to be poorly documented or unreliable, and you only find that out by trying them.",
         "The tempting plan is to wait until every write works before anyone uses anything. That's how a project goes stop-start. You build for a few days, then wait on a credential. It arrives, so you book a call to test a write against the live system. You insert test data, spot a problem, undo it, and go back to waiting. Weeks go by, and nobody has a process that actually runs."
       ]

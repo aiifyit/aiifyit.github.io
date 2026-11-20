@@ -1,7 +1,7 @@
 {
   "slug": "test-automation-third-party-portal-rules",
-  "title": "Before You Test an Automation Against a Third-Party Portal",
-  "description": "Read a vendor portal’s rules before you automate against it. Then test with a dedicated account, small batches and records whose answers you already know.",
+  "title": "Is it allowed to automate a third-party vendor portal",
+  "description": "Read the portal's terms on bots, scripts, and rate limits before any test. If a test is permitted, use a dedicated account, small batches, and records whose answers you already know.",
   "category": "Workflow integration",
   "takeaway": "An automation that signs in to a vendor portal and handles the lookups and data entry your team now does by hand could save hours every week. But the portal has rules about bots, the login belongs to someone and the data behind the screens may be incomplete. Before the first test run, do you know what the portal allows, which account the tests will use and how you will tell a bug in your automation from a gap in the vendor’s data?",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "read-the-rules-first",
       "title": "Read the portal’s rules before you test",
       "paragraphs": [
-        "Before anyone points an automation at a vendor portal, read what the portal’s terms and help pages say about bots, scripts, scraping and rate limits. Many portals forbid automated access, and some detect it and lock the account. That may be the same account your team needs for tomorrow’s real work.",
+        "Only if the portal's terms allow it, and then only with a dedicated account, a small batch, and records you can already check. Before anyone points an automation at a vendor portal, read what the portal’s terms and help pages say about bots, scripts, scraping and rate limits. Many portals forbid automated access, and some detect it and lock the account. That may be the same account your team needs for tomorrow’s real work.",
         "Do not try to slip past detection or make the automation pass for a person. If the rules forbid automated access or are unclear, ask the vendor for an official route instead: an API, a data feed, a file transfer or a test account on a practice copy of the portal. Some vendors have these but do not advertise them. Say in writing which records and fields you need, how often and roughly how many a day.",
         "If the vendor says no, decide with eyes open whether the project goes on. You might keep that step manual, automate only the work on your side of the portal or limit the automation to what the rules allow. Write down what the terms say and what you decided."
       ]

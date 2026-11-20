@@ -1,7 +1,7 @@
 {
   "slug": "ai-quoting-delivery-capacity",
-  "title": "Before AI Promises Friday, Check Who Already Has the Slot",
-  "description": "Connect AI delivery quotes to existing bookings, shared capacity and expiring holds. Test competing orders before turning an estimated date into a promise.",
+  "title": "How to quote a delivery date based on real capacity",
+  "description": "Check who already holds the slot, which inputs are still missing, and whether you can reserve the next opening. A job's duration is not a promise that it can start now.",
   "category": "Workflow reliability",
   "takeaway": "A job needs three hours of specialist work. That does not mean it can be delivered three hours from now. A useful quoting workflow must account for the work already promised, the inputs still missing and the authority to reserve the next available slot.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "connect-duration-to-available-capacity",
       "title": "Ask where the work will fit",
       "paragraphs": [
-        "Start with one service your sales team quotes repeatedly. List its required steps, the resource pool each step consumes and what must be ready before it begins. Include preparation, specialist work and acceptance. A quick drafting step can still depend on a scarce reviewer or an input the customer has not supplied.",
+        "Look at bookings already promised, missing inputs, and whether anyone can hold the next slot before you turn a duration into a date. Start with one service your sales team quotes repeatedly. List its required steps, the resource pool each step consumes and what must be ready before it begins. Include preparation, specialist work and acceptance. A quick drafting step can still depend on a scarce reviewer or an input the customer has not supplied.",
         "For each pool, use the approved working calendar and current commitments. Include existing bookings, active holds and known unavailable time. Aggregate team hours can mislead when only one qualified person or piece of equipment can perform the controlling step.",
         "Frederick Winslow Taylor connects new sales inquiries with estimated work and the existing workload of each department in Shop Management, pages 113–114. This article adapts that planning principle to AI-assisted quoting. The reservation, approval and freshness controls below are modern design requirements, not claims about capabilities established by the historical text."
       ]

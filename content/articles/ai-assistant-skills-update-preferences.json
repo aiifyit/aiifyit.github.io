@@ -1,7 +1,7 @@
 {
   "slug": "ai-assistant-skills-update-preferences",
-  "title": "When a Preference Changes, Update the Skill, Not Just the Chat",
-  "description": "Turn your AI assistant's preferences into skills, and when a preference changes, edit the skill itself so the assistant stops getting conflicting instructions.",
+  "title": "How to update custom instructions when a preference changes",
+  "description": "Edit the saved skill or instruction itself, because a new chat message does not replace the old rule. Leaving both in place gives the assistant two instructions, and it will follow one of them.",
   "category": "Custom AI agents",
   "takeaway": "Write your preferences down once, turn them into skills your assistant follows every time, and when something changes, have the assistant edit the skill. Telling it the new preference in chat while the skill still says the old thing leaves it with two instructions, and it will pick one or the other.",
   "sections": [
@@ -9,7 +9,7 @@
       "id": "start-with-the-document-you-already-wrote",
       "title": "Start with the document you already wrote",
       "paragraphs": [
-        "In an AIify It working session setting up a chief-of-staff AI assistant for an executive, the executive had already done the hard part. They had written a long specification document describing how they like things done: how meetings get scheduled, what a recap should look like, which emails need their attention and which don't.",
+        "Change the saved skill, not only the current chat, or the assistant still has the old preference on file. In an AIify It working session setting up a chief-of-staff AI assistant for an executive, the executive had already done the hard part. They had written a long specification document describing how they like things done: how meetings get scheduled, what a recap should look like, which emails need their attention and which don't.",
         "If you have a document like that, give it to the assistant. Don't summarize it first or pick out the parts you think matter. Have the assistant use it as its main set of instructions, the thing it checks before it acts on your behalf.",
         "That gets you a long way. But a long document is hard to follow consistently. The assistant has to find the right paragraph for the task in front of it, every time, and the details that matter most for one task can get lost among everything else. That's where skills come in."
       ]
