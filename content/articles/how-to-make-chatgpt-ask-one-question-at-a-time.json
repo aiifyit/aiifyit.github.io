@@ -1,0 +1,98 @@
+{
+  "slug": "how-to-make-chatgpt-ask-one-question-at-a-time",
+  "title": "How to make ChatGPT ask one question at a time",
+  "description": "Tell ChatGPT to ask you one question at a time and wait for each answer. Here's the exact wording to paste and where to save it so it sticks.",
+  "category": "Custom AI agents",
+  "takeaway": "Tell ChatGPT to ask you one question at a time and wait for your answer, then save that rule in your custom instructions or project so you don't have to retype it. For better questions, cap the number, have it start with the most important one, and ask for a recommended answer you can accept with a yes. Set up your AI agents the same way, so decisions reach you one at a time instead of piling up.",
+  "sections": [
+    {
+      "id": "the-short-answer",
+      "title": "The short answer: paste this instruction",
+      "paragraphs": [
+        "To make ChatGPT ask one question at a time, tell it exactly that. Paste this into your chat along with your request: \"Ask me one question at a time. Wait for my answer before asking the next one.\"",
+        "That's usually enough. ChatGPT asks one question, waits for your reply, and uses your answer to shape the next one.",
+        "To make it stick, save it once. Put it in ChatGPT's custom instructions to make it your default, or in a project's instructions to use it only for certain work. If you use a custom GPT or an AI agent, add it to the standing instructions it follows every time."
+      ]
+    },
+    {
+      "id": "stronger-versions",
+      "title": "Stronger versions that get you better questions",
+      "paragraphs": [
+        "The basic line fixes the format. These additions make the questions better and quicker to answer. Paste this combined version as is, or trim it:",
+        "\"Ask me up to 5 questions, one at a time. Start with the question that would most change your answer. With each question, give me your recommended answer so I can just say yes. Wait for my reply before asking the next one, and don't start the task until I've answered them all.\"",
+        "Each part does a specific job:"
+      ],
+      "bullets": [
+        "\"Up to 5\" sets a cap, so one at a time doesn't turn into a slow game of twenty questions. Use 3 for small jobs like a quick email, and 5 for bigger ones like a proposal.",
+        "\"The question that would most change your answer\" settles the big fork in the road first. Once that's decided, some of the smaller questions stop mattering.",
+        "\"Your recommended answer\" often lets you reply with one word. You'll get something like \"Is this for new or existing customers? I'd guess existing, since you mentioned renewals.\" If the guess is right, say yes. If it's wrong, you've learned what it was assuming.",
+        "\"Don't start the task until I've answered\" is the stop condition. Without it, ChatGPT may ask one question and then write the whole thing anyway, filling the gaps with guesses."
+      ]
+    },
+    {
+      "id": "why-chatgpt-asks-everything-at-once",
+      "title": "Why ChatGPT asks all its questions at once",
+      "paragraphs": [
+        "When ChatGPT needs more information, it tends to ask for all of it in one reply: a numbered list of six or eight questions, sometimes with sub-questions under each. It's trying to be thorough and save a round of back-and-forth. It doesn't know you'd rather go one at a time until you say so.",
+        "The trouble is on your side. You answer the two easy questions and skip the rest. Or you put the whole thing off, because eight questions feel like homework. Either way, ChatGPT fills the gaps with guesses, and you won't always see which parts were guessed. It's worse out loud. In voice mode, eight questions in a row are hard to even remember.",
+        "The bigger problem is that early answers should change later questions. Say you want help planning a customer event, and it asks about guest count, venue, catering, and decorations. If your first answer would have been \"it's a 45-minute online session,\" most of that list doesn't apply. The questions that matter, like which platform and who's presenting, aren't on it. The list was written before ChatGPT knew anything. Asked one at a time, each question can build on your last answer.",
+        "You also give better answers. Facing eight questions, you write a line for each. Facing one, you add the detail that matters, like the client who was unhappy last time."
+      ]
+    },
+    {
+      "id": "where-to-save-it",
+      "title": "Where to save it so you don't have to retype it",
+      "paragraphs": [
+        "You shouldn't have to paste the rule into every chat. Put it somewhere the AI reads before each conversation.",
+        "In ChatGPT, that's custom instructions, which you'll find in the personalization settings. Use them if you want one question at a time in your everyday chats. If you only want it for certain work, like planning or proposals, use a project instead. Each project has its own instructions that apply only to chats inside it.",
+        "If you've built a custom GPT for one job, like client intake or quotes, add the rule to its instructions. Everyone on your team who uses that GPT gets the same rule.",
+        "Claude works the same way. There's a place in settings for your general preferences, and each Claude project has its own instructions. For an AI agent, the rule goes in its standing instructions, the text it follows every time it runs. Some tools call that the system prompt.",
+        "Menus change, so if you can't find these, look for anything labeled \"instructions\" or \"personalization.\" Then open a new chat and test it with a task that needs a few details, like a quote for a new customer. You should get one question back, not a list."
+      ]
+    },
+    {
+      "id": "when-it-slips",
+      "title": "What to do when it slips back into lists",
+      "paragraphs": [
+        "Even with the rule saved, ChatGPT will sometimes go back to listing questions, especially in a long chat. By then your rule is one small piece of a lot of text, and the model can lose track of it.",
+        "The first fix is a one-line reminder: \"One question at a time, please.\" You don't need to repeat the whole instruction. That usually gets it back on track.",
+        "If it keeps slipping, start a fresh chat. Long conversations full of drafts and side questions get harder to steer, and a new chat starts clean. If you need the earlier context, ask for a short summary first and paste it into the new chat.",
+        "Then check where the rule sits in your instructions. Put it at the top, on its own line, not halfway through a paragraph about tone and formatting. If your instructions have grown long, cut them down. A few clear rules are easier to follow than twenty.",
+        "Watch for one more habit. Sometimes the model asks \"one\" question that's really three: \"Who's the audience, what tone do you want, and how long should it be?\" If that happens, add a line to your instructions: \"One question means one thing for me to decide.\""
+      ]
+    },
+    {
+      "id": "agents-one-decision-at-a-time",
+      "title": "Set up AI agents to bring you one decision at a time",
+      "paragraphs": [
+        "The same problem shows up with AI agents and assistants. In a recent internal AIify It working session, a team member's AI assistant had built up a backlog of open decisions on a project. They were setup decisions: who gets access first, which records each bot can read, who the admins are, what counts as done, and the next due date.",
+        "The team member read the whole list out loud in one go. Afterward, the business owner said, \"It's just too many for me to answer at once. I need to hear them one at a time.\" So they went back to the top and took the questions one by one. This time, the decisions came quickly.",
+        "The questions weren't the problem. A stacked list stalls, whether it comes from an AI or a person. The same questions, asked one at a time, get answered.",
+        "An agent that handles your inbox or runs a project will keep hitting things only you can decide. If it saves them up and hands you a list on Friday, you'll do what anyone does with a long list. You'll get to it later.",
+        "So put the rule in the agent's standing instructions. For example: \"When you need a decision from me, bring me one at a time, starting with the one that's holding up the most work. For each one, tell me what needs deciding, give me the context in two or three sentences, recommend an answer, and tell me what happens if I don't decide. Record my answer before you bring the next one.\"",
+        "Be deliberate about that last part. Some decisions can go ahead with the agent's recommendation if you haven't answered by a set date. Others should wait for you. Say which is which, so the agent doesn't have to guess."
+      ]
+    },
+    {
+      "id": "when-a-batch-is-better",
+      "title": "When a batch of questions works better",
+      "paragraphs": [
+        "For quick lookups and simple tasks, you don't want questions at all. Ask for a polite way to decline a meeting, and it should just write it. Add this to your saved instructions: \"If the task is simple, don't ask. Make a sensible assumption, tell me what it was, and go ahead.\"",
+        "A batch also makes sense when you'd rather answer everything in one sitting, on your own time. Say an agent works on something while you're out, and you want to clear its questions in one pass when you're back. Back-and-forth would only slow that down.",
+        "In that case, ask for a list that's easy to get through: \"Put your questions in a numbered list. Keep each one short, make each one answerable with yes, no, or a few words, and put your recommended answer next to it.\" Then you can reply with something like \"1 yes, 2 yes, 3 no, make it Friday\" and move on.",
+        "You can give an agent both rules: one question at a time when you're working with it live, and a short numbered list when it's been working on its own. Either way, you want questions you'll actually answer."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Want an AI agent that brings you one decision at a time?",
+    "description": "AIify It builds custom AI agents that handle routine work and bring you only the decisions that need you, each with context and a recommended answer.",
+    "label": "Explore custom AI agents",
+    "href": "/services/custom-ai-agents/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-11-24"
+  }
+}
