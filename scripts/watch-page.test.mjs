@@ -21,6 +21,32 @@ const headlines = {
   c: 'Get 10 to 20 Hours of Your Week Back Without Hiring, Without Buying More Tools, and Without Your Business Waiting on You.',
 };
 
+function speedFn() {
+  const start = js.indexOf('/* vsl-speed:start */');
+  const end = js.indexOf('/* vsl-speed:end */');
+  assert.ok(start > -1 && end > start, 'playback speed function is marked');
+  return vm.runInNewContext(`${js.slice(start, end)}\nplaybackSpeed`);
+}
+
+test('speed query is clamped between 0.5 and 2', () => {
+  const playbackSpeed = speedFn();
+  assert.equal(playbackSpeed(null), 1);
+  assert.equal(playbackSpeed(''), 1);
+  assert.equal(playbackSpeed('   '), 1);
+  assert.equal(playbackSpeed('junk'), 1);
+  assert.equal(playbackSpeed('1.25abc'), 1);
+  assert.equal(playbackSpeed('Infinity'), 1);
+  assert.equal(playbackSpeed('1'), 1);
+  assert.equal(playbackSpeed('1.25'), 1.25);
+  assert.equal(playbackSpeed('2'), 2);
+  assert.equal(playbackSpeed('0.5'), 0.5);
+  assert.equal(playbackSpeed('3'), 2);
+  assert.equal(playbackSpeed('0.1'), 0.5);
+  assert.equal(playbackSpeed('-4'), 0.5);
+  assert.equal(html.includes('playbackRate'), false);
+  assert.equal(html.includes('>speed<'), false);
+});
+
 test('variant query and utm_content choose a headline before paint', () => {
   const resolveVariant = variantFn();
   assert.equal(resolveVariant(''), 'a');

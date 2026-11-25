@@ -11,6 +11,17 @@
 
   const params = new URLSearchParams(location.search);
   const variant = (document.documentElement.dataset.v || 'a').toLowerCase();
+  /* vsl-speed:start */
+  function playbackSpeed(raw) {
+    if (raw == null) return 1;
+    const text = String(raw).trim();
+    if (!text) return 1;
+    const value = Number(text);
+    if (!Number.isFinite(value)) return 1;
+    return Math.min(2, Math.max(0.5, value));
+  }
+  /* vsl-speed:end */
+  const rate = playbackSpeed(params.get('speed'));
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const video = document.getElementById('vsl');
   const player = document.getElementById('player');
@@ -130,10 +141,18 @@
     muteBtn.setAttribute('aria-label', muted ? 'Unmute' : 'Mute');
     muteBtn.innerHTML = muted ? mutedIcon : soundIcon;
   }
+  function applyRate() {
+    try {
+      if (video.playbackRate !== rate) video.playbackRate = rate;
+    } catch { /* media not ready */ }
+    try { video.preservesPitch = true; } catch { /* older browsers */ }
+    try { video.webkitPreservesPitch = true; } catch { /* Safari */ }
+  }
   function snapTo(back) {
     arming = true;
     try { video.currentTime = back; } catch { /* not seekable yet */ }
     arming = false;
+    applyRate();
   }
   function guardTime() {
     if (!ready || arming) return;
@@ -148,7 +167,8 @@
       snapTo(highWater);
       return;
     }
-    const allowance = Math.max(JUMP_FLOOR, elapsed * 1.5 + 0.5);
+    // Allowance tracks the requested rate so 1.25x–2x playback is not a skip.
+    const allowance = Math.max(JUMP_FLOOR, elapsed * rate * 1.5 + 0.5);
     if (t > wall + allowance) {
       const back = wall;
       snapTo(back);
@@ -185,11 +205,13 @@
     lastSample = performance.now();
     ready = true;
     video.controls = false;
+    applyRate();
   }
 
   function startWithSound() {
     if (soundStarted) {
       video.muted = false;
+      applyRate();
       syncMute();
       video.play().catch(() => {});
       return;
@@ -203,6 +225,7 @@
     arming = false;
     ready = true;
     video.muted = false;
+    applyRate();
     syncMute();
     const attempt = video.play();
     if (attempt && attempt.catch) {
@@ -235,6 +258,7 @@
     video.muted = true;
     video.playsInline = true;
     video.controls = false;
+    applyRate();
     syncMute();
     video.play().catch(() => {});
   }
@@ -279,6 +303,8 @@
       hls.loadSource(HLS_SRC);
       hls.attachMedia(video);
       hls.on(window.Hls.Events.MANIFEST_PARSED, kick);
+      hls.on(window.Hls.Events.LEVEL_SWITCHED, applyRate);
+      hls.on(window.Hls.Events.MEDIA_ATTACHED, applyRate);
     };
     script.onerror = useMp4;
     document.head.appendChild(script);
@@ -290,8 +316,11 @@
   video.disablePictureInPicture = true;
   video.disableRemotePlayback = true;
   video.controls = false;
+  applyRate();
   video.addEventListener('loadedmetadata', applyResume);
-  video.addEventListener('play', () => { video.controls = false; });
+  video.addEventListener('play', () => { video.controls = false; applyRate(); });
+  video.addEventListener('playing', applyRate);
+  video.addEventListener('ratechange', () => { if (video.playbackRate !== rate) applyRate(); });
   video.addEventListener('timeupdate', guardTime);
   video.addEventListener('seeking', guardTime);
   video.addEventListener('seeked', guardTime);
