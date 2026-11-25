@@ -71,12 +71,14 @@ body.lb-open { overflow: hidden; }
 .eyebrow {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   margin: 10px 0 6px;
   color: var(--cyan);
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.01em;
+  text-align: center;
 }
 .eyebrow i {
   width: 7px;
@@ -87,19 +89,23 @@ body.lb-open { overflow: hidden; }
   flex: none;
 }
 h1 {
-  margin: 0;
+  margin: 0 auto;
+  max-width: 100%;
   font-family: var(--display);
   font-weight: 800;
   font-size: clamp(16px, 4.15vw, 22px);
   line-height: 1.12;
   letter-spacing: -0.03em;
+  text-align: center;
   text-wrap: balance;
 }
 .sub {
-  margin: 6px 0 0;
+  margin: 6px auto 0;
+  max-width: 40rem;
   color: var(--muted);
   font-size: 14px;
   line-height: 1.4;
+  text-align: center;
 }
 .variant { display: none; }
 html[data-v="a"] .variant-a,

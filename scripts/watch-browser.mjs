@@ -231,6 +231,28 @@ try {
       await new Promise((r) => setTimeout(r, 400));
       const state = await visibleHeadline(page);
       check(label + ' variant ' + variant, state.variant === variant && state.shown.length === 1 && state.shown[0] === variant && state.text === headlines[variant], JSON.stringify(state));
+      const aligned = await page.evaluate(() => {
+        const stage = document.querySelector('.stage').getBoundingClientRect();
+        const eyebrow = document.querySelector('.eyebrow');
+        const block = document.querySelector('[data-variant="' + document.documentElement.dataset.v + '"]');
+        const heading = block.querySelector('h1');
+        const sub = block.querySelector('.sub');
+        const mid = (rect) => (rect.left + rect.right) / 2;
+        const stageMid = mid(stage);
+        const headingBox = heading.getBoundingClientRect();
+        const subBox = sub.getBoundingClientRect();
+        const eye = getComputedStyle(eyebrow);
+        return {
+          heading: getComputedStyle(heading).textAlign,
+          sub: getComputedStyle(sub).textAlign,
+          eye: eye.textAlign,
+          justify: eye.justifyContent,
+          headingDelta: Math.abs(mid(headingBox) - stageMid),
+          subDelta: Math.abs(mid(subBox) - stageMid),
+          headingInside: headingBox.left >= stage.left - 1 && headingBox.right <= stage.right + 1,
+        };
+      });
+      check(label + ' headline centered ' + variant, aligned.heading === 'center' && aligned.sub === 'center' && aligned.eye === 'center' && aligned.justify === 'center' && aligned.headingDelta < 2 && aligned.subDelta < 2 && aligned.headingInside, JSON.stringify(aligned));
       const wrong = await page.evaluate(() => window.__wrongVariant);
       check(label + ' no flash ' + variant, !wrong.length, JSON.stringify(wrong));
       if (width === 390) {
