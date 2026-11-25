@@ -206,6 +206,37 @@ html[data-v="c"] .variant-c { display: block; }
   animation: gate-pulse 1.4s ease-in-out infinite;
 }
 .sound-gate__card svg { width: 1.15em; height: 1.15em; flex: none; fill: none; stroke: var(--lime); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.tap-sound {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: grid;
+  place-items: center;
+  border: 0;
+  padding: 16px;
+  background: rgba(7, 9, 15, 0.35);
+  cursor: pointer;
+}
+.tap-sound__card {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  max-width: calc(100% - 24px);
+  font-family: Anton, Impact, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #07090f;
+  background: linear-gradient(180deg, #b7fe3c 0%, #8fd41e 100%);
+  border-radius: 999px;
+  padding: 0.48em 0.75em;
+  font-size: clamp(22px, 4.2vw, 40px);
+  line-height: 1;
+  box-shadow: 0 0 0.45em #b7fe3c88, 0 0 0.9em #b7fe3c44, 0 0.145em 0 #4f7a0c;
+  animation: cta-pulse 1.047s ease-in-out infinite;
+}
+.tap-sound__card svg { width: 0.9em; height: 0.9em; flex: none; fill: none; stroke: #07090f; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.tap-sound[hidden] { display: none !important; }
 @keyframes gate-pulse {
   0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(183, 254, 60, 0.5), 0 12px 40px rgba(0, 0, 0, 0.45); }
   50% { transform: scale(1.045); box-shadow: 0 0 0 14px rgba(183, 254, 60, 0), 0 12px 40px rgba(0, 0, 0, 0.45); }
@@ -445,6 +476,7 @@ html[data-v="c"] .variant-c { display: block; }
 }
 @media (prefers-reduced-motion: reduce) {
   .sound-gate__card,
+  .tap-sound__card,
   .cta-btn,
   .cta-btn.is-entering,
   .cta-btn.is-pulsing,

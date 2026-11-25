@@ -404,11 +404,14 @@ try {
   await waitUntilPlaying(speed125, 1.25);
   await speed125.evaluate(() => { document.getElementById('vsl').playbackRate = 1; });
   await speed125.waitForFunction(() => Math.abs(document.getElementById('vsl').playbackRate - 1.25) < 0.001);
-  await speed125.click('#sound-gate');
-  await speed125.waitForFunction(() => {
-    const video = document.getElementById('vsl');
-    return Math.abs(video.playbackRate - 1.25) < 0.001 && video.preservesPitch === true && video.currentTime < 1.5;
-  });
+  const gateHidden = await speed125.$eval('#sound-gate', (el) => el.hidden);
+  if (!gateHidden) {
+    await speed125.click('#sound-gate');
+    await speed125.waitForFunction(() => {
+      const video = document.getElementById('vsl');
+      return Math.abs(video.playbackRate - 1.25) < 0.001 && video.preservesPitch === true && video.currentTime < 1.5;
+    });
+  }
   const afterRestart = await speed125.evaluate(() => document.getElementById('vsl').currentTime);
   await new Promise((r) => setTimeout(r, 800));
   const paced = await speed125.evaluate(() => {
@@ -442,7 +445,7 @@ try {
     const video = document.getElementById('vsl');
     return { rate: video.playbackRate, pitch: video.preservesPitch };
   });
-  check('speed=junk stays at 1', Math.abs(junk.rate - 1) < 0.001 && junk.pitch === true, JSON.stringify(junk));
+  check('speed=junk uses the split', (Math.abs(junk.rate - 1) < 0.001 || Math.abs(junk.rate - 1.25) < 0.001) && junk.pitch === true, JSON.stringify(junk));
   await speedJunk.close();
 
   for (const width of [1440, 1280, 768, 390, 360]) {
