@@ -1,0 +1,105 @@
+{
+  "slug": "how-to-use-ai-to-run-a-social-media-account",
+  "title": "How to use AI to run a social media account",
+  "description": "Give an AI agent one account, let it study your past posts, limit it to approved images, write its rules, and approve every post before it goes live.",
+  "category": "Custom AI agents",
+  "takeaway": "To use AI to run a social media account, give one AI agent one account, have it study your existing posts first, and limit it to images from a folder you approve. Write down exactly what it can and can't do, and approve every post before it goes live, by text if that's easier. Get one account working well, then copy that setup to the next one.",
+  "sections": [
+    {
+      "id": "the-short-answer",
+      "title": "The short answer",
+      "paragraphs": [
+        "You can have an AI agent run a social media account for you, but not by handing it your password and saying \"post stuff.\" That's how you end up with posts you'd never have written, in places you didn't expect.",
+        "Here's the setup that works:"
+      ],
+      "bullets": [
+        "Give the agent one account, with its own login and browser profile.",
+        "Have it study the account's existing posts before it writes anything.",
+        "Point it at one folder of images you've approved, and tell it to use only those.",
+        "Write down its rules: how often it posts, and what it may and may not do.",
+        "Have it send you each post for approval before it goes live. A text that says \"does this look good for today?\" works fine.",
+        "Get one account working well, then copy the whole setup to the next account."
+      ]
+    },
+    {
+      "id": "one-agent-per-account",
+      "title": "Give each account its own agent",
+      "paragraphs": [
+        "In a recent AIify It setup session, a business owner wanted AI to handle posting for two separate brands, each with its own Instagram and TikTok. The tempting move was one agent for everything. We didn't do that.",
+        "When one agent runs two accounts, it gets confused. It posts to the wrong account. It logs you out of one to get into the other. Things just get weird, and you spend your time cleaning up after it.",
+        "So each account gets its own agent, and each agent gets its own login and its own browser profile. The agent for the first brand never sees the second brand's account, so it can't mix them up.",
+        "If you already have an agent that plans your content strategy, keep that separate too. Planning what to post and actually posting it are different jobs. Let them be different agents that share notes."
+      ]
+    },
+    {
+      "id": "learn-the-account-first",
+      "title": "Have it learn your account before it posts",
+      "paragraphs": [
+        "The first job we gave the new agent wasn't a post. It was homework. We gave it the account handles and said: review both accounts and write a profile of what gets posted, how it's posted, why, and the general philosophy behind the account.",
+        "That profile becomes the agent's style guide. It tells the agent what your account sounds like, what you post about, and what you never post about. Without it, the agent writes generic social media posts that could belong to anyone.",
+        "Read the profile when it's done. If it gets something wrong about you or your brand, fix it now. Every post it writes later will lean on it."
+      ]
+    },
+    {
+      "id": "write-the-rules",
+      "title": "Write down exactly what it can and can't do",
+      "paragraphs": [
+        "Next, answer a short list of questions so the agent knows its limits. Here's what we covered, and what this owner decided:"
+      ],
+      "bullets": [
+        "How often to post. We started at three feed posts a week. We'd normally push for more, but starting small while you build trust is reasonable. You can raise it later.",
+        "Stories. None. The owner likes posting stories herself, so the agent stays out of them.",
+        "Likes and follows. Yes. Liking posts and following relevant accounts is low risk.",
+        "Comment replies. Only after we've given it instructions on how to reply.",
+        "Direct messages. None for now. A DM is a real conversation with a real person, and you want to be the one having it until you trust the setup."
+      ]
+    },
+    {
+      "id": "approved-image-folder",
+      "title": "Feed it only images you've approved",
+      "paragraphs": [
+        "Don't let the agent go find or invent images on its own. Put a batch of images you're happy with in one folder in OneDrive, Dropbox, or Google Drive. Give the agent access to that folder and tell it plainly: you can only use images from this folder.",
+        "That one rule removes a whole category of bad posts. The agent writes the caption and picks the timing, but every picture that goes out is one you already chose. When you want new material in rotation, you add it to the folder."
+      ]
+    },
+    {
+      "id": "test-post-and-approval",
+      "title": "Start with a test post, and approve everything",
+      "paragraphs": [
+        "Once the rules and folder are set, ask the agent for a test post so you can see what it's going to do. Expect the first one to be off. That's normal. Tell it what's wrong, have it try again, and add anything you learn to its rules.",
+        "Then keep an approval step on every post. In an earlier setup without one, the agent posted something that just wasn't okay about once a week. Most of its posts were fine. But one bad post on a public account costs you more than the time a quick check takes.",
+        "Approval doesn't have to tie you to your desk. Have the agent text you the post with a simple question like \"does this look good for today?\" You reply yes, or tell it what to change, from wherever you are.",
+        "If you'd rather publish from your phone yourself, have the agent save the finished post as a draft in the account. You open the drafts and hit post. You still get the writing and scheduling done for you, and you keep the last click."
+      ]
+    },
+    {
+      "id": "copy-the-setup",
+      "title": "Get one account right, then copy it",
+      "paragraphs": [
+        "Don't build both accounts at once. We started with the account the owner cared about most and worked on it until it ran well. Only then do you duplicate the setup for the second account: the rules, the approval step, the folder structure, and a fresh account profile for the new brand.",
+        "Building one first means you fix each problem once. If you build two in parallel, you have two things to fix every time something goes wrong.",
+        "Keep everything in one place you can see: which agent runs which account, where its rules live, which folder it pulls from. Scattered moving parts in different places are how things slip through the cracks, even with the best intentions."
+      ]
+    },
+    {
+      "id": "what-stays-human",
+      "title": "What still needs you",
+      "paragraphs": [
+        "An agent can handle the steady work: writing captions, picking images from your folder, keeping a schedule, liking and following. That's the part most owners drop when they get busy.",
+        "Keep the judgment calls. You approve what goes out. You handle anything personal, like the stories you want to post yourself. And you answer real people in your messages until you've decided, on purpose, what the agent may say there.",
+        "Set it up this way and you get consistent posting without giving up control of what your account says."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Want an AI agent that handles your posting, with you approving every post?",
+    "description": "AIify It builds custom AI agents that take on routine work like social media posting, follow your rules, and check with you before anything goes out.",
+    "label": "Explore custom AI agents",
+    "href": "/services/custom-ai-agents/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-11-25"
+  }
+}
