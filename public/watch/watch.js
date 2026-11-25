@@ -238,7 +238,13 @@
     syncMute();
     video.play().catch(() => {});
   }
+  let hlsPlayer = null;
   function useMp4() {
+    if (video.dataset.mode === 'mp4') return;
+    if (hlsPlayer) {
+      try { hlsPlayer.destroy(); } catch { /* already gone */ }
+      hlsPlayer = null;
+    }
     video.dataset.mode = 'mp4';
     video.src = MP4_SRC;
     kick();
@@ -250,16 +256,23 @@
     script.onload = () => {
       if (!window.Hls || !window.Hls.isSupported()) { useMp4(); return; }
       const hls = new window.Hls({ capLevelToPlayerSize: true });
+      hlsPlayer = hls;
       let retried = false;
       hls.on(window.Hls.Events.ERROR, (_event, data) => {
         if (!data || !data.fatal) return;
-        if (!retried && (data.type === window.Hls.ErrorTypes.NETWORK_ERROR || data.type === window.Hls.ErrorTypes.MEDIA_ERROR)) {
+        const manifest = data.details === window.Hls.ErrorDetails.MANIFEST_LOAD_ERROR
+          || data.details === window.Hls.ErrorDetails.MANIFEST_LOAD_TIMEOUT
+          || data.details === window.Hls.ErrorDetails.MANIFEST_PARSING_ERROR;
+        if (!manifest && !retried && data.type === window.Hls.ErrorTypes.MEDIA_ERROR) {
           retried = true;
-          if (data.type === window.Hls.ErrorTypes.NETWORK_ERROR) hls.startLoad();
-          else hls.recoverMediaError();
+          hls.recoverMediaError();
           return;
         }
-        hls.destroy();
+        if (!manifest && !retried && data.type === window.Hls.ErrorTypes.NETWORK_ERROR) {
+          retried = true;
+          hls.startLoad();
+          return;
+        }
         useMp4();
       });
       video.dataset.mode = 'hls';
@@ -269,6 +282,9 @@
     };
     script.onerror = useMp4;
     document.head.appendChild(script);
+    setTimeout(() => {
+      if (video.dataset.mode !== 'mp4' && video.readyState === 0 && video.currentTime === 0) useMp4();
+    }, 12000);
   }
 
   video.disablePictureInPicture = true;

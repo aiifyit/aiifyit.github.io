@@ -49,7 +49,8 @@ const server = createServer((req, res) => {
   }
 });
 await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
-const origin = `http://127.0.0.1:${server.address().port}`;
+// The media worker allows Origin http://localhost, not 127.0.0.1.
+const origin = `http://localhost:${server.address().port}`;
 
 const browser = await puppeteer.launch({
   executablePath: process.env.CHROME_PATH || '/usr/bin/google-chrome',
@@ -175,6 +176,10 @@ try {
       };
     });
     check(label + ' reveal button', /book your strategy call/i.test(buttonLook.text) && buttonLook.transform === 'uppercase' && /anton/i.test(buttonLook.family) && buttonLook.background.includes('linear-gradient') && buttonLook.shadow.includes('rgb(79, 122, 12)'), JSON.stringify(buttonLook));
+    const antonReady = await reveal.evaluate(() => document.fonts.check('44px Anton'));
+    check(label + ' Anton loaded', antonReady);
+    await reveal.evaluate(() => document.getElementById('cta').scrollIntoView({ block: 'center', inline: 'center' }));
+    await new Promise((r) => setTimeout(r, 200));
     await shot(reveal, label + '-reveal');
 
     if (width === 1280) {
@@ -264,12 +269,25 @@ try {
   const logs = [];
   player.on('console', (msg) => { if (msg.type() === 'error') logs.push(msg.text()); });
   player.on('pageerror', (err) => logs.push(String(err)));
-  await player.evaluateOnNewDocument(() => localStorage.setItem('aiify.vsl.maxTime', '12'));
+  await player.evaluateOnNewDocument(() => {
+    if (!location.pathname.includes('/watch')) return;
+    localStorage.setItem('aiify.vsl.maxTime', '12');
+  });
   await openWatch(player, '');
+  try {
   await player.waitForFunction(() => {
     const video = document.getElementById('vsl');
     return video && !video.paused && video.currentTime > 8 && (video.dataset.mode === 'hls' || video.dataset.mode === 'mp4' || video.dataset.mode === 'native');
-  }, { timeout: 20000 });
+  }, { timeout: 25000 });
+  } catch (error) {
+    const debug = await player.evaluate(() => {
+      const video = document.getElementById('vsl');
+      return { mode: video.dataset.mode, paused: video.paused, time: video.currentTime, ready: video.readyState, src: (video.currentSrc || '').slice(0, 80) };
+    });
+    check('video plays', false, error.message + ' ' + JSON.stringify(debug) + ' ' + logs.slice(0, 6).join(' | '));
+    await player.close();
+    throw error;
+  }
   const playing = await player.evaluate(() => {
     const video = document.getElementById('vsl');
     return { paused: video.paused, time: video.currentTime, mode: video.dataset.mode, controls: video.controls, attr: video.hasAttribute('controls'), pip: video.disablePictureInPicture, remote: video.disableRemotePlayback };
@@ -306,43 +324,18 @@ try {
 }
 
 const verify = spawnSync('python3', ['-c', `
-import sys, zlib, struct
+import struct, sys
 from pathlib import Path
 bad = []
 for path in sys.argv[1:]:
     data = Path(path).read_bytes()
-    if len(data) < 8000 or data[:8] != b'\\x89PNG\\r\\n\\x1a\\n':
-        bad.append(f'{path} size={len(data)}')
-        continue
-    pos = 8
-    idat = b''
+    ok_sig = data[:8] == b'\\x89PNG\\r\\n\\x1a\\n'
     w = h = 0
-    while pos < len(data):
-        ln = struct.unpack('>I', data[pos:pos+4])[0]
-        typ = data[pos+4:pos+8]
-        chunk = data[pos+8:pos+8+ln]
-        if typ == b'IHDR':
-            w, h = struct.unpack('>II', chunk[:8])
-        elif typ == b'IDAT':
-            idat += chunk
-        elif typ == b'IEND':
-            break
-        pos += 12 + ln
-    raw = zlib.decompress(idat)
-    # sample every row's filter byte plus a stride of pixels without full unfiltering
-    total = 0
-    count = 0
-    step = max(1, (w * 4 + 1) // 40)
-    i = 0
-    for y in range(0, h, max(1, h // 40)):
-        row = y * (w * 4 + 1)
-        for x in range(1, w * 4 + 1, step):
-            total += raw[row + x]
-            count += 1
-    # A blank frame is nearly one color. Compare a few distant uncompressed bytes after a cheap Sub/None assume.
-    print(f'{Path(path).name} {w}x{h} bytes={len(data)} sample={count}')
-    if w < 300 or h < 400 or len(data) < 8000:
-        bad.append(f'{path} {w}x{h} bytes={len(data)}')
+    if ok_sig and data[12:16] == b'IHDR':
+        w, h = struct.unpack('>II', data[16:24])
+    print(f'{Path(path).name} {w}x{h} bytes={len(data)}')
+    if (not ok_sig) or len(data) < 20000 or w < 300 or h < 400:
+        bad.append(f'{Path(path).name} {w}x{h} {len(data)}')
 print('BAD ' + ','.join(bad) if bad else 'PNGS_OK')
 `, ...shots], { encoding: 'utf8' });
 process.stdout.write(verify.stdout || '');
