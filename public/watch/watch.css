@@ -213,15 +213,21 @@ html[data-v="c"] .variant-c { display: block; }
   display: grid;
   place-items: center;
   border: 0;
-  padding: 16px;
-  background: rgba(7, 9, 15, 0.35);
+  padding: 12px;
+  margin: 0;
+  background: rgba(7, 9, 15, 0.55);
   cursor: pointer;
+  color: #07090f;
 }
 .tap-sound__card {
+  position: relative;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.35em;
-  max-width: calc(100% - 24px);
+  width: min(92%, max(210px, 36%));
+  max-width: 100%;
+  box-sizing: border-box;
   font-family: Anton, Impact, sans-serif;
   font-weight: 400;
   letter-spacing: 0.02em;
@@ -229,14 +235,45 @@ html[data-v="c"] .variant-c { display: block; }
   color: #07090f;
   background: linear-gradient(180deg, #b7fe3c 0%, #8fd41e 100%);
   border-radius: 999px;
-  padding: 0.48em 0.75em;
-  font-size: clamp(22px, 4.2vw, 40px);
+  padding: 0.55em 0.7em;
+  font-size: clamp(16px, 3.4vw, 34px);
   line-height: 1;
+  white-space: nowrap;
   box-shadow: 0 0 0.45em #b7fe3c88, 0 0 0.9em #b7fe3c44, 0 0.145em 0 #4f7a0c;
-  animation: cta-pulse 1.047s ease-in-out infinite;
 }
-.tap-sound__card svg { width: 0.9em; height: 0.9em; flex: none; fill: none; stroke: #07090f; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.tap-sound__card::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border-radius: 999px;
+  border: 3px solid #b7fe3c;
+  animation: sound-ring 1.35s ease-out infinite;
+  pointer-events: none;
+}
+.tap-sound__card svg { width: 0.95em; height: 0.95em; flex: none; fill: none; stroke: #07090f; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .tap-sound[hidden] { display: none !important; }
+@keyframes sound-ring {
+  0% { transform: scale(0.96); opacity: 0.9; }
+  100% { transform: scale(1.22); opacity: 0; }
+}
+.captions {
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  bottom: 11%;
+  z-index: 4;
+  margin: 0;
+  pointer-events: none;
+  text-align: center;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: clamp(18px, 4.2vw, 34px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #fff;
+  text-shadow: 0 2px 0 #07090f, 0 0 8px #07090f, 0 0 2px #07090f;
+}
+.captions[hidden] { display: none !important; }
 @keyframes gate-pulse {
   0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(183, 254, 60, 0.5), 0 12px 40px rgba(0, 0, 0, 0.45); }
   50% { transform: scale(1.045); box-shadow: 0 0 0 14px rgba(183, 254, 60, 0), 0 12px 40px rgba(0, 0, 0, 0.45); }
@@ -477,6 +514,7 @@ html[data-v="c"] .variant-c { display: block; }
 @media (prefers-reduced-motion: reduce) {
   .sound-gate__card,
   .tap-sound__card,
+  .tap-sound__card::before,
   .cta-btn,
   .cta-btn.is-entering,
   .cta-btn.is-pulsing,
