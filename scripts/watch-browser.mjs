@@ -89,7 +89,104 @@ async function openWatch(page, search) {
   await page.evaluate(() => document.fonts.ready).catch(() => {});
 }
 
+async function settle(page) {
+  await page.evaluate(() => new Promise((resolve) => {
+    const started = performance.now();
+    const finish = () => setTimeout(resolve, Math.max(0, 900 - (performance.now() - started)));
+    const finite = document.getAnimations().filter((anim) => {
+      if (anim.playState === 'finished' || anim.playState === 'idle') return false;
+      const timing = anim.effect && anim.effect.getTiming ? anim.effect.getTiming() : {};
+      return timing.iterations !== Infinity && Number.isFinite(timing.iterations);
+    });
+    if (!finite.length) { finish(); return; }
+    Promise.all(finite.map((anim) => anim.finished.catch(() => {}))).then(finish);
+  }));
+}
+
+async function lightboxState(page) {
+  return page.evaluate(() => {
+    const lightbox = document.getElementById('lightbox');
+    const sheet = document.querySelector('.sheet');
+    const view = document.getElementById('lb-viewport').getBoundingClientRect();
+    const lb = getComputedStyle(lightbox);
+    const panel = getComputedStyle(sheet);
+    const box = lightbox.getBoundingClientRect();
+    const alpha = (color) => {
+      const match = String(color).match(/rgba?\(([^)]+)\)/);
+      if (!match) return color === 'transparent' ? 0 : 1;
+      const parts = match[1].split(',').map((part) => parseFloat(part));
+      return parts.length === 4 ? parts[3] : 1;
+    };
+    const z = (el) => {
+      const value = getComputedStyle(el).zIndex;
+      return value === 'auto' ? 0 : Number(value);
+    };
+    const panes = [...document.querySelectorAll('.pane')].map((pane) => {
+      const rect = pane.getBoundingClientRect();
+      const style = getComputedStyle(pane);
+      const overlap = Math.min(rect.right, view.right) - Math.max(rect.left, view.left);
+      return {
+        step: pane.dataset.pane,
+        opacity: Number(style.opacity),
+        visibility: style.visibility,
+        left: rect.left,
+        right: rect.right,
+        overlap,
+        inside: rect.left >= view.left - 2 && rect.right <= view.right + 2,
+      };
+    });
+    const shown = panes.filter((pane) => pane.opacity > 0.95 && pane.visibility === 'visible');
+    const split = panes.filter((pane) => pane.overlap > 20 && pane.overlap < view.width - 20);
+    const pointInside = (el) => {
+      const rect = el.getBoundingClientRect();
+      const x = rect.left + rect.width / 2;
+      const y = rect.top + rect.height / 2;
+      if (x < 0 || y < 0 || x > innerWidth || y > innerHeight) return 'offscreen';
+      const hit = document.elementFromPoint(x, y);
+      return hit && hit.closest('#lightbox') ? 'lightbox' : (hit && (hit.id || hit.className)) || 'none';
+    };
+    return {
+      position: lb.position,
+      opacity: Number(lb.opacity),
+      z: z(lightbox),
+      gateZ: z(document.getElementById('sound-gate')),
+      ctaZ: z(document.getElementById('cta')),
+      playerZ: z(document.getElementById('player')),
+      sheetOpacity: Number(panel.opacity),
+      sheetAlpha: alpha(panel.backgroundColor),
+      covers: box.left <= 1 && box.top <= 1 && box.right >= innerWidth - 1 && box.bottom >= innerHeight - 1,
+      gateHit: pointInside(document.getElementById('sound-gate')),
+      ctaHit: pointInside(document.getElementById('cta')),
+      shown: shown.map((pane) => pane.step),
+      split: split.map((pane) => pane.step),
+      panes,
+    };
+  });
+}
+
+function lightboxOk(state) {
+  const ctaCovered = state.ctaHit === 'lightbox' || state.ctaHit === 'offscreen';
+  return state.position === 'fixed'
+    && state.opacity === 1
+    && state.z >= 40
+    && state.z > state.gateZ
+    && state.z > state.ctaZ
+    && state.z > state.playerZ
+    && state.sheetOpacity === 1
+    && state.sheetAlpha === 1
+    && state.covers
+    && state.gateHit === 'lightbox'
+    && ctaCovered
+    && state.shown.length === 1
+    && state.split.length === 0;
+}
+
 async function shot(page, name) {
+  await settle(page);
+  if (name.includes('step-')) {
+    const state = await lightboxState(page);
+    check(name + ' settled cover', lightboxOk(state), JSON.stringify(state));
+  }
   const path = join(outDir, name + '.png');
   await page.screenshot({ path, type: 'png' });
   shots.push(path);

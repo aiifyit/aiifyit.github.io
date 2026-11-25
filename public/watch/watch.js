@@ -382,18 +382,21 @@
 
   function goTo(next, animate) {
     step = next;
-    panes.forEach((pane, index) => { pane.inert = index !== step - 1; });
-    if (!animate) track.style.transition = 'none';
-    track.style.transform = 'translateX(-' + (step - 1) * 100 + '%)';
+    panes.forEach((pane, index) => {
+      const on = index === step - 1;
+      pane.classList.toggle('is-on', on);
+      pane.inert = !on;
+    });
     const pane = panes[step - 1];
     viewport.hidden = false;
+    if (!animate) viewport.style.transition = 'none';
     viewport.style.height = pane.scrollHeight + 'px';
     stepBar.style.width = (step / 3) * 100 + '%';
     stepLabel.hidden = false;
     stepLabel.textContent = 'Step ' + step + ' of 3';
     const heading = pane.querySelector('h2');
     if (heading) dialog.setAttribute('aria-labelledby', heading.id);
-    if (!animate) requestAnimationFrame(() => { track.style.transition = ''; });
+    if (!animate) requestAnimationFrame(() => { viewport.style.transition = ''; });
     const focusable = pane.querySelector('button, input');
     if (focusable) focusable.focus();
   }

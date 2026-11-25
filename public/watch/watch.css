@@ -62,7 +62,7 @@ body::after {
 }
 body.lb-open { overflow: hidden; }
 
-.top, .page, .lightbox { position: relative; z-index: 1; }
+.top, .page { position: relative; z-index: 1; }
 .top { padding: 14px 16px 0; }
 .logo { height: 30px; width: auto; display: block; }
 .page { padding: 8px 16px 28px; }
@@ -247,11 +247,11 @@ html[data-v="c"] .variant-c { display: block; }
 .lightbox {
   position: fixed;
   inset: 0;
-  z-index: 20;
+  z-index: 40;
   display: grid;
   place-items: center;
   padding: 16px;
-  background: rgba(7, 9, 15, 0.62);
+  background: rgba(7, 9, 15, 0.94);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   animation: lb-fade 0.25s ease both;
@@ -264,17 +264,18 @@ html[data-v="c"] .variant-c { display: block; }
   overflow: auto;
   padding: 22px 18px 18px;
   border-radius: 24px;
-  background:
+  background-color: #0d1230;
+  background-image:
     radial-gradient(ellipse at 0% 0%, rgba(62, 223, 251, 0.16), transparent 52%),
-    radial-gradient(ellipse at 100% 0%, rgba(187, 165, 255, 0.18), transparent 48%),
-    var(--navy);
+    radial-gradient(ellipse at 100% 0%, rgba(187, 165, 255, 0.18), transparent 48%);
   border: 1px solid rgba(183, 254, 60, 0.32);
   box-shadow: 0 30px 90px rgba(0, 0, 0, 0.55), 0 0 40px rgba(183, 254, 60, 0.12);
+  opacity: 1;
   animation: sheet-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 @keyframes sheet-in {
-  from { transform: scale(0.78); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
+  from { transform: scale(0.86); }
+  to { transform: scale(1); }
 }
 .sheet__close {
   position: absolute;
@@ -311,9 +312,24 @@ html[data-v="c"] .variant-c { display: block; }
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
-.viewport { overflow: hidden; transition: height 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
-.track { display: flex; transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1); }
-.pane { flex: 0 0 100%; min-width: 100%; }
+.viewport { overflow: hidden; transition: height 0.35s ease; }
+.track { position: relative; }
+.pane {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+.pane.is-on {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
 .sheet h2 {
   margin: 0 36px 6px 0;
   font-family: var(--display);
@@ -419,7 +435,7 @@ html[data-v="c"] .variant-c { display: block; }
   .cta-btn.is-settled,
   .lightbox,
   .sheet,
-  .track,
+  .pane,
   .viewport,
   .thanks__mark,
   .thanks__mark path { animation: none !important; transition: none !important; }
