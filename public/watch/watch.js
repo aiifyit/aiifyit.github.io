@@ -9,6 +9,23 @@
   const TIME_KEY = 'aiify.vsl.maxTime';
   const REVEAL_KEY = 'aiify.vsl.revealed';
   const JUMP_FLOOR = 1.25;
+  // First 30 seconds of vsl-720p.mp4, transcribed and checked against the spoken hook.
+  const CAPTIONS = [
+    [0, 2.38, 'Every business owner who bought AI'],
+    [2.38, 4.42, 'and got stuck made the same mistake.'],
+    [5.02, 6.94, 'They thought buying the tool was the job.'],
+    [7.42, 8.08, "It isn't."],
+    [8.84, 9.72, "If you've been thinking,"],
+    [10.06, 12.22, 'we should be doing so much more with AI.'],
+    [12.82, 14.72, 'If you hear competitors already are,'],
+    [15.12, 16.88, 'and if you bought some tools but'],
+    [16.88, 19.9, "you're still caught in a time loop doing most things manually,"],
+    [20.48, 20.98, 'keep watching.'],
+    [21.7, 23.46, 'The tool was never the hard part.'],
+    [23.94, 25.72, 'Wrapping your business around it is.'],
+    [26.4, 29.22, 'Nobody who sold you an AI tool does the hard part.'],
+    [29.84, 30, 'But why is that?'],
+  ];
 
   const params = new URLSearchParams(location.search);
   const variant = (document.documentElement.dataset.v || 'a').toLowerCase();
@@ -51,6 +68,7 @@
   const player = document.getElementById('player');
   const gate = document.getElementById('sound-gate');
   const tap = document.getElementById('tap-sound');
+  const captions = document.getElementById('captions');
   const muteBtn = document.getElementById('mute');
   const progress = document.getElementById('progress');
   const ctaSlot = document.getElementById('cta-slot');
@@ -261,6 +279,25 @@
     muteBtn.setAttribute('aria-pressed', muted ? 'true' : 'false');
     muteBtn.setAttribute('aria-label', muted ? 'Unmute' : 'Mute');
     muteBtn.innerHTML = muted ? mutedIcon : soundIcon;
+    syncSoundChrome();
+  }
+  function syncCaptions() {
+    if (!captions) return;
+    const t = Number(video.currentTime) || 0;
+    if (!video.muted || t >= 30) {
+      captions.hidden = true;
+      return;
+    }
+    const cue = CAPTIONS.find((row) => t >= row[0] && t < row[1]);
+    captions.hidden = !cue;
+    if (cue) captions.textContent = cue[2];
+  }
+  function syncSoundChrome() {
+    const mutedPlayback = video.muted && (autoplayNoted || !video.paused);
+    if (tap) tap.hidden = !mutedPlayback;
+    if (mutedPlayback) gate.hidden = true;
+    else if (isMobileUX && !soundStarted) gate.hidden = false;
+    syncCaptions();
   }
   function applyRate() {
     try {
@@ -307,6 +344,7 @@
     }
     if (t >= REVEAL_AT) reveal({ persist: true, settle: false, reason: 'play' });
     paintProgress();
+    syncCaptions();
   }
   function applyResume() {
     if (!resumed) {
@@ -369,14 +407,6 @@
   function unmuteFromTap() {
     userGesture = true;
     soundDetail = 'tap';
-    const t = Number(video.currentTime) || 0;
-    if (t < 15) {
-      arming = true;
-      wall = 0;
-      lastSample = performance.now();
-      try { video.currentTime = 0; } catch { /* ignore */ }
-      arming = false;
-    }
     video.muted = false;
     soundStarted = true;
     gate.hidden = true;
@@ -510,6 +540,7 @@
       track('video_autoplay_started', video.muted ? 'muted' : 'sound');
     }
     if (!video.muted) noteSoundOn();
+    syncSoundChrome();
   });
   video.addEventListener('ended', () => track('watch_complete'));
   video.addEventListener('ratechange', () => { if (video.playbackRate !== rate) applyRate(); });
@@ -529,6 +560,8 @@
 
   if (!isMobileUX) gate.hidden = true;
   if (tap) tap.hidden = true;
+  const soundLabel = tap && tap.querySelector('[data-sound-label]');
+  if (soundLabel && (isMobileUX || matchMedia('(pointer: coarse)').matches)) soundLabel.textContent = 'Tap for sound';
   if (prefersNativeHls()) {
     video.dataset.mode = 'native';
     video.src = HLS_SRC;

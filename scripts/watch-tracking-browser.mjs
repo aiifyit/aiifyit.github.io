@@ -270,27 +270,69 @@ try {
   await arm(blocked, { blockUnmuted: true, width: 1440, height: 900 });
   await open(blocked, '?aiify_test=1');
   await blocked.waitForSelector('#tap-sound:not([hidden])', { timeout: 25000 });
+  await blocked.waitForFunction(() => {
+    const video = document.getElementById('vsl');
+    const caption = document.getElementById('captions');
+    return video.currentTime > 1.2 && video.muted && caption && !caption.hidden && caption.textContent.length > 8;
+  }, { timeout: 15000 });
   const mutedStart = await blocked.evaluate(() => window.__events.find((event) => event.event === 'video_autoplay_started'));
   check('desktop muted fallback', mutedStart && mutedStart.detail === 'muted', JSON.stringify(mutedStart));
   await blocked.screenshot({ path: join(outDir, 'desktop-tap-1440.png'), type: 'png' });
-  const timeBeforeTap = await blocked.evaluate(() => document.getElementById('vsl').currentTime);
+  const beforeTap = await blocked.evaluate(() => ({
+    time: document.getElementById('vsl').currentTime,
+    rate: document.getElementById('vsl').playbackRate,
+    caption: document.getElementById('captions').textContent,
+  }));
   await blocked.click('#tap-sound');
-  await blocked.waitForFunction(() => window.__events.some((event) => event.event === 'sound_on' && event.detail === 'tap') && document.getElementById('vsl').muted === false, { timeout: 8000 });
-  const afterTap = await blocked.evaluate(() => ({ muted: document.getElementById('vsl').muted, time: document.getElementById('vsl').currentTime, hidden: document.getElementById('tap-sound').hidden }));
-  check('tap for sound unmutes', afterTap.muted === false && afterTap.hidden && (timeBeforeTap < 15 ? afterTap.time < 3 : true), JSON.stringify({ timeBeforeTap, afterTap }));
+  await blocked.waitForFunction(() => window.__events.filter((event) => event.event === 'sound_on' && event.detail === 'tap').length === 1 && document.getElementById('vsl').muted === false, { timeout: 8000 });
+  const afterTap = await blocked.evaluate(() => ({
+    muted: document.getElementById('vsl').muted,
+    time: document.getElementById('vsl').currentTime,
+    rate: document.getElementById('vsl').playbackRate,
+    hidden: document.getElementById('tap-sound').hidden,
+    captions: document.getElementById('captions').hidden,
+  }));
+  check('click for sound unmutes in place', afterTap.muted === false && afterTap.hidden && afterTap.captions && afterTap.time + 0.35 >= beforeTap.time && Math.abs(afterTap.rate - beforeTap.rate) < 0.001, JSON.stringify({ beforeTap, afterTap }));
   await blocked.close();
 
-  const mobile = await browser.newPage();
-  await arm(mobile, { mobile: true, width: 390, height: 844 });
-  await open(mobile, '?aiify_test=1');
-  await mobile.waitForFunction(() => window.__events.some((event) => event.event === 'video_autoplay_started' && event.detail === 'muted'), { timeout: 25000 });
-  const gate = await mobile.evaluate(() => ({ gate: document.getElementById('sound-gate').hidden, tap: document.getElementById('tap-sound').hidden, device: window.__events[0].device }));
-  check('mobile keeps the gate', gate.gate === false && gate.tap === true && gate.device === 'mobile', JSON.stringify(gate));
-  await mobile.screenshot({ path: join(outDir, 'mobile-gate-390.png'), type: 'png' });
-  await mobile.click('#sound-gate');
-  await mobile.waitForFunction(() => window.__events.some((event) => event.event === 'play_click') && window.__events.some((event) => event.event === 'sound_on' && event.detail === 'gate'), { timeout: 8000 });
-  check('mobile gate events', true);
-  await mobile.close();
+  const narrow = await browser.newPage();
+  await arm(narrow, { blockUnmuted: true, mobile: true, width: 375, height: 812 });
+  await open(narrow, '?aiify_test=1');
+  await narrow.waitForSelector('#tap-sound:not([hidden])', { timeout: 25000 });
+  const fit = await narrow.evaluate(() => {
+    const player = document.getElementById('player').getBoundingClientRect();
+    const card = document.querySelector('.tap-sound__card').getBoundingClientRect();
+    const label = document.querySelector('[data-sound-label]');
+    return {
+      label: label.textContent,
+      left: card.left - player.left,
+      right: player.right - card.right,
+      top: card.top - player.top,
+      bottom: player.bottom - card.bottom,
+      overflow: label.scrollWidth - label.clientWidth,
+    };
+  });
+  const captionFit = await narrow.evaluate(() => {
+    const player = document.getElementById('player').getBoundingClientRect();
+    const caption = document.getElementById('captions');
+    const box = caption.getBoundingClientRect();
+    return {
+      text: caption.textContent,
+      hidden: caption.hidden,
+      left: box.left - player.left,
+      right: player.right - box.right,
+      overflow: caption.scrollWidth - caption.clientWidth,
+    };
+  });
+  check('375px sound button stays inside', fit.label === 'Tap for sound' && fit.left >= -1 && fit.right >= -1 && fit.top >= -1 && fit.bottom >= -1 && fit.overflow <= 1, JSON.stringify(fit));
+  check('375px captions stay inside', captionFit.hidden === false && captionFit.text.length > 8 && captionFit.left >= -1 && captionFit.right >= -1 && captionFit.overflow <= 1, JSON.stringify(captionFit));
+  await narrow.screenshot({ path: join(outDir, 'mobile-sound-375.png'), type: 'png' });
+  const beforeNarrow = await narrow.evaluate(() => ({ time: document.getElementById('vsl').currentTime, rate: document.getElementById('vsl').playbackRate, arm: localStorage.getItem('aiify.vsl.speedArm') }));
+  await narrow.click('#tap-sound');
+  await narrow.waitForFunction(() => window.__events.filter((event) => event.event === 'sound_on' && event.detail === 'tap').length === 1 && document.getElementById('vsl').muted === false && document.getElementById('captions').hidden, { timeout: 8000 });
+  const afterNarrow = await narrow.evaluate(() => ({ time: document.getElementById('vsl').currentTime, rate: document.getElementById('vsl').playbackRate, sounds: window.__events.filter((event) => event.event === 'sound_on').length }));
+  check('mobile unmute keeps position and speed', afterNarrow.time + 0.35 >= beforeNarrow.time && Math.abs(afterNarrow.rate - beforeNarrow.rate) < 0.001 && (beforeNarrow.arm == null || Math.abs(afterNarrow.rate - Number(beforeNarrow.arm)) < 0.001) && afterNarrow.sounds === 1, JSON.stringify({ beforeNarrow, afterNarrow }));
+  await narrow.close();
 } finally {
   await browser.close();
   server.close();
