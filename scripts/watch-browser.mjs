@@ -383,6 +383,68 @@ try {
     await reveal.close();
   }
 
+  async function openSpeed(query) {
+    const page = await browser.newPage();
+    await prepare(page, 1280, 800);
+    await page.evaluateOnNewDocument(() => {
+      if (!location.pathname.includes('/watch')) return;
+      try { localStorage.removeItem('aiify.vsl.maxTime'); } catch { /* ignore */ }
+    });
+    await openWatch(page, query);
+    return page;
+  }
+  async function waitUntilPlaying(page, rate) {
+    await page.waitForFunction((expected) => {
+      const video = document.getElementById('vsl');
+      return video && !video.paused && video.currentTime > 0.35 && Math.abs(video.playbackRate - expected) < 0.001 && video.preservesPitch === true;
+    }, { timeout: 25000 }, rate);
+  }
+
+  const speed125 = await openSpeed('?v=a&speed=1.25');
+  await waitUntilPlaying(speed125, 1.25);
+  await speed125.evaluate(() => { document.getElementById('vsl').playbackRate = 1; });
+  await speed125.waitForFunction(() => Math.abs(document.getElementById('vsl').playbackRate - 1.25) < 0.001);
+  await speed125.click('#sound-gate');
+  await speed125.waitForFunction(() => {
+    const video = document.getElementById('vsl');
+    return Math.abs(video.playbackRate - 1.25) < 0.001 && video.preservesPitch === true && video.currentTime < 1.5;
+  });
+  const afterRestart = await speed125.evaluate(() => document.getElementById('vsl').currentTime);
+  await new Promise((r) => setTimeout(r, 800));
+  const paced = await speed125.evaluate(() => {
+    const video = document.getElementById('vsl');
+    return { time: video.currentTime, rate: video.playbackRate, pitch: video.preservesPitch };
+  });
+  check('speed=1.25 sticks after restart', Math.abs(paced.rate - 1.25) < 0.001 && paced.pitch === true && paced.time > afterRestart + 0.4, JSON.stringify({ afterRestart, paced }));
+  await speed125.close();
+
+  const speed2 = await openSpeed('?speed=2');
+  await waitUntilPlaying(speed2, 2);
+  const started = await speed2.evaluate(() => ({ time: document.getElementById('vsl').currentTime, now: performance.now() }));
+  await new Promise((r) => setTimeout(r, 1200));
+  const moved = await speed2.evaluate(() => {
+    const video = document.getElementById('vsl');
+    return { time: video.currentTime, now: performance.now(), rate: video.playbackRate, paused: video.paused };
+  });
+  const elapsed = (moved.now - started.now) / 1000;
+  const advanced = moved.time - started.time;
+  check('speed=2 is not treated as a skip', !moved.paused && Math.abs(moved.rate - 2) < 0.001 && advanced > elapsed * 1.45 && advanced < elapsed * 2.8, JSON.stringify({ elapsed, advanced, moved }));
+  const beforeFastSeek = moved.time;
+  await speed2.evaluate(() => { document.getElementById('vsl').currentTime += 40; });
+  await new Promise((r) => setTimeout(r, 500));
+  const afterFastSeek = await speed2.evaluate(() => document.getElementById('vsl').currentTime);
+  check('speed=2 still blocks a real skip', afterFastSeek < beforeFastSeek + 4, 'before ' + beforeFastSeek + ' after ' + afterFastSeek);
+  await speed2.close();
+
+  const speedJunk = await openSpeed('?speed=junk');
+  await waitUntilPlaying(speedJunk, 1);
+  const junk = await speedJunk.evaluate(() => {
+    const video = document.getElementById('vsl');
+    return { rate: video.playbackRate, pitch: video.preservesPitch };
+  });
+  check('speed=junk stays at 1', Math.abs(junk.rate - 1) < 0.001 && junk.pitch === true, JSON.stringify(junk));
+  await speedJunk.close();
+
   const player = await browser.newPage();
   await prepare(player, 1280, 800);
   const logs = [];
