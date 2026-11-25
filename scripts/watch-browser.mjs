@@ -445,6 +445,56 @@ try {
   check('speed=junk stays at 1', Math.abs(junk.rate - 1) < 0.001 && junk.pitch === true, JSON.stringify(junk));
   await speedJunk.close();
 
+  for (const width of [1440, 1280, 768, 390, 360]) {
+    const page = await browser.newPage();
+    await prepare(page, width, width >= 768 ? 900 : 780);
+    await openWatch(page, '?reveal=1');
+    await page.waitForSelector('#cta');
+    await page.evaluate(() => document.getElementById('cta').click());
+    await page.waitForSelector('.choice');
+    await clickChoice(page, 'Under $1M');
+    await page.waitForFunction(() => document.getElementById('lb-step').textContent === 'Step 2 of 3');
+    await clickChoice(page, 'Sales & leads');
+    await page.waitForFunction(() => document.getElementById('lb-step').textContent === 'Step 3 of 3');
+    await settle(page);
+    const fit = await page.evaluate(() => new Promise((resolve) => {
+      const button = document.getElementById('lead-submit');
+      const sheet = document.querySelector('.sheet');
+      const samples = [];
+      const started = performance.now();
+      const read = () => {
+        const buttonBox = button.getBoundingClientRect();
+        const sheetBox = sheet.getBoundingClientRect();
+        const style = getComputedStyle(button);
+        const range = document.createRange();
+        range.selectNodeContents(button);
+        const lines = [...range.getClientRects()].filter((rect) => rect.width > 1 && rect.height > 1);
+        samples.push({
+          left: buttonBox.left - sheetBox.left,
+          right: sheetBox.right - buttonBox.right,
+          top: buttonBox.top - sheetBox.top,
+          bottom: sheetBox.bottom - buttonBox.bottom,
+          lines: lines.length,
+          overflow: button.scrollWidth - button.clientWidth,
+          font: style.fontSize,
+          width: style.width,
+          box: style.boxSizing,
+          whiteSpace: style.whiteSpace,
+        });
+      };
+      const tick = () => {
+        read();
+        if (performance.now() - started < 1100) requestAnimationFrame(tick);
+        else resolve(samples);
+      };
+      requestAnimationFrame(tick);
+    }));
+    const inside = fit.every((sample) => sample.left >= -0.5 && sample.right >= -0.5 && sample.top >= -0.5 && sample.bottom >= 8 && sample.lines === 1 && sample.overflow <= 1 && sample.box === 'border-box' && sample.whiteSpace === 'nowrap');
+    const worst = fit.reduce((min, sample) => Math.min(min, sample.left, sample.right, sample.bottom), Infinity);
+    check('submit fits ' + width, inside, JSON.stringify({ worst, sample: fit[0], count: fit.length }));
+    await page.close();
+  }
+
   const player = await browser.newPage();
   await prepare(player, 1280, 800);
   const logs = [];

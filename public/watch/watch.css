@@ -268,7 +268,7 @@ html[data-v="c"] .variant-c { display: block; }
   width: min(480px, 100%);
   max-height: min(720px, calc(100dvh - 24px));
   overflow: auto;
-  padding: 22px 18px 18px;
+  padding: 22px 32px 36px;
   border-radius: 24px;
   background-color: #0d1230;
   background-image:
@@ -318,7 +318,7 @@ html[data-v="c"] .variant-c { display: block; }
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
-.viewport { overflow: hidden; transition: height 0.35s ease; }
+.viewport { overflow: visible; transition: height 0.35s ease; }
 .track { position: relative; }
 .pane {
   width: 100%;
@@ -377,10 +377,20 @@ html[data-v="c"] .variant-c { display: block; }
 .err { display: block; min-height: 0; margin-top: 5px; color: #ffb3bc; font-size: 13px; }
 .err:empty { display: none; }
 .hp { position: absolute !important; left: -9999px !important; width: 1px; height: 1px; opacity: 0; }
-.cta-btn--submit {
+#lead-form {
+  box-sizing: border-box;
+}
+.sheet .cta-btn.cta-btn--submit {
+  box-sizing: border-box;
+  display: block;
   width: 100%;
-  margin-top: 4px;
-  font-size: clamp(18px, 4.6vw, 28px);
+  max-width: 100%;
+  margin: 8px 0 1.7em;
+  padding: 0.62em 0.4em;
+  font-size: clamp(15px, 4.5vw, 26px);
+  line-height: 1;
+  letter-spacing: 0.008em;
+  white-space: nowrap;
   animation: cta-pulse 1.047s ease-in-out infinite;
 }
 .form-alert { min-height: 0; margin: 10px 0 0; color: #ffd0d6; font-size: 14px; }
@@ -431,7 +441,7 @@ html[data-v="c"] .variant-c { display: block; }
   h1 { font-size: clamp(28px, 3vw, 44px); line-height: 1.05; }
   .sub { font-size: 17px; margin-top: 10px; }
   .player { margin-top: 18px; border-radius: 22px; width: min(100%, calc((100svh - 390px) * 16 / 9)); margin-left: auto; margin-right: auto; }
-  .cta-btn { font-size: clamp(22px, 3.2vw, 44px); }
+  .cta-slot .cta-btn { font-size: clamp(22px, 3.2vw, 44px); }
 }
 @media (prefers-reduced-motion: reduce) {
   .sound-gate__card,
