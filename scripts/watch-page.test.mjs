@@ -28,6 +28,44 @@ function speedFn() {
   return vm.runInNewContext(`${js.slice(start, end)}\nplaybackSpeed`);
 }
 
+test('speed split is sticky, even, and yields to an explicit speed', () => {
+  const speedSrc = js.slice(js.indexOf('/* vsl-speed:start */'), js.indexOf('/* vsl-speed:end */'));
+  const splitSrc = js.slice(js.indexOf('/* vsl-speed-split:start */'), js.indexOf('/* vsl-speed-split:end */'));
+  const store = new Map();
+  const speedAssignment = vm.runInNewContext(`${speedSrc}\n${splitSrc}\nspeedAssignment`, {
+    localStorage: {
+      getItem: (key) => store.has(key) ? store.get(key) : null,
+      setItem: (key, value) => store.set(key, String(value)),
+      removeItem: (key) => store.delete(key),
+    },
+    crypto: { getRandomValues: (bytes) => { bytes[0] = Math.floor(Math.random() * 256); return bytes; } },
+    Math, Number, String, Uint8Array,
+  });
+  const counts = { 1: 0, 1.25: 0 };
+  for (let i = 0; i < 1000; i++) {
+    store.delete('aiify.vsl.speedArm');
+    const assigned = speedAssignment(new URLSearchParams(''));
+    assert.equal(assigned.source, 'split');
+    counts[assigned.rate] += 1;
+  }
+  assert.ok(counts[1] >= 450 && counts[1] <= 550, JSON.stringify(counts));
+  assert.ok(counts[1.25] >= 450 && counts[1.25] <= 550, JSON.stringify(counts));
+  store.set('aiify.vsl.speedArm', '1');
+  const override = speedAssignment(new URLSearchParams('speed=1.5'));
+  assert.equal(override.rate, 1.5);
+  assert.equal(override.source, 'url');
+  assert.equal(store.get('aiify.vsl.speedArm'), '1');
+  const invalid = speedAssignment(new URLSearchParams('speed=junk'));
+  assert.equal(invalid.source, 'split');
+  assert.ok(invalid.rate === 1 || invalid.rate === 1.25);
+  assert.match(js, /page_view: 32485082/);
+  assert.match(js, /watch_50: 32485074/);
+  assert.match(js, /cta_click: 32485066/);
+  assert.match(js, /lead_submitted: 32485058/);
+  assert.match(html, /_linkedin_partner_id = "10091706"/);
+  assert.match(html, /lintrk\.q\.push/);
+});
+
 test('speed query is clamped between 0.5 and 2', () => {
   const playbackSpeed = speedFn();
   assert.equal(playbackSpeed(null), 1);

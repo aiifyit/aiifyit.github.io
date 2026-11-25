@@ -4,6 +4,7 @@
   const HLS_SRC = 'https://aiify-vsl-media.joshua-509.workers.dev/vsl/v1/hls/master.m3u8';
   const MP4_SRC = 'https://aiify-vsl-media.joshua-509.workers.dev/vsl/v1/vsl-720p.mp4';
   const HIRE_URL = 'https://aiify-free-file.joshua-509.workers.dev/api/hire';
+  const EVENT_URL = 'https://aiify-free-file.joshua-509.workers.dev/api/vsl/event';
   const REVEAL_AT = 523.5;
   const TIME_KEY = 'aiify.vsl.maxTime';
   const REVEAL_KEY = 'aiify.vsl.revealed';
@@ -21,18 +22,41 @@
     return Math.min(2, Math.max(0.5, value));
   }
   /* vsl-speed:end */
-  const rate = playbackSpeed(params.get('speed'));
+  const ua = navigator.userAgent || '';
+  const ipadOs = navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
+  const device = /iPad|Tablet/i.test(ua) || ipadOs ? 'tablet' : /Mobi|Android|iPhone|iPod/i.test(ua) ? 'mobile' : 'desktop';
+  const isMobileUX = device !== 'desktop';
+  /* vsl-speed-split:start */
+  const SPEED_KEY = 'aiify.vsl.speedArm';
+  function speedAssignment(params) {
+    const raw = params.get('speed');
+    if (raw != null && String(raw).trim() !== '' && Number.isFinite(Number(raw))) {
+      return { rate: playbackSpeed(raw), source: 'url' };
+    }
+    let arm = null;
+    try { arm = localStorage.getItem(SPEED_KEY); } catch { /* private mode */ }
+    if (arm !== '1' && arm !== '1.25') {
+      const bit = crypto.getRandomValues ? crypto.getRandomValues(new Uint8Array(1))[0] & 1 : Math.random() < 0.5 ? 1 : 0;
+      arm = bit ? '1.25' : '1';
+      try { localStorage.setItem(SPEED_KEY, arm); } catch { /* private mode */ }
+    }
+    return { rate: Number(arm), source: 'split' };
+  }
+  /* vsl-speed-split:end */
+  const speed = speedAssignment(params);
+  const rate = speed.rate;
+  const isTest = params.get('aiify_test') === '1';
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const video = document.getElementById('vsl');
   const player = document.getElementById('player');
   const gate = document.getElementById('sound-gate');
+  const tap = document.getElementById('tap-sound');
   const muteBtn = document.getElementById('mute');
   const progress = document.getElementById('progress');
   const ctaSlot = document.getElementById('cta-slot');
   const cta = document.getElementById('cta');
   const lightbox = document.getElementById('lightbox');
   const dialog = document.getElementById('dialog');
-  const track = document.getElementById('lb-track');
   const viewport = document.getElementById('lb-viewport');
   const panes = [...document.querySelectorAll('.pane')];
   const stepLabel = document.getElementById('lb-step');
@@ -62,6 +86,13 @@
   let lastFocus = null;
   const sessionId = storageId(sessionStorage, 'aiify.funnel.session');
   const visitorId = storageId(localStorage, 'aiify.visitor');
+  const resumeAt = readSaved();
+  const sentKeys = new Set();
+  let userGesture = false;
+  let autoplayNoted = false;
+  let soundNoted = false;
+  let soundDetail = 'toggle';
+  let playbackBegun = false;
 
   function storageId(store, key) {
     try {
@@ -102,8 +133,98 @@
     saveTimer = setTimeout(() => { saveTimer = 0; persistTime(); }, 800);
   }
 
+  function onceFlag(key) {
+    if (sentKeys.has(key)) return false;
+    try {
+      if (sessionStorage.getItem(key) === '1') { sentKeys.add(key); return false; }
+      sessionStorage.setItem(key, '1');
+    } catch { /* memory only */ }
+    sentKeys.add(key);
+    return true;
+  }
+  function videoTime() {
+    const t = Number(video && video.currentTime);
+    return Number.isFinite(t) ? Math.round(t * 10) / 10 : 0;
+  }
+  function rawUtms() {
+    const fields = {};
+    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'li_fat_id'].forEach((key) => {
+      const value = params.get(key);
+      if (value) fields[key] = value.slice(0, 512);
+    });
+    return fields;
+  }
+  function track(event, detail) {
+    if (!onceFlag('aiify.vsl.sent.' + event)) return;
+    const body = Object.assign({
+      session_id: sessionId,
+      visitor_id: visitorId,
+      page: 'watch',
+      variant: variant,
+      speed_arm: speed.rate,
+      speed_source: speed.source,
+      device: device,
+      event: event,
+      video_time: videoTime(),
+      client_ts: new Date().toISOString(),
+    }, rawUtms());
+    if (detail) body.detail = String(detail).slice(0, 40);
+    if (isTest) body.test = true;
+    const json = JSON.stringify(body);
+    try {
+      const blob = new Blob([json], { type: 'text/plain;charset=UTF-8' });
+      if (navigator.sendBeacon && navigator.sendBeacon(EVENT_URL, blob)) return;
+    } catch { /* fall through */ }
+    try {
+      fetch(EVENT_URL, {
+        method: 'POST',
+        body: json,
+        keepalive: true,
+        credentials: 'omit',
+        headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+      }).catch(() => {});
+    } catch { /* best effort */ }
+  }
+  // Insight Tag 10091706. Empty values are skipped. Calls queue on lintrk until insight.min.js loads.
+  const LI_CONVERSIONS = {
+    page_view: 32485082,
+    watch_50: 32485074,
+    cta_click: 32485066,
+    lead_submitted: 32485058,
+  };
+  function ensureLintrk() {
+    if (typeof window.lintrk === 'function') return;
+    window.lintrk = function (a, b) { window.lintrk.q.push([a, b]); };
+    window.lintrk.q = [];
+  }
+  function liConvert(key) {
+    if (isTest) return;
+    const id = LI_CONVERSIONS[key];
+    if (!id) return;
+    ensureLintrk();
+    if (!onceFlag('aiify.vsl.li.' + key)) return;
+    try { window.lintrk('track', { conversion_id: id }); } catch { /* ignore */ }
+  }
+  function noteSoundOn() {
+    if (video.muted || soundNoted) return;
+    soundNoted = true;
+    track('sound_on', soundDetail);
+  }
+  function noteMilestones(t) {
+    const duration = Number.isFinite(video.duration) && video.duration > 0 ? video.duration : 535.3;
+    [['watch_10s', 10], ['watch_25', 0.25 * duration], ['watch_50', 0.5 * duration], ['watch_75', 0.75 * duration]].forEach((pair) => {
+      const name = pair[0];
+      const threshold = pair[1];
+      if (threshold < resumeAt) return;
+      if (t >= threshold) {
+        track(name);
+        if (name === 'watch_50') liConvert('watch_50');
+      }
+    });
+  }
   function reveal(options) {
     const opts = options || {};
+    if (opts.reason && params.get('reveal') !== '1') track('cta_revealed', opts.reason);
     if (opts.persist) {
       try { localStorage.setItem(REVEAL_KEY, '1'); } catch { /* ignore */ }
     }
@@ -182,8 +303,9 @@
     if (forward && t > highWater) {
       highWater = t;
       scheduleSave();
+      noteMilestones(t);
     }
-    if (t >= REVEAL_AT) reveal({ persist: true, settle: false });
+    if (t >= REVEAL_AT) reveal({ persist: true, settle: false, reason: 'play' });
     paintProgress();
   }
   function applyResume() {
@@ -198,7 +320,7 @@
           highWater = Math.max(highWater, cap);
           try { video.currentTime = cap; } catch { /* metadata race */ }
           arming = false;
-          if (cap >= REVEAL_AT) reveal({ persist: true, settle: true });
+          if (cap >= REVEAL_AT) reveal({ persist: true, settle: true, reason: 'restored' });
         }
       }
     }
@@ -209,15 +331,20 @@
   }
 
   function startWithSound() {
+    userGesture = true;
+    soundDetail = 'gate';
     if (soundStarted) {
       video.muted = false;
       applyRate();
       syncMute();
-      video.play().catch(() => {});
+      const again = video.play();
+      if (!video.paused) noteSoundOn();
+      if (again && again.then) again.then(() => noteSoundOn()).catch(() => {});
       return;
     }
     soundStarted = true;
     gate.hidden = true;
+    if (tap) tap.hidden = true;
     arming = true;
     wall = 0;
     lastSample = performance.now();
@@ -228,8 +355,9 @@
     applyRate();
     syncMute();
     const attempt = video.play();
-    if (attempt && attempt.catch) {
-      attempt.catch(() => {
+    if (!video.paused) noteSoundOn();
+    if (attempt && attempt.then) {
+      attempt.then(() => noteSoundOn()).catch(() => {
         video.muted = true;
         syncMute();
         soundStarted = false;
@@ -237,6 +365,62 @@
         video.play().catch(() => {});
       });
     }
+  }
+  function unmuteFromTap() {
+    userGesture = true;
+    soundDetail = 'tap';
+    const t = Number(video.currentTime) || 0;
+    if (t < 15) {
+      arming = true;
+      wall = 0;
+      lastSample = performance.now();
+      try { video.currentTime = 0; } catch { /* ignore */ }
+      arming = false;
+    }
+    video.muted = false;
+    soundStarted = true;
+    gate.hidden = true;
+    if (tap) tap.hidden = true;
+    applyRate();
+    syncMute();
+    const attempt = video.play();
+    if (!video.paused) noteSoundOn();
+    if (attempt && attempt.then) attempt.then(() => noteSoundOn()).catch(() => {});
+  }
+  function startDesktop() {
+    video.muted = false;
+    applyRate();
+    soundDetail = 'autoplay';
+    const attempt = video.play();
+    const rejected = () => {
+      video.muted = true;
+      soundDetail = 'toggle';
+      applyRate();
+      syncMute();
+      const mutedPlay = video.play();
+      const show = () => { if (tap) tap.hidden = false; syncMute(); };
+      if (mutedPlay && mutedPlay.then) mutedPlay.then(show).catch(show);
+      else show();
+    };
+    if (attempt && attempt.then) {
+      attempt.then(() => {
+        soundStarted = true;
+        gate.hidden = true;
+        if (tap) tap.hidden = true;
+        syncMute();
+        noteSoundOn();
+      }).catch(rejected);
+    } else rejected();
+  }
+  function beginPlayback() {
+    if (playbackBegun) return;
+    playbackBegun = true;
+    applyResume();
+    video.playsInline = true;
+    video.controls = false;
+    applyRate();
+    if (isMobileUX) kick();
+    else startDesktop();
   }
   function holdPlayback() {
     hold = true;
@@ -269,9 +453,9 @@
       try { hlsPlayer.destroy(); } catch { /* already gone */ }
       hlsPlayer = null;
     }
+    playbackBegun = false;
     video.dataset.mode = 'mp4';
     video.src = MP4_SRC;
-    kick();
   }
   function useHls() {
     const script = document.createElement('script');
@@ -302,7 +486,7 @@
       video.dataset.mode = 'hls';
       hls.loadSource(HLS_SRC);
       hls.attachMedia(video);
-      hls.on(window.Hls.Events.MANIFEST_PARSED, kick);
+      hls.on(window.Hls.Events.MANIFEST_PARSED, beginPlayback);
       hls.on(window.Hls.Events.LEVEL_SWITCHED, applyRate);
       hls.on(window.Hls.Events.MEDIA_ATTACHED, applyRate);
     };
@@ -317,9 +501,17 @@
   video.disableRemotePlayback = true;
   video.controls = false;
   applyRate();
-  video.addEventListener('loadedmetadata', applyResume);
+  video.addEventListener('loadedmetadata', () => { applyResume(); beginPlayback(); });
   video.addEventListener('play', () => { video.controls = false; applyRate(); });
-  video.addEventListener('playing', applyRate);
+  video.addEventListener('playing', () => {
+    applyRate();
+    if (!autoplayNoted && !userGesture) {
+      autoplayNoted = true;
+      track('video_autoplay_started', video.muted ? 'muted' : 'sound');
+    }
+    if (!video.muted) noteSoundOn();
+  });
+  video.addEventListener('ended', () => track('watch_complete'));
   video.addEventListener('ratechange', () => { if (video.playbackRate !== rate) applyRate(); });
   video.addEventListener('timeupdate', guardTime);
   video.addEventListener('seeking', guardTime);
@@ -335,27 +527,46 @@
   player.addEventListener('contextmenu', (event) => event.preventDefault());
   window.addEventListener('pagehide', persistTime);
 
+  if (!isMobileUX) gate.hidden = true;
+  if (tap) tap.hidden = true;
   if (prefersNativeHls()) {
     video.dataset.mode = 'native';
     video.src = HLS_SRC;
-    kick();
   } else {
     useHls();
   }
 
   gate.addEventListener('click', (event) => {
     event.stopPropagation();
+    track('play_click');
     startWithSound();
   });
+  if (tap) {
+    tap.addEventListener('click', (event) => {
+      event.stopPropagation();
+      unmuteFromTap();
+    });
+  }
   player.addEventListener('click', (event) => {
-    if (event.target.closest('.mute') || event.target.closest('.sound-gate')) return;
-    if (!soundStarted) startWithSound();
+    if (event.target.closest('.mute') || event.target.closest('.sound-gate') || event.target.closest('#tap-sound')) return;
+    if (tap && !tap.hidden) { unmuteFromTap(); return; }
+    if (!soundStarted) {
+      track('play_click');
+      startWithSound();
+    }
   });
   muteBtn.addEventListener('click', (event) => {
     event.stopPropagation();
-    if (!soundStarted) { startWithSound(); return; }
+    if (!soundStarted) {
+      if (tap && !tap.hidden) { unmuteFromTap(); return; }
+      track('play_click');
+      startWithSound();
+      return;
+    }
     video.muted = !video.muted;
+    if (!video.muted) soundDetail = 'toggle';
     syncMute();
+    if (!video.muted) noteSoundOn();
     if (video.paused && !hold) video.play().catch(() => {});
   });
 
@@ -407,7 +618,7 @@
   }, true);
 
   if (params.get('reveal') === '1') reveal({ persist: false, settle: false });
-  else if (readRevealed()) reveal({ persist: false, settle: true });
+  else if (readRevealed()) reveal({ persist: false, settle: true, reason: 'restored' });
 
   function goTo(next, animate) {
     step = next;
@@ -430,6 +641,7 @@
     if (focusable) focusable.focus();
   }
   function openLightbox() {
+    track('lightbox_opened');
     if (finished) {
       lastFocus = document.activeElement;
       lightbox.hidden = false;
@@ -450,15 +662,19 @@
     releasePlayback();
     if (lastFocus && lastFocus.focus) lastFocus.focus();
   }
-  cta.addEventListener('click', openLightbox);
+  cta.addEventListener('click', () => {
+    track('cta_click');
+    liConvert('cta_click');
+    openLightbox();
+  });
   lightbox.addEventListener('click', (event) => {
     if (event.target === lightbox || event.target.closest('[data-close]')) closeLightbox();
   });
   document.querySelectorAll('.choice').forEach((button) => {
     button.addEventListener('click', () => {
       const answer = button.textContent.replace(/\s+/g, ' ').trim();
-      if (button.dataset.kind === 'rev') rev = answer;
-      if (button.dataset.kind === 'pain') pain = answer;
+      if (button.dataset.kind === 'rev') { rev = answer; track('lb_step1_answered', answer); }
+      if (button.dataset.kind === 'pain') { pain = answer; track('lb_step2_answered', answer); }
       goTo(Math.min(3, step + 1), true);
     });
   });
@@ -482,6 +698,7 @@
     if (!input.name) return;
     const slot = fieldSlot(input.name);
     if (slot) slot.textContent = '';
+    if (input.name === 'name' || input.name === 'email' || input.name === 'phone') track('lb_form_started');
     input.removeAttribute('aria-invalid');
     formAlert.textContent = '';
   });
@@ -546,7 +763,14 @@
       website: values.website,
       session_id: sessionId,
       visitor_id: visitorId,
-    }, trackingFields(), { utm_term: buildTerm() });
+    }, trackingFields(), {
+      utm_term: buildTerm(),
+      page: 'watch',
+      page_variant: 'watch-' + variant,
+      speed_arm: speed.rate,
+      speed_source: speed.source,
+      device: device,
+    }, isTest ? { test: true, no_alert: true } : {});
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending…';
     try {
@@ -557,6 +781,7 @@
         credentials: 'omit',
       });
       if (response.status === 429) {
+        track('lead_error', '429');
         formAlert.textContent = 'Too many attempts right now. Please wait a minute and try again.';
         submitBtn.disabled = false;
         submitBtn.textContent = submitLabel;
@@ -565,6 +790,7 @@
       let body = {};
       try { body = await response.json(); } catch { body = {}; }
       if (response.status === 400 || (body && body.errors)) {
+        track('lead_error', String(response.status || 400));
         showErrors(body.errors || {});
         const known = body.errors && ['name', 'email', 'phone'].some((key) => body.errors[key]);
         if (!known) formAlert.textContent = (body && body.error) || 'Please check the form and try again.';
@@ -576,16 +802,21 @@
         return;
       }
       if (!response.ok || !body.ok) {
+        track('lead_error', String(response.status || 'network'));
         formAlert.textContent = 'Something went wrong. Please try again.';
         submitBtn.disabled = false;
         submitBtn.textContent = submitLabel;
         return;
       }
+      liConvert('lead_submitted');
       showThanks();
     } catch {
+      track('lead_error', 'network');
       formAlert.textContent = 'We could not reach the server. Please try again.';
       submitBtn.disabled = false;
       submitBtn.textContent = submitLabel;
     }
   });
+  track('page_view');
+  liConvert('page_view');
 })();
