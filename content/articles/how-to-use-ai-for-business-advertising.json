@@ -1,0 +1,118 @@
+{
+  "slug": "how-to-use-ai-for-business-advertising",
+  "title": "How to use AI for business advertising",
+  "description": "Use AI to make, test, and judge your ads every day, but connect every ad to real sales in your CRM first. Here's how to set it up and what to avoid.",
+  "category": "Custom AI agents",
+  "takeaway": "The best way to use AI for business advertising isn't just writing ads faster. Have it run the whole loop: make the creative, split test it, and send you a short daily recommendation you approve in a few minutes. Before you do any of that, connect your ads to closed sales in your CRM, so the AI optimizes for customers instead of cheap clicks. Send each ad to its own landing page, not your homepage, and start small during your slow season.",
+  "sections": [
+    {
+      "id": "the-short-answer",
+      "title": "The short answer: let AI run the testing loop, judged by sales",
+      "paragraphs": [
+        "To use AI for business advertising, have it do three jobs, not one. It makes the ads, it tests them against each other, and it tells you every day what to stop, what to keep, and what to try next. You spend a few minutes approving its recommendations instead of hours building ads or waiting on someone else to.",
+        "Most businesses only use the first job. They ask ChatGPT for ad copy or an image tool for a picture and stop there. That saves some time, but the money in advertising comes from finding the ad and page that turn strangers into customers at a price you can live with. Finding that takes a lot of tests, and testing fast is where AI really helps.",
+        "There's one catch, and it's the part most people skip: the AI has to be able to see which ads turned into sales. If it only sees clicks and form fills, it will happily find you the cheapest clicks in the world and none of them will buy. So the order is: connect ads to sales first, then let AI test."
+      ]
+    },
+    {
+      "id": "connect-ads-to-sales-first",
+      "title": "Step one: connect every ad to a closed sale in your CRM",
+      "paragraphs": [
+        "In a recent AIify It working session with a home-services company, we opened the ad account to look at results. There was plenty of spend data. There was almost nothing tying that spend to actual customers. Leads came in, the sales team closed some of them, and nobody could say which ads those customers came from. As one person on the call put it, you're flying blind.",
+        "That's common, and it's fixable without anything fancy. The goal is simple: every time your sales team closes a deal, the CRM record should say which ad, campaign, and page the customer came from. Here's what that takes:"
+      ],
+      "bullets": [
+        "Tag every ad link. Add tracking tags (UTM parameters) to each ad's link so the campaign and ad name travel with the visitor. Most ad platforms can add them automatically.",
+        "Save the source on the lead. Your landing page form should pass those tags, plus the ad platform's click ID if you have one, into hidden fields that land on the lead in your CRM. If someone calls instead of filling out a form, use a tracking number per campaign or have whoever answers ask and record it.",
+        "Mark the sale, with the amount. When the deal closes, it gets marked won in the CRM with the dollar amount. That's the number everything else gets judged by.",
+        "Send it back. Many CRMs and ad platforms can share closed sales back with the ad account. Even if yours can't, your AI agent can read both and match them up."
+      ]
+    },
+    {
+      "id": "set-the-right-goal",
+      "title": "Give the AI one number to beat: cost per sale",
+      "paragraphs": [
+        "Once sales connect to ads, change the goal you give the AI. Not cost per click, not cost per lead. Cost per sale, meaning ad spend divided by the customers it produced.",
+        "Say you spend $3,000 on ads in a month. One ad brings in 60 leads and 4 customers. Another brings in 25 leads and 9 customers. Judged by leads, the first ad looks better. Judged by sales, the second one is more than twice as good. An AI that only sees leads will shift money to the wrong ad and report it as a win.",
+        "Pick a target that works for your margins, like \"get our ad-to-sale cost under $300.\" Put that in the AI's instructions as the main thing it's trying to do. If you hit that one number reliably, you've found something you can pour more money into, and growth follows from there."
+      ]
+    },
+    {
+      "id": "stop-sending-ads-to-your-homepage",
+      "title": "Stop sending ad traffic to your homepage",
+      "paragraphs": [
+        "If your ads point to your homepage, fix that before you test anything else. Your homepage talks to everyone: past customers, job applicants, people looking for your phone number. Someone who clicked an ad about one specific offer lands there and has to go hunting for it. Many leave.",
+        "Give each ad or campaign its own landing page that picks up exactly where the ad left off. If the ad says \"Get a free quote this week,\" the page should say that at the top and have one clear way to ask for it. This almost always converts better, and it makes tracking much cleaner, because everyone who reaches that page came from that campaign.",
+        "This used to be the slow part. Building and editing landing pages took a designer and a developer. Now an AI agent can put up a new page variation in minutes. So test the page too, not just the ad. Often the biggest jump comes from the page, not the creative."
+      ]
+    },
+    {
+      "id": "the-daily-loop",
+      "title": "Set up the daily loop: create, test, recommend, approve",
+      "paragraphs": [
+        "With tracking and landing pages in place, here's what the routine looks like day to day:"
+      ],
+      "bullets": [
+        "Create. The AI makes a handful of ad variations from what you've told it about your business, your customers, and what's worked before. Keep a human on brand and accuracy: you approve anything before it goes live.",
+        "Test. New variations run against your current best ad with a small slice of budget, so you're always testing something without risking much.",
+        "Recommend. Every morning, the AI sends you a short note. For example: \"Ad B has cost $210 per sale over 9 sales, ad A is at $480 over 3. I recommend pausing A, moving its budget to B, and testing a new version of B with a different headline. Approve?\"",
+        "Approve. You reply yes, no, or change it. That's a few minutes a day."
+      ]
+    },
+    {
+      "id": "why-in-house-testing-is-faster",
+      "title": "Why the person who knows your business should run it",
+      "paragraphs": [
+        "Speed of testing is the whole advantage. The more tests you run, the sooner you find a winner. Many agencies split test too, but on a slow cadence. You send over an idea, they review it, they send back questions, you answer, they launch. One change can take a week or two.",
+        "When the person who knows your business best, usually the owner or the in-house marketer, works with an AI agent directly, the same change takes about 15 minutes. You describe what you want, look at what it made, adjust, and approve. That person also tends to make the winning ads, because they know what customers actually ask about, what they complain about, and what gets them to say yes.",
+        "You don't have to fire your agency to try this. If you pay an agency a percentage of ad spend, one clean way to test is to split by channel: let the agency keep running search ads while you test AI-run ads on paid social, so the two aren't competing for the same audience. Or have your in-house person make creative with AI each week and hand it to the agency. Compare by cost per sale after a few months and decide from there."
+      ]
+    },
+    {
+      "id": "start-small-in-the-slow-season",
+      "title": "Start small, and start in your slow season",
+      "paragraphs": [
+        "Don't launch this across every campaign at once. Pick one smaller offer, one landing page, and a modest budget. Cap how much time per day you'll spend on the AI's recommendations, say 10 or 15 minutes, so it has to bring you only what matters.",
+        "If your business is seasonal, the slow season is the right time to start. You won't get a lot of sales, and that's fine. You're not trying to hit volume yet. You're trying to have a tested ad, page, and tracking setup ready, so that when the busy season arrives you put money behind something you already know works instead of figuring it out under pressure.",
+        "For setup, give the AI agent its own account or workspace for advertising, separate from your other AI work. Connect your ad accounts and your CRM. Usually that's clicking a connect button and logging in. Sometimes the account owner gets an approval email and has to click to allow it, so have them around for that part. Give it read access to results and limited write access, and keep budget changes behind your approval. Don't hand an AI unlimited control over your ad spend."
+      ]
+    },
+    {
+      "id": "common-mistakes",
+      "title": "Common mistakes to avoid",
+      "bullets": [
+        "Optimizing for clicks or leads. If sales aren't connected, the AI will find the cheapest traffic, not the best customers.",
+        "Sending ads to the homepage. You lose visitors and you muddy your tracking.",
+        "Testing too many things with too little money. Ten ads splitting a tiny budget means none of them gets enough data to judge. Test a few at a time.",
+        "Letting the AI change budgets on its own. Recommendations are cheap to review. A runaway budget change isn't.",
+        "Judging the slow season by volume. Early on, measure what you learned and whether cost per sale is improving, not how many sales came in."
+      ],
+      "paragraphs": [
+        "Most of the money wasted on AI-run ads comes from a few predictable mistakes:"
+      ]
+    },
+    {
+      "id": "questions-to-ask-before-you-buy",
+      "title": "What to ask before you buy an AI ad tool or agency",
+      "paragraphs": [
+        "Plenty of tools and agencies now say they use AI for ads. Before you sign up, ask three questions:"
+      ],
+      "bullets": [
+        "Can it see my sales, or only clicks and leads? If it can't connect to your CRM or your closed deals, it can't optimize for what you care about.",
+        "How often does it test, and how fast can a change go live? Daily testing with same-day changes beats a monthly report.",
+        "Who approves what goes live and what gets spent? You want a clear answer: you approve new ads and budget changes, and it does the rest."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Want an AI agent that tests your ads and reports in sales, not clicks?",
+    "description": "AIify It builds custom AI agents that create and test ads, connect results to your CRM, and bring you a short daily recommendation to approve.",
+    "label": "Explore custom AI agents",
+    "href": "/services/custom-ai-agents/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-11-26"
+  }
+}
