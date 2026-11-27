@@ -1,0 +1,112 @@
+{
+  "slug": "how-to-stop-losing-leads",
+  "title": "How to stop losing leads",
+  "description": "Save every form submission to your own database before it goes anywhere else, then push it to your CRM, confirm it landed, and mark it done. Here's how to set that up.",
+  "category": "Workflow automation",
+  "takeaway": "Most lost leads never make it from the form into the CRM. A step fails and nothing remembers the submission. Fix that by saving every submission to your own database first, then sending it to your CRM, confirming the record is really there, and marking it done. Anything not confirmed gets retried or flagged to a named person. Email notifications are still useful for speed, but the database is the record you trust.",
+  "sections": [
+    {
+      "id": "the-short-answer",
+      "title": "The short answer: save the lead first, then send it",
+      "paragraphs": [
+        "To stop losing leads, make sure every form submission is saved somewhere you control before anything else happens to it. Then send it on to your CRM, check that the record actually shows up there, and mark it as done.",
+        "In practice, that's four steps:"
+      ],
+      "bullets": [
+        "Save the submission to your own database the moment it arrives.",
+        "Send it to your CRM, by API if you have one, or by an agent that logs in and types it in if you don't.",
+        "Look the record up in the CRM to confirm it's really there.",
+        "Mark the row in your database as confirmed. Anything that isn't confirmed gets retried or flagged to a person."
+      ]
+    },
+    {
+      "id": "where-leads-get-lost",
+      "title": "Where leads actually get lost",
+      "paragraphs": [
+        "When people talk about losing leads, they usually mean slow follow-up. That's real, but there's an earlier leak most businesses never see: the lead never reaches the CRM at all.",
+        "A typical setup sends the form straight to the CRM, or straight to an email inbox. That works until one step fails. The connection times out. The CRM rejects a field it doesn't like. A login expires. The automation tool hits a limit. When that happens, the submission usually just disappears. There's no error anyone reads, no copy anywhere, and nothing to try again. The person who filled out the form thinks they're waiting on a call. Your team doesn't know they exist.",
+        "Email-only setups leak in quieter ways. The notification lands in spam, gets buried under other mail, or goes to someone who's out this week. Nobody deletes the lead on purpose. It just never turns into a record anyone works."
+      ]
+    },
+    {
+      "id": "why-save-first",
+      "title": "Why saving first matters so much",
+      "paragraphs": [
+        "In a recent AIify It working session, a team was getting ready to launch a campaign page before their CRM had approved API access. Someone suggested a workaround: have the AI agent log into the CRM's website and type each new lead in by hand until the API came through. That's a reasonable stopgap, and it works.",
+        "The founder's rule was simple. Any time an automation pushes data into another system, and especially when it does it by logging in and clicking through a website, have it store the data in an internal database first. Then add it to the CRM from the database.",
+        "The reason is that logging in and clicking through screens fails more often than an API call. Pages load slowly, a button moves, a session expires halfway through. If the lead was only ever held in the middle of that process, a failure means it's gone. There's nothing to rerun. If it's already in your database, a failure just means one row says \"failed,\" and you run it again.",
+        "That's the whole point. You're not building this to be clever. You're building it so no lead falls through the cracks, and so you can prove it."
+      ]
+    },
+    {
+      "id": "what-to-store",
+      "title": "What to store for each lead",
+      "paragraphs": [
+        "The database doesn't need to be fancy. A simple table works, and an AI agent can create one for you if you ask. What matters is the columns. For each submission, keep:"
+      ],
+      "bullets": [
+        "The full submission exactly as it came in, every field the person filled out.",
+        "When it arrived and which page or form it came from.",
+        "A submission ID, unique to that one submission.",
+        "A status: new, sent, confirmed, or failed.",
+        "How many times it's been tried, and the last error message if one came back.",
+        "The CRM record ID once you've confirmed the lead is there."
+      ]
+    },
+    {
+      "id": "confirm-dont-trust",
+      "title": "Confirm the record, don't trust the success message",
+      "paragraphs": [
+        "The step people skip is checking. An automation that says \"done\" isn't the same as a lead that's sitting in your CRM with the right name, phone number, and source.",
+        "So after the agent or integration sends the lead, have it look the record up in the CRM. Search by email or phone, open the record, and check the key fields match what's in your database. Only then does the row move to confirmed, with the CRM record ID saved next to it.",
+        "This also makes the system transparent. At any moment you can open the table and see every lead that came in, which ones made it into the CRM, and which ones didn't. You're no longer hoping the connection worked. You can see it."
+      ]
+    },
+    {
+      "id": "retries-and-duplicates",
+      "title": "Rerun failures without creating duplicates",
+      "paragraphs": [
+        "Once everything is saved first, recovering from a failure is easy. Anything marked failed, or anything still marked new or sent after a reasonable wait, gets tried again.",
+        "Be careful with retries, though. Sometimes the CRM actually created the record but the automation never got the reply. If you blindly send it again, you end up with two copies of the same person. Before creating a record on a retry, have the automation search the CRM for that email or phone number first. If the record exists, link it and mark the row confirmed instead of creating another one.",
+        "Set a limit on automatic retries. After a few failed attempts, stop trying and send an alert to a named person with the lead's details and the last error. Add a daily check too: anything that came in yesterday and still isn't confirmed shows up in one short message to that same person. That way a stuck lead gets a human's attention, not just another silent retry."
+      ]
+    },
+    {
+      "id": "notify-sales-right-away",
+      "title": "Still notify sales right away",
+      "paragraphs": [
+        "Saving first doesn't mean slowing down. Have the same step that saves the lead also send an email or chat message to sales with the full form details, so someone can call while the lead is still interested.",
+        "Just keep the roles straight. The notification is for speed. The database is the record. If the email gets missed, the lead is still in the table and still on its way to the CRM. If the CRM step fails, sales already has the details and the table shows exactly what needs fixing."
+      ]
+    },
+    {
+      "id": "tell-your-agent",
+      "title": "What to tell your AI agent",
+      "paragraphs": [
+        "If you're using an AI agent to handle this, describe it the way you'd write an SOP for a new hire, then ask the agent to save it as a skill so it follows the same steps every time. Something like:",
+        "\"Create a skill for new leads. Any time a form submission comes in, first add it to the leads database with the full submission, the time, the source page, and status new. Send sales a notification with all the form details. Then log into the CRM and check whether this person already exists by email or phone. If they don't, create the contact with the form data. Search for the record again to confirm it's there and the fields match. Save the CRM record ID and mark the row confirmed. If anything fails, mark the row failed with the error and try again later. After three failed attempts, alert me with the lead's details. Every morning, send me a list of any leads from the day before that aren't confirmed.\"",
+        "Then test it. Submit a few fake leads, including one with a missing phone number and one that duplicates an existing contact, and check the table and the CRM for each."
+      ]
+    },
+    {
+      "id": "when-api-access-arrives",
+      "title": "When API access finally comes through",
+      "paragraphs": [
+        "If your agent is logging into the CRM as a stopgap, the save-first design makes the switch easy. When API access is approved, you replace only the middle step. The agent stops typing into the website and sends the lead through the API instead. The database, the confirmation check, the statuses, and the alerts all stay exactly as they were.",
+        "And if API access never comes through, or takes much longer than promised, you're not stuck. The flow keeps running from your own database, and your leads stay safe in the meantime.",
+        "Keep the table tidy while you're at it. Store only what the form actually collects, limit who can open it, and decide how long you keep old submissions once they're confirmed in the CRM."
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Want every lead saved, sent, and confirmed?",
+    "description": "AIify It builds lead-capture workflows that save every submission before anything else happens, push it into your CRM, confirm it landed, and retry or flag anything that didn't.",
+    "label": "Explore workflow automation",
+    "href": "/services/workflow-automation/"
+  },
+  "review": {
+    "privacy": "approved",
+    "claims": "approved",
+    "reviewedOn": "2026-11-27"
+  }
+}
