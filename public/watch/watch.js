@@ -9,8 +9,8 @@
   const TIME_KEY = 'aiify.vsl.maxTime';
   const REVEAL_KEY = 'aiify.vsl.revealed';
   const JUMP_FLOOR = 1.25;
-  // First 30 seconds of vsl-720p.mp4, transcribed and checked against the spoken hook.
-  const CAPTIONS = [
+  // Checked hook for the first 30s. captions.js replaces this with the full spoken track.
+  const HOOK_CAPTIONS = [
     [0, 2.38, 'Every business owner who bought AI'],
     [2.38, 4.42, 'and got stuck made the same mistake.'],
     [5.02, 6.94, 'They thought buying the tool was the job.'],
@@ -26,6 +26,7 @@
     [26.4, 29.22, 'Nobody who sold you an AI tool does the hard part.'],
     [29.84, 30, 'But why is that?'],
   ];
+  const CAPTIONS = Array.isArray(window.VSL_CAPTIONS) && window.VSL_CAPTIONS.length ? window.VSL_CAPTIONS : HOOK_CAPTIONS;
 
   const params = new URLSearchParams(location.search);
   const variant = (document.documentElement.dataset.v || 'a').toLowerCase();
@@ -83,6 +84,14 @@
   const formAlert = document.getElementById('form-alert');
   const submitBtn = document.getElementById('lead-submit');
   const thanks = document.getElementById('thanks');
+
+  function isReel() {
+    return document.documentElement.classList.contains('reel');
+  }
+  function syncReelClass() {
+    const phone = /iPhone|iPod|Android.+Mobile|webOS/i.test(ua);
+    document.documentElement.classList.toggle('reel', phone || matchMedia('(max-width: 799px)').matches);
+  }
 
   const mutedIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h3l4 4V6L7 10H4z"/><path d="M16 9l5 6M21 9l-5 6"/></svg>';
   const soundIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h3l4 4V6L7 10H4z"/><path d="M16 9a4 4 0 010 6M18.5 6.5a8 8 0 010 11"/></svg>';
@@ -242,6 +251,7 @@
   }
   function reveal(options) {
     const opts = options || {};
+    leaveNativeVideoFullscreen();
     if (opts.reason && params.get('reveal') !== '1') track('cta_revealed', opts.reason);
     if (opts.persist) {
       try { localStorage.setItem(REVEAL_KEY, '1'); } catch { /* ignore */ }
@@ -281,23 +291,55 @@
     muteBtn.innerHTML = muted ? mutedIcon : soundIcon;
     syncSoundChrome();
   }
+  let captionIndex = 0;
   function syncCaptions() {
     if (!captions) return;
     const t = Number(video.currentTime) || 0;
-    if (!video.muted || t >= 30) {
+    // Desktop keeps the checked 30s hook. The phone reel captions run the full video while muted.
+    if (!video.muted || (!isReel() && t >= 30)) {
       captions.hidden = true;
       return;
     }
-    const cue = CAPTIONS.find((row) => t >= row[0] && t < row[1]);
-    captions.hidden = !cue;
-    if (cue) captions.textContent = cue[2];
+    if (captionIndex >= CAPTIONS.length || t < CAPTIONS[captionIndex][0]) captionIndex = 0;
+    while (captionIndex < CAPTIONS.length && t >= CAPTIONS[captionIndex][1]) captionIndex += 1;
+    const cue = CAPTIONS[captionIndex];
+    const on = !!(cue && t >= cue[0] && t < cue[1]);
+    captions.hidden = !on;
+    if (on) captions.textContent = cue[2];
   }
   function syncSoundChrome() {
     const mutedPlayback = video.muted && (autoplayNoted || !video.paused);
-    if (tap) tap.hidden = !mutedPlayback;
-    if (mutedPlayback) gate.hidden = true;
+    const reel = isReel();
+    if (tap) tap.hidden = reel ? !(mutedPlayback && !soundStarted) : !mutedPlayback;
+    if (reel || mutedPlayback) gate.hidden = true;
     else if (isMobileUX && !soundStarted) gate.hidden = false;
     syncCaptions();
+  }
+  function leaveNativeVideoFullscreen() {
+    if (video.webkitDisplayingFullscreen && typeof video.webkitExitFullscreen === 'function') {
+      try { video.webkitExitFullscreen(); } catch { /* ignore */ }
+    }
+  }
+  function requestReelFullscreen() {
+    if (!isReel()) return;
+    // iPhone Safari only fullscreens the video element. Other browsers fullscreen the page so the CTA stays inside it.
+    if (/iPhone|iPod/.test(ua) && typeof video.webkitEnterFullscreen === 'function') {
+      try { video.webkitEnterFullscreen(); } catch { /* ignore */ }
+      return;
+    }
+    const root = document.documentElement;
+    const req = root.requestFullscreen || root.webkitRequestFullscreen;
+    if (req) {
+      Promise.resolve(req.call(root)).catch(() => {
+        if (typeof video.webkitEnterFullscreen === 'function') {
+          try { video.webkitEnterFullscreen(); } catch { /* ignore */ }
+        }
+      });
+      return;
+    }
+    if (typeof video.webkitEnterFullscreen === 'function') {
+      try { video.webkitEnterFullscreen(); } catch { /* ignore */ }
+    }
   }
   function applyRate() {
     try {
@@ -413,6 +455,8 @@
     if (tap) tap.hidden = true;
     applyRate();
     syncMute();
+    // Stay on the current frame. Fullscreen has to run inside this tap, before play() settles.
+    requestReelFullscreen();
     const attempt = video.play();
     if (!video.paused) noteSoundOn();
     if (attempt && attempt.then) attempt.then(() => noteSoundOn()).catch(() => {});
@@ -447,9 +491,11 @@
     playbackBegun = true;
     applyResume();
     video.playsInline = true;
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
     video.controls = false;
     applyRate();
-    if (isMobileUX) kick();
+    if (isReel() || isMobileUX) kick();
     else startDesktop();
   }
   function holdPlayback() {
@@ -558,10 +604,18 @@
   player.addEventListener('contextmenu', (event) => event.preventDefault());
   window.addEventListener('pagehide', persistTime);
 
-  if (!isMobileUX) gate.hidden = true;
+  if (!isMobileUX || isReel()) gate.hidden = true;
   if (tap) tap.hidden = true;
   const soundLabel = tap && tap.querySelector('[data-sound-label]');
-  if (soundLabel && (isMobileUX || matchMedia('(pointer: coarse)').matches)) soundLabel.textContent = 'Tap for sound';
+  if (soundLabel && isReel()) soundLabel.textContent = 'Captions on. Tap for sound.';
+  else if (soundLabel && (isMobileUX || matchMedia('(pointer: coarse)').matches)) soundLabel.textContent = 'Tap for sound';
+  window.addEventListener('resize', () => {
+    syncReelClass();
+    syncSoundChrome();
+  });
+  video.addEventListener('error', () => {
+    if (video.dataset.mode === 'native') useMp4();
+  });
   if (prefersNativeHls()) {
     video.dataset.mode = 'native';
     video.src = HLS_SRC;
@@ -571,6 +625,10 @@
 
   gate.addEventListener('click', (event) => {
     event.stopPropagation();
+    if (isReel()) {
+      unmuteFromTap();
+      return;
+    }
     track('play_click');
     startWithSound();
   });
@@ -581,7 +639,11 @@
     });
   }
   player.addEventListener('click', (event) => {
-    if (event.target.closest('.mute') || event.target.closest('.sound-gate') || event.target.closest('#tap-sound')) return;
+    if (event.target.closest('.mute') || event.target.closest('.sound-gate') || event.target.closest('#tap-sound') || event.target.closest('#cta')) return;
+    if (isReel()) {
+      if (!soundStarted) unmuteFromTap();
+      return;
+    }
     if (tap && !tap.hidden) { unmuteFromTap(); return; }
     if (!soundStarted) {
       track('play_click');
@@ -591,7 +653,7 @@
   muteBtn.addEventListener('click', (event) => {
     event.stopPropagation();
     if (!soundStarted) {
-      if (tap && !tap.hidden) { unmuteFromTap(); return; }
+      if (isReel() || (tap && !tap.hidden)) { unmuteFromTap(); return; }
       track('play_click');
       startWithSound();
       return;
@@ -674,6 +736,7 @@
     if (focusable) focusable.focus();
   }
   function openLightbox() {
+    leaveNativeVideoFullscreen();
     track('lightbox_opened');
     if (finished) {
       lastFocus = document.activeElement;

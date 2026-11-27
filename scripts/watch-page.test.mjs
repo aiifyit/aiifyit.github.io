@@ -6,6 +6,7 @@ import vm from 'node:vm';
 const html = await readFile('public/watch/index.html', 'utf8');
 const css = await readFile('public/watch/watch.css', 'utf8');
 const js = await readFile('public/watch/watch.js', 'utf8');
+const captionsJs = await readFile('public/watch/captions.js', 'utf8');
 
 function variantFn() {
   const start = html.indexOf('/* vsl-variant:start */');
@@ -122,6 +123,15 @@ test('watch page is a standalone noindex VSL with the hire contract', () => {
   assert.ok(html.includes('family=Anton'));
   assert.ok(css.includes('#b7fe3c') && css.includes('#8fd41e') && css.includes('#4f7a0c'));
   assert.ok(css.includes('Anton'));
+  assert.match(html, /viewport-fit=cover/);
+  assert.match(html, /classList.add\('reel'\)/);
+  assert.match(html, /\/watch\/captions\.js/);
+  assert.match(js, /Captions on\. Tap for sound\./);
+  assert.match(js, /webkitEnterFullscreen/);
+  assert.match(js, /!isReel\(\) && t >= 30/);
+  assert.match(css, /100dvh/);
+  assert.match(css, /object-fit: contain/);
+  assert.match(css, /html\.reel \.sound-gate \{ display: none !important; \}/);
   assert.equal(html.includes('<nav'), false);
   assert.equal(html.includes('<footer'), false);
   assert.equal(html.includes('<a '), false);
@@ -130,4 +140,28 @@ test('watch page is a standalone noindex VSL with the hire contract', () => {
   for (const label of ['Under $1M', '$1–5M', '$5–20M', '$20M+', 'Follow-ups &amp; admin', 'Sales &amp; leads', 'Ops &amp; reporting', 'Customer service']) {
     assert.ok(html.includes(label), label);
   }
+});
+
+test('caption track covers the whole video and keeps the checked hook', () => {
+  const cues = vm.runInNewContext(`${captionsJs}\nwindow.VSL_CAPTIONS`, { window: {} });
+  assert.ok(cues.length > 80, String(cues.length));
+  assert.equal(cues[0][2], 'Every business owner who bought AI');
+  assert.equal(cues.find((cue) => cue[2] === "If you've been thinking,")[0], 8.84);
+  assert.ok(cues.some((cue) => cue[2] === 'The tool was never the hard part.'));
+  assert.ok(cues.some((cue) => cue[2].includes('Josh Pellicer')));
+  assert.ok(cues.some((cue) => /coordinated swarm/i.test(cue[2])));
+  assert.ok(cues.at(-1)[1] > 520, String(cues.at(-1)));
+  for (let i = 0; i < cues.length; i++) {
+    const [start, end, text] = cues[i];
+    assert.equal(typeof text, 'string');
+    assert.ok(text.length > 0 && text.length <= 90, text);
+    assert.ok(end > start, text);
+    if (i) assert.ok(start >= cues[i - 1][1] - 0.001, text);
+  }
+  const at = (t) => cues.find((cue) => t >= cue[0] && t < cue[1]);
+  assert.ok(at(9));
+  assert.match(at(46)[2], /Fat Camp|funny thing|easy/);
+  assert.match(at(60)[2], /runs on AI/);
+  assert.match(at(240)[2], /swarm|together|business/);
+  assert.ok(at(520));
 });

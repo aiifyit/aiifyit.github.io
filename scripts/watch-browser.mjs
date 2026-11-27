@@ -155,6 +155,7 @@ async function lightboxState(page) {
       sheetOpacity: Number(panel.opacity),
       sheetAlpha: alpha(panel.backgroundColor),
       covers: box.left <= 1 && box.top <= 1 && box.right >= innerWidth - 1 && box.bottom >= innerHeight - 1,
+      gateHidden: document.getElementById('sound-gate').hidden || getComputedStyle(document.getElementById('sound-gate')).display === 'none',
       gateHit: pointInside(document.getElementById('sound-gate')),
       ctaHit: pointInside(document.getElementById('cta')),
       shown: shown.map((pane) => pane.step),
@@ -166,6 +167,7 @@ async function lightboxState(page) {
 
 function lightboxOk(state) {
   const ctaCovered = state.ctaHit === 'lightbox' || state.ctaHit === 'offscreen';
+  const gateOk = state.gateHidden || state.gateHit === 'lightbox';
   return state.position === 'fixed'
     && state.opacity === 1
     && state.z >= 40
@@ -175,7 +177,7 @@ function lightboxOk(state) {
     && state.sheetOpacity === 1
     && state.sheetAlpha === 1
     && state.covers
-    && state.gateHit === 'lightbox'
+    && gateOk
     && ctaCovered
     && state.shown.length === 1
     && state.split.length === 0;
@@ -230,6 +232,40 @@ try {
       await openWatch(page, '?v=' + variant);
       await new Promise((r) => setTimeout(r, 400));
       const state = await visibleHeadline(page);
+      if (width === 390) {
+        const reel = await page.evaluate((expected) => {
+          const videoEl = document.getElementById('vsl');
+          const video = videoEl.getBoundingClientRect();
+          const stage = document.querySelector('.stage').getBoundingClientRect();
+          const header = document.querySelector('.top').getBoundingClientRect();
+          const eyebrow = document.querySelector('.eyebrow');
+          const heading = document.querySelector('[data-variant="' + expected + '"] h1');
+          const gate = document.getElementById('sound-gate');
+          const shown = getComputedStyle(document.querySelector('[data-variant="' + expected + '"]')).display;
+          return {
+            reel: document.documentElement.classList.contains('reel'),
+            variant: document.documentElement.dataset.v,
+            text: heading ? heading.textContent : '',
+            headingDisplay: shown,
+            eyebrowDisplay: getComputedStyle(eyebrow).display,
+            headerH: header.height,
+            videoTop: video.top,
+            videoLeft: video.left,
+            videoRight: innerWidth - video.right,
+            videoBottom: innerHeight - video.bottom,
+            videoH: video.height,
+            viewW: innerWidth,
+            viewH: innerHeight,
+            stageTop: stage.top,
+            stageBottom: innerHeight - stage.bottom,
+            fit: getComputedStyle(videoEl).objectFit,
+            gateDisplay: getComputedStyle(gate).display,
+            playsinline: videoEl.playsInline,
+          };
+        }, variant);
+        const ratio = reel.videoH / Math.max(1, reel.viewW);
+        check('mobile reel ' + variant, reel.reel && reel.variant === variant && reel.text === headlines[variant] && reel.headingDisplay === 'none' && reel.eyebrowDisplay === 'none' && reel.headerH === 0 && reel.gateDisplay === 'none' && reel.playsinline && reel.fit === 'contain' && Math.abs(reel.videoLeft) <= 1 && Math.abs(reel.videoRight) <= 1 && reel.stageTop <= 1 && reel.stageBottom <= 1 && ratio > 0.5 && ratio < 0.62, JSON.stringify(reel));
+      } else {
       check(label + ' variant ' + variant, state.variant === variant && state.shown.length === 1 && state.shown[0] === variant && state.text === headlines[variant], JSON.stringify(state));
       const aligned = await page.evaluate(() => {
         const stage = document.querySelector('.stage').getBoundingClientRect();
@@ -253,15 +289,9 @@ try {
         };
       });
       check(label + ' headline centered ' + variant, aligned.heading === 'center' && aligned.sub === 'center' && aligned.eye === 'center' && aligned.justify === 'center' && aligned.headingDelta < 2 && aligned.subDelta < 2 && aligned.headingInside, JSON.stringify(aligned));
+      }
       const wrong = await page.evaluate(() => window.__wrongVariant);
       check(label + ' no flash ' + variant, !wrong.length, JSON.stringify(wrong));
-      if (width === 390) {
-        const fold = await page.evaluate(() => {
-          const box = document.getElementById('player').getBoundingClientRect();
-          return { top: box.top, bottom: box.bottom, height: innerHeight };
-        });
-        check('mobile video above the fold ' + variant, fold.top >= 0 && fold.bottom <= fold.height + 1, JSON.stringify(fold));
-      }
       await shot(page, label + '-variant-' + variant);
       await page.close();
     }
@@ -270,7 +300,8 @@ try {
     await prepare(mapped, width, height);
     await openWatch(mapped, '?utm_content=spring-competitors-ad');
     const mappedState = await visibleHeadline(mapped);
-    check(label + ' utm competitors', mappedState.variant === 'b' && mappedState.shown[0] === 'b');
+    const mappedVariant = await mapped.evaluate(() => document.documentElement.dataset.v);
+    check(label + ' utm competitors', mappedVariant === 'b' && (width === 390 || (mappedState.shown[0] === 'b')), JSON.stringify(mappedState));
     await mapped.close();
 
     const reveal = await browser.newPage();
@@ -440,7 +471,11 @@ try {
   await speed2.close();
 
   const speedJunk = await openSpeed('?speed=junk');
-  await waitUntilPlaying(speedJunk, 1);
+  await speedJunk.waitForFunction(() => {
+    const video = document.getElementById('vsl');
+    const rate = video && video.playbackRate;
+    return video && !video.paused && video.currentTime > 0.35 && (Math.abs(rate - 1) < 0.001 || Math.abs(rate - 1.25) < 0.001) && video.preservesPitch === true;
+  }, { timeout: 25000 });
   const junk = await speedJunk.evaluate(() => {
     const video = document.getElementById('vsl');
     return { rate: video.playbackRate, pitch: video.preservesPitch };

@@ -76,6 +76,13 @@ async function arm(page, { mobile = false, blockUnmuted = false, width = 1280, h
       }
       return orig(input, init);
     };
+    Element.prototype.requestFullscreen = function () {
+      window.__fullscreen = this === document.documentElement ? 'document' : (this.id || this.tagName);
+      return Promise.resolve();
+    };
+    HTMLVideoElement.prototype.webkitEnterFullscreen = function () {
+      window.__iosFullscreen = true;
+    };
     if (block) {
       const play = HTMLMediaElement.prototype.play;
       let blocked = false;
@@ -324,14 +331,20 @@ try {
       overflow: caption.scrollWidth - caption.clientWidth,
     };
   });
-  check('375px sound button stays inside', fit.label === 'Tap for sound' && fit.left >= -1 && fit.right >= -1 && fit.top >= -1 && fit.bottom >= -1 && fit.overflow <= 1, JSON.stringify(fit));
+  check('375px sound chip stays inside', fit.label === 'Captions on. Tap for sound.' && fit.left >= -1 && fit.right >= -1 && fit.top >= -1 && fit.bottom >= -1 && fit.overflow <= 1, JSON.stringify(fit));
   check('375px captions stay inside', captionFit.hidden === false && captionFit.text.length > 8 && captionFit.left >= -1 && captionFit.right >= -1 && captionFit.overflow <= 1, JSON.stringify(captionFit));
   await narrow.screenshot({ path: join(outDir, 'mobile-sound-375.png'), type: 'png' });
   const beforeNarrow = await narrow.evaluate(() => ({ time: document.getElementById('vsl').currentTime, rate: document.getElementById('vsl').playbackRate, arm: localStorage.getItem('aiify.vsl.speedArm') }));
   await narrow.click('#tap-sound');
   await narrow.waitForFunction(() => window.__events.filter((event) => event.event === 'sound_on' && event.detail === 'tap').length === 1 && document.getElementById('vsl').muted === false && document.getElementById('captions').hidden, { timeout: 8000 });
-  const afterNarrow = await narrow.evaluate(() => ({ time: document.getElementById('vsl').currentTime, rate: document.getElementById('vsl').playbackRate, sounds: window.__events.filter((event) => event.event === 'sound_on').length }));
-  check('mobile unmute keeps position and speed', afterNarrow.time + 0.35 >= beforeNarrow.time && Math.abs(afterNarrow.rate - beforeNarrow.rate) < 0.001 && (beforeNarrow.arm == null || Math.abs(afterNarrow.rate - Number(beforeNarrow.arm)) < 0.001) && afterNarrow.sounds === 1, JSON.stringify({ beforeNarrow, afterNarrow }));
+  const afterNarrow = await narrow.evaluate(() => ({
+    time: document.getElementById('vsl').currentTime,
+    rate: document.getElementById('vsl').playbackRate,
+    sounds: window.__events.filter((event) => event.event === 'sound_on').length,
+    fullscreen: window.__fullscreen,
+    asks: document.getElementById('sound-gate').hidden && document.getElementById('tap-sound').hidden,
+  }));
+  check('mobile unmute keeps position and speed', afterNarrow.time + 0.35 >= beforeNarrow.time && Math.abs(afterNarrow.rate - beforeNarrow.rate) < 0.001 && (beforeNarrow.arm == null || Math.abs(afterNarrow.rate - Number(beforeNarrow.arm)) < 0.001) && afterNarrow.sounds === 1 && afterNarrow.fullscreen === 'document' && afterNarrow.asks, JSON.stringify({ beforeNarrow, afterNarrow }));
   await narrow.close();
 } finally {
   await browser.close();
