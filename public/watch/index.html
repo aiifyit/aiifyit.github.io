@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#07090f">
   <meta name="robots" content="noindex, nofollow">
   <meta name="googlebot" content="noindex, nofollow">
@@ -63,6 +63,13 @@
         var el = document.querySelector(pair[0]);
         if (el) el.setAttribute('content', pair[1]);
       });
+    })();
+  </script>
+  <script>
+    /* Phone widths, and phones in landscape, play the video full-bleed. Set before first paint. */
+    (function () {
+      var phone = /iPhone|iPod|Android.+Mobile|webOS/i.test(navigator.userAgent || '');
+      if (phone || matchMedia('(max-width: 799px)').matches) document.documentElement.classList.add('reel');
     })();
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -178,6 +185,7 @@
     })(window.lintrk);
   </script>
   <noscript><img height="1" width="1" style="display:none" alt="" src="https://px.ads.linkedin.com/collect/?pid=10091706&amp;fmt=gif"></noscript>
+  <script src="/watch/captions.js"></script>
   <script src="/watch/watch.js"></script>
 </body>
 </html>
